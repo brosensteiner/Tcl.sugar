@@ -124,9 +124,17 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.variable.definition.general">
-			    <expression>\b(set|global)\s+([a-zA-Z0-9:_]+)</expression>
+			    <expression>\b(set)\s+([a-zA-Z0-9:_]+)</expression>
 			    <capture number="1" name="tcl.variable.definition.set"/>
 			    <capture number="2" name="tcl.variable.definition.new"/>
+			</zone>
+			
+			<zone name="tcl.variable.definition.command-global">
+			    <expression>\bglobal\b</expression>
+			</zone>
+			
+			<zone name="tcl.variable.definition.command-variable">
+			    <expression>\bvariable\b</expression>
 			</zone>
 			
 			<zone name="tcl.variable.definition.unset">
@@ -154,7 +162,6 @@ THE SOFTWARE.
 			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="Backreference_and_MagicEscape"/>
 			    	<include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
@@ -171,25 +178,6 @@ THE SOFTWARE.
 			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="Backreference_and_MagicEscape"/>
-			    	<include collection="EscapeChar"/>
-			    </subzones>
-			</zone>
-			
-			<zone name="tcl.keyword.command.builtinfunc.catch"><!--catch assigns a variable so here is a zone definition for it-->
-			    <starts-with>
-			        <expression>\b(catch)\s+(\{)</expression>
-			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
-			        <capture number="2" name="tcl.punctuation.open-brace"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>(\})\s+([a-zA-Z0-9:_]+)</expression>
-			        <capture number="1" name="tcl.punctuation.close-brace"/>
-			        <capture number="2" name="tcl.variable.definition.assigned-from-catch"/>
-			    </ends-with>
-			    <subzones>
-			    	<include collection="StringsInString"/>
-			    	<include collection="Backreference_and_MagicEscape"/>
 			    	<include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
@@ -229,8 +217,6 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.end"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="StringsInString"/>
-			    	<include collection="Backreference_and_MagicEscape"/>
 			    	<include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
@@ -364,8 +350,27 @@ THE SOFTWARE.
 				<expression>\bfileevent\b</expression>
 			</zone>
 			
+			<zone name="tcl.keyword.command.builtinfunc.scan">
+				<expression>\bscan\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.command.builtinfunc.catch"><!--catch assigns a variable so here is a zone definition for it-->
+			    <starts-with>
+			        <expression>\b(catch)\s+(\{)</expression>
+			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
+			        <capture number="2" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\})</expression>
+			        <capture number="1" name="tcl.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="EscapeChar"/>
+			    </subzones>
+			</zone>
+			
 			<zone name="tcl.keyword.command.builtinfunc">
-				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|lset|unload|lsort|Safe Base|format|mathfunc|scan|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|variable|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord)\b</expression>
+				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|lset|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord)\b</expression>
 			</zone>
             
         </collection>

@@ -45,12 +45,32 @@ tcl.variable.evaluate {
 	font-style: normal;
 }
 tcl.variable.definition,
-tcl.variable.definition.substitute.rest {
+tcl.variable.definition.substitute.rest,
+tcl.keyword.command.builtinfunc.scan + general-space + * + general-space + * + general-space + general-word,
+tcl.keyword.command.builtinfunc.scan + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.keyword.command.builtinfunc.scan + general-space + * + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.keyword.command.builtinfunc.scan + general-space + * + general-space + * + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.keyword.command.builtinfunc.scan + general-space + * + general-space + * + general-space + * + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.variable.definition.command-variable + general-space + general-word,
+tcl.variable.definition.command-variable + general-space + general-word + general-space + * + general-space + general-word,
+tcl.variable.definition.command-variable + general-space + general-word + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.variable.definition.command-variable + general-space + general-word + general-space + * + general-space + * + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.variable.definition.command-variable + general-space + general-word + general-space + * + general-space + * + general-space + * + general-space + * + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.variable.definition.command-global + general-space + general-word,
+tcl.variable.definition.command-global + general-space + * + general-space + general-word,
+tcl.variable.definition.command-global + general-space + * + general-space + * + general-space + general-word,
+tcl.variable.definition.command-global + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.variable.definition.command-global + general-space + * + general-space + * + general-space + * + general-space + * + general-space + general-word,
+tcl.keyword.command.builtinfunc.catch + general-word,
+tcl.keyword.command.builtinfunc.catch + general-space + general-word {
 	color: #7ac54d;
 	font-weight: bold;
 }
+
 tcl.variable.definition.set,
-tcl.variable.definition.unset {
+tcl.variable.definition.unset,
+tcl.variable.definition.command-variable,
+tcl.variable.definition.command-global {
 	font-weight: normal;
 }
 
