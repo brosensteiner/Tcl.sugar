@@ -1,0 +1,87 @@
+/*
+    @theme Tcl Placeholder
+    @placeholder Tcl
+    @author Bernhard Rosensteiner <brosensteiner@gmail.com>
+*/
+not(tcl.comment, tcl.string) {
+	spell-check: disabled;
+}
+
+tcl.shebang {
+	color: #d44950;
+	font-weight: bold;
+	background-color: rgba(57, 79, 227, 0.3);
+}
+
+tcl.variable.new {
+	color: #7ac54d;
+}
+tcl.variable.definition.substitute,
+tcl.variable.definition.concat {
+	color: rgba(163, 214, 132, 0.8);
+}
+
+tcl.variable.amira,
+tcl.keyword.amira {
+	color: #4f76cf;
+	font-weight: bold;
+}
+tcl.keyword.options.amira {
+	font-weight: normal;
+}
+tcl.keyword.options.amira.viewer {
+	font-weight: normal;
+	font-style: normal;
+	color: #000000;
+}
+tcl.keyword.command.amira.global.commands.viewer + general-space + tcl.keyword.options.amira.viewer,
+tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.options.amira.viewer {
+	color: #4f76cf;
+}
+
+tcl.variable.evaluate {
+	color: #82c0e5;
+	font-weight: normal;
+	font-style: normal;
+}
+tcl.variable.definition,
+tcl.function.name,
+tcl.variable.definition.substitute.rest {
+	color: #7ac54d;
+	font-weight: bold;
+}
+
+tcl.function.arguments {
+	background-color: rgba(207, 220, 243, 0.3);
+}
+
+tcl.keyword.command {
+	color: #bb82e9;
+}
+tcl.keyword.command.builtinfunc + general-space + tcl.keyword.options,
+tcl.keyword.command.builtinfunc.fileevent + general-space + * + general-space + tcl.keyword.options.fileevent {
+	color: rgba(186, 129, 233, 0.5);
+}
+tcl.keyword.operator.logical {
+	font-weight: bold;
+}
+
+tcl.balanced.brackets {
+	background-color: #fafcf0;
+}
+
+tcl.punctuation.open-bracket,
+tcl.punctuation.close-bracket {
+	color: #e82c13;
+	font-size: large;
+	background-color: #fafcf0;
+}
+tcl.keyword.command.semicolon,
+tcl.keyword.command.backslash,
+tcl.punctuation.function-close-brace,
+tcl.punctuation.open-brace,
+tcl.punctuation.close-brace,
+tcl.punctuation.open-parenthesis,
+tcl.punctuation.close-parenthesis {
+	color: #7f7f7f;
+}

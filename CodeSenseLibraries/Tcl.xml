@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@description Defines the Tcl code sense libraries
+@author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
+@copyright 	 The MIT License
+
+Copyright (c) 2012 Bernhard Rosensteiner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<codesense version="1.0">
+
+	<behavior>
+		<append-static> </append-static>
+	</behavior>
+    
+	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
+		
+		<completion string="after" />
+		<completion string="error" />
+		<completion string="lappend" />
+		<completion string="platform" />
+		<completion string="tcl_findLibrary" />
+		<completion string="append" />
+		<completion string="eval" />
+		<completion string="lassign" />
+		<completion string="platform::shell" />
+		<completion string="tcl_startOfNextWord" />
+		<completion string="apply" />
+		<completion string="exec" />
+		<completion string="lindex" />
+		<completion string="proc" />
+		<completion string="tcl_startOfPreviousWord" />
+		<completion string="array" />
+		<completion string="exit" />
+		<completion string="linsert" />
+		<completion string="puts" />
+		<completion string="tcl_wordBreakAfter" />
+		<completion string="auto_execok" />
+		<completion string="expr" />
+		<completion string="list" />
+		<completion string="pwd" />
+		<completion string="tcl_wordBreakBefore" />
+		<completion string="auto_import" />
+		<completion string="fblocked" />
+		<completion string="llength" />
+		<completion string="re_syntax" />
+		<completion string="tcltest" />
+		<completion string="auto_load" />
+		<completion string="fconfigure" />
+		<completion string="load" />
+		<completion string="read" />
+		<completion string="tclvars" />
+		<completion string="auto_mkindex" />
+		<completion string="fcopy" />
+		<completion string="lrange" />
+		<completion string="refchan" />
+		<completion string="tell" />
+		<completion string="auto_mkindex_old" />
+		<completion string="file" />
+		<completion string="lrepeat" />
+		<completion string="regexp" />
+		<completion string="time" />
+		<completion string="auto_qualify" />
+		<completion string="fileevent" />
+		<completion string="lreplace" />
+		<completion string="registry" />
+		<completion string="tm" />
+		<completion string="auto_reset" />
+		<completion string="filename" />
+		<completion string="lreverse" />
+		<completion string="regsub" />
+		<completion string="trace" />
+		<completion string="bgerror" />
+		<completion string="flush" />
+		<completion string="lsearch" />
+		<completion string="rename" />
+		<completion string="unknown" />
+		<completion string="binary" />
+		<completion string="for" />
+		<completion string="lset" />
+		<completion string="return" />
+		<completion string="unload" />
+		<completion string="break" />
+		<completion string="foreach" />
+		<completion string="lsort" />
+		<completion string="Safe Base" />
+		<completion string="unset" />
+		<completion string="catch" />
+		<completion string="format" />
+		<completion string="mathfunc" />
+		<completion string="scan" />
+		<completion string="update" />
+		<completion string="cd" />
+		<completion string="gets" />
+		<completion string="mathop" />
+		<completion string="seek" />
+		<completion string="uplevel" />
+		<completion string="chan" />
+		<completion string="glob" />
+		<completion string="memory" />
+		<completion string="set" />
+		<completion string="upvar" />
+		<completion string="clock" />
+		<completion string="global" />
+		<completion string="msgcat" />
+		<completion string="socket" />
+		<completion string="variable" />
+		<completion string="close" />
+		<completion string="history" />
+		<completion string="namespace" />
+		<completion string="source" />
+		<completion string="vwait" />
+		<completion string="concat" />
+		<completion string="http" />
+		<completion string="open" />
+		<completion string="split" />
+		<completion string="while" />
+		<completion string="continue" />
+		<completion string="if" />
+		<completion string="package" />
+		<completion string="string" />
+		<completion string="dde" />
+		<completion string="incr" />
+		<completion string="parray" />
+		<completion string="subst" />
+		<completion string="dict" />
+		<completion string="info" />
+		<completion string="pid" />
+		<completion string="switch" />
+		<completion string="encoding" />
+		<completion string="interp" />
+		<completion string="pkg::create" />
+		<completion string="eof" />
+		<completion string="join" />
+		<completion string="pkg_mkIndex" />
+		<completion string="tcl_endOfWord" />
+		
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.math" casesensitive="true">
+		
+		<completion string="abs" />
+		<completion string="acos" />
+		<completion string="asin" />
+		<completion string="atan" />
+		<completion string="atan2" />
+		<completion string="bool" />
+		<completion string="ceil" />
+		<completion string="cos" />
+		<completion string="cosh" />
+		<completion string="double" />
+		<completion string="entier" />
+		<completion string="exp" />
+		<completion string="floor" />
+		<completion string="fmod" />
+		<completion string="hypot" />
+		<completion string="int" />
+		<completion string="isqrt" />
+		<completion string="log" />
+		<completion string="log10" />
+		<completion string="max" />
+		<completion string="min" />
+		<completion string="pow" />
+		<completion string="rand" />
+		<completion string="round" />
+		<completion string="sin" />
+		<completion string="sinh" />
+		<completion string="sqrt" />
+		<completion string="srand" />
+		<completion string="tan" />
+		<completion string="tanh" />
+		<completion string="wide" />
+		
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.global-variable" casesensitive="true">
+		
+		<completion string="auto_execs" />
+		<completion string="auto_index" />
+		<completion string="auto_noexec" />
+		<completion string="auto_noload" />
+		<completion string="auto_path" />
+		<completion string="env" />
+		<completion string="env" />
+		<completion string="tcl_nonwordchars" />
+		<completion string="tcl_wordchars" />
+		<completion string="unknown_pending" />
+		
+	</set>
+	
+	<!--after options-->
+	<set name="com.rosensteiner.Tcl.function.after" casesensitive="true">
+		
+		<completion string="cancel" />
+		<completion string="idle" />
+		<completion string="info" />
+				
+	</set>
+	
+	<!--binary options-->
+	<set name="com.rosensteiner.Tcl.function.binary" casesensitive="true">
+		
+		<completion string="scan" />
+		<completion string="format" />
+				
+	</set>
+	
+	<!--clock options-->
+	<set name="com.rosensteiner.Tcl.function.clock" casesensitive="true">
+		
+		<completion string="clicks" />
+		<completion string="format" />
+		<completion string="scan" />
+		<completion string="seconds" />
+				
+	</set>
+	
+	<!--dde options-->
+	<set name="com.rosensteiner.Tcl.function.dde" casesensitive="true">
+		
+		<completion string="eval" />
+		<completion string="execute" />
+		<completion string="poke" />
+		<completion string="request" />
+		<completion string="servername" />
+		<completion string="services" />
+				
+	</set>
+	
+	<!--encoding options-->
+	<set name="com.rosensteiner.Tcl.function.encoding" casesensitive="true">
+		
+		<completion string="convertfrom" />
+		<completion string="convertto" />
+		<completion string="names" />
+		<completion string="system" />
+		
+	</set>
+	
+	<!--fileevent options-->
+	<set name="com.rosensteiner.Tcl.function.fileevent" casesensitive="true">
+		
+		<completion string="readable" />
+		<completion string="writable" />
+		
+	</set>
+	
+	<!--history options-->
+	<set name="com.rosensteiner.Tcl.function.history" casesensitive="true">
+		
+		<completion string="add" />
+		<completion string="change" />
+		<completion string="clear" />
+		<completion string="event" />
+		<completion string="info" />
+		<completion string="keep" />
+		<completion string="nextid" />
+		<completion string="redo" />
+				
+	</set>
+	
+	
+	<!--array options-->
+	<set name="com.rosensteiner.Tcl.function.array" casesensitive="true">
+		
+		<completion string="anymore" />
+		<completion string="donesearch" />
+		<completion string="exists" />
+		<completion string="get" />
+		<completion string="names" />
+		<completion string="nextelement" />
+		<completion string="set" />
+		<completion string="size" />
+		<completion string="startsearch" />
+		<completion string="statistics" />
+		<completion string="unset" />
+				
+	</set>
+	
+	<!--string options-->
+	<set name="com.rosensteiner.Tcl.function.string" casesensitive="true">
+		
+		<completion string="bytelength" />
+		<completion string="compare" />
+		<completion string="equal" />
+		<completion string="first" />
+		<completion string="index" />
+		<completion string="is" />
+		<completion string="last" />
+		<completion string="length" />
+		<completion string="map" />
+		<completion string="match" />
+		<completion string="range" />
+		<completion string="repeat" />
+		<completion string="replace" />
+		<completion string="reverse" />
+		<completion string="tolower" />
+		<completion string="totitle" />
+		<completion string="toupper" />
+		<completion string="trim" />
+		<completion string="trimleft" />
+		<completion string="trimright" />
+		<completion string="wordend" />
+		<completion string="wordstart" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.string.is" casesensitive="true">
+		
+		<completion string="alnum" />
+		<completion string="alpha" />
+		<completion string="ascii" />
+		<completion string="boolean" />
+		<completion string="control" />
+		<completion string="digit" />
+		<completion string="double" />
+		<completion string="false" />
+		<completion string="graph" />
+		<completion string="integer" />
+		<completion string="list" />
+		<completion string="lower" />
+		<completion string="print" />
+		<completion string="punct" />
+		<completion string="space" />
+		<completion string="true" />
+		<completion string="upper" />
+		<completion string="wideinteger" />
+		<completion string="wordchar" />
+		<completion string="xdigit" />
+		
+				
+	</set>
+	
+	<!--info options-->
+	<set name="com.rosensteiner.Tcl.function.info" casesensitive="true">
+		
+		<completion string="args" />
+		<completion string="body" />
+		<completion string="cmdcount" />
+		<completion string="commands" />
+		<completion string="complete" />
+		<completion string="default" />
+		<completion string="exists" />
+		<completion string="frame" />
+		<completion string="functions" />
+		<completion string="globals" />
+		<completion string="hostname" />
+		<completion string="level" />
+		<completion string="library" />
+		<completion string="loaded" />
+		<completion string="locals" />
+		<completion string="nameofexecutable" />
+		<completion string="patchlevel" />
+		<completion string="procs" />
+		<completion string="script" />
+		<completion string="sharedlibextension" />
+		<completion string="tclversion" />
+		<completion string="vars" />
+		
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.info.frame" casesensitive="true">
+		
+		<completion string="type" />
+		<completion string="line" />
+		<completion string="file" />
+		<completion string="cmd" />
+		<completion string="proc" />
+		<completion string="lambda" />
+		<completion string="level" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.info.frame.type" casesensitive="true">
+		
+		<completion string="source" />
+		<completion string="proc" />
+		<completion string="eval" />
+		<completion string="precompiled" />
+				
+	</set>
+	
+	
+	<!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
+	
+	<set name="com.rosensteiner.Tcl.function.amira.port.scriptobject" casesensitive="true">
+		
+		<completion string="newPortButtonList" />
+		<completion string="newPortButtonMenu" />
+		<completion string="newPortColormap" />
+		<completion string="newPortDoIt" />
+		<completion string="newPortFilename" />
+		<completion string="newPortFloatSlider" />
+		<completion string="newPortFloatTextN" />
+		<completion string="newPortMultiMenu" />
+		<completion string="newPortInfo" />
+		<completion string="newPortIntSlider" />
+		<completion string="newPortIntTextN" />
+		<completion string="newPortRadioBox" />
+		<completion string="newPortSeparator" />
+		<completion string="newPortText" />
+		<completion string="newPortTime" />
+		<completion string="newPortToggleList" />
+		<completion string="newPortConnection" />
+		<completion string="deletePort" />
+		<completion string="setVar" />
+		<completion string="setVarSerialize" />
+		<completion string="getVar" />
+		<completion string="testBreak" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.amira.general-amira-object" casesensitive="true">
+		
+		<completion string="hasInterface" />
+		<completion string="duplicate" />
+		<completion string="showIcon" />
+		<completion string="hideIcon" />
+		<completion string="iconVisible" />
+		<completion string="select" />
+		<completion string="deselect" />
+		<completion string="setLabel" />
+		<completion string="fire" />
+		<completion string="compute" />
+		<completion string="allPorts" />
+		<completion string="connectionPorts" />
+		<completion string="downStreamConnections" />
+		<completion string="setIconPosition" />
+		<completion string="getIconPosition" />
+		<completion string="clipGeom" />
+		<completion string="unclipGeom" />
+		<completion string="setPickable" />
+		<completion string="destroy" />
+		<completion string="getTypeId" />
+		<completion string="help" />
+		<completion string="setLabel" />
+		<completion string="setViewerMask" />
+				
+	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.global.other" casesensitive="true">
+   		
+   		<completion string="addTimeout" />
+   		<completion string="all" />
+   		<completion string="aminfo" />
+   		<completion string="clear" />
+   		<completion string="create" />
+   		<completion string="dso" />
+   		<completion string="addPath" />
+   		<completion string="echo" />
+   		<completion string="help" />
+   		<completion string="httpd" />
+   		<completion string="limit" />
+   		<completion string="load" />
+   		<completion string="mem" />
+   		<completion string="quit" />
+   		<completion string="remove" />
+   		<completion string="rename" />
+   		<completion string="sleep" />
+   		<completion string="source" />
+   		<completion string="system" />
+   		<completion string="saveNetwork" />
+   		<completion string="saveNetworkAs" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.data-classes" casesensitive="true">
+   		
+   		<completion string="HxData" />
+   		<completion string="HxSpreadSheet" />
+   		<completion string="HxColormap" />
+   		<completion string="HxColormap256" />
+   		<completion string="HxCameraPath" />
+   		<completion string="HxKeyframeCameraPath" />
+   		<completion string="HxSpatialData" />
+   		<completion string="HxIvData" />
+   		<completion string="HxField3" />
+   		<completion string="HxScalarField3" />
+   		<completion string="HxRegScalarField3" />
+   		<completion string="HxUniformScalarField3" />
+   		<completion string="HxUniformLabelField3" />
+   		<completion string="HxStackedScalarField3" />
+   		<completion string="HxStackedLabelField3" />
+   		<completion string="HxAnnaScalarField3" />
+   		<completion string="HxTetraScalarField3" />
+   		<completion string="HxHexaScalarField3" />
+   		<completion string="HxVectorField3" />
+   		<completion string="HxRegVectorField3" />
+   		<completion string="HxUniformVectorField3" />
+   		<completion string="HxEdgeElemVectorField3" />
+   		<completion string="HxAnnaVectorField3" />
+   		<completion string="HxTetraVectorField3" />
+   		<completion string="HxHexaVectorField3" />
+   		<completion string="HxComplexScalarField3" />
+   		<completion string="HxRegComplexScalarField3" />
+   		<completion string="HxUniformComplexScalarField3" />
+   		<completion string="HxTetraComplexScalarField3" />
+   		<completion string="HxHexaComplexScalarField3" />
+   		<completion string="HxComplexVectorField3" />
+   		<completion string="HxRegComplexVectorField3" />
+   		<completion string="HxUniformComplexVectorField3" />
+   		<completion string="HxEdgeElemComplexVectorField3" />
+   		<completion string="HxTetraComplexVectorField3" />
+   		<completion string="HxHexaComplexVectorField3" />
+   		<completion string="HxColorField3" />
+   		<completion string="HxRegColorField3" />
+   		<completion string="HxUniformColorField3" />
+   		<completion string="HxRegField3" />
+   		<completion string="HxTetraField3" />
+   		<completion string="HxHexaField3" />
+   		<completion string="HxVertexSet" />
+   		<completion string="HxSurface" />
+   		<completion string="HxTetraGrid" />
+   		<completion string="HxHexaGrid" />
+   		<completion string="HxLineSet" />
+   		<completion string="HxLandmarkSet" />
+   		<completion string="HxCluster" />
+   		<completion string="HxSurfaceField" />
+   		<completion string="HxSurfaceScalarField" />
+   		<completion string="HxSurfaceVectorField" />
+   		<completion string="HxSurfaceComplexScalarField" />
+   		<completion string="HxSurfaceComplexVectorField" />
+   		<completion string="HxSurfaceField" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.port.type" casesensitive="true">
+   		
+   		<completion string="HxPortButtonList" />
+   		<completion string="HxPortButtonMenu" />
+   		<completion string="HxPortColorList" />
+   		<completion string="HxPortFloatslider" />
+   		<completion string="HxPortFloatTextN" />
+   		<completion string="HxPortGeneric" />
+   		<completion string="HxPortIntSlider" />
+   		<completion string="HxPortMultiMenu" />
+   		<completion string="HxPortMultiOptions" />
+   		<completion string="HxPortRadioBox" />
+   		<completion string="HxPortRangeSlider" />
+   		<completion string="HxPortTabBar" />
+   		<completion string="HxPortText" />
+   		<completion string="HxPortTextEdit" />
+   		<completion string="HxPortToggleList" />
+   		<completion string="HxPort3DPointList" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.global.commands.amira" casesensitive="true">
+   		
+   		<completion string="viewer" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.viewer" casesensitive="true">
+   		
+   		<completion string="snapshot" />
+   		<completion string="setPosition" />
+   		<completion string="getPosition" />
+   		<completion string="setSize" />
+   		<completion string="getSize" />
+   		<completion string="setCamera" />
+   		<completion string="getCamera" />
+   		<completion string="setCameraPosition" />
+   		<completion string="getCameraPosition" />
+   		<completion string="setCameraOrientation" />
+   		<completion string="getCameraOrientation" />
+   		<completion string="setCameraFocalDistance" />
+   		<completion string="getCameraFocalDistance" />
+   		<completion string="setCameraHeightAngle" />
+   		<completion string="getCameraHeightAngle" />
+   		<completion string="setCameraHeight" />
+   		<completion string="getCameraHeight" />
+   		<completion string="setCameraType" />
+   		<completion string="getCameraType" />
+   		<completion string="setTransparencyType" />
+   		<completion string="getTransparencyType" />
+   		<completion string="setSortedLayersNumPasses" />
+   		<completion string="getSortedLayersNumPasses" />
+   		<completion string="setBackgroundColor" />
+   		<completion string="getBackgroundColor" />
+   		<completion string="setBackgroundColor2" />
+   		<completion string="getBackgroundColor2" />
+   		<completion string="setBackgroundMode" />
+   		<completion string="getBackgroundMode" />
+   		<completion string="setBackgroundImage" />
+   		<completion string="getBackgroundImage" />
+   		<completion string="setAutoRedraw" />
+   		<completion string="isAutoRedraw" />
+   		<completion string="transformScreenToWorld" />
+   		<completion string="redraw" />
+   		<completion string="rotate" />
+   		<completion string="setDecoration" />
+   		<completion string="saveScene" />
+   		<completion string="viewAll" />
+   		<completion string="view" />
+   		<completion string="show" />
+   		<completion string="hide" />
+   		<completion string="fogRange" />
+   		<completion string="setVideoFormat" />
+   		<completion string="setVideoFrame" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.workArea" casesensitive="true">
+   		
+   		<completion string="workArea setProgressInfo" />
+   		<completion string="workArea setProgressValue" />
+   		<completion string="workArea startWorking" />
+   		<completion string="workArea stopWorking" />
+   		<completion string="workArea wasInterrupted" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.theMain" casesensitive="true">
+   		
+   		<completion string="theMain" /> <!--useful because theMain can habe other arguments too-->
+   		<completion string="theMain snapshot" />
+   		<completion string="theMain setViewerTogglesOnIcons" />
+   		<completion string="theMain ignoreShow" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.theMsg" casesensitive="true">
+   		
+   		<completion string="theMsg" /> <!--useful because theMsg can habe other arguments too-->
+   		<completion string="theMsg error" />
+   		<completion string="theMsg warning" />
+   		<completion string="theMsg question" />
+   		<completion string="theMsg overwrite" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.app" casesensitive="true">
+   		
+   		<completion string="app version" />
+   		<completion string="app uname" />
+   		<completion string="app arch" />
+   		<completion string="app hostid" />
+   		<completion string="app listen" />
+   		<completion string="app close" />
+   		<completion string="app port" />
+   		<completion string="app send" />
+   		<completion string="app opengl" />
+   		<completion string="app cluster" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.window" casesensitive="true">
+   		
+   		<completion string="getFrameGeometry" />
+   		<completion string="getGeometry" />
+   		<completion string="getPosition" />
+   		<completion string="getRelativeGeometry" />
+   		<completion string="getSize" />
+   		<completion string="hide" />
+   		<completion string="setCaption" />
+   		<completion string="setFrameGeometry" />
+   		<completion string="setGeometry" />
+   		<completion string="setPosition" />
+   		<completion string="setRelativeGeometry" />
+   		<completion string="setSize" />
+   		<completion string="show" />
+   		<completion string="showMinimized" />
+   		<completion string="showMaximized" />
+   				
+   	</set>
+    
+</codesense> 

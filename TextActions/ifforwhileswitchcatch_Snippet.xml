@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@description Defines the Tcl Text Actions snippets
+@author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
+@copyright 	 The MIT License
+
+Copyright (c) 2012 Bernhard Rosensteiner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<action-recipes>
+
+<!--for loop-->
+    <snippet id="actions.snippets.tcl.for" category="actions.snippets.tcl/tcl.code.snippets">
+        <title>new for loop</title>
+        <text>for \{${1:set i}\} \{${2:test}\} \{${3:incr i}\} \{
+	${4:body}
+\}
+$0</text>
+        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+        <text-trigger>nfor</text-trigger>
+    </snippet>
+    
+<!--for loop one line-->
+    <snippet id="actions.snippets.tcl.for-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+        <title>new for loop at one line</title>
+        <text>for \{${1:set i}\} \{${2:test}\} \{${3:incr i}\} \{${4:body}\}
+$0</text>
+        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+        <text-trigger>nfor1</text-trigger>
+    </snippet>
+	
+    
+<!--if-->
+	<snippet id="actions.snippets.tcl.if" category="actions.snippets.tcl/tcl.code.snippets">
+	        <title>new if</title>
+	        <text>if \{${1:condition}\} \{
+	${2:body}
+\}
+$0</text>
+	        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+	        <text-trigger>nif</text-trigger>
+	</snippet>
+	
+<!--if one line-->
+	<snippet id="actions.snippets.tcl.if-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+	        <title>new if at one line</title>
+	        <text>if \{${1:condition}\} \{${2:body}\}
+$0</text>
+	        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+	        <text-trigger>nif1</text-trigger>
+	</snippet>
+	 
+<!--if else-->
+	<snippet id="actions.snippets.tcl.ifelse" category="actions.snippets.tcl/tcl.code.snippets">
+		<title>new if else</title>
+			<text>if \{${1:condition}\} \{
+	 	${2:body}
+	 \} else \{
+	 	${3:body}
+\}
+$0</text>
+			<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+	 	        <text-trigger>nifelse</text-trigger>
+			</snippet>
+
+<!--while-->	
+	<snippet id="actions.snippets.tcl.while" category="actions.snippets.tcl/tcl.code.snippets">
+		<title>new while</title>
+		<text>while \{${1:condition}\} \{
+	${2:body}
+\}
+$0</text>
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<text-trigger>nwhile</text-trigger>
+	</snippet>
+	
+<!--while one line-->	
+	<snippet id="actions.snippets.tcl.while-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+		<title>new while at one line</title>
+		<text>while \{${1:condition}\} \{${2:body}\}
+$0</text>
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<text-trigger>nwhile1</text-trigger>
+	</snippet>
+	
+<!--switch-->	
+	<snippet id="actions.snippets.tcl.switch" category="actions.snippets.tcl/tcl.code.snippets">
+		<title>new switch</title>
+		<text>switch ${1:\{${2:pattern}\}} ${3:\{
+	${4:body}
+\}}
+$0</text>
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<text-trigger>nswitch</text-trigger>
+	</snippet>
+
+<!--foreach-->
+	<snippet id="actions.snippets.tcl.foreach" category="actions.snippets.tcl/tcl.code.snippets">
+		<title>new foreach</title>
+		<text>foreach ${1:var} ${2:list} \{
+	${3:body}
+\}
+$0</text>
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<text-trigger>nforeach</text-trigger>
+	</snippet>
+	
+<!--foreach one line-->
+	<snippet id="actions.snippets.tcl.foreach-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+		<title>new foreach at one line</title>
+		<text>foreach ${1:var} ${2:list} \{${3:body}\}
+$0</text>
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<text-trigger>nforeach1</text-trigger>
+	</snippet>
+	
+<!--catch-->
+	<snippet id="actions.snippets.tcl.catch" category="actions.snippets.tcl/tcl.code.snippets">
+		<title>new catch</title>
+		<text>catch \{
+	${1:body}
+\} ${2:resultVar}
+$0</text>
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<text-trigger>ncatch</text-trigger>
+	</snippet>
+
+	<snippet id="actions.snippets.tcl.catch-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+			<title>new catch at one line</title>
+			<text>catch \{${1:body}\} ${2:resultVar}
+$0</text>
+			<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+			<text-trigger>ncatch1</text-trigger>
+		</snippet>
+		
+</action-recipes>
+

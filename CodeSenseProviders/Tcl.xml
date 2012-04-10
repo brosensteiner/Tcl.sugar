@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@description Defines the Tcl code sense providers
+@author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
+@copyright 	 The MIT License
+
+Copyright (c) 2012 Bernhard Rosensteiner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<codesense>
+    
+	<provider>
+ 		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+ 		<completions>com.rosensteiner.Tcl.functions</completions>
+ 		<complete-match>\b[a-zA-Z]+</complete-match>
+	</provider>
+	
+	<provider>
+			<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+			<completions>com.rosensteiner.Tcl.math</completions>
+			<complete-match>\b[a-zA-Z]+</complete-match>
+	</provider>
+	
+	<provider>
+			<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+			<completions>com.rosensteiner.Tcl.global-variable</completions>
+			<complete-match>\b[a-zA-Z]+</complete-match>
+	</provider>
+	
+	<!--builtin function options-->
+	<provider>
+		<selector>tcl.keyword.command.builtinfunc.fileevent + general-space + * + general-space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.fileevent</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + general-space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	
+	
+	
+	<!--<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.string.is</completions>
+		<complete-match>(?&lt;=string\sis\s)[a-zA-Z]*</complete-match>
+	</provider>-->
+	
+	<!--info options-->
+	<!--<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.info</completions>
+		<complete-match>(?&lt;=info\s)[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.info.frame</completions>
+		<complete-match>(?&lt;=info\sframe\s)[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.info.frame.type</completions>
+		<complete-match>(?&lt;=info\sframe\stype\s)[a-zA-Z]*</complete-match>
+	</provider>-->
+	
+	<!--amira code sense provieder, can be deleted when not needed, but the author needs it desperately :)-->
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.port.scriptobject</completions>
+		<complete-match>\b[a-zA-Z]+</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.general-amira-object</completions>
+		<complete-match>\b[a-zA-Z]+</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.global.other</completions>
+		<complete-match>\b[a-zA-Z]+</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.data-classes</completions>
+		<complete-match>\bH[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.port.type</completions>
+		<complete-match>\bH[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.global.commands.amira</completions>
+		<complete-match>\b[a-zA-Z]+</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>tcl.keyword.command.amira.global.commands.window + general-space + *</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.window</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<!--"viewer" needs the two following providers-->
+	<provider>
+		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + general-space + *</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.viewer</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + general-space + *</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.window</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.workArea</completions>
+		<complete-match>\bw[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.theMain</completions>
+		<complete-match>\bt[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.theMsg</completions>
+		<complete-match>\bt[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.app</completions>
+		<complete-match>\ba[a-zA-Z]*</complete-match>
+	</provider>
+	
+ 
+</codesense> 

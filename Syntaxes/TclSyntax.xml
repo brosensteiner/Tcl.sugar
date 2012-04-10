@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+@description Defines the Tcl syntax
+@author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
+@copyright 	 The MIT License
+
+Copyright (c) 2012 Bernhard Rosensteiner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<syntax name="source.Tcl">
+
+    <zones>
+    
+    	<zone name="tcl.shebang">
+    	    <expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh</expression>
+    	</zone>
+    	
+    	<include collection="Invalid" />
+    	<include collection="AmiraExtension" />
+    	<include collection="Variables" />
+    	<include collection="Comments" />
+    	<include collection="Numeric" />
+    	<include collection="Operators" />
+    	<include collection="tclLanguage" />
+    	<include collection="FunctionDef"/>
+    	<include collection="Strings"/>
+    	<include collection="FlowControl" />
+    	<include collection="General" />
+        
+		<zone name="tcl.balanced.parenthesis">
+			<starts-with>
+				<expression>\(</expression>
+				<capture number="0" name="tcl.punctuation.open-parenthesis"/>
+			</starts-with>
+			<ends-with>
+				<expression>\)</expression>
+ 				<capture number="0" name="tcl.punctuation.close-parenthesis"/>
+			</ends-with>
+			<subzones>
+				<include syntax="source.Tcl" />
+			</subzones>
+		</zone>
+		
+		<zone name="tcl.balanced.braces">
+			<starts-with>
+				<expression>(?&lt;=\s|\[)\{</expression>
+				<capture number="0" name="tcl.punctuation.open-brace"/>
+			</starts-with>
+			<ends-with>
+				<expression>\}</expression>
+					<capture number="0" name="tcl.punctuation.close-brace"/>
+			</ends-with>
+			<subzones>
+				<include syntax="source.Tcl" />
+			</subzones>
+		</zone>
+		
+		<zone name="tcl.balanced.brackets">
+			<starts-with>
+				<expression>\[</expression>
+				<capture number="0" name="tcl.punctuation.open-bracket"/>
+			</starts-with>
+			<ends-with>
+				<expression>\]</expression>
+					<capture number="0" name="tcl.punctuation.close-bracket"/>
+			</ends-with>
+			<subzones>
+				<include syntax="source.Tcl" />
+			</subzones>
+		</zone>
+                
+	</zones>
+    
+    
+	<library>
+	
+		<collection name="Invalid">
+			<zone name="tcl.language.invalid.comment">
+			    <expression>;\s+?(#)[^\d].*$\n?</expression>
+			</zone>
+		</collection>
+	
+		<collection name="Comments">
+			
+			<zone name="tcl.comment.line.hash">
+			    <expression>(#)[^\d].*$\n?</expression>
+			    <capture number="1" name="tcl.punctuation.definition.comment"/>
+			</zone>
+		
+		</collection>
+		
+		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
+		
+			<zone name="tcl.variable.definition.upvar">
+			    <expression>\b(upvar)\s+(#?\d+)?\s+([\$a-zA-Z0-9\.:_]+)\s+([a-zA-Z0-9:_]+)</expression>
+			    <capture number="1" name="tcl.variable.definition.upvar"/>
+			    <capture number="2" name="tcl.variable.definition.level"/>
+			    <capture number="3" name="tcl.variable.definition.varname"/>
+			    <capture number="4" name="tcl.variable.definition.localvar"/>
+			</zone>
+			
+			<zone name="tcl.variable.definition.general">
+			    <expression>\b(rename)\s+([\$a-zA-Z0-9\.:_]+)\s+([\$a-zA-Z0-9\.:_]+)</expression>
+			    <capture number="1" name="tcl.variable.definition.set"/>
+			    <capture number="2" name="tcl.variable.definition.oldname"/>
+			    <capture number="3" name="tcl.variable.definition.newname"/>
+			</zone>
+			
+			<zone name="tcl.variable.definition.general">
+			    <expression>\b(set|global)\s+([a-zA-Z0-9:_]+)</expression>
+			    <capture number="1" name="tcl.variable.definition.set"/>
+			    <capture number="2" name="tcl.variable.definition.new"/>
+			</zone>
+			
+			<zone name="tcl.variable.definition.unset">
+			    <expression>\b(unset)(\s+([a-zA-Z0-9:_]+)){1,}</expression>
+			    <capture number="1" name="tcl.variable.definition.unset"/>
+			    <capture number="3" name="tcl.variable.definition.new"/>
+			</zone>
+			
+			<zone name="tcl.variable.definition.concat">
+			    <expression>([a-zA-Z0-9:_]*)(\.)([a-zA-Z0-9:_]*)</expression>
+			    <capture number="1" name="tcl.variable.definition.concat.rest"/>
+			    <capture number="2" name="tcl.variable.definition.concat.point"/>
+			    <capture number="3" name="tcl.variable.definition.concat.rest"/>
+			</zone>
+			
+			<zone name="tcl.variable.definition.substitute">
+			    <starts-with>
+			        <expression>([a-zA-Z0-9:_]*)(\$\{)</expression>
+			        <capture number="1" name="tcl.variable.definition.substitute.rest"/>
+			        <capture number="2" name="tcl.variable.definition.substitute.begin"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\})([a-zA-Z0-9:_]*)</expression>
+			        <capture number="1" name="tcl.variable.definition.substitute.end"/>
+			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="Backreference_and_MagicEscape"/>
+			    	<include collection="EscapeChar"/>
+			    </subzones>
+			</zone>
+			
+			<zone name="tcl.variable.definition.substitute.array">
+			    <starts-with>
+			        <expression>([a-zA-Z0-9:_]*)(\$\()</expression>
+			        <capture number="1" name="tcl.variable.definition.substitute.rest"/>
+			        <capture number="2" name="tcl.variable.definition.substitute.begin"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\))([a-zA-Z0-9:_]*)</expression>
+			        <capture number="1" name="tcl.variable.definition.substitute.end"/>
+			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="Backreference_and_MagicEscape"/>
+			    	<include collection="EscapeChar"/>
+			    </subzones>
+			</zone>
+			
+			<zone name="tcl.keyword.command.builtinfunc.catch"><!--catch assigns a variable so here is a zone definition for it-->
+			    <starts-with>
+			        <expression>\b(catch)\s+(\{)</expression>
+			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
+			        <capture number="2" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\})\s+([a-zA-Z0-9:_]+)</expression>
+			        <capture number="1" name="tcl.punctuation.close-brace"/>
+			        <capture number="2" name="tcl.variable.definition.assigned-from-catch"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="StringsInString"/>
+			    	<include collection="Backreference_and_MagicEscape"/>
+			    	<include collection="EscapeChar"/>
+			    </subzones>
+			</zone>
+						
+			<zone name="tcl.variable.definition.evaluate">
+			    <expression>(\$[a-zA-Z0-9:_]+)\b</expression>
+			</zone>
+			
+		</collection>
+		
+		<collection name="FlowControl">
+			
+			<zone name="tcl.keyword.control.start">
+			    <expression>\b(for|while|if|foreach|switch)\s</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.control.additional">
+			    <expression>\b(return|elseif|else)\s</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.control">
+			    <expression>\b(break|continue)\s</expression>
+			</zone>
+			     			
+		</collection>
+				
+		
+		<collection name="Strings">
+			
+			<zone name="tcl.string.quoted.double.std">
+			    <starts-with>
+			        <expression>(?&lt;=\s|\{|\[)"</expression>
+			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.begin"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>"</expression>
+			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.end"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="StringsInString"/>
+			    	<include collection="Backreference_and_MagicEscape"/>
+			    	<include collection="EscapeChar"/>
+			    </subzones>
+			</zone>
+		
+		</collection>
+	
+		<collection name="FunctionDef">
+			<zone name="tcl.container.function.definition">
+			    <starts-with>
+			        <expression>\b(proc)\s+([a-zA-Z0-9:_]+)?\s+(\{)\s*([a-zA-Z0-9\.:_\s]*)\s*(\})\s+(\{)</expression>
+			        <capture number="1" name="tcl.keyword.control.function"/>
+			        <capture number="2" name="tcl.function.name"/>
+			        <capture number="3" name="tcl.punctuation.open-brace"/>
+			        <capture number="4" name="tcl.function.arguments"/>
+			        <capture number="5" name="tcl.punctuation.close-brace"/>
+			        <capture number="6" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="tcl.punctuation.function-close-brace"/>
+			    </ends-with>
+			    <subzones>
+			        <include syntax="source.Tcl"/>
+			    </subzones>
+			</zone>
+		</collection>
+        
+        <collection name="Operators">
+               
+           	<zone name="tcl.keyword.operator.relational">
+        	    <expression>(=|!)=|&lt;=?|>=?</expression>
+        	</zone>
+        	        	
+        	<zone name="tcl.keyword.operator.logical">
+        	    <expression>\|\||&amp;&amp;|!</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.operator.bitwise">
+        	    <expression>&gt;&gt;|&lt;&lt;|\||\^|&amp;|~</expression>
+        	</zone>
+        	        	
+        	<zone name="tcl.keyword.operator.arithmetic">
+        	    <expression>\+|-|\*\*?|\/|%</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.operator.string">
+        	    <expression>\b(ne|eq)\s</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.operator.list">
+        	    <expression>\b(in|ni)\s</expression>
+        	</zone>
+        	
+        </collection>
+        
+        
+        <collection name="tclLanguage">
+        
+        	<zone name="tcl.keyword.command.semicolon">
+        		<expression>;</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.backslash">
+        		<expression>\\\s*?\n</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.global_variable">
+        		<expression>\b(auto_execs|auto_index|auto_noexec|auto_noload|auto_path|env|env|tcl_nonwordchars|tcl_wordchars|unknown_pending)\b</expression>
+        	</zone>
+        
+			<zone name="tcl.keyword.command.math">
+				<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.array">
+				<expression>(?&lt;=array\s)(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.after">
+				<expression>(?&lt;=after\s)(cancel|idle|info)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.binary">
+				<expression>(?&lt;=binary\s)(scan|format)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.clock">
+				<expression>(?&lt;=clock\s)(clicks|format|scan|seconds)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.dde">
+				<expression>(?&lt;=dde\s)(eval|execute|poke|request|servername|services)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.encoding">
+				<expression>(?&lt;=encoding\s)(convertfrom|convertto|names|system)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.fileevent">
+				<expression>\b(readable|writable)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.history">
+				<expression>\b(add|change|clear|event|info|keep|nextid|redo)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.string">
+				<expression>(?&lt;=string\s)(bytelength|compare|equal|first|index|is|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.string.is">
+				<expression>(?&lt;=string\sis\s)(alnum|alpha|ascii|boolean|control|digit|double|false|graph|integer|list|lower|print|punct|space|true|upper|wideinteger|wordchar|xdigit)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.info">
+				<expression>(?&lt;=info\s)(args|body|cmdcount|commands|complete|default|exists|frame|functions|globals|hostname|level|library|loaded|locals|nameofexecutable|patchlevel|procs|script|sharedlibextension|tclversion|vars)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.info.frame">
+				<expression>(?&lt;=info\sframe\s)(type|line|file|cmd|proc|lambda|level)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.info.frame.type">
+				<expression>(?&lt;=info\sframe\stype\s)(source|proc|eval|precompiled)\b</expression>
+			</zone>
+			
+			
+			
+			<!--builtin commands they come here at last because they could otherwise interfere with the options of command which have the same name and then syntax highlighting isn´t correct (e.g. info frame type source, "source" is also a builtin command ), some functions (e.g. fileevent) need special treatment for codesense/highlighting, so they have their own syntax zone-->
+			<zone name="tcl.keyword.command.builtinfunc.fileevent">
+				<expression>\bfileevent\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.command.builtinfunc">
+				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|lset|unload|lsort|Safe Base|format|mathfunc|scan|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|variable|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord)\b</expression>
+			</zone>
+            
+        </collection>
+        
+        <collection name="Numeric">
+        
+			<zone name="tcl.constant.numeric.normal">
+				<expression>(?&lt;!\w)((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))\b</expression>
+			</zone>
+			
+			<zone name="tcl.constant.numeric.octal">
+				<expression>\\\d{1,3}\b</expression>
+			</zone>
+			
+			<zone name="tcl.constant.numeric.hexadecimal">
+				<expression>\\0?x[a-fA-F\d]{1,2}\b</expression>
+			</zone>
+			
+			<zone name="tcl.constant.numeric.unicode">
+				<expression>\\u[a-fA-F\d]{1,4}\b</expression>
+			</zone>
+			
+        </collection>
+        
+        <collection name="General">
+        	
+        	<zone name="tcl.language.general-word"> 
+        		<expression>[a-zA-Z0-9:_]+</expression>
+        	</zone>
+        	     	
+           	<zone name="tcl.language.general-space"> 
+				<expression>\s+</expression>
+        	</zone>
+        	
+        </collection>
+        
+        <collection name="EscapeChar">
+        	<zone name="tcl.escape.character">
+        	    <expression>\\[abfnrtv\W'"\!$%&amp;]|\\\d{1,3}</expression>
+        	</zone>
+        </collection>
+        
+        
+        
+        <collection name="AmiraExtension"><!--can be deleted when not needed, but the author needs it desperately :)-->
+        
+        	<zone name="tcl.amira.sciptobject.shebang">
+        	    <expression>^# (Amira-Script-Object V3\.0|Amira Script)</expression>
+        	</zone>     	
+        
+        	<zone name="tcl.keyword.options.amira.workArea">
+        		<expression>(?&lt;=workArea\s)(setProgressInfo|setProgressValue|startWorking|stopWorking|wasInterrupted)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.options.amira.theMain">
+        		<expression>(?&lt;=theMain\s)(snapshot|setViewerTogglesOnIcons|ignoreShow)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.options.amira.theMsg">
+        		<expression>(?&lt;=theMsg\s)(error|warning|question|overwrite)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.options.amira.app">
+        		<expression>(?&lt;=app\s)(version|uname|arch|hostid|listen|close|port|send|opengl|cluster)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.options.amira.window">
+        		<expression>(?&lt;=theMain\s|theMsg\s|viewer\s|viewer\s0\s)(getFrameGeometry|getGeometry|getPosition|getRelativeGeometry|getSize|hide|setCaption|setFrameGeometry|setGeometry|setPosition|setRelativeGeometry|setSize|show|showMinimized|showMaximized)\b</expression>
+        	</zone>
+        	
+        
+        	<zone name="tcl.keyword.command.amira.this">
+        	    <expression>(\$this)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.global.commands.window">
+        	    <expression>\b(theMain|theMsg)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.global.commands.viewer">
+        	    <expression>\b(viewer(\s\d*)?)</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.global.commands.other">
+        	    <expression>\b(workArea|app)\b</expression>
+        	</zone>
+        	
+            <!--snapshot could interfere with "theMain snapshot", so tcl.keyword.options.amira.viewer is here the lower syntax zone and should not be changed-->
+            <zone name="tcl.keyword.options.amira.viewer">
+            	<expression>\b(snapshot|setPosition|getPosition|setSize|getSize|setCamera|getCamera|setCameraPosition|getCameraPosition|setCameraOrientation|getCameraOrientation|setCameraFocalDistance|getCameraFocalDistance|setCameraHeightAngle|getCameraHeightAngle|setCameraHeight|getCameraHeight|setCameraType|getCameraType|setTransparencyType|getTransparencyType|setSortedLayersNumPasses|getSortedLayersNumPasses|setBackgroundColor|getBackgroundColor|setBackgroundColor2|getBackgroundColor2|setBackgroundMode|getBackgroundMode|setBackgroundImage|getBackgroundImage|setAutoRedraw|isAutoRedraw|transformScreenToWorld|redraw|rotate|setDecoration|saveScene|viewAll|view|show|hide|fogRange|setVideoFormat|setVideoFrame)\b</expression>
+            	<capture number="2" name="tcl.keyword.options.amira.viewer.argument"/>
+            </zone>
+        	        	        	
+        	<zone name="tcl.keyword.command.amira.port.scriptobject">
+        	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|setVarSerialize|getVar|testBreak)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.general-amira-object">
+        	    <expression>\b(hasInterface|duplicate|showIcon|hideIcon|iconVisible|select|deselect|setLabel|fire|compute|allPorts|connectionPorts|downStreamConnections|setIconPosition|getIconPosition|clipGeom|unclipGeom|setPickable|destroy|getTypeId|help|getLabel|setViewerMask)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.global.other">
+        	    <expression>\b(addTimeout|all|aminfo|clear|create|dso|addPath|echo|help|httpd|limit|load|mem|quit|remove|rename|sleep|source|system|saveNetwork|saveNetworkAs)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.data-classes">
+        	    <expression>\b(HxData|HxSpreadSheet|HxColormap|HxColormap256|HxCameraPath|HxKeyframeCameraPath|HxSpatialData|HxIvData|HxField3|HxScalarField3|HxRegScalarField3|HxUniformScalarField3|HxUniformLabelField3|HxStackedScalarField3|HxStackedLabelField3|HxAnnaScalarField3|HxTetraScalarField3|HxHexaScalarField3|HxVectorField3|HxRegVectorField3|HxUniformVectorField3|HxEdgeElemVectorField3|HxAnnaVectorField3|HxTetraVectorField3|HxHexaVectorField3|HxComplexScalarField3|HxRegComplexScalarField3|HxUniformComplexScalarField3|HxTetraComplexScalarField3|HxHexaComplexScalarField3|HxComplexVectorField3|HxRegComplexVectorField3|HxUniformComplexVectorField3|HxEdgeElemComplexVectorField3|HxTetraComplexVectorField3|HxHexaComplexVectorField3|HxColorField3|HxRegColorField3|HxUniformColorField3|HxRegField3|HxTetraField3|HxHexaField3|HxVertexSet|HxSurface|HxTetraGrid|HxHexaGrid|HxLineSet|HxLandmarkSet|HxCluster|HxSurfaceField|HxSurfaceScalarField|HxSurfaceVectorField|HxSurfaceComplexScalarField|HxSurfaceComplexVectorField|HxSurfaceField)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.port.type">
+        	    <expression>\b(HxPortButtonList|HxPortButtonMenu|HxPortColorList|HxPortFloatslider|HxPortFloatTextN|HxPortGeneric|HxPortIntSlider|HxPortMultiMenu|HxPortMultiOptions|HxPortRadioBox|HxPortRangeSlider|HxPortTabBar|HxPortText|HxPortTextEdit|HxPortToggleList|HxPort3DPointList)\b</expression>
+        	</zone>
+        	
+        </collection>
+        
+	</library>
+    
+</syntax>
