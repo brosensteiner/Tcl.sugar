@@ -45,10 +45,13 @@ tcl.variable.evaluate {
 	font-style: normal;
 }
 tcl.variable.definition,
-tcl.function.name,
 tcl.variable.definition.substitute.rest {
 	color: #7ac54d;
 	font-weight: bold;
+}
+tcl.variable.definition.set,
+tcl.variable.definition.unset {
+	font-weight: normal;
 }
 
 tcl.function.arguments {
