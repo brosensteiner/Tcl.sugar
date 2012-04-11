@@ -52,7 +52,7 @@ THE SOFTWARE.
 	</provider>
 	
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + * + *</selector>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>

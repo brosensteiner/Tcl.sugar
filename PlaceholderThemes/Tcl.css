@@ -74,6 +74,12 @@ tcl.variable.definition.upvar + space + :not(keyword) + space + :not(keyword) + 
 tcl.variable.definition.upvar + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 tcl.variable.definition.upvar + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
+tcl.variable.definition.unset + space + word,
+tcl.variable.definition.unset + space + :not(keyword) + space + word,
+tcl.variable.definition.unset + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.variable.definition.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.variable.definition.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space +  :not(keyword) + space + word,
+
 tcl.keyword.command.builtinfunc.catch + word,
 tcl.keyword.command.builtinfunc.catch + space + word {
 	color: #7ac54d;
@@ -81,12 +87,18 @@ tcl.keyword.command.builtinfunc.catch + space + word {
 }
 
 tcl.variable.definition.set,
-tcl.variable.definition.unset,
+tcl.variable.definition.command-unset,
 tcl.variable.definition.command-variable,
 tcl.variable.definition.command-global,
 tcl.variable.definition.upvar {
 	font-weight: normal;
 }
+
+tcl.switch {
+	font-weight: normal;
+	color: #7f7f7f;
+}
+
 
 tcl.function.arguments {
 	background-color: rgba(207, 220, 243, 0.3);

@@ -136,9 +136,9 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.variable.definition.unset">
-			    <expression>\b(unset)(\s+([a-zA-Z0-9:_]+)){1,}</expression>
-			    <capture number="1" name="tcl.variable.definition.unset"/>
-			    <capture number="3" name="tcl.variable.definition.new"/>
+			    <expression>\b(unset)\b(?:\s+(-nocomplain))?</expression>
+			    <capture number="1" name="tcl.variable.definition.command-unset"/>
+			    <capture number="2" name="tcl.switch.nocomplain"/>
 			</zone>
 			
 			<zone name="tcl.variable.definition.concat">
@@ -315,6 +315,10 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.options.fileevent">
 				<expression>\b(readable|writable)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.trace">
+				<expression>\b(add command|add execution|add variable|remove command|remove execution|remove variable|info command|info execution|info variable|variable|vdelete|vinfo)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.history">
