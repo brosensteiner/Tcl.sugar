@@ -255,7 +255,7 @@ THE SOFTWARE.
 	</set>
 	
 	<!--fileevent options-->
-	<set name="com.rosensteiner.Tcl.function.fileevent" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.fileevents" casesensitive="true">
 		
 		<completion string="readable" />
 		<completion string="writable" />
