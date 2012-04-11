@@ -33,12 +33,12 @@ THE SOFTWARE.
     	</zone>
     	
     	<include collection="Invalid" />
-    	<include collection="AmiraExtension" />
-    	<include collection="Variables" />
     	<include collection="Comments" />
+    	<include collection="AmiraExtension" />
+    	<include collection="tclLanguage" />
+    	<include collection="Variables" />
     	<include collection="Numeric" />
     	<include collection="Operators" />
-    	<include collection="tclLanguage" />
     	<include collection="FunctionDef"/>
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
@@ -317,19 +317,23 @@ THE SOFTWARE.
 				<expression>\b(readable|writable)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.trace">
-				<expression>\b(add command|add execution|add variable|remove command|remove execution|remove variable|info command|info execution|info variable|variable|vdelete|vinfo)\b</expression>
-			</zone>
-			
 			<zone name="tcl.keyword.options.history">
-				<expression>\b(add|change|clear|event|info|keep|nextid|redo)\b</expression>
+				<expression>(?&lt;=history\s)(add|change|clear|event|info|keep|nextid|redo)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.string">
 				<expression>(?&lt;=string\s)(bytelength|compare|equal|first|index|is|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.string.is">
+			<zone name="tcl.keyword.options.trace">
+				<expression>(?&lt;=trace\s)(add|remove|info|variable|vdelete|vinfo)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.trace.add-remove-info">
+				<expression>(?&lt;=trace\sadd\s|trace\sremove\s|trace\sinfo\s)(command|execution|variable)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.string-is">
 				<expression>(?&lt;=string\sis\s)(alnum|alpha|ascii|boolean|control|digit|double|false|graph|integer|list|lower|print|punct|space|true|upper|wideinteger|wordchar|xdigit)\b</expression>
 			</zone>
 			
@@ -347,15 +351,6 @@ THE SOFTWARE.
 			
 			
 			
-			<!--builtin commands they come here at last because they could otherwise interfere with the options of command which have the same name and then syntax highlighting isn´t correct (e.g. info frame type source, "source" is also a builtin command ), some functions (e.g. fileevent) need special treatment for codesense/highlighting, so they have their own syntax zone-->
-			<zone name="tcl.keyword.command.builtinfunc.fileevent">
-				<expression>\bfileevent\b</expression>
-			</zone>
-			
-			<zone name="tcl.keyword.command.builtinfunc.scan">
-				<expression>\bscan\b</expression>
-			</zone>
-			
 			<zone name="tcl.keyword.command.builtinfunc.catch"><!--catch assigns a variable so here is a zone definition for it-->
 			    <starts-with>
 			        <expression>\b(catch)\s+(\{)</expression>
@@ -372,7 +367,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.command.builtinfunc">
-				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|lset|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord)\b</expression>
+				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|lset|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord)\b</expression>
 			</zone>
             
         </collection>
@@ -423,23 +418,23 @@ THE SOFTWARE.
         	    <expression>^# (Amira-Script-Object V3\.0|Amira Script)</expression>
         	</zone>     	
         
-        	<zone name="tcl.keyword.options.amira.workArea">
+        	<zone name="tcl.keyword.option.amira.workArea">
         		<expression>(?&lt;=workArea\s)(setProgressInfo|setProgressValue|startWorking|stopWorking|wasInterrupted)\b</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.options.amira.theMain">
+        	<zone name="tcl.keyword.option.amira.theMain">
         		<expression>(?&lt;=theMain\s)(snapshot|setViewerTogglesOnIcons|ignoreShow)\b</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.options.amira.theMsg">
+        	<zone name="tcl.keyword.option.amira.theMsg">
         		<expression>(?&lt;=theMsg\s)(error|warning|question|overwrite)\b</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.options.amira.app">
+        	<zone name="tcl.keyword.option.amira.app">
         		<expression>(?&lt;=app\s)(version|uname|arch|hostid|listen|close|port|send|opengl|cluster)\b</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.options.amira.window">
+        	<zone name="tcl.keyword.option.amira.window">
         		<expression>(?&lt;=theMain\s|theMsg\s|viewer\s|viewer\s0\s)(getFrameGeometry|getGeometry|getPosition|getRelativeGeometry|getSize|hide|setCaption|setFrameGeometry|setGeometry|setPosition|setRelativeGeometry|setSize|show|showMinimized|showMaximized)\b</expression>
         	</zone>
         	
@@ -461,9 +456,9 @@ THE SOFTWARE.
         	</zone>
         	
             <!--snapshot could interfere with "theMain snapshot", so tcl.keyword.options.amira.viewer is here the lower syntax zone and should not be changed-->
-            <zone name="tcl.keyword.options.amira.viewer">
+            <zone name="tcl.keyword.option.amira.viewer">
             	<expression>\b(snapshot|setPosition|getPosition|setSize|getSize|setCamera|getCamera|setCameraPosition|getCameraPosition|setCameraOrientation|getCameraOrientation|setCameraFocalDistance|getCameraFocalDistance|setCameraHeightAngle|getCameraHeightAngle|setCameraHeight|getCameraHeight|setCameraType|getCameraType|setTransparencyType|getTransparencyType|setSortedLayersNumPasses|getSortedLayersNumPasses|setBackgroundColor|getBackgroundColor|setBackgroundColor2|getBackgroundColor2|setBackgroundMode|getBackgroundMode|setBackgroundImage|getBackgroundImage|setAutoRedraw|isAutoRedraw|transformScreenToWorld|redraw|rotate|setDecoration|saveScene|viewAll|view|show|hide|fogRange|setVideoFormat|setVideoFrame)\b</expression>
-            	<capture number="2" name="tcl.keyword.options.amira.viewer.argument"/>
+            	<capture number="2" name="tcl.keyword.option.amira.viewer.argument"/>
             </zone>
         	        	        	
         	<zone name="tcl.keyword.command.amira.port.scriptobject">

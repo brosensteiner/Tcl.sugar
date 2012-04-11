@@ -26,15 +26,15 @@ tcl.keyword.amira {
 	color: #4f76cf;
 	font-weight: bold;
 }
-tcl.keyword.options.amira {
+tcl.keyword.option.amira {
 	font-weight: normal;
 }
-tcl.keyword.options.amira.viewer {
+tcl.keyword.option.amira.viewer {
 	font-weight: normal;
 	color: black;
 }
-tcl.keyword.command.amira.global.commands.viewer + space + tcl.keyword.options.amira.viewer,
-tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.options.amira.viewer {
+tcl.keyword.command.amira.global.commands.viewer + space + tcl.keyword.option.amira.viewer,
+tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.option.amira.viewer {
 	color: #4f76cf;
 }
 
@@ -44,11 +44,11 @@ tcl.variable.evaluate {
 }
 tcl.variable.definition,
 tcl.variable.definition.substitute.rest,
-tcl.keyword.command.builtinfunc.scan + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.keyword.command.builtinfunc.scan + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.keyword.command.builtinfunc.scan + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.keyword.command.builtinfunc.scan + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.keyword.command.builtinfunc.scan + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
 tcl.variable.definition.command-variable + space + word,
 tcl.variable.definition.command-variable + space + word + space + :not(keyword) + space + word,
@@ -108,7 +108,9 @@ tcl.keyword.command {
 	color: #bb82e9;
 }
 tcl.keyword.command.builtinfunc + space + tcl.keyword.options,
-tcl.keyword.command.builtinfunc.fileevent + space + :not(keyword) + space + tcl.keyword.options.fileevent {
+tcl.keyword.command.builtinfunc + space + options + space + tcl.keyword.options,
+tcl.keyword.command.builtinfunc[text='fileevent'] + space + :not(keyword) + space + tcl.keyword.options.fileevent,
+tcl.keyword.command.builtinfunc[text='trace'] + space + options + space + :not(keyword) + space + tcl.keyword.options.trace-add-command-ops {
 	color: rgba(186, 129, 233, 0.5);
 }
 tcl.keyword.operator.logical {

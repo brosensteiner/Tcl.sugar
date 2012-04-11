@@ -52,26 +52,29 @@ THE SOFTWARE.
 	</provider>
 	
 	<provider>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	<provider>
 		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	
-	
-	
-	<!--<provider>
-		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
-		<completions>com.rosensteiner.Tcl.function.string.is</completions>
-		<complete-match>(?&lt;=string\sis\s)[a-zA-Z]*</complete-match>
-	</provider>-->
-	
-	<!--info options-->
-	<!--<provider>
-		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
-		<completions>com.rosensteiner.Tcl.function.info</completions>
-		<complete-match>(?&lt;=info\s)[a-zA-Z]*</complete-match>
+	<provider>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options) + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options) + space + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	
+	
+	<!--info options-->
 	<provider>
 		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
 		<completions>com.rosensteiner.Tcl.function.info.frame</completions>
@@ -84,7 +87,7 @@ THE SOFTWARE.
 		<complete-match>(?&lt;=info\sframe\stype\s)[a-zA-Z]*</complete-match>
 	</provider>-->
 	
-	<!--amira code sense provieder, can be deleted when not needed, but the author needs it desperately :)-->
+	<!--amira code sense provider, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<provider>
 		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>

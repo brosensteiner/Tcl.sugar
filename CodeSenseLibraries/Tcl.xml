@@ -205,6 +205,40 @@ THE SOFTWARE.
 		
 	</set>
 	
+	<!--trace options-->
+	<set name="com.rosensteiner.Tcl.function.trace" casesensitive="true">
+		
+		<completion string="add" />
+		<completion string="remove" />
+		<completion string="info" />
+		<completion string="variable" />
+		<completion string="vdelete" />
+		<completion string="vinfo" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.trace.add" casesensitive="true">
+		
+		<completion string="command" />
+		<completion string="execution" />
+		<completion string="variable" />
+				
+	</set>
+	<set name="com.rosensteiner.Tcl.function.trace.remove" casesensitive="true">
+		
+		<completion string="command" />
+		<completion string="execution" />
+		<completion string="variable" />
+				
+	</set>
+	<set name="com.rosensteiner.Tcl.function.trace.info" casesensitive="true">
+		
+		<completion string="command" />
+		<completion string="execution" />
+		<completion string="variable" />
+				
+	</set>
+	
 	<!--after options-->
 	<set name="com.rosensteiner.Tcl.function.after" casesensitive="true">
 		
@@ -262,23 +296,6 @@ THE SOFTWARE.
 		
 	</set>
 	
-	<!--trace options-->
-	<set name="com.rosensteiner.Tcl.function.trace" casesensitive="true">
-		
-		<completion string="add command" />
-		<completion string="add execution" />
-		<completion string="add variable" />
-		<completion string="remove command" />
-		<completion string="remove execution" />
-		<completion string="remove variable" />
-		<completion string="info command" />
-		<completion string="info execution" />
-		<completion string="info variable" />
-		<completion string="variable" />
-		<completion string="vdelete" />
-		<completion string="vinfo" />
-				
-	</set>
 	
 	<!--history options-->
 	<set name="com.rosensteiner.Tcl.function.history" casesensitive="true">
