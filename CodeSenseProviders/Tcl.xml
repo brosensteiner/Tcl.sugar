@@ -51,7 +51,7 @@ THE SOFTWARE.
 	
 	<!--builtin function options-->
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc.fileevent + space + * + space + *</selector>
+		<selector>tcl.keyword.command.builtinfunc[text='fileevent'] + space + * + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.fileevents</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>

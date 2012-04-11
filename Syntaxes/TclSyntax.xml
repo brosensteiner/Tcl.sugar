@@ -273,11 +273,11 @@ THE SOFTWARE.
         
         <collection name="tclLanguage">
         
-        	<zone name="tcl.keyword.command.semicolon">
+        	<zone name="tcl.keyword.semicolon">
         		<expression>;</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.command.backslash">
+        	<zone name="tcl.keyword.backslash">
         		<expression>\\\s*?\n</expression>
         	</zone>
         	
