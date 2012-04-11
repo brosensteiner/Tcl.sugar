@@ -281,8 +281,12 @@ THE SOFTWARE.
         		<expression>\\\s*?\n</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.command.global_variable">
-        		<expression>\b(auto_execs|auto_index|auto_noexec|auto_noload|auto_path|env|env|tcl_nonwordchars|tcl_wordchars|unknown_pending)\b</expression>
+        	<zone name="tcl.keyword.command.global-procedures">
+        		<expression>\b(auto_execs|auto_index|auto_noexec|auto_noload|auto_path|unknown_pending)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.variable.global-variables">
+        		<expression>\b(env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|argc|argv|argv0|tcl_interactive|geometry)\b</expression>
         	</zone>
         
 			<zone name="tcl.keyword.command.math">
@@ -344,7 +348,6 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.options.info.frame">
 				<expression>(?&lt;=info\sframe\s)(type|line|file|cmd|proc|lambda|level)\b</expression>
 			</zone>
-			
 			<zone name="tcl.keyword.options.info.frame.type">
 				<expression>(?&lt;=info\sframe\stype\s)(source|proc|eval|precompiled)\b</expression>
 			</zone>

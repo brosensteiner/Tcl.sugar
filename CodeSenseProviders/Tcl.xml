@@ -29,7 +29,7 @@ THE SOFTWARE.
 	<provider>
  		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
  		<completions>com.rosensteiner.Tcl.functions</completions>
- 		<complete-match>\b[a-zA-Z]+</complete-match>
+ 		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	
 	<provider>
@@ -40,8 +40,13 @@ THE SOFTWARE.
 	
 	<provider>
 			<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
-			<completions>com.rosensteiner.Tcl.global-variable</completions>
-			<complete-match>\b[a-zA-Z]+</complete-match>
+			<completions>com.rosensteiner.Tcl.global-procedures</completions>
+			<complete-match>\b[a-zA-Z_]+</complete-match>
+	</provider>
+	<provider>
+			<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+			<completions>com.rosensteiner.Tcl.global-variables</completions>
+			<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	
 	<!--builtin function options-->
@@ -73,19 +78,17 @@ THE SOFTWARE.
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	
-	
-	<!--info options-->
 	<provider>
-		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
-		<completions>com.rosensteiner.Tcl.function.info.frame</completions>
-		<complete-match>(?&lt;=info\sframe\s)[a-zA-Z]*</complete-match>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options1) + space + options:capture(options2) + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options1) + space + options:capture(options2) + space + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	
-	<provider>
-		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
-		<completions>com.rosensteiner.Tcl.function.info.frame.type</completions>
-		<complete-match>(?&lt;=info\sframe\stype\s)[a-zA-Z]*</complete-match>
-	</provider>-->
 	
 	<!--amira code sense provider, can be deleted when not needed, but the author needs it desperately :)-->
 	

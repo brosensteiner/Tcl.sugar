@@ -13,6 +13,12 @@ tcl.shebang {
 	background-color: rgba(57, 79, 227, 0.3);
 }
 
+tcl.global-variables,
+tcl.global-procedures {
+	font-weight: bold;
+}
+
+
 tcl.variable.new {
 	color: #7ac54d;
 }
@@ -109,6 +115,7 @@ tcl.keyword.command {
 }
 tcl.keyword.command.builtinfunc + space + tcl.keyword.options,
 tcl.keyword.command.builtinfunc + space + options + space + tcl.keyword.options,
+tcl.keyword.command.builtinfunc + space + options + space + options + space + tcl.keyword.options,
 tcl.keyword.command.builtinfunc[text='fileevent'] + space + :not(keyword) + space + tcl.keyword.options.fileevent,
 tcl.keyword.command.builtinfunc[text='trace'] + space + options + space + :not(keyword) + space + tcl.keyword.options.trace-add-command-ops {
 	color: rgba(186, 129, 233, 0.5);
