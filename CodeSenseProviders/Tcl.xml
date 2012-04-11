@@ -46,13 +46,13 @@ THE SOFTWARE.
 	
 	<!--builtin function options-->
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc.fileevent + general-space + * + general-space + * + *</selector>
+		<selector>tcl.keyword.command.builtinfunc.fileevent + space + * + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.fileevent</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + general-space + * + *</selector>
+		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
@@ -123,19 +123,19 @@ THE SOFTWARE.
 	</provider>
 	
 	<provider>
-		<selector>tcl.keyword.command.amira.global.commands.window + general-space + *</selector>
+		<selector>tcl.keyword.command.amira.global.commands.window + space + *</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.window</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<!--"viewer" needs the two following providers-->
 	<provider>
-		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + general-space + *</selector>
+		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + space + *</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.viewer</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + general-space + *</selector>
+		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + space + *</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.window</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>

@@ -109,11 +109,9 @@ THE SOFTWARE.
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
 			<zone name="tcl.variable.definition.upvar">
-			    <expression>\b(upvar)\s+(#?\d+)?\s+([\$a-zA-Z0-9\.:_]+)\s+([a-zA-Z0-9:_]+)</expression>
+			    <expression>\b(upvar)\b(?:\s+(#?\d+))?</expression>
 			    <capture number="1" name="tcl.variable.definition.upvar"/>
-			    <capture number="2" name="tcl.variable.definition.level"/>
-			    <capture number="3" name="tcl.variable.definition.varname"/>
-			    <capture number="4" name="tcl.variable.definition.localvar"/>
+			    <capture number="2" name="tcl.constant.numeric.level"/>
 			</zone>
 			
 			<zone name="tcl.variable.definition.general">
@@ -262,12 +260,12 @@ THE SOFTWARE.
         	    <expression>\+|-|\*\*?|\/|%</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.operator.string">
-        	    <expression>\b(ne|eq)\s</expression>
+        	<zone name="tcl.keyword.operator.comp-string">
+        	    <expression>\b(ne|eq)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.operator.list">
-        	    <expression>\b(in|ni)\s</expression>
+        	    <expression>\b(in|ni)\b</expression>
         	</zone>
         	
         </collection>
@@ -397,11 +395,11 @@ THE SOFTWARE.
         
         <collection name="General">
         	
-        	<zone name="tcl.language.general-word"> 
+        	<zone name="tcl.language.word"> 
         		<expression>[a-zA-Z0-9:_]+</expression>
         	</zone>
         	     	
-           	<zone name="tcl.language.general-space"> 
+           	<zone name="tcl.language.space"> 
 				<expression>\s+</expression>
         	</zone>
         	
