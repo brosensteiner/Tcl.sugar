@@ -43,58 +43,67 @@ THE SOFTWARE.
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
     	<include collection="General" />
-        
-		<zone name="tcl.balanced.parenthesis">
-			<starts-with>
-				<expression>\(</expression>
-				<capture number="0" name="tcl.punctuation.open-parenthesis"/>
-			</starts-with>
-			<ends-with>
-				<expression>\)</expression>
- 				<capture number="0" name="tcl.punctuation.close-parenthesis"/>
-			</ends-with>
-			<subzones>
-				<include syntax="source.Tcl" />
-			</subzones>
-		</zone>
+        <include collection="Balanced" />
 		
-		<zone name="tcl.balanced.braces">
-			<starts-with>
-				<expression>(?&lt;=\s|\[)\{</expression>
-				<capture number="0" name="tcl.punctuation.open-brace"/>
-			</starts-with>
-			<ends-with>
-				<expression>\}</expression>
-					<capture number="0" name="tcl.punctuation.close-brace"/>
-			</ends-with>
-			<subzones>
-				<include syntax="source.Tcl" />
-			</subzones>
-		</zone>
-		
-		<zone name="tcl.balanced.brackets">
-			<starts-with>
-				<expression>\[</expression>
-				<capture number="0" name="tcl.punctuation.open-bracket"/>
-			</starts-with>
-			<ends-with>
-				<expression>\]</expression>
-					<capture number="0" name="tcl.punctuation.close-bracket"/>
-			</ends-with>
-			<subzones>
-				<include syntax="source.Tcl" />
-			</subzones>
-		</zone>
-                
-	</zones>
-    
+    </zones>
     
 	<library>
 	
+		<collection name="Balanced">
+		
+			<zone name="tcl.balanced.parenthesis">
+					<starts-with>
+						<expression>\(</expression>
+						<capture number="0" name="tcl.punctuation.open-parenthesis"/>
+					</starts-with>
+					<ends-with>
+						<expression>\)</expression>
+							<capture number="0" name="tcl.punctuation.close-parenthesis"/>
+					</ends-with>
+					<subzones>
+						<include syntax="source.Tcl" />
+					</subzones>
+				</zone>
+				
+				<zone name="tcl.balanced.braces">
+					<starts-with>
+						<expression>(?&lt;=\s|\[)\{</expression>
+						<capture number="0" name="tcl.punctuation.open-brace"/>
+					</starts-with>
+					<ends-with>
+						<expression>\}</expression>
+							<capture number="0" name="tcl.punctuation.close-brace"/>
+					</ends-with>
+					<subzones>
+						<include syntax="source.Tcl" />
+					</subzones>
+				</zone>
+				
+				<zone name="tcl.balanced.brackets">
+					<starts-with>
+						<expression>\[</expression>
+						<capture number="0" name="tcl.punctuation.open-bracket"/>
+					</starts-with>
+					<ends-with>
+						<expression>\]</expression>
+							<capture number="0" name="tcl.punctuation.close-bracket"/>
+					</ends-with>
+					<subzones>
+						<include syntax="source.Tcl" />
+					</subzones>
+				</zone>
+			
+		</collection>
+	
 		<collection name="Invalid">
+		
 			<zone name="tcl.language.invalid.comment">
 			    <expression>;\s+?(#)[^\d].*$\n?</expression>
 			</zone>
+			<zone name="tcl.language.invalid.bracket">
+			    <expression>"\[</expression>
+			</zone>
+			
 		</collection>
 	
 		<collection name="Comments">
@@ -115,14 +124,14 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.variable.definition.general">
-			    <expression>\b(rename)\s+([\$a-zA-Z0-9\.:_]+)\s+([\$a-zA-Z0-9\.:_]+)</expression>
+			    <expression>\b(rename)\s+([\$a-zA-Z0-9\._]+)\s+([\$a-zA-Z0-9\._]+)</expression>
 			    <capture number="1" name="tcl.variable.definition.set"/>
 			    <capture number="2" name="tcl.variable.definition.oldname"/>
 			    <capture number="3" name="tcl.variable.definition.newname"/>
 			</zone>
 			
 			<zone name="tcl.variable.definition.general">
-			    <expression>\b(set)\s+([a-zA-Z0-9:_]+)</expression>
+			    <expression>\b(set)\s+([a-zA-Z0-9_]+)</expression>
 			    <capture number="1" name="tcl.variable.definition.set"/>
 			    <capture number="2" name="tcl.variable.definition.new"/>
 			</zone>
@@ -142,7 +151,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.variable.definition.concat">
-			    <expression>([a-zA-Z0-9:_]*)(\.)([a-zA-Z0-9:_]*)</expression>
+			    <expression>([a-zA-Z0-9_]*)(\.)([a-zA-Z0-9_]*)</expression>
 			    <capture number="1" name="tcl.variable.definition.concat.rest"/>
 			    <capture number="2" name="tcl.variable.definition.concat.point"/>
 			    <capture number="3" name="tcl.variable.definition.concat.rest"/>
@@ -150,12 +159,12 @@ THE SOFTWARE.
 			
 			<zone name="tcl.variable.definition.substitute">
 			    <starts-with>
-			        <expression>([a-zA-Z0-9:_]*)(\$\{)</expression>
+			        <expression>([a-zA-Z0-9_]*)(\$\{)</expression>
 			        <capture number="1" name="tcl.variable.definition.substitute.rest"/>
 			        <capture number="2" name="tcl.variable.definition.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(\})([a-zA-Z0-9:_]*)</expression>
+			        <expression>(\})([a-zA-Z0-9_]*)</expression>
 			        <capture number="1" name="tcl.variable.definition.substitute.end"/>
 			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
 			    </ends-with>
@@ -166,12 +175,12 @@ THE SOFTWARE.
 			
 			<zone name="tcl.variable.definition.substitute.array">
 			    <starts-with>
-			        <expression>([a-zA-Z0-9:_]*)(\$\()</expression>
+			        <expression>([a-zA-Z0-9_]*)(\$\()</expression>
 			        <capture number="1" name="tcl.variable.definition.substitute.rest"/>
 			        <capture number="2" name="tcl.variable.definition.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(\))([a-zA-Z0-9:_]*)</expression>
+			        <expression>(\))([a-zA-Z0-9_]*)</expression>
 			        <capture number="1" name="tcl.variable.definition.substitute.end"/>
 			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
 			    </ends-with>
@@ -181,7 +190,7 @@ THE SOFTWARE.
 			</zone>
 						
 			<zone name="tcl.variable.definition.evaluate">
-			    <expression>(\$[a-zA-Z0-9:_]+)\b</expression>
+			    <expression>(\$[a-zA-Z0-9_]+)\b</expression>
 			</zone>
 			
 		</collection>
@@ -216,6 +225,7 @@ THE SOFTWARE.
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
+			    	<include collection="Balanced" />
 			    </subzones>
 			</zone>
 		
@@ -224,7 +234,7 @@ THE SOFTWARE.
 		<collection name="FunctionDef">
 			<zone name="tcl.container.function.definition">
 			    <starts-with>
-			        <expression>\b(proc)\s+([a-zA-Z0-9:_]+)?\s+(\{)\s*([a-zA-Z0-9\.:_\s]*)\s*(\})\s+(\{)</expression>
+			        <expression>\b(proc)\s+([a-zA-Z0-9_]+)?\s+(\{)\s*([a-zA-Z0-9\._\s]*)\s*(\})\s+(\{)</expression>
 			        <capture number="1" name="tcl.keyword.control.function"/>
 			        <capture number="2" name="tcl.function.name"/>
 			        <capture number="3" name="tcl.punctuation.open-brace"/>
@@ -273,12 +283,16 @@ THE SOFTWARE.
         
         <collection name="tclLanguage">
         
-        	<zone name="tcl.keyword.semicolon">
+        	<zone name="tcl.keyword.literal.semicolon">
         		<expression>;</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.backslash">
+        	<zone name="tcl.keyword.literal.backslash">
         		<expression>\\\s*?\n</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.literal.namespace">
+        		<expression>::</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global-procedures">
@@ -398,7 +412,7 @@ THE SOFTWARE.
         <collection name="General">
         	
         	<zone name="tcl.language.word"> 
-        		<expression>[a-zA-Z0-9:_]+</expression>
+        		<expression>[a-zA-Z0-9_]+</expression>
         	</zone>
         	     	
            	<zone name="tcl.language.space"> 
@@ -466,6 +480,10 @@ THE SOFTWARE.
         	        	        	
         	<zone name="tcl.keyword.command.amira.port.scriptobject">
         	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|setVarSerialize|getVar|testBreak)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.interface-component-port">
+        	    <expression>\b(help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.general-amira-object">

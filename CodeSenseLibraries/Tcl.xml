@@ -506,8 +506,35 @@ THE SOFTWARE.
 		<completion string="destroy" />
 		<completion string="getTypeId" />
 		<completion string="help" />
-		<completion string="setLabel" />
+		<completion string="getLabel" />
 		<completion string="setViewerMask" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.amira.interface-component-port" casesensitive="true">
+		
+		<completion string="help" />
+		<completion string="isNew" />
+		<completion string="getState" />
+		<completion string="setState" />
+		<completion string="getLabel" />
+		<completion string="setLabel" />
+		<completion string="getLabelWidth" />
+		<completion string="setLabelWidth" />
+		<completion string="align" />
+		<completion string="getPin" />
+		<completion string="setPin" />
+		<completion string="touch" />
+		<completion string="untouch" />
+		<completion string="object" />
+		<completion string="send" />
+		<completion string="show" />
+		<completion string="hide" />
+		<completion string="isVisible" />
+		<completion string="reposition" />
+		<completion string="isOfType" />
+		<completion string="getTypeId" />
+		<completion string="connect" />
 				
 	</set>
    	
