@@ -129,11 +129,12 @@ tcl.balanced.brackets {
 }
 
 tcl.punctuation.open-bracket,
-tcl.punctuation.close-bracket {
+tcl.punctuation.close-bracket,
+tcl.keyword.string-format, {
 	color: #e82c13;
 	background-color: #fafcf0;
 }
-tcl.keyword.literal,
+tcl.keyword.character-class,
 tcl.punctuation.function-close-brace,
 tcl.punctuation.open-brace,
 tcl.punctuation.close-brace,

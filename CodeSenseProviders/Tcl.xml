@@ -154,6 +154,12 @@ THE SOFTWARE.
 	
 	<provider>
 		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.global-variables</completions>
+		<complete-match>\b[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.workArea</completions>
 		<complete-match>\bw[a-zA-Z]*</complete-match>
 	</provider>

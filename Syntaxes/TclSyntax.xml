@@ -36,6 +36,7 @@ THE SOFTWARE.
     	<include collection="Comments" />
     	<include collection="AmiraExtension" />
     	<include collection="tclLanguage" />
+		<include collection="FormatSpecifier"/>
     	<include collection="Variables" />
     	<include collection="Numeric" />
     	<include collection="Operators" />
@@ -97,9 +98,10 @@ THE SOFTWARE.
 	
 		<collection name="Invalid">
 		
-			<zone name="tcl.language.invalid.comment">
-			    <expression>;\s+?(#)[^\d].*$\n?</expression>
+			<zone name="tcl.language.invalid.comment.semicolon">
+			    <expression>;\s+?#[^\d].*$\n?</expression>
 			</zone>
+			
 			<zone name="tcl.language.invalid.bracket">
 			    <expression>"\[</expression>
 			</zone>
@@ -224,8 +226,11 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.end"/>
 			    </ends-with>
 			    <subzones>
+			    
 			    	<include collection="EscapeChar"/>
+			    	<include collection="FormatSpecifier"/>
 			    	<include collection="Balanced" />
+			    	
 			    </subzones>
 			</zone>
 		
@@ -280,18 +285,27 @@ THE SOFTWARE.
         	
         </collection>
         
+        <collection name="FormatSpecifier">
+        	<zone name="tcl.keyword.string-format">
+        		<expression>%(-|\+|#|0|[[:space:]])?(\d+)?(\.\d+)?([cdEefgGiouxXqs])</expression>
+        		<capture number="1" name="tcl.keyword.additional.string-format-flags"/>
+        		<capture number="2" name="tcl.keyword.additional.string-format-width"/>
+        		<capture number="3" name="tcl.keyword.additional.string-format-precision"/>
+        		<capture number="4" name="tcl.keyword.additional.string-format-type"/>
+        	</zone>
+        </collection>
         
         <collection name="tclLanguage">
         
-        	<zone name="tcl.keyword.literal.semicolon">
+        	<zone name="tcl.keyword.character-class.semicolon">
         		<expression>;</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.literal.backslash">
+        	<zone name="tcl.keyword.character-class.backslash">
         		<expression>\\\s*?\n</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.literal.namespace">
+        	<zone name="tcl.keyword.character-class.namespace">
         		<expression>::</expression>
         	</zone>
         	
@@ -433,7 +447,11 @@ THE SOFTWARE.
         
         	<zone name="tcl.amira.sciptobject.shebang">
         	    <expression>^# (Amira-Script-Object V3\.0|Amira Script)</expression>
-        	</zone>     	
+        	</zone>
+        	
+        	<zone name="tcl.keyword.amira.global.variables">
+        		<expression>(AMIRA_ROOT|AMIRA_LOCAL|SCRIPTFILE|SCRIPTDIR|hideNewModules)\b</expression>
+        	</zone> 	
         
         	<zone name="tcl.keyword.option.amira.workArea">
         		<expression>(?&lt;=workArea\s)(setProgressInfo|setProgressValue|startWorking|stopWorking|wasInterrupted)\b</expression>
@@ -483,7 +501,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.interface-component-port">
-        	    <expression>\b(help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
+        	    <expression>\b(getValue|setValue|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.general-amira-object">

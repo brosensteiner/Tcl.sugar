@@ -456,6 +456,16 @@ THE SOFTWARE.
 	
 	<!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
 	
+	<set name="com.rosensteiner.Tcl.function.amira.global-variables" casesensitive="true">
+		
+		<completion string="AMIRA_ROOT" />
+		<completion string="AMIRA_LOCAL" />
+		<completion string="SCRIPTFILE" />
+		<completion string="SCRIPTDIR" />
+		<completion string="hideNewModules" />
+				
+	</set>
+	
 	<set name="com.rosensteiner.Tcl.function.amira.port.scriptobject" casesensitive="true">
 		
 		<completion string="newPortButtonList" />
@@ -485,6 +495,8 @@ THE SOFTWARE.
 	
 	<set name="com.rosensteiner.Tcl.function.amira.general-amira-object" casesensitive="true">
 		
+		<completion string="setValue" />
+		<completion string="getValue" />
 		<completion string="hasInterface" />
 		<completion string="duplicate" />
 		<completion string="showIcon" />
