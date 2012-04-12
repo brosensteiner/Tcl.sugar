@@ -40,7 +40,6 @@ THE SOFTWARE.
     	<include collection="Variables" />
     	<include collection="Numeric" />
     	<include collection="Operators" />
-    	<include collection="FunctionDef"/>
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
     	<include collection="General" />
@@ -235,27 +234,6 @@ THE SOFTWARE.
 			</zone>
 		
 		</collection>
-	
-		<collection name="FunctionDef">
-			<zone name="tcl.container.function.definition">
-			    <starts-with>
-			        <expression>\b(proc)\s+([a-zA-Z0-9_]+)?\s+(\{)\s*([a-zA-Z0-9\._\s]*)\s*(\})\s+(\{)</expression>
-			        <capture number="1" name="tcl.keyword.control.function"/>
-			        <capture number="2" name="tcl.function.name"/>
-			        <capture number="3" name="tcl.punctuation.open-brace"/>
-			        <capture number="4" name="tcl.function.arguments"/>
-			        <capture number="5" name="tcl.punctuation.close-brace"/>
-			        <capture number="6" name="tcl.punctuation.open-brace"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>\}</expression>
-			        <capture number="0" name="tcl.punctuation.function-close-brace"/>
-			    </ends-with>
-			    <subzones>
-			        <include syntax="source.Tcl"/>
-			    </subzones>
-			</zone>
-		</collection>
         
         <collection name="Operators">
                
@@ -395,6 +373,10 @@ THE SOFTWARE.
 			    <subzones>
 			    	<include collection="EscapeChar"/>
 			    </subzones>
+			</zone>
+			
+			<zone name="tcl.keyword.command.function">
+				<expression>\bproc\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.command.builtinfunc">

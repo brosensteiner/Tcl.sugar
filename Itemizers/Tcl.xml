@@ -26,12 +26,19 @@ THE SOFTWARE.
 -->
 <itemizer>
 	
-<!--functions-->
-	<recipe name="tcl.container.function">
+	<!--functions-->
+	<recipe name="tcl.keyword.command.function">
 	
 		<class>ESBaseItem</class>
-		<start-selector>tcl.container.function.definition:has-child(name:capture(name)) > tcl.keyword.control.function:capture(itemizer-firstused)</start-selector>
-		<end-selector>tcl.container.function.definition > tcl.punctuation.function-close-brace</end-selector>
+		<selector>tcl.keyword.command.function + space + *:capture(name)</selector>
+						
+	</recipe>
+	
+	<!--balanced braces for code folding-->
+	<recipe name="lua.container.function">
+	
+		<start-selector>tcl.balanced.braces > open-brace</start-selector>
+		<end-selector>close-brace</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
