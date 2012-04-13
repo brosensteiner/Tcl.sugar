@@ -25,10 +25,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <codesense version="1.0">
-
+	
 	<behavior>
-		<append-static> </append-static>
-	</behavior>
+		<append-dynamic>
+		
+			<matched-suffix>(\s*\w)|\s*[^\w]?</matched-suffix>
+			<transform-into>(?1:$1: $0)</transform-into>
+		
+		</append-dynamic>
+	</behavior> 
     
 	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
 		
