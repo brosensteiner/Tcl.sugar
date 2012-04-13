@@ -48,55 +48,56 @@ tcl.variable.evaluate {
 	color: #82c0e5;
 	font-weight: normal;
 }
+
 tcl.variable.definition,
 tcl.variable.definition.substitute.rest,
-tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + word,
 tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.keyword.command.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.variable.definition.command-variable + space + word,
-tcl.variable.definition.command-variable + space + word + space + :not(keyword) + space + word,
-tcl.variable.definition.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-variable + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.variable.definition.command-global + space + word,
-tcl.variable.definition.command-global + space + :not(keyword) + space + word,
-tcl.variable.definition.command-global + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-global + space + word,
+tcl.command-global + space + :not(keyword) + space + word,
+tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.variable.definition.upvar + space + numeric + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar  + space + :not(keyword,numeric) + space + word,
+tcl.upvar  + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar  + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar  + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.variable.definition.upvar + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.upvar + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.variable.definition.unset + space + word,
-tcl.variable.definition.unset + space + :not(keyword) + space + word,
-tcl.variable.definition.unset + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.variable.definition.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space +  :not(keyword) + space + word,
+tcl.unset + space + word,
+tcl.unset + space + :not(keyword) + space + word,
+tcl.unset + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space +  :not(keyword) + space + word,
 
-tcl.keyword.command.builtinfunc.catch + word,
-tcl.keyword.command.builtinfunc.catch + space + word {
+tcl.builtinfunc.catch + word,
+tcl.builtinfunc.catch + space + word {
 	color: #7ac54d;
 	font-weight: bold;
 }
 
-tcl.variable.definition.set,
-tcl.variable.definition.command-unset,
-tcl.variable.definition.command-variable,
-tcl.variable.definition.command-global,
-tcl.variable.definition.upvar {
+tcl.variable.set,
+tcl.command-unset,
+tcl.command-variable,
+tcl.command-global,
+tcl.upvar {
 	font-weight: normal;
 }
 

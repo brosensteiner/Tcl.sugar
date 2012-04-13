@@ -34,11 +34,11 @@ THE SOFTWARE.
     	
     	<include collection="Invalid" />
     	<include collection="Comments" />
+    	<include collection="Numeric" />
     	<include collection="AmiraExtension" />
     	<include collection="tclLanguage" />
 		<include collection="FormatSpecifier"/>
     	<include collection="Variables" />
-    	<include collection="Numeric" />
     	<include collection="Operators" />
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
@@ -119,9 +119,7 @@ THE SOFTWARE.
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
 			<zone name="tcl.variable.definition.upvar">
-			    <expression>\b(upvar)\b(?:\s+(#?\d+))?</expression>
-			    <capture number="1" name="tcl.variable.definition.upvar"/>
-			    <capture number="2" name="tcl.constant.numeric.level"/>
+			    <expression>upvar</expression>
 			</zone>
 			
 			<zone name="tcl.variable.definition.general">
@@ -386,6 +384,10 @@ THE SOFTWARE.
         </collection>
         
         <collection name="Numeric">
+        
+        	<zone name="tcl.constant.numeric.level-specifier">
+        		<expression>(?&lt;!\w)#\d+\b</expression>
+        	</zone>
         
 			<zone name="tcl.constant.numeric.normal">
 				<expression>(?&lt;!\w)((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))\b</expression>
