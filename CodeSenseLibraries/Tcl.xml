@@ -29,11 +29,11 @@ THE SOFTWARE.
 	<behavior>
 		<append-dynamic>
 		
-			<matched-suffix>(\s*\w)|\s*[^\w]?</matched-suffix>
+			<matched-suffix>(\s*[^\[\{(])|\s*[^\[\{(]?</matched-suffix>
 			<transform-into>(?1:$1: $0)</transform-into>
 		
 		</append-dynamic>
-	</behavior> 
+	</behavior>
     
 	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
 		

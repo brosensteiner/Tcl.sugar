@@ -93,12 +93,13 @@ tcl.builtinfunc.catch + space + word {
 	font-weight: bold;
 }
 
-tcl.variable.set,
-tcl.command-unset,
-tcl.command-variable,
-tcl.command-global,
-tcl.upvar {
+tcl.variable.definition.set,
+tcl.variable.definition.command-unset,
+tcl.variable.definition.command-variable,
+tcl.variable.definition.command-global,
+tcl.variable.definition.upvar {
 	font-weight: normal;
+	color: #bb82e9;
 }
 
 tcl.switch {
@@ -129,14 +130,14 @@ tcl.keyword.operator.logical {
 }
 
 tcl.balanced.brackets {
-	background-color: #fafcf0;
+	background-color: rgba(207, 220, 243, 0.2);
 }
 
 tcl.punctuation.open-bracket,
 tcl.punctuation.close-bracket,
 tcl.keyword.string-format, {
 	color: #e82c13;
-	background-color: #fafcf0;
+	background-color: rgba(207, 220, 243, 0.1);
 }
 tcl.keyword.character-class,
 tcl.punctuation.open-brace,

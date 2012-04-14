@@ -29,7 +29,7 @@ THE SOFTWARE.
 <!--for loop-->
     <snippet id="actions.snippets.tcl.for" category="actions.snippets.tcl/tcl.code.snippets">
         <title>new for loop</title>
-        <text>for \{${1:set i}\} \{${2:test}\} \{${3:incr i}\} \{
+        <text>for \{${1:set i 0}\} \{${2:test}\} \{${3:incr i}\} \{
 	${4:body}
 \}
 $0</text>
@@ -40,7 +40,7 @@ $0</text>
 <!--for loop one line-->
     <snippet id="actions.snippets.tcl.for-oneline" category="actions.snippets.tcl/tcl.code.snippets">
         <title>new for loop at one line</title>
-        <text>for \{${1:set i}\} \{${2:test}\} \{${3:incr i}\} \{${4:body}\}
+        <text>for \{${1:set i 0}\} \{${2:test}\} \{${3:incr i}\} \{${4:body}\}
 $0</text>
         <syntax-context>source.Tcl, source.Tcl *</syntax-context>
         <text-trigger>nfor1</text-trigger>
