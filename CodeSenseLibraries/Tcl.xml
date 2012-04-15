@@ -528,6 +528,33 @@ THE SOFTWARE.
 				
 	</set>
 	
+	<set name="com.rosensteiner.Tcl.function.amira.amira-spatial-data-object" casesensitive="true">
+		
+		<completion string="getBoundingBox" />
+		<completion string="getTransform" />
+		<completion string="setTransform" />
+		<completion string="getInverseTransform" />
+		<completion string="getTranslation" />
+		<completion string="setTranslation" />
+		<completion string="getRotation" />
+		<completion string="setRotation" />
+		<completion string="getScaleFactor" />
+		<completion string="setScaleFactor" />
+		<completion string="translate" />
+		<completion string="rotate" />
+		<completion string="scale" />
+		<completion string="multTransform" />
+		<completion string="hasUndefinedValue" />
+		<completion string="getUndefinedValue" />
+		<completion string="setUndefinedValue" />
+		<completion string="hasDataWindow" />
+		<completion string="setDataWindow" />
+		<completion string="removeDataWindow" />
+		<completion string="getRange" />
+		<completion string="touchMinMax" />
+				
+	</set>
+	
 	<set name="com.rosensteiner.Tcl.function.amira.interface-component-port" casesensitive="true">
 		
 		<completion string="source" />
