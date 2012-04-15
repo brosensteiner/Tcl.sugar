@@ -28,11 +28,12 @@ THE SOFTWARE.
 
     <zones>
     
+    	<include collection="Invalid" />
+    	
     	<zone name="tcl.shebang">
     	    <expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh</expression>
     	</zone>
     	
-    	<include collection="Invalid" />
     	<include collection="Comments" />
     	<include collection="Numeric" />
     	<include collection="AmiraExtension" />
@@ -95,14 +96,11 @@ THE SOFTWARE.
 			
 		</collection>
 	
+		<!--some invalid syntax (will eventually be more over time)-->
 		<collection name="Invalid">
 		
 			<zone name="tcl.language.invalid.comment.semicolon">
 			    <expression>;\s+?#[^\d].*$\n?</expression>
-			</zone>
-			
-			<zone name="tcl.language.invalid.bracket">
-			    <expression>"\[</expression>
 			</zone>
 			
 		</collection>
@@ -197,15 +195,15 @@ THE SOFTWARE.
 		<collection name="FlowControl">
 			
 			<zone name="tcl.keyword.control.start">
-			    <expression>\b(for|while|if|foreach|switch)\s</expression>
+			    <expression>\b(for|while|if|foreach|switch)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.control.additional">
-			    <expression>\b(return|elseif|else)\s</expression>
+			    <expression>\b(elseif|else)\s</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.control">
-			    <expression>\b(break|continue)\s</expression>
+			<zone name="tcl.keyword.control.flow">
+			    <expression>\b(break|continue|return)\b</expression>
 			</zone>
 			     			
 		</collection>
@@ -227,6 +225,7 @@ THE SOFTWARE.
 			    	<include collection="EscapeChar"/>
 			    	<include collection="FormatSpecifier"/>
 			    	<include collection="Balanced" />
+			    	<include collection="Variables" />
 			    	
 			    </subzones>
 			</zone>
@@ -486,6 +485,10 @@ THE SOFTWARE.
         	
         	<zone name="tcl.keyword.command.amira.interface-component-port">
         	    <expression>\b(getValue|setValue|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.interface-component-connectionport">
+        	    <expression>\b(source|connect|disconnect|setTightness|isTight|setVisibility|isVisible|allowEditing|isEditable|validSource)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.general-amira-object">

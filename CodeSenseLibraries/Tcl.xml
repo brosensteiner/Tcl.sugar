@@ -29,7 +29,7 @@ THE SOFTWARE.
 	<behavior>
 		<append-dynamic>
 		
-			<matched-suffix>(\s*[^\[\{(])|\s*[^\[\{(]?</matched-suffix>
+			<matched-suffix>(\s*[^\[\{(])]|\s*[^\[\{(]?</matched-suffix>
 			<transform-into>(?1:$1: $0)</transform-into>
 		
 		</append-dynamic>
@@ -529,6 +529,21 @@ THE SOFTWARE.
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.function.amira.interface-component-port" casesensitive="true">
+		
+		<completion string="source" />
+		<completion string="connect" />
+		<completion string="disconnect" />
+		<completion string="setTightness" />
+		<completion string="isTight" />
+		<completion string="setVisibility" />
+		<completion string="isVisible" />
+		<completion string="allowEditing" />
+		<completion string="isEditable" />
+		<completion string="validSource" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.amira.interface-component-connectionport" casesensitive="true">
 		
 		<completion string="help" />
 		<completion string="isNew" />

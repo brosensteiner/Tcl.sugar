@@ -3,7 +3,8 @@
     @placeholder Tcl
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
 */
-not(tcl.comment, tcl.string) {
+
+:not(tcl.comment, tcl.string) {
 	spell-check: disabled;
 }
 
@@ -88,7 +89,9 @@ tcl.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword
 tcl.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space +  :not(keyword) + space + word,
 
 tcl.builtinfunc.catch + word,
-tcl.builtinfunc.catch + space + word {
+tcl.builtinfunc.catch + space + word,
+
+tcl.keyword.control.start[text='foreach'] + space + *  {
 	color: #7ac54d;
 	font-weight: bold;
 }
@@ -140,9 +143,9 @@ tcl.keyword.string-format, {
 	background-color: rgba(207, 220, 243, 0.1);
 }
 tcl.keyword.character-class,
-tcl.punctuation.open-brace,
-tcl.punctuation.close-brace,
-tcl.punctuation.open-parenthesis,
-tcl.punctuation.close-parenthesis {
+tcl.open-brace,
+tcl.close-brace,
+tcl.open-parenthesis,
+tcl.close-parenthesis {
 	color: #7f7f7f;
 }

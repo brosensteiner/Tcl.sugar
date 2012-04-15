@@ -107,7 +107,13 @@ THE SOFTWARE.
 	<provider>
 		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.interface-component-port</completions>
-		<complete-match>\b[a-zA-Z]+</complete-match>
+		<complete-match>\b[a-z]+</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>source.Tcl, source.Tcl :not(tcl.escape, tcl.shebang)</selector>
+		<completions>com.rosensteiner.Tcl.function.amira.interface-component-connectionport</completions>
+		<complete-match>\b[a-z]+</complete-match>
 	</provider>
 	
 	<provider>
