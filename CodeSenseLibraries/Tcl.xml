@@ -29,7 +29,7 @@ THE SOFTWARE.
 	<behavior>
 		<append-dynamic>
 		
-			<matched-suffix>(\s*[^\[\{(])]|\s*[^\[\{(]?</matched-suffix>
+			<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
 			<transform-into>(?1:$1: $0)</transform-into>
 		
 		</append-dynamic>
@@ -139,6 +139,8 @@ THE SOFTWARE.
 		<completion string="while" />
 		<completion string="continue" />
 		<completion string="if" />
+		<completion string="else" />
+		<completion string="elseif" />
 		<completion string="package" />
 		<completion string="string" />
 		<completion string="dde" />

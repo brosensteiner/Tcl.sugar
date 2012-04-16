@@ -128,7 +128,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.variable.definition.general">
-			    <expression>\b(set)\s+([a-zA-Z0-9_]+)</expression>
+			    <expression>\b(set|lset)\s+([a-zA-Z0-9_]+)</expression>
 			    <capture number="1" name="tcl.variable.definition.set"/>
 			    <capture number="2" name="tcl.variable.definition.new"/>
 			</zone>
@@ -199,11 +199,11 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.control.additional">
-			    <expression>\b(elseif|else)\s</expression>
+			    <expression>\b(elseif|else)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.control.flow">
-			    <expression>\b(break|continue|return)\b</expression>
+			    <expression>\b(break|continue)\b</expression>
 			</zone>
 			     			
 		</collection>
@@ -377,7 +377,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.command.builtinfunc">
-				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|lset|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord)\b</expression>
+				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return)\b</expression>
 			</zone>
             
         </collection>
