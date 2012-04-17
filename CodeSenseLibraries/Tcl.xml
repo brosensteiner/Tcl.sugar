@@ -718,7 +718,6 @@ THE SOFTWARE.
    		<completion string="HxSurfaceVectorField" />
    		<completion string="HxSurfaceComplexScalarField" />
    		<completion string="HxSurfaceComplexVectorField" />
-   		<completion string="HxSurfaceField" />
    		<!--additional:-->
    		<completion string="HxGenerateTensorData" />
    		<completion string="HxArithmetic" />
@@ -750,7 +749,6 @@ THE SOFTWARE.
    		<completion string="HxParametricSurface" /> 
    		<completion string="HxStereoTestPattern" /> 
    		<completion string="HxVoxelSurface" /> 
-   		<completion string="HxAnnotation" /> 
    		<completion string="HxCalculus" />  
    		<completion string="HxCircularCameraPath" /> 
    		<completion string="HxArbitraryCut" /> 
