@@ -118,16 +118,23 @@ tcl.function + space + * + space + * {
 	background-color: rgba(207, 220, 243, 0.3);
 }
 
+tcl.keyword.options + space + switches {
+	color: rgba(186, 129, 233, 0.4);
+}
+
 tcl.keyword.command {
 	color: #bb82e9;
 }
-tcl.builtinfunc + space + tcl.keyword.options,
-tcl.builtinfunc + space + options + space + tcl.keyword.options,
-tcl.builtinfunc + space + options + space + options + space + tcl.keyword.options,
-tcl.builtinfunc[text='fileevent'] + space + :not(keyword) + space + tcl.keyword.options.fileevent,
-tcl.builtinfunc[text='trace'] + space + options + space + :not(keyword) + space + tcl.keyword.options.trace-add-command-ops {
-	color: rgba(186, 129, 233, 0.5);
+
+tcl.builtinfunc + space + options,
+tcl.builtinfunc + space + options + space + options,
+tcl.builtinfunc + space + options + space + options + space + options,
+tcl.builtinfunc[text='fileevent'] + space + :not(keyword) + space + options.fileevent,
+tcl.builtinfunc[text='trace'] + space + options + space + :not(keyword) + space + options.trace-add-command-ops {
+	color: rgba(186, 129, 233, 0.6);
 }
+
+
 tcl.keyword.operator.logical {
 	font-weight: bold;
 }

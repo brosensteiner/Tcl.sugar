@@ -323,7 +323,6 @@ THE SOFTWARE.
 		
 	</set>
 	
-	
 	<!--history options-->
 	<set name="com.rosensteiner.Tcl.function.history" casesensitive="true">
 		
@@ -335,6 +334,31 @@ THE SOFTWARE.
 		<completion string="keep" />
 		<completion string="nextid" />
 		<completion string="redo" />
+				
+	</set>
+	
+	<!--namespace options-->
+	<set name="com.rosensteiner.Tcl.function.namespace" casesensitive="true">
+		
+		<completion string="children" />
+		<completion string="code" />
+		<completion string="current" />
+		<completion string="delete" />
+		<completion string="ensemble" />
+		<completion string="eval" />
+		<completion string="exists" />
+		<completion string="export" />
+		<completion string="forget" />
+		<completion string="import" />
+		<completion string="inscope" />
+		<completion string="origin" />
+		<completion string="parent" />
+		<completion string="path" />
+		<completion string="qualifiers" />
+		<completion string="tail" />
+		<completion string="upvar" />
+		<completion string="unknown" />
+		<completion string="which" />
 				
 	</set>
 	
@@ -460,6 +484,19 @@ THE SOFTWARE.
 				
 	</set>
 	
+	
+	<!--Tcl switches for builtin procedures-->
+	
+	<set name="com.rosensteiner.Tcl.function.namespace.export.switches" casesensitive="true">
+		<completion string="-clear" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.import.switches" casesensitive="true">
+		<completion string="-force" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.which.switches" casesensitive="true">
+		<completion string="-command" />
+		<completion string="-variable" />
+	</set>
 	
 	<!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
 	

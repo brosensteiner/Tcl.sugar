@@ -328,8 +328,8 @@ THE SOFTWARE.
 				<expression>(?&lt;=history\s)(add|change|clear|event|info|keep|nextid|redo)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.string">
-				<expression>(?&lt;=string\s)(bytelength|compare|equal|first|index|is|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
+			<zone name="tcl.keyword.options.namespace">
+				<expression>(?&lt;=namespace\s)(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.trace">
@@ -338,6 +338,10 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.options.trace.add-remove-info">
 				<expression>(?&lt;=trace\sadd\s|trace\sremove\s|trace\sinfo\s)(command|execution|variable)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.string">
+				<expression>(?&lt;=string\s)(bytelength|compare|equal|first|index|is|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.string-is">
@@ -357,7 +361,7 @@ THE SOFTWARE.
 			
 			
 			
-			<zone name="tcl.keyword.command.builtinfunc.catch"><!--catch assigns a variable so here is a zone definition for it-->
+			<zone name="tcl.keyword.command.builtinfunc.catch"><!--catch assigns a variable we will catch so here is a zone definition for it-->
 			    <starts-with>
 			        <expression>\b(catch)\s+(\{)</expression>
 			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
@@ -368,7 +372,7 @@ THE SOFTWARE.
 			        <capture number="1" name="tcl.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="EscapeChar"/>
+			    	<include collection="source.Tcl"/>
 			    </subzones>
 			</zone>
 			
@@ -378,6 +382,10 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.command.builtinfunc">
 				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.switches">
+				<expression>-\w+\b</expression>
 			</zone>
             
         </collection>
