@@ -719,6 +719,44 @@ THE SOFTWARE.
    		<completion string="HxSurfaceComplexScalarField" />
    		<completion string="HxSurfaceComplexVectorField" />
    		<completion string="HxSurfaceField" />
+   		<!--additional:-->
+   		<completion string="HxGenerateTensorData" />
+   		<completion string="HxArithmetic" />
+   		<completion string="HxBSpline" />
+   		<completion string="HxColormapSC" />
+   		<completion string="HxConvertToDiskData" />
+   		<completion string="HxGPUShader" />
+   		<completion string="HxLinearVectorField3" />
+   		<completion string="HxMagDipol" />
+   		<completion string="HxMosaic" />
+   		<completion string="HxMovieData" />
+   		<completion string="HxSpatialGraph" />
+   		<completion string="HxSurfacePathSet" />
+   		<completion string="HxTime" />
+   		<completion string="HxScriptObject" /> 
+   		<completion string="HxIvDisplay" />  
+   		<completion string="HxAnnotation" /> 
+   		<completion string="HxSound" /> 
+   		<completion string="HxSQLite" /> 
+   		<completion string="HxTridelity" /> 
+   		<completion string="Hx2DMesh" /> 
+   		<completion string="HxCreateSphere" /> 
+   		<completion string="HxFakeModule" /> 
+   		<completion string="HxDynamicFileSeriesCtrl" /> 
+   		<completion string="HxGeometryToSurface" /> 
+   		<completion string="HxLDAExpertSettings" /> 
+   		<completion string="HxMolTrajectoryBundle" /> 
+   		<completion string="HxPSFGen" /> 
+   		<completion string="HxParametricSurface" /> 
+   		<completion string="HxStereoTestPattern" /> 
+   		<completion string="HxVoxelSurface" /> 
+   		<completion string="HxAnnotation" /> 
+   		<completion string="HxCalculus" />  
+   		<completion string="HxCircularCameraPath" /> 
+   		<completion string="HxArbitraryCut" /> 
+   		<completion string="HxMultiChannelField3" /> 
+   		<completion string="HxMultiChannelField" /> 
+   		<completion string="HxScale" />
    				
    	</set>
    	
