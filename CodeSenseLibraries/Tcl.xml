@@ -507,6 +507,8 @@ THE SOFTWARE.
 		<completion string="SCRIPTFILE" />
 		<completion string="SCRIPTDIR" />
 		<completion string="hideNewModules" />
+		<!--other stuff-->
+		<completion string="$this" />
 				
 	</set>
 	

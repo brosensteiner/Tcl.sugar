@@ -116,64 +116,64 @@ THE SOFTWARE.
 		
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
-			<zone name="tcl.variable.definition.upvar">
+			<zone name="tcl.keyword.variable.definition.upvar">
 			    <expression>upvar</expression>
 			</zone>
 			
-			<zone name="tcl.variable.definition.general">
+			<zone name="tcl.keyword.variable.definition.general">
 			    <expression>\b(rename)\s+([\$a-zA-Z0-9\._]+)\s+([\$a-zA-Z0-9\._]+)</expression>
-			    <capture number="1" name="tcl.variable.definition.set"/>
-			    <capture number="2" name="tcl.variable.definition.oldname"/>
-			    <capture number="3" name="tcl.variable.definition.newname"/>
+			    <capture number="1" name="tcl.keyword.variable.definition.set"/>
+			    <capture number="2" name="tcl.keyword.variable.definition.oldname"/>
+			    <capture number="3" name="tcl.keyword.variable.definition.newname"/>
 			</zone>
 			
-			<zone name="tcl.variable.definition.general">
+			<zone name="tcl.keyword.variable.definition.general">
 			    <expression>\b(set|lset)\s+([a-zA-Z0-9_]+)</expression>
-			    <capture number="1" name="tcl.variable.definition.set"/>
-			    <capture number="2" name="tcl.variable.definition.new"/>
+			    <capture number="1" name="tcl.keyword.variable.definition.set"/>
+			    <capture number="2" name="tcl.keyword.variable.definition.new"/>
 			</zone>
 			
-			<zone name="tcl.variable.definition.command-global">
+			<zone name="tcl.keyword.variable.definition.command-global">
 			    <expression>\bglobal\b</expression>
 			</zone>
 			
-			<zone name="tcl.variable.definition.command-variable">
+			<zone name="tcl.keyword.variable.definition.command-variable">
 			    <expression>\bvariable\b</expression>
 			</zone>
 			
-			<zone name="tcl.variable.definition.concat">
+			<zone name="tcl.keyword.variable.definition.concat">
 			    <expression>([a-zA-Z0-9_]*)(\.)([a-zA-Z0-9_]*)</expression>
-			    <capture number="1" name="tcl.variable.definition.concat.rest"/>
-			    <capture number="2" name="tcl.variable.definition.concat.point"/>
-			    <capture number="3" name="tcl.variable.definition.concat.rest"/>
+			    <capture number="1" name="tcl.keyword.variable.definition.concat.rest"/>
+			    <capture number="2" name="tcl.keyword.variable.definition.concat.point"/>
+			    <capture number="3" name="tcl.keyword.variable.definition.concat.rest"/>
 			</zone>
 			
-			<zone name="tcl.variable.definition.substitute">
+			<zone name="tcl.keyword.variable.definition.substitute">
 			    <starts-with>
 			        <expression>([a-zA-Z0-9_]*)(\$\{)</expression>
-			        <capture number="1" name="tcl.variable.definition.substitute.rest"/>
-			        <capture number="2" name="tcl.variable.definition.substitute.begin"/>
+			        <capture number="1" name="tcl.keyword.variable.definition.substitute.rest"/>
+			        <capture number="2" name="tcl.keyword.variable.definition.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\})([a-zA-Z0-9_]*)</expression>
-			        <capture number="1" name="tcl.variable.definition.substitute.end"/>
-			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
+			        <capture number="1" name="tcl.keyword.variable.definition.substitute.end"/>
+			        <capture number="2" name="tcl.keyword.variable.definition.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.variable.definition.substitute.array">
+			<zone name="tcl.keyword.variable.definition.substitute.array">
 			    <starts-with>
 			        <expression>([a-zA-Z0-9_]*)(\$\()</expression>
-			        <capture number="1" name="tcl.variable.definition.substitute.rest"/>
-			        <capture number="2" name="tcl.variable.definition.substitute.begin"/>
+			        <capture number="1" name="tcl.keyword.variable.definition.substitute.rest"/>
+			        <capture number="2" name="tcl.keyword.variable.definition.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\))([a-zA-Z0-9_]*)</expression>
-			        <capture number="1" name="tcl.variable.definition.substitute.end"/>
-			        <capture number="2" name="tcl.variable.definition.substitute.rest"/>
+			        <capture number="1" name="tcl.keyword.variable.definition.substitute.end"/>
+			        <capture number="2" name="tcl.keyword.variable.definition.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
@@ -375,7 +375,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.command.builtinfunc">
-				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return)\b</expression>
+				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.switches">

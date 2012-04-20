@@ -82,12 +82,6 @@ tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + sp
 tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.unset + space + word,
-tcl.unset + space + :not(keyword) + space + word,
-tcl.unset + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.unset + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space +  :not(keyword) + space + word,
-
 tcl.builtinfunc.catch + word,
 tcl.builtinfunc.catch + space + word,
 
@@ -96,8 +90,16 @@ tcl.keyword.control.start[text='foreach'] + space + *  {
 	font-weight: bold;
 }
 
+tcl.builtinfunc[text='unset'] + space + :not(keyword),
+tcl.builtinfunc[text='unset'] + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='unset'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='unset'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='unset'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) {
+	color: #e51c1c;
+	font-weight: bold;
+}
+
 tcl.variable.definition.set,
-tcl.variable.definition.command-unset,
 tcl.variable.definition.command-variable,
 tcl.variable.definition.command-global,
 tcl.variable.definition.upvar {

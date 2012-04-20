@@ -33,7 +33,7 @@ THE SOFTWARE.
              <name>Tcl</name>
              
              <detectors>
-                 <extension>tcl|scro|rc</extension>
+                 <extension>tcl|scro|rc|hx</extension>
                  <match-content lines="10">^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh|#\s+Amira-Script-Object|</match-content> 
              </detectors>
      
