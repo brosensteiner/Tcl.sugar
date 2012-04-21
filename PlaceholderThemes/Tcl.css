@@ -1,6 +1,6 @@
 /*
     @theme Tcl Placeholder
-    @placeholder Tcl
+    @placeholder source.Tcl
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
 */
 
@@ -36,10 +36,7 @@ tcl.keyword.amira {
 tcl.keyword.option.amira {
 	font-weight: normal;
 }
-tcl.keyword.option.amira.viewer {
-	font-weight: normal;
-	color: black;
-}
+
 tcl.keyword.command.amira.global.commands.viewer + space + tcl.keyword.option.amira.viewer,
 tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.option.amira.viewer {
 	color: #4f76cf;
@@ -107,17 +104,12 @@ tcl.variable.definition.upvar {
 	color: #bb82e9;
 }
 
-tcl.switch {
-	font-weight: normal;
-	color: #7f7f7f;
-}
-
 tcl.function + space + * {
 	color: #3e117b;
 	font-weight: bold;
 }
 tcl.function + space + * + space + * {
-	background-color: rgba(207, 220, 243, 0.3);
+	background-color: rgba(207, 220, 243, 0.2);
 }
 
 tcl.keyword.options + space + switches {
@@ -142,7 +134,7 @@ tcl.keyword.operator.logical {
 }
 
 tcl.balanced.brackets {
-	background-color: rgba(207, 220, 243, 0.2);
+	background-color: rgba(207, 220, 243, 0.1);
 }
 
 tcl.punctuation.open-bracket,

@@ -31,7 +31,7 @@ THE SOFTWARE.
     	<include collection="Invalid" />
     	
     	<zone name="tcl.shebang">
-    	    <expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh</expression>
+    	    <expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\s+tclsh</expression>
     	</zone>
     	
     	<include collection="Comments" />
@@ -220,6 +220,7 @@ THE SOFTWARE.
 			    	<include collection="FormatSpecifier"/>
 			    	<include collection="Balanced" />
 			    	<include collection="Variables" />
+			    	<include collection="General" />
 			    	
 			    </subzones>
 			</zone>

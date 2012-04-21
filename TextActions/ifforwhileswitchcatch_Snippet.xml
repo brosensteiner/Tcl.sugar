@@ -29,7 +29,7 @@ THE SOFTWARE.
 <!--for loop-->
     <snippet id="actions.snippets.tcl.for" category="actions.snippets.tcl/tcl.code.snippets">
         <title>new for loop</title>
-        <text>for \{${1:set i 0}\} \{${2:test}\} \{${3:incr i}\} \{
+        <text>for \{ ${1:set i 0} \} \{ ${2:test} \} \{ ${3:incr i} \} \{
 	${4:body}
 \}
 $0</text>
@@ -40,7 +40,7 @@ $0</text>
 <!--for loop one line-->
     <snippet id="actions.snippets.tcl.for-oneline" category="actions.snippets.tcl/tcl.code.snippets">
         <title>new for loop at one line</title>
-        <text>for \{${1:set i 0}\} \{${2:test}\} \{${3:incr i}\} \{${4:body}\}
+        <text>for \{ ${1:set i 0} \} \{ ${2:test} \} \{ ${3:incr i} \} \{ ${4:body} \}
 $0</text>
         <syntax-context>source.Tcl, source.Tcl *</syntax-context>
         <text-trigger>nfor1</text-trigger>
@@ -50,7 +50,7 @@ $0</text>
 <!--if-->
 	<snippet id="actions.snippets.tcl.if" category="actions.snippets.tcl/tcl.code.snippets">
 	        <title>new if</title>
-	        <text>if \{${1:condition}\} \{
+	        <text>if \{ ${1:condition} \} \{
 	${2:body}
 \}
 $0</text>
@@ -61,7 +61,7 @@ $0</text>
 <!--if one line-->
 	<snippet id="actions.snippets.tcl.if-oneline" category="actions.snippets.tcl/tcl.code.snippets">
 	        <title>new if at one line</title>
-	        <text>if \{${1:condition}\} \{${2:body}\}
+	        <text>if \{ ${1:condition} \} \{ ${2:body} \}
 $0</text>
 	        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
 	        <text-trigger>nif1</text-trigger>
@@ -70,7 +70,7 @@ $0</text>
 <!--if else-->
 	<snippet id="actions.snippets.tcl.ifelse" category="actions.snippets.tcl/tcl.code.snippets">
 		<title>new if else</title>
-			<text>if \{${1:condition}\} \{
+			<text>if \{ ${1:condition} \} \{
 	 	${2:body}
 	 \} else \{
 	 	${3:body}
@@ -83,7 +83,7 @@ $0</text>
 <!--while-->	
 	<snippet id="actions.snippets.tcl.while" category="actions.snippets.tcl/tcl.code.snippets">
 		<title>new while</title>
-		<text>while \{${1:condition}\} \{
+		<text>while \{ ${1:condition} \} \{
 	${2:body}
 \}
 $0</text>
@@ -94,7 +94,7 @@ $0</text>
 <!--while one line-->	
 	<snippet id="actions.snippets.tcl.while-oneline" category="actions.snippets.tcl/tcl.code.snippets">
 		<title>new while at one line</title>
-		<text>while \{${1:condition}\} \{${2:body}\}
+		<text>while \{ ${1:condition} \} \{ ${2:body} \}
 $0</text>
 		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
 		<text-trigger>nwhile1</text-trigger>
@@ -125,7 +125,7 @@ $0</text>
 <!--foreach one line-->
 	<snippet id="actions.snippets.tcl.foreach-oneline" category="actions.snippets.tcl/tcl.code.snippets">
 		<title>new foreach at one line</title>
-		<text>foreach ${1:var} ${2:list} \{${3:body}\}
+		<text>foreach ${1:var} ${2:list} \{ ${3:body} \}
 $0</text>
 		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
 		<text-trigger>nforeach1</text-trigger>
@@ -144,7 +144,7 @@ $0</text>
 
 	<snippet id="actions.snippets.tcl.catch-oneline" category="actions.snippets.tcl/tcl.code.snippets">
 			<title>new catch at one line</title>
-			<text>catch \{${1:body}\} ${2:resultVar}
+			<text>catch \{ ${1:body} \} ${2:resultVar}
 $0</text>
 			<syntax-context>source.Tcl, source.Tcl *</syntax-context>
 			<text-trigger>ncatch1</text-trigger>
