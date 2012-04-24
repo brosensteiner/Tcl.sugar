@@ -229,6 +229,7 @@ THE SOFTWARE.
 		<completion string="argv0" />
 		<completion string="tcl_interactive" />
 		<completion string="geometry" />
+		<completion string="args" /><!--this has to go somewhere-->
 		
 	</set>
 	
@@ -535,6 +536,7 @@ THE SOFTWARE.
 		<completion string="setVar" />
 		<completion string="setVarSerialize" />
 		<completion string="getVar" />
+		<completion string="hasVar" /><!--not documented in Amira 5.2.4-->
 		<completion string="testBreak" />
 				
 	</set>

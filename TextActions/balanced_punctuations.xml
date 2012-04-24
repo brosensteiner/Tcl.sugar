@@ -36,14 +36,14 @@ THE SOFTWARE.
 	<snippet id="actions.snippets.tcl.WrapBracket" category="actions.snippets.tcl">
 		<title>auto square brackets</title>
 		<key-equivalent>shift [</key-equivalent>
-		<text>[ ${EDITOR_SELECTION:${1:...}} ]$0</text>
+		<text>[${EDITOR_SELECTION:${1:...}}]$0</text>
 		<syntax-context>source.Tcl, source.Tcl :not(string)</syntax-context>
 	</snippet>
 	
 	<snippet id="actions.snippets.tcl.WrapParenthesis" category="actions.snippets.tcl">
 		<title>auto parenthesis</title>
 		<key-equivalent>cmd (</key-equivalent>
-		<text>\( ${EDITOR_SELECTION:${1:...}} \)$0</text>
+		<text>\(${EDITOR_SELECTION:${1:...}}\)$0</text>
 		<syntax-context>source.Tcl, source.Tcl :not(string)</syntax-context>
 	</snippet>
 	

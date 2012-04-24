@@ -34,7 +34,7 @@ THE SOFTWARE.
        
 		<detectors>
 			<extension>tcl|scro|rc|hx</extension>
-			<match-content lines="2">^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh|#\s+Amira-Script-Object|</match-content> 
+			<match-content lines="2">^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh|#\s+Amira-Script-Object|#\s+Amira Script</match-content> 
 		</detectors>
 		
  		<default-extension>tcl</default-extension>

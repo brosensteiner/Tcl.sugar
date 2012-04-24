@@ -19,10 +19,6 @@ tcl.global-procedures {
 	font-weight: bold;
 }
 
-
-tcl.variable.new {
-	color: #7ac54d;
-}
 tcl.variable.definition.substitute,
 tcl.variable.definition.concat {
 	color: rgba(163, 214, 132, 0.8);
@@ -104,7 +100,9 @@ tcl.variable.definition.upvar {
 	color: #bb82e9;
 }
 
-tcl.function + space + * {
+tcl.function + space + *,
+tcl.function + space + * + space + tcl.builtinfunc[text='args'],
+tcl.function + space + * + space +  braces tcl.builtinfunc[text='args'] {
 	color: #3e117b;
 	font-weight: bold;
 }
