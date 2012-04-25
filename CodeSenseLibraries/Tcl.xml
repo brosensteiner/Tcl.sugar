@@ -538,6 +538,13 @@ THE SOFTWARE.
 		<completion string="getVar" />
 		<completion string="hasVar" /><!--not documented in Amira 5.2.4-->
 		<completion string="testBreak" />
+		<completion string="setNum" />
+		<completion string="getNum" />
+		<completion string="setValueString" />
+		<completion string="setMenuSensitivity" />
+		<completion string="getMenuSensitivity" />
+		<completion string="setSensitivity" />
+		<completion string="getSensitivity" />
 				
 	</set>
 	
@@ -568,6 +575,7 @@ THE SOFTWARE.
 		<completion string="help" />
 		<completion string="getLabel" />
 		<completion string="setViewerMask" />
+		
 				
 	</set>
 	
@@ -637,6 +645,7 @@ THE SOFTWARE.
 		<completion string="isOfType" />
 		<completion string="getTypeId" />
 		<completion string="connect" />
+		
 				
 	</set>
    	
@@ -759,6 +768,75 @@ THE SOFTWARE.
    		<completion string="HxMultiChannelField3" /> 
    		<completion string="HxMultiChannelField" /> 
    		<completion string="HxScale" />
+   		<completion string="HxGMC" />
+   		<completion string="HxVolren" />
+   		<completion string="HxVoltex" /> 
+   		<completion string="HxAffineRegistration" /> 
+   		<completion string="HxAlignSlices" /> 
+   		<completion string="HxAnonymizeImageStack" /> 
+   		<completion string="HxApplyTransform" />  
+   		<completion string="HxAverageBrain" /> 
+   		<completion string="HxCorrectBlockFace" />  
+   		<completion string="HxCanny2D" /> 
+   		<completion string="HxCastField" /> 
+   		<completion string="HxCastLattice" /> 
+   		<completion string="HxChannelWorks" /> 
+   		<completion string="HxColorCombine" /> 
+   		<completion string="HxCompareLatticeData" /> 
+   		<completion string="HxComputeTensor" /> 
+   		<completion string="HxComputeTensorOutOfCore" /> 
+   		<completion string="HxDicomSend" /> 
+   		<completion string="HxFieldAsLattice" /> 
+   		<completion string="HxFilterBySpreadsheet" /> 
+   		<completion string="HxGradient" /> 
+   		<completion string="HxFrameInterpolator" /> 
+   		<completion string="HxLabelVoxel" /> 
+   		<completion string="HxLatToHex" /> 
+   		<completion string="HxMerge" /> 
+   		<completion string="HxNormalizeImage" /> 
+   		<completion string="HxResample" /> 
+   		<completion string="HxSegmentBrain" /> 
+   		<completion string="HxShear" /> 
+   		<completion string="HxSplitLattice" /> 
+   		<completion string="HxVolumeEdit" />
+   		<completion string="HxStandardView" /> 
+   		<completion string="HxSelectRoi" /> 
+   		<completion string="HxProjectionView" /> 
+   		<completion string="HxOrthoSlice" /> 
+   		<completion string="HxObliqueSlice" /> 
+   		<completion string="HxAxis" /> 
+   		<completion string="HxIsosurface" /> 
+   		<completion string="HxIsolines" /> 
+   		<completion string="HxHeightField" /> 
+   		<completion string="HxFilteredObliqueSlice" /> 
+   		<completion string="HxCurvedSlice" /> 
+   		<completion string="HxCornerCut" /> 
+   		<completion string="HxCityPlot" /> 
+   		<completion string="HxBumpSlice" /> 
+   		<completion string="HxAnnotatedIsolines" /> 
+   		<completion string="HxObjectTransformAnimation" /> 
+   		<completion string="HxBeadExtract" /> 
+   		<completion string="HxConvolution" /> 
+   		<completion string="HxCorrectZDrop" /> 
+   		<completion string="HxDataPreprocess" /> 
+   		<completion string="HxDeconvolution" /> 
+   		<completion string="HxFFT" />
+   		<completion string="HxImageFilters" />
+   		<completion string="HxConnectedComponentAnalysis" /> 
+   		<completion string="HxCorrelationPlot" /> 
+   		<completion string="HxLocalThreshold" /> 
+   		<completion string="HxSeparateMorpho" /> 
+   		<completion string="HxWatershedSegmentation" /> 
+   		<completion string="HxHistogram" /> 
+   		<completion string="HxLineProbe" /> 
+   		<completion string="HxLineSetProbe" /> 
+   		<completion string="HxPointProbe" /> 
+   		<completion string="HxShapeAnalysis" /> 
+   		<completion string="HxSplineProbe" />  
+   		<completion string="HxExtAutoSkeleton" /> 
+   		<completion string="HxTEASAR" /> 
+   		<completion string="HxDOThinner2" />
+   		<completion string="HxTissueStatistics" />
    				
    	</set>
    	

@@ -52,42 +52,42 @@ THE SOFTWARE.
 	
 		<collection name="Balanced">
 		
-			<zone name="tcl.balanced.parenthesis">
+			<zone name="tcl.keyword.balanced.parenthesis">
 					<starts-with>
 						<expression>\(</expression>
-						<capture number="0" name="tcl.punctuation.open-parenthesis"/>
+						<capture number="0" name="tcl.keyword.punctuation.open-parenthesis"/>
 					</starts-with>
 					<ends-with>
 						<expression>\)</expression>
-							<capture number="0" name="tcl.punctuation.close-parenthesis"/>
+							<capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
 					</ends-with>
 					<subzones>
 						<include syntax="source.Tcl" />
 					</subzones>
 				</zone>
 				
-				<zone name="tcl.balanced.braces">
+				<zone name="tcl.keyword.balanced.braces">
 					<starts-with>
 						<expression>(?&lt;=\s|\[)\{</expression>
-						<capture number="0" name="tcl.punctuation.open-brace"/>
+						<capture number="0" name="tcl.keyword.punctuation.open-brace"/>
 					</starts-with>
 					<ends-with>
 						<expression>\}</expression>
-							<capture number="0" name="tcl.punctuation.close-brace"/>
+							<capture number="0" name="tcl.keyword.punctuation.close-brace"/>
 					</ends-with>
 					<subzones>
 						<include syntax="source.Tcl" />
 					</subzones>
 				</zone>
 				
-				<zone name="tcl.balanced.brackets">
+				<zone name="tcl.keyword.balanced.brackets">
 					<starts-with>
 						<expression>\[</expression>
-						<capture number="0" name="tcl.punctuation.open-bracket"/>
+						<capture number="0" name="tcl.keyword.punctuation.open-bracket"/>
 					</starts-with>
 					<ends-with>
 						<expression>\]</expression>
-							<capture number="0" name="tcl.punctuation.close-bracket"/>
+							<capture number="0" name="tcl.keyword.punctuation.close-bracket"/>
 					</ends-with>
 					<subzones>
 						<include syntax="source.Tcl" />
@@ -483,7 +483,7 @@ THE SOFTWARE.
             </zone>
         	        	        	
         	<zone name="tcl.keyword.command.amira.port.scriptobject">
-        	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|hasVar|setVarSerialize|getVar|testBreak)\b</expression>
+        	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|getVar|hasVar|setVarSerialize|testBreak|setNum|getNum|setValueString|setMenuSensitivity|getMenuSensitivity|setSensitivity|getSensitivity)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.interface-component-port">
@@ -511,7 +511,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.additional-data-classes">
-        	    <expression>\b(HxGenerateTensorData|HxArithmetic|HxBSpline|HxColormapSC|HxConvertToDiskData|HxGPUShader|HxLinearVectorField3|HxMagDipol|HxMosaic|HxMovieData|HxSpatialGraph|HxSurfacePathSet|HxTime|HxScriptObject|HxIvDisplay|HxAnnotation|HxSound|HxSQLite|HxTridelity|Hx2DMesh|HxCreateSphere|HxFakeModule|HxDynamicFileSeriesCtrl|HxGeometryToSurface|HxLDAExpertSettings|HxMolTrajectoryBundle|HxPSFGen|HxParametricSurface|HxStereoTestPattern|HxVoxelSurface|HxCalculus|HxCircularCameraPath|HxArbitraryCut|HxMultiChannelField3|HxMultiChannelField|HxScale)\b</expression>
+        	    <expression>\b(HxGenerateTensorData|HxArithmetic|HxBSpline|HxColormapSC|HxConvertToDiskData|HxGPUShader|HxLinearVectorField3|HxMagDipol|HxMosaic|HxMovieData|HxSpatialGraph|HxSurfacePathSet|HxTime|HxScriptObject|HxIvDisplay|HxAnnotation|HxSound|HxSQLite|HxTridelity|Hx2DMesh|HxCreateSphere|HxFakeModule|HxDynamicFileSeriesCtrl|HxGeometryToSurface|HxLDAExpertSettings|HxMolTrajectoryBundle|HxPSFGen|HxParametricSurface|HxStereoTestPattern|HxVoxelSurface|HxCalculus|HxCircularCameraPath|HxArbitraryCut|HxMultiChannelField3|HxMultiChannelField|HxScale|HxGMC|HxVolren|HxVoltex|HxAffineRegistration|HxAlignSlices|HxAnonymizeImageStack|HxApplyTransform|HxAverageBrain|HxCorrectBlockFace|HxCanny2D|HxCastField|HxCastLattice|HxChannelWorks|HxColorCombine|HxCompareLatticeData|HxComputeTensor|HxComputeTensorOutOfCore|HxDicomSend|HxFieldAsLattice|HxFilterBySpreadsheet|HxGradient|HxFrameInterpolator|HxLabelVoxel|HxLatToHex|HxMerge|HxNormalizeImage|HxResample|HxSegmentBrain|HxShear|HxSplitLattice|HxVolumeEdit|HxStandardView|HxSelectRoi|HxProjectionView|HxOrthoSlice|HxObliqueSlice|HxAxis|HxIsosurface|HxIsolines|HxHeightField|HxFilteredObliqueSlice|HxCurvedSlice|HxCornerCut|HxCityPlot|HxBumpSlice|HxAnnotatedIsolines|HxObjectTransformAnimation|HxBeadExtract|HxConvolution|HxCorrectZDrop|HxDataPreprocess|HxDeconvolution|HxFFT|HxImageFilters|HxConnectedComponentAnalysis|HxCorrelationPlot|HxLocalThreshold|HxSeparateMorpho|HxWatershedSegmentation|HxHistogram|HxLineProbe|HxLineSetProbe|HxPointProbe|HxShapeAnalysis|HxSplineProbe|HxExtAutoSkeleton|HxTEASAR|HxDOThinner2|HxTissueStatistics)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.port.type">
