@@ -502,6 +502,18 @@ THE SOFTWARE.
         	    <expression>\b(getBoundingBox|getTransform|setTransform|getInverseTransform|getTranslation|setTranslation|getRotation|setRotation|getScaleFactor|setScaleFactor|translate|rotate|scale|multTransform|hasUndefinedValue|getUndefinedValue|setUndefinedValue|hasDataWindow|setDataWindow|removeDataWindow|getRange|touchMinMax)\b</expression>
         	</zone>
         	
+        	<zone name="tcl.keyword.command.amira.field3">
+        	    <expression>\b(nDataVar|evalprimType|getDims|coordType|swapByteOrder|clearSlice|exchangeSlices|crop|flip|swapDims|setBoundingBox)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.surface">
+        	    <expression>\b(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.cluster">
+        	    <expression>\b(computeBounds|computeConnectivity|addPoint|removePoint|resetIds|setId|getId|getIndex|clear|setNumDataColumns|getNumDataColumns|setDataValue|getDataValue|setDataColumnName|getDataColumnName|setNumLabelColumns|getNumLabelColumns|setLabelValue|getLabelValue|setLabelColumnName|getLabelColumnName)\b</expression>
+        	</zone>
+        	
         	<zone name="tcl.keyword.command.amira.global.other">
         	    <expression>\b(addTimeout|all|aminfo|clear|create|dso|addPath|echo|help|httpd|limit|load|mem|quit|remove|rename|sleep|source|system|saveNetwork|saveNetworkAs)\b</expression>
         	</zone>

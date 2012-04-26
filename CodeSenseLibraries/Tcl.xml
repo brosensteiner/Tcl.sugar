@@ -606,6 +606,69 @@ THE SOFTWARE.
 				
 	</set>
 	
+	<set name="com.rosensteiner.Tcl.function.amira.field3" casesensitive="true">
+		
+		<completion string="nDataVar" />
+		<completion string="evalprimType" />
+		<completion string="getDims" />
+		<completion string="coordType" />
+		<completion string="swapByteOrder" />
+		<completion string="clearSlice" />
+		<completion string="exchangeSlices" />
+		<completion string="crop" />
+		<completion string="flip" />
+		<completion string="swapDims" />
+		<completion string="setBoundingBox" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.amira.surface" casesensitive="true">
+		
+		<completion string="recompute" />
+		<completion string="fixOrientation" />
+		<completion string="invertOrientation" />
+		<completion string="makeOnePatch" />
+		<completion string="cleanup" />
+		<completion string="getArea" />
+		<completion string="getVolume" />
+		<completion string="setColor" />
+		<completion string="setTransparency" />
+		<completion string="add -point" />
+		<completion string="add -triangle" />
+		<completion string="merge" />
+		<completion string="refine" />
+		<completion string="getPatchArea" />
+		<completion string="assignInsideMaterial" />
+		<completion string="assignOutsideMaterial" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.amira.cluster" casesensitive="true">
+		
+		<completion string="computeBounds" />
+		<completion string="computeConnectivity" />
+		<completion string="addPoint" />
+		<completion string="removePoint" />
+		<completion string="resetIds" />
+		<completion string="setId" />
+		<completion string="getId" />
+		<completion string="getIndex" />
+		<completion string="clear" />
+		<completion string="setNumDataColumns" />
+		<completion string="getNumDataColumns" />
+		<completion string="setDataValue" />
+		<completion string="getDataValue" />
+		<completion string="setDataColumnName" />
+		<completion string="getDataColumnName" />
+		<completion string="setNumLabelColumns" />
+		<completion string="getNumLabelColumns" />
+		<completion string="setLabelValue" />
+		<completion string="getLabelValue" />
+		<completion string="setLabelColumnName" />
+		<completion string="getLabelColumnName" />
+				
+	</set>
+	
 	<set name="com.rosensteiner.Tcl.function.amira.interface-component-port" casesensitive="true">
 		
 		<completion string="source" />
