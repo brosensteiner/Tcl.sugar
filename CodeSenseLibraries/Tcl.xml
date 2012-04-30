@@ -545,6 +545,9 @@ THE SOFTWARE.
 		<completion string="getMenuSensitivity" />
 		<completion string="setSensitivity" />
 		<completion string="getSensitivity" />
+		<completion string="newPort3DPointList" />
+		<completion string="newPortGeneric" />
+		<completion string="newPortTextEdit" />
 				
 	</set>
 	
@@ -666,6 +669,17 @@ THE SOFTWARE.
 		<completion string="getLabelValue" />
 		<completion string="setLabelColumnName" />
 		<completion string="getLabelColumnName" />
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.amira.data" casesensitive="true">
+		
+		<completion string="touch" />
+		<completion string="save" />
+		<completion string="parameters" />
+		<completion string="setDefaultFileFormat" />
+		<completion string="setEditor" />
+		<completion string="getEditor" />
 				
 	</set>
 	
@@ -900,6 +914,10 @@ THE SOFTWARE.
    		<completion string="HxTEASAR" /> 
    		<completion string="HxDOThinner2" />
    		<completion string="HxTissueStatistics" />
+   		<completion string="HxParameterEditor" />
+   		<completion string="HxParamBundle" />
+   		<completion string="HxParamBase" />
+   		<completion string="HxParamBase" />
    				
    	</set>
    	
@@ -1041,6 +1059,77 @@ THE SOFTWARE.
    		<completion string="show" />
    		<completion string="showMinimized" />
    		<completion string="showMaximized" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.additional-commands" casesensitive="true">
+   		
+   		<completion string="allInterfaceTypeIds" />
+   		<completion string="allInterfaces" />
+   		<completion string="applyTransform" />
+   		<completion string="applyTransformBBox" />
+   		<completion string="checkBorderTouch" />
+   		<completion string="clearVisibleFlag" />
+   		<completion string="collapse" />
+   		<completion string="compareTransforms" />
+   		<completion string="createDocFile" />
+   		<completion string="createPortSnaps" />
+   		<completion string="createWeights" />
+   		<completion string="deleteWeights" />
+   		<completion string="eval" />
+   		<completion string="expand" />
+   		<completion string="extract" />
+   		<completion string="getControllingData" />
+   		<completion string="getHelpHint" />
+   		<completion string="getInterface" />
+   		<completion string="getMaterialName" />
+   		<completion string="getNoRenameFlag" />
+   		<completion string="getPackage" />
+   		<completion string="getScreen" />
+   		<completion string="getSurfaceArea" />
+   		<completion string="getTouchTime" />
+   		<completion string="getTransformRounded" />
+   		<completion string="getVarNames" />
+   		<completion string="getViewerMask" />
+   		<completion string="getVoxelSize" />
+   		<completion string="gmcLabels" />
+   		<completion string="gmcWeights" />
+   		<completion string="hasMaterial" />
+   		<completion string="interpolTransform" />
+   		<completion string="isModified" />
+   		<completion string="latticeType" />
+   		<completion string="makeColormap" />
+   		<completion string="primType" />
+   		<completion string="primary" />
+   		<completion string="proc" />
+   		<completion string="relabel" />
+   		<completion string="removeEmptyMaterials" />
+   		<completion string="removeMaterial" />
+   		<completion string="resize" />
+   		<completion string="setControllingData" />
+   		<completion string="setInvisible" />
+   		<completion string="setModified" />
+   		<completion string="setNoRemove" />
+   		<completion string="setNoRemoveAll" />
+   		<completion string="setNoRename" />
+   		<completion string="setNoSave" />
+   		<completion string="setRequiresPolygonOffset" />
+   		<completion string="setScale" />
+   		<completion string="setScreen" />
+   		<completion string="setShadowStyle" />
+   		<completion string="setTransformRounded" />
+   		<completion string="setUnit" />
+   		<completion string="sharedColormap" />
+   		<completion string="unsetVar" />
+   		<completion string="action" />
+   		<completion string="DoIt" />
+   		<completion string="call" />
+   		<completion string="exec" />
+   		<completion string="getResult" />
+   		<completion string="isFirstCall" />
+   		<completion string="script" />
+   		<completion string="setPickCallback" />
+   		<completion string="setResult" />
    				
    	</set>
     

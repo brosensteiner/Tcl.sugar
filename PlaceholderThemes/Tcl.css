@@ -51,6 +51,12 @@ tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + s
 tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
+tcl.builtinfunc[text='lassign'] + space + * + space + word,
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + word,
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+
 tcl.builtinfunc[text='regexp'] + space + * + space + :not(keyword) + space + word,
 tcl.builtinfunc[text='regexp'] + space + * + space + :not(keyword) + space +  :not(keyword) + space + word,
 tcl.builtinfunc[text='regexp'] + space + * + space + :not(keyword) + space +  :not(keyword) + space + :not(keyword) + space + word,
@@ -96,11 +102,11 @@ tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + wor
 tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.upvar  + space + :not(keyword,numeric) + space + word,
-tcl.upvar  + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + word,
 tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.upvar  + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
-tcl.upvar  + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
 tcl.upvar + space + numeric + space + :not(keyword) + space + word,
 tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
@@ -108,8 +114,8 @@ tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + sp
 tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.builtinfunc.catch + word,
-tcl.builtinfunc.catch + space + word,
+tcl.builtinfunc-catch + word,
+tcl.builtinfunc-catch + space + word,
 
 tcl.keyword.control.start[text='foreach'] + space + *  {
 	color: #7ac54d;
@@ -179,4 +185,10 @@ tcl.close-brace,
 tcl.open-parenthesis,
 tcl.close-parenthesis {
 	color: #7f7f7f;
+}
+
+tcl.com-multiline,
+tcl.com-multiline ~ :not(keyword) {
+	color: rgb(254, 254, 254);
+	font-weight: normal;	
 }
