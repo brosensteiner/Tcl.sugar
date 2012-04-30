@@ -107,13 +107,31 @@ THE SOFTWARE.
 	
 		<collection name="Comments">
 			
-			<zone name="tcl.keyword.com-multiline">
-			    <expression>(#)[^\d].*?(?&lt;!\\)\\$\n?</expression>
-			    <capture number="1" name="tcl.com-multiline.hash"/>
+			<zone name="tcl.keyword.comment.multiline">
+			    <starts-with>
+			        <expression>(#)[^\d].*?(?&lt;!\\)\\$\n?</expression>
+			        <capture number="1" name="tcl.keyword.comment.multiline.hash"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>[^\\]\s*\n</expression>
+			    </ends-with>
 			</zone>
+			
 			<zone name="tcl.keyword.comment.line">
 			    <expression>(#)[^\d].*$\n?</expression>
 			    <capture number="1" name="tcl.comment.hash"/>
+			</zone>
+			
+			<zone name="tcl.keyword.comment.multiline"><!--awkward tcl multiline comment :)-->
+			    <starts-with>
+			        <expression>if 0 \{</expression>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="source.Tcl" />
+			    </subzones>
 			</zone>
 		
 		</collection>

@@ -26,6 +26,16 @@ THE SOFTWARE.
 -->
 <settings>
 
+	<setting name="comment-multiline-start">
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<value>if 0 {</value>
+	</setting>
+	
+	<setting name="comment-multiline-end">
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<value>}</value>
+	</setting>
+
     <setting name="comment-singleline-start">
         <syntax-context>source.Tcl, source.Tcl *</syntax-context>
         <value>#</value>

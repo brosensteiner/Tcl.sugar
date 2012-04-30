@@ -186,9 +186,3 @@ tcl.open-parenthesis,
 tcl.close-parenthesis {
 	color: #7f7f7f;
 }
-
-tcl.com-multiline,
-tcl.com-multiline ~ :not(keyword) {
-	color: rgb(254, 254, 254);
-	font-weight: normal;	
-}
