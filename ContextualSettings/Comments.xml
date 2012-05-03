@@ -28,12 +28,12 @@ THE SOFTWARE.
 
 	<setting name="comment-multiline-start">
 		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
-		<value>if 0 {</value>
+		<value>if 0 \{</value>
 	</setting>
 	
 	<setting name="comment-multiline-end">
 		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
-		<value>}</value>
+		<value>\}</value>
 	</setting>
 
     <setting name="comment-singleline-start">

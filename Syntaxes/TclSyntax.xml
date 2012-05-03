@@ -240,6 +240,7 @@ THE SOFTWARE.
 			    
 			    	<include collection="EscapeChar"/>
 			    	<include collection="FormatSpecifier"/>
+			    	<include collection="AmiraExtension" />
 			    	<include collection="Balanced" />
 			    	<include collection="Variables" />
 			    	<include collection="General" />
@@ -505,7 +506,7 @@ THE SOFTWARE.
             </zone>
         	        	        	
         	<zone name="tcl.keyword.command.amira.port.scriptobject">
-        	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|getVar|hasVar|setVarSerialize|testBreak|setNum|getNum|setValueString|setMenuSensitivity|getMenuSensitivity|setSensitivity|getSensitivity|newPort3DPointList|newPortGeneric|newPortTextEdit)\b</expression>
+        	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|getVar|hasVar|setVarSerialize|testBreak|setNum|getNum|setValueString|setMenuSensitivity|getMenuSensitivity|setSensitivity|getSensitivity|newPort3DPointList|newPortGeneric|newPortTextEdit|newPortChannelConfig|newPortColorList|newPortDrawStyle|newPortFontSelection|newPortMultiChannel|newPortSharedColormap|newPortTabBar)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.interface-component-port">
@@ -514,6 +515,10 @@ THE SOFTWARE.
         	
         	<zone name="tcl.keyword.command.amira.interface-component-connectionport">
         	    <expression>\b(source|connect|disconnect|setTightness|isTight|setVisibility|isVisible|allowEditing|isEditable|validSource)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.interface-component-genericport">
+        	    <expression>\b(getColor|isItemNew|deleteItem|insertIntText|insertFloatText|insertCheckBox|insertRadioGroup|insertComboBox|insertPushButton|insertColorButton|insertLabel)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.general-amira-object">
@@ -554,6 +559,14 @@ THE SOFTWARE.
         	
         	<zone name="tcl.keyword.command.amira.port.type">
         	    <expression>\b(HxPortButtonList|HxPortButtonMenu|HxPortColorList|HxPortFloatslider|HxPortFloatTextN|HxPortGeneric|HxPortIntSlider|HxPortMultiMenu|HxPortMultiOptions|HxPortRadioBox|HxPortRangeSlider|HxPortTabBar|HxPortText|HxPortTextEdit|HxPortToggleList|HxPort3DPointList)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.parameters">
+        	    <expression>\b(bundle|flags|getFlag|getName|hasBundle|hasParameter|index|isBundle|list|nBundles|newBundle|setFlag|setName|size)\b</expression>
+        	</zone>
+        	
+        	<zone name="tcl.keyword.command.amira.viewbase">
+        	    <expression>\b(createSurface|setAlphaMode|setNormalBinding|setPointSize|setPolygonOffsetMode|setOutlineColor|setLineWidth|setHighlightColor|setEmissiveColor|setSpecularColor|setShininess|showBox|hideBox)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.amira.additional-commands">

@@ -170,7 +170,8 @@ tcl.keyword.operator.logical {
 	font-weight: bold;
 }
 
-tcl.balanced.brackets {
+tcl.balanced.brackets,
+tcl.string {
 	background-color: rgba(207, 220, 243, 0.1);
 }
 

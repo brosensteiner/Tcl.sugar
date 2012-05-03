@@ -548,6 +548,13 @@ THE SOFTWARE.
 		<completion string="newPort3DPointList" />
 		<completion string="newPortGeneric" />
 		<completion string="newPortTextEdit" />
+		<completion string="newPortChannelConfig" />
+		<completion string="newPortColorList" />
+		<completion string="newPortDrawStyle" />
+		<completion string="newPortFontSelection" />
+		<completion string="newPortMultiChannel" />
+		<completion string="newPortSharedColormap" />
+		<completion string="newPortTabBar" />
 				
 	</set>
 	
@@ -656,7 +663,6 @@ THE SOFTWARE.
 		<completion string="setId" />
 		<completion string="getId" />
 		<completion string="getIndex" />
-		<completion string="clear" />
 		<completion string="setNumDataColumns" />
 		<completion string="getNumDataColumns" />
 		<completion string="setDataValue" />
@@ -722,6 +728,23 @@ THE SOFTWARE.
 		<completion string="isOfType" />
 		<completion string="getTypeId" />
 		<completion string="connect" />
+		
+				
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.amira.interface-component-genericport" casesensitive="true">
+		
+		<completion string="getColor" />
+		<completion string="isItemNew" />
+		<completion string="deleteItem" />
+		<completion string="insertIntText" />
+		<completion string="insertFloatText" />
+		<completion string="insertCheckBox" />
+		<completion string="insertRadioGroup" />
+		<completion string="insertComboBox" />
+		<completion string="insertPushButton" />
+		<completion string="insertColorButton" />
+		<completion string="insertLabel" />
 		
 				
 	</set>
@@ -1059,6 +1082,43 @@ THE SOFTWARE.
    		<completion string="show" />
    		<completion string="showMinimized" />
    		<completion string="showMaximized" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.parameters" casesensitive="true">
+   		
+   		<completion string="bundle" />
+   		<completion string="flags" />
+   		<completion string="getFlag" />
+   		<completion string="getName" />
+   		<completion string="hasBundle" />
+   		<completion string="hasParameter" />
+   		<completion string="index" />
+   		<completion string="isBundle" />
+   		<completion string="list" />
+   		<completion string="nBundles" />
+   		<completion string="newBundle" />
+   		<completion string="setFlag" />
+   		<completion string="setName" />
+   		<completion string="size" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.Tcl.function.amira.viewbase" casesensitive="true">
+   		
+   		<completion string="createSurface" />
+   		<completion string="setAlphaMode" />
+   		<completion string="setNormalBinding" />
+   		<completion string="setPointSize" />
+   		<completion string="setPolygonOffsetMode" />
+   		<completion string="setOutlineColor" />
+   		<completion string="setLineWidth" />
+   		<completion string="setHighlightColor" />
+   		<completion string="setEmissiveColor" />
+   		<completion string="setSpecularColor" />
+   		<completion string="setShininess" />
+   		<completion string="showBox" />
+   		<completion string="hideBox" />
    				
    	</set>
    	

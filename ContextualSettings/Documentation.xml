@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-@description Defines the Tcl Itemizer
+@description Defines the Tcl documetation lookup
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
@@ -24,33 +24,30 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<itemizer>
+<settings>
 	
-	<!--functions-->
-	<recipe name="tcl.keyword.command.function">
+	<!-- This is the title used for the documentation lookup action for this context -->
+	<setting name="documentation-lookup-title">
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<value>documention</value>
+	</setting>
+
+	<!-- This is the first pattern that we check; if the URL is 404 or otherwise nonexistent, then we use the fallback -->
+	<setting name="documentation-lookup-pattern">
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<value>http://www.tcl.tk/man/tcl/TclCmd/$EDITOR_TERM</value>
+	</setting>
+
+	<!-- The URL we use if the pattern doesn't check out; typically should point to search results for our docs site -->
+	<setting name="documentation-lookup-fallback">
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<value>http://www.tcl.tk/man/tcl/contents.htm</value>
+	</setting>
 	
-		<class>ESBaseItem</class>
-		<start-selector>tcl.keyword.command.function:capture(open-parameters) + space + *:capture(name) + space + * + space +  balanced.braces:capture(close-parameters) > open-brace</start-selector>
-		<end-selector>close-brace</end-selector>
-		<subrecipes>
-			<include-root-recipes />
-		</subrecipes>
-					
-	</recipe>
+	<!-- This specifies what, aside from alphanumeric characters, will be considered a word character -->
+	<setting name="documentation-lookup-word-characters">
+		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<value>_:</value>
+	</setting>
 	
-	<!--balanced braces for code folding-->
-	<recipe name="tcl.container.chunk-block">
-		
-		<class>ESJSChunkBlockItem</class>
-		<start-selector>tcl.balanced.braces > open-brace</start-selector>
-		<end-selector>close-brace</end-selector>
-		<subrecipes>
-			<include-root-recipes />
-		</subrecipes>
-				
-	</recipe>
-		
-</itemizer>
-
-
-
+</settings>

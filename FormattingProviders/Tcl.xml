@@ -1,0 +1,83 @@
+<!--don´t know exactly how to use ist now ...-->
+<?xml version="1.0" encoding="UTF-8"?>
+<formatting>
+
+	<provider id="com.rosensteiner.formatting.tcl" language-context="tcl">
+		
+		<template><![CDATA[
+			
+			`def myFunction` ${ruby.post-func-name:} ( ${ruby.pre-parameter-list:} argumentOne, ${ruby.post-list-item: } argumentTwo ${ruby.post-parameter-list:${ruby.pre-parameter-list}} )
+				${ruby.block-start behavior="relative-contextual":\n\t}
+				
+				four ${ruby.pre-assignment: } = ${ruby.post-assignment: } 2 ${js.pre-operator: } + ${js.post-operator: } 2
+				
+				${ruby.block-end behavior="relative-contextual":\n}
+			end
+			
+			${ruby.post-block:\n\n}
+			
+			var` `myArray ${ruby.pre-assignment} = ${ruby.post-assignment} [1, ${ruby.post-list-item} null, ${ruby.post-list-item} true]`
+`			var` `myHash ${ruby.pre-assignment} = ${ruby.post-assignment} {'one' ${ruby.pre-property-assignment: } => ${ruby.post-property-assignment: } 1, ${ruby.post-list-item} 'two' ${ruby.pre-property-assignment} => ${ruby.post-property-assignment} 2}
+			
+		]]></template>
+		
+		<rules>
+		
+			<!-- Blocks -->
+			
+			<after zone="ruby x-item-start function.definition" next-zone="ruby x-item-start brace.round.open">
+				<use-template key="ruby.post-func-name" />
+			</after>
+			
+			<after zone="x-item-start > brace.round.open" if-inside-item="ruby.function">
+				<use-template key="ruby.pre-parameter-list" />
+			</after>
+			
+			<before zone="x-item-start > brace.round.close" if-inside-item="ruby.function">
+				<use-template key="ruby.post-parameter-list" />
+			</before>
+			
+			<after zone="ruby delimiter.comma">
+				<use-template key="ruby.post-list-item" />
+			</after>
+			
+			<after zone="x-item-start" if-inside-item="ruby.function, ruby.control-statement">
+				<use-template key="ruby.block-start" />
+			</after>
+			
+			<before zone="keyword.control.delimiter" if-inside-item="ruby.class, ruby.function, ruby.control-statement" item-area="end">
+				<use-template key="ruby.block-end" />
+			</before>
+			
+			<after zone="keyword.control.delimiter" next-zone="*:not(keyword.control.delimiter)" if-inside-item="ruby.class, ruby.function, ruby.control-statement" item-area="end">
+				<use-template key="ruby.post-block" />
+			</after>
+			
+			<!-- Assignment -->
+			
+			<before zone="ruby variable.x-assignment.property > operator.assignment">
+				<use-template key="ruby.pre-property-assignment" />
+			</before>
+			<after zone="ruby variable.x-assignment.property > operator.assignment">
+				<use-template key="ruby.post-property-assignment" />
+			</after>
+			
+			<before zone="ruby operator.assignment">
+				<use-template key="ruby.pre-assignment" />
+			</before>
+			<after zone="ruby operator.assignment">
+				<use-template key="ruby.post-assignment" />
+			</after>
+			
+			<before zone="ruby operator.binary">
+				<use-template key="ruby.pre-operator" />
+			</before>
+			<after zone="ruby operator.binary">
+				<use-template key="ruby.post-operator" />
+			</after>
+			
+		</rules>
+		
+	</provider>
+	
+</formatting>
