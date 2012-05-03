@@ -44,57 +44,55 @@ THE SOFTWARE.
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
     	<include collection="General" />
-        <include collection="Balanced" />
+        <include collection="BracesBracketsParenthesis" />
 		
     </zones>
     
 	<library>
 	
-		<collection name="Balanced">
-		
-			<zone name="tcl.keyword.balanced.parenthesis">
-					<starts-with>
-						<expression>\(</expression>
-						<capture number="0" name="tcl.keyword.punctuation.open-parenthesis"/>
-					</starts-with>
-					<ends-with>
-						<expression>\)</expression>
-							<capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
-					</ends-with>
-					<subzones>
-						<include syntax="source.Tcl" />
-					</subzones>
-				</zone>
-				
-				<zone name="tcl.keyword.balanced.braces">
-					<starts-with>
-						<expression>(?&lt;=\s|\[)\{</expression>
-						<capture number="0" name="tcl.keyword.punctuation.open-brace"/>
-					</starts-with>
-					<ends-with>
-						<expression>\}</expression>
-							<capture number="0" name="tcl.keyword.punctuation.close-brace"/>
-					</ends-with>
-					<subzones>
-						<include syntax="source.Tcl" />
-					</subzones>
-				</zone>
-				
-				<zone name="tcl.keyword.balanced.brackets">
-					<starts-with>
-						<expression>\[</expression>
-						<capture number="0" name="tcl.keyword.punctuation.open-bracket"/>
-					</starts-with>
-					<ends-with>
-						<expression>\]</expression>
-							<capture number="0" name="tcl.keyword.punctuation.close-bracket"/>
-					</ends-with>
-					<subzones>
-						<include syntax="source.Tcl" />
-					</subzones>
-				</zone>
+		<collection name="BracesBracketsParenthesis">
+						
+			<zone name="tcl.keyword.punctuation.open-parenthesis">
+			    <expression>\(</expression>
+			</zone>
+			<zone name="tcl.keyword.punctuation.close-parenthesis">
+			    <expression>\)</expression>
+			</zone>
 			
+			<zone name="tcl.keyword.punctuation.open-bracket">
+			    <expression>\[</expression>
+			</zone>
+			<zone name="tcl.keyword.punctuation.close-bracket">
+			    <expression>\]</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.punctuation.open-brace">
+			    <expression>\{</expression>
+			</zone>
+			<zone name="tcl.keyword.punctuation.close-brace">
+			    <expression>\}</expression>
+			</zone>
+			
+		
 		</collection>
+		
+		<!--<collection name="Balanced">
+						
+			<zone name="tcl.container.balanced-braces">
+			    <starts-with>
+			        <expression>\{</expression>
+			        <capture number="0" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="tcl.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="source.Tcl" />
+			    </subzones>
+			</zone>			
+		
+		</collection>-->
 	
 		<!--some invalid syntax (will eventually be more over time)-->
 		<collection name="Invalid">
@@ -241,7 +239,7 @@ THE SOFTWARE.
 			    	<include collection="EscapeChar"/>
 			    	<include collection="FormatSpecifier"/>
 			    	<include collection="AmiraExtension" />
-			    	<include collection="Balanced" />
+			    	<include collection="BracesBracketsParenthesis" />
 			    	<include collection="Variables" />
 			    	<include collection="General" />
 			    	
@@ -395,7 +393,8 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.command.function">
-				<expression>\bproc\b</expression>
+				    <expression>\bproc\s+(\w+)</expression>
+				    <capture number="1" name="tcl.keyword.command.function.name"/>
 			</zone>
 			
 			<zone name="tcl.keyword.command.builtinfunc">
@@ -436,10 +435,6 @@ THE SOFTWARE.
         	
         	<zone name="tcl.language.word"> 
         		<expression>[a-zA-Z0-9_?!]+|,</expression>
-        	</zone>
-        	     	
-           	<zone name="tcl.language.space"> 
-				<expression>\s+</expression>
         	</zone>
         	
         </collection>

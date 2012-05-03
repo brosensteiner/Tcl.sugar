@@ -25,31 +25,65 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <itemizer>
-	
-	<!--functions-->
+
 	<recipe name="tcl.keyword.command.function">
-	
-		<class>ESBaseItem</class>
-		<start-selector>tcl.keyword.command.function:capture(open-parameters) + space + *:capture(name) + space + * + space +  balanced.braces:capture(close-parameters) > open-brace</start-selector>
-		<end-selector>close-brace</end-selector>
+		<class>ESBaseClass</class>
+		<selector>tcl.function:has-child(name:capture(name))</selector>
+	</recipe>
+
+	<recipe name="tcl.container.if-block">
+		<class>ESJSControlBlockItem</class>
+		<start-selector>Tcl tcl.keyword[text='if']:capture(itemizer-firstused) + open-brace</start-selector>
+		<end-selector>Tcl close-brace</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
-					
 	</recipe>
 	
-	<!--balanced braces for code folding-->
-	<recipe name="tcl.container.chunk-block">
-		
-		<class>ESJSChunkBlockItem</class>
-		<start-selector>tcl.balanced.braces > open-brace</start-selector>
-		<end-selector>close-brace</end-selector>
+	<recipe name="tcl.container.elseif-block">
+		<class>ESJSControlBlockItem</class>
+		<start-selector>Tcl tcl.keyword[text='elseif']:capture(itemizer-firstused) + open-brace</start-selector>
+		<end-selector>Tcl close-brace</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
-				
 	</recipe>
-		
+
+	<recipe name="tcl.container.else-block">
+		<class>ESJSControlBlockItem</class>
+		<start-selector>Tcl tcl.keyword[text='else']:capture(itemizer-firstused) + open-brace</start-selector>
+		<end-selector>Tcl close-brace</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+	<recipe name="tcl.container.foreach">
+		<class>ESJSControlBlockItem</class>
+		<selector>Tcl tcl.keyword[text='foreach']:capture(name)</selector>
+	</recipe>
+	
+	<recipe name="tcl.container.while">
+		<class>ESJSControlBlockItem</class>
+		<selector>Tcl tcl.keyword[text='while']:capture(name)</selector>
+	</recipe>
+	
+	<recipe name="tcl.container.for">
+		<class>ESJSControlBlockItem</class>
+		<selector>Tcl tcl.keyword[text='for']:capture(name)</selector>
+	</recipe>
+	
+	<!--since Tcl uses "{" ans "}" virtually everywhere (EIAS - everything is a string in Tcl) there is no chance to get a nice code folding like in ruby.sugar for example, but with this itemizer it is not bad:-->
+	<recipe name="tcl.container.balanced-braces">
+		<class>ESCodeBlockItem</class>
+		<start-selector>Tcl open-brace</start-selector>
+		<end-selector>Tcl close-brace</end-selector>
+		<subrecipes>
+			<include-root-recipes />
+		</subrecipes>
+	</recipe>
+	
+
 </itemizer>
 
 
