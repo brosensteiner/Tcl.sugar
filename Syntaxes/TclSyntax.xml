@@ -37,10 +37,10 @@ THE SOFTWARE.
     	<include collection="Comments" />
     	<include collection="Numeric" />
     	<include collection="tclLanguage" />
-    	<include collection="AmiraExtension" />
 		<include collection="FormatSpecifier"/>
     	<include collection="Variables" />
     	<include collection="Operators" />
+		<include syntax="source.Amira" />
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
     	<include collection="General" />
@@ -58,12 +58,19 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.punctuation.close-parenthesis">
 			    <expression>\)</expression>
 			</zone>
-			
-			<zone name="tcl.keyword.punctuation.open-bracket">
-			    <expression>\[</expression>
-			</zone>
-			<zone name="tcl.keyword.punctuation.close-bracket">
-			    <expression>\]</expression>
+						
+			<zone name="tcl.container.balanced-brackets">
+			    <starts-with>
+			        <expression>\[</expression>
+			        <capture number="0" name="tcl.punctuation.open-bracket"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\]</expression>
+			        <capture number="0" name="tcl.punctuation.close-bracket"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="source.Tcl" />
+			    </subzones>
 			</zone>
 			
 			<zone name="tcl.keyword.punctuation.open-brace">
@@ -75,25 +82,7 @@ THE SOFTWARE.
 			
 		
 		</collection>
-		
-		<!--<collection name="Balanced">
-						
-			<zone name="tcl.container.balanced-braces">
-			    <starts-with>
-			        <expression>\{</expression>
-			        <capture number="0" name="tcl.punctuation.open-brace"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>\}</expression>
-			        <capture number="0" name="tcl.punctuation.close-brace"/>
-			    </ends-with>
-			    <subzones>
-			    	<include syntax="source.Tcl" />
-			    </subzones>
-			</zone>			
-		
-		</collection>-->
-	
+			
 		<!--some invalid syntax (will eventually be more over time)-->
 		<collection name="Invalid">
 		
@@ -235,14 +224,12 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.end"/>
 			    </ends-with>
 			    <subzones>
-			    
 			    	<include collection="EscapeChar"/>
-			    	<include collection="FormatSpecifier"/>
+			       	<include collection="FormatSpecifier"/>
 			    	<include collection="AmiraExtension" />
 			    	<include collection="BracesBracketsParenthesis" />
 			    	<include collection="Variables" />
 			    	<include collection="General" />
-			    	
 			    </subzones>
 			</zone>
 		
@@ -443,131 +430,6 @@ THE SOFTWARE.
         	<zone name="tcl.escape.character">
         	    <expression>\\[abfnrtv\W'"\!$%&amp;]|\\\d{1,3}</expression>
         	</zone>
-        </collection>
-        
-        
-        
-        <collection name="AmiraExtension"><!--can be deleted when not needed, but the author needs it desperately :)-->
-        
-        	<zone name="tcl.amira.sciptobject.shebang">
-        	    <expression>^# (Amira-Script-Object V3\.0|Amira Script)</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.amira.global.variables">
-        		<expression>(AMIRA_ROOT|AMIRA_LOCAL|SCRIPTFILE|SCRIPTDIR|hideNewModules)\b</expression>
-        	</zone> 	
-        
-        	<zone name="tcl.keyword.option.amira.workArea">
-        		<expression>(?&lt;=workArea\s)(setProgressInfo|setProgressValue|startWorking|stopWorking|wasInterrupted)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.option.amira.theMain">
-        		<expression>(?&lt;=theMain\s)(snapshot|setViewerTogglesOnIcons|ignoreShow)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.option.amira.theMsg">
-        		<expression>(?&lt;=theMsg\s)(error|warning|question|overwrite)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.option.amira.app">
-        		<expression>(?&lt;=app\s)(version|uname|arch|hostid|listen|close|port|send|opengl|cluster)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.option.amira.window">
-        		<expression>(?&lt;=theMain\s|theMsg\s|viewer\s|viewer\s0\s)(getFrameGeometry|getGeometry|getPosition|getRelativeGeometry|getSize|hide|setCaption|setFrameGeometry|setGeometry|setPosition|setRelativeGeometry|setSize|show|showMinimized|showMaximized)\b</expression>
-        	</zone>
-        	
-        
-        	<zone name="tcl.keyword.command.amira.this">
-        	    <expression>(\$this)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.global.commands.window">
-        	    <expression>\b(theMain|theMsg)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.global.commands.viewer">
-        	    <expression>\b(viewer(\s\d*)?)</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.global.commands.other">
-        	    <expression>\b(workArea|app)\b</expression>
-        	</zone>
-        	
-            <!--snapshot could interfere with "theMain snapshot", so tcl.keyword.options.amira.viewer is here the lower syntax zone and should not be changed-->
-            <zone name="tcl.keyword.option.amira.viewer">
-            	<expression>\b(snapshot|setPosition|getPosition|setSize|getSize|setCamera|getCamera|setCameraPosition|getCameraPosition|setCameraOrientation|getCameraOrientation|setCameraFocalDistance|getCameraFocalDistance|setCameraHeightAngle|getCameraHeightAngle|setCameraHeight|getCameraHeight|setCameraType|getCameraType|setTransparencyType|getTransparencyType|setSortedLayersNumPasses|getSortedLayersNumPasses|setBackgroundColor|getBackgroundColor|setBackgroundColor2|getBackgroundColor2|setBackgroundMode|getBackgroundMode|setBackgroundImage|getBackgroundImage|setAutoRedraw|isAutoRedraw|transformScreenToWorld|redraw|rotate|setDecoration|saveScene|viewAll|view|show|hide|fogRange|setVideoFormat|setVideoFrame)\b</expression>
-            	<capture number="2" name="tcl.keyword.option.amira.viewer.argument"/>
-            </zone>
-        	        	        	
-        	<zone name="tcl.keyword.command.amira.port.scriptobject">
-        	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|getVar|hasVar|setVarSerialize|testBreak|setNum|getNum|setValueString|setMenuSensitivity|getMenuSensitivity|setSensitivity|getSensitivity|newPort3DPointList|newPortGeneric|newPortTextEdit|newPortChannelConfig|newPortColorList|newPortDrawStyle|newPortFontSelection|newPortMultiChannel|newPortSharedColormap|newPortTabBar)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.interface-component-port">
-        	    <expression>\b(getValue|setValue|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.interface-component-connectionport">
-        	    <expression>\b(source|connect|disconnect|setTightness|isTight|setVisibility|isVisible|allowEditing|isEditable|validSource)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.interface-component-genericport">
-        	    <expression>\b(getColor|isItemNew|deleteItem|insertIntText|insertFloatText|insertCheckBox|insertRadioGroup|insertComboBox|insertPushButton|insertColorButton|insertLabel)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.general-amira-object">
-        	    <expression>\b(hasInterface|duplicate|showIcon|hideIcon|iconVisible|select|deselect|setLabel|fire|compute|allPorts|connectionPorts|downStreamConnections|setIconPosition|getIconPosition|clipGeom|unclipGeom|setPickable|destroy|getTypeId|help|getLabel|setViewerMask)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.amira-spatial-data-object">
-        	    <expression>\b(getBoundingBox|getTransform|setTransform|getInverseTransform|getTranslation|setTranslation|getRotation|setRotation|getScaleFactor|setScaleFactor|translate|rotate|scale|multTransform|hasUndefinedValue|getUndefinedValue|setUndefinedValue|hasDataWindow|setDataWindow|removeDataWindow|getRange|touchMinMax)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.field3">
-        	    <expression>\b(nDataVar|evalprimType|getDims|coordType|swapByteOrder|clearSlice|exchangeSlices|crop|flip|swapDims|setBoundingBox)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.surface">
-        	    <expression>\b(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.cluster">
-        	    <expression>\b(computeBounds|computeConnectivity|addPoint|removePoint|resetIds|setId|getId|getIndex|clear|setNumDataColumns|getNumDataColumns|setDataValue|getDataValue|setDataColumnName|getDataColumnName|setNumLabelColumns|getNumLabelColumns|setLabelValue|getLabelValue|setLabelColumnName|getLabelColumnName)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.data">
-        	    <expression>\b(touch|save|parameters|setDefaultFileFormat|setEditor|getEditor)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.global.other">
-        	    <expression>\b(addTimeout|all|aminfo|clear|create|dso|addPath|echo|help|httpd|limit|load|mem|quit|remove|rename|sleep|source|system|saveNetwork|saveNetworkAs)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.data-classes">
-        	    <expression>\b(HxData|HxSpreadSheet|HxColormap|HxColormap256|HxCameraPath|HxKeyframeCameraPath|HxSpatialData|HxIvData|HxField3|HxScalarField3|HxRegScalarField3|HxUniformScalarField3|HxUniformLabelField3|HxStackedScalarField3|HxStackedLabelField3|HxAnnaScalarField3|HxTetraScalarField3|HxHexaScalarField3|HxVectorField3|HxRegVectorField3|HxUniformVectorField3|HxEdgeElemVectorField3|HxAnnaVectorField3|HxTetraVectorField3|HxHexaVectorField3|HxComplexScalarField3|HxRegComplexScalarField3|HxUniformComplexScalarField3|HxTetraComplexScalarField3|HxHexaComplexScalarField3|HxComplexVectorField3|HxRegComplexVectorField3|HxUniformComplexVectorField3|HxEdgeElemComplexVectorField3|HxTetraComplexVectorField3|HxHexaComplexVectorField3|HxColorField3|HxRegColorField3|HxUniformColorField3|HxRegField3|HxTetraField3|HxHexaField3|HxVertexSet|HxSurface|HxTetraGrid|HxHexaGrid|HxLineSet|HxLandmarkSet|HxCluster|HxSurfaceField|HxSurfaceScalarField|HxSurfaceVectorField|HxSurfaceComplexScalarField|HxSurfaceComplexVectorField)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.additional-data-classes">
-        	    <expression>\b(HxGenerateTensorData|HxArithmetic|HxBSpline|HxColormapSC|HxConvertToDiskData|HxGPUShader|HxLinearVectorField3|HxMagDipol|HxMosaic|HxMovieData|HxSpatialGraph|HxSurfacePathSet|HxTime|HxScriptObject|HxIvDisplay|HxAnnotation|HxSound|HxSQLite|HxTridelity|Hx2DMesh|HxCreateSphere|HxFakeModule|HxDynamicFileSeriesCtrl|HxGeometryToSurface|HxLDAExpertSettings|HxMolTrajectoryBundle|HxPSFGen|HxParametricSurface|HxStereoTestPattern|HxVoxelSurface|HxCalculus|HxCircularCameraPath|HxArbitraryCut|HxMultiChannelField3|HxMultiChannelField|HxScale|HxGMC|HxVolren|HxVoltex|HxAffineRegistration|HxAlignSlices|HxAnonymizeImageStack|HxApplyTransform|HxAverageBrain|HxCorrectBlockFace|HxCanny2D|HxCastField|HxCastLattice|HxChannelWorks|HxColorCombine|HxCompareLatticeData|HxComputeTensor|HxComputeTensorOutOfCore|HxDicomSend|HxFieldAsLattice|HxFilterBySpreadsheet|HxGradient|HxFrameInterpolator|HxLabelVoxel|HxLatToHex|HxMerge|HxNormalizeImage|HxResample|HxSegmentBrain|HxShear|HxSplitLattice|HxVolumeEdit|HxStandardView|HxSelectRoi|HxProjectionView|HxOrthoSlice|HxObliqueSlice|HxAxis|HxIsosurface|HxIsolines|HxHeightField|HxFilteredObliqueSlice|HxCurvedSlice|HxCornerCut|HxCityPlot|HxBumpSlice|HxAnnotatedIsolines|HxObjectTransformAnimation|HxBeadExtract|HxConvolution|HxCorrectZDrop|HxDataPreprocess|HxDeconvolution|HxFFT|HxImageFilters|HxConnectedComponentAnalysis|HxCorrelationPlot|HxLocalThreshold|HxSeparateMorpho|HxWatershedSegmentation|HxHistogram|HxLineProbe|HxLineSetProbe|HxPointProbe|HxShapeAnalysis|HxSplineProbe|HxExtAutoSkeleton|HxTEASAR|HxDOThinner2|HxTissueStatistics|HxParameterEditor|HxParamBundle|HxParamBase|HxParamBase)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.port.type">
-        	    <expression>\b(HxPortButtonList|HxPortButtonMenu|HxPortColorList|HxPortFloatslider|HxPortFloatTextN|HxPortGeneric|HxPortIntSlider|HxPortMultiMenu|HxPortMultiOptions|HxPortRadioBox|HxPortRangeSlider|HxPortTabBar|HxPortText|HxPortTextEdit|HxPortToggleList|HxPort3DPointList)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.parameters">
-        	    <expression>\b(bundle|flags|getFlag|getName|hasBundle|hasParameter|index|isBundle|list|nBundles|newBundle|setFlag|setName|size)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.viewbase">
-        	    <expression>\b(createSurface|setAlphaMode|setNormalBinding|setPointSize|setPolygonOffsetMode|setOutlineColor|setLineWidth|setHighlightColor|setEmissiveColor|setSpecularColor|setShininess|showBox|hideBox)\b</expression>
-        	</zone>
-        	
-        	<zone name="tcl.keyword.command.amira.additional-commands">
-        	    <expression>\b(allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap| primType|primary|proc|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
-        	</zone>
-        	
         </collection>
         
 	</library>

@@ -68,6 +68,11 @@ THE SOFTWARE.
 		<selector>Tcl tcl.keyword[text='while']:capture(name)</selector>
 	</recipe>
 	
+	<recipe name="tcl.container.switch">
+		<class>ESJSControlBlockItem</class>
+		<selector>Tcl tcl.keyword[text='switch']:capture(name)</selector>
+	</recipe>
+	
 	<recipe name="tcl.container.for">
 		<class>ESJSControlBlockItem</class>
 		<selector>Tcl tcl.keyword[text='for']:capture(name)</selector>
@@ -81,6 +86,11 @@ THE SOFTWARE.
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
+	</recipe>
+	
+	<recipe name="tcl.comment">
+	    <class>ESCommentItem</class>
+	    <selector>tcl.comment</selector>
 	</recipe>
 	
 

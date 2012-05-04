@@ -26,13 +26,34 @@ THE SOFTWARE.
 -->
 <injections>
 
-    <injection name="injection.identifier" selector="selector" action="insert-before-children">
-        <!-- Zones or include tags go here -->
+    <injection name="injection.amira" selector="source.Tcl tcl.function" action="attach-after-target">
+    <!--until now nothing is here-->
     </injection>
     
-    <!-- Like syntaxes, <library> is an optional place for reusable collections -->
     <library>
-        <!-- Collections here -->
+    
+        <collection name="Balanced">
+        				
+        	<zone name="tcl.container.balanced-braces">
+        	    <starts-with>
+        	        <expression>\{</expression>
+        	        <capture number="0" name="tcl.punctuation.open-brace"/>
+        	    </starts-with>
+        	    <ends-with>
+        	        <expression>\}</expression>
+        	        <capture number="0" name="tcl.punctuation.close-brace"/>
+        	    </ends-with>
+        	    <subzones>
+        	    	<include collection="Balanced" />
+        	    	<include syntax="source.Tcl" />
+        	    </subzones>
+        	    <cut-off>
+        	        <expression></expression>
+        	    </cut-off>
+        	</zone>			
+        
+        </collection>
+        
     </library>
     
 </injections>

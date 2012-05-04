@@ -117,7 +117,12 @@ tcl.upvar + numeric + :not(keyword) + :not(keyword) + :not(keyword) + :not(keywo
 tcl.builtinfunc-catch + word,
 tcl.builtinfunc-catch + word,
 
-tcl.keyword.control.start[text='foreach'] + *  {
+tcl.keyword.control.start[text='foreach'] + word,
+tcl.keyword.control.start[text='foreach'] + open-brace + word,
+tcl.keyword.control.start[text='foreach'] + open-brace + word + word,
+tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word,
+tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word + word,
+tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word + word + word  {
 	color: #7ac54d;
 	font-weight: bold;
 }
@@ -137,13 +142,6 @@ tcl.variable.definition.command-global,
 tcl.variable.definition.upvar {
 	font-weight: normal;
 	color: #bb82e9;
-}
-
-tcl.function > function.name,
-tcl.function + * + tcl.builtinfunc[text='args'],
-tcl.function + * +  braces tcl.builtinfunc[text='args'] {
-	color: #3e117b;
-	font-weight: bold;
 }
 
 tcl.keyword.options + switches {
@@ -167,7 +165,6 @@ tcl.keyword.operator.logical {
 	font-weight: bold;
 }
 
-tcl.balanced.brackets,
 tcl.string {
 	background-color: rgba(207, 220, 243, 0.1);
 }

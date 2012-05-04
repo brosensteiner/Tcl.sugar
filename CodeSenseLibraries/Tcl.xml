@@ -39,11 +39,32 @@ THE SOFTWARE.
 		
 		<completion string="after" />
 		<completion string="error" />
-		<completion string="lappend" />
+		<completion string="lappend">
+		<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:varName} ${2:?value value value ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="platform" />
 		<completion string="tcl_findLibrary" />
-		<completion string="append" />
-		<completion string="eval" />
+		<completion string="append">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:varName} ${2:?value value value ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="eval">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:?arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="lassign" />
 		<completion string="platform::shell" />
 		<completion string="tcl_startOfNextWord" />
@@ -52,13 +73,34 @@ THE SOFTWARE.
 		<completion string="lindex" />
 		<completion string="proc" />
 		<completion string="tcl_startOfPreviousWord" />
-		<completion string="array" />
+		<completion string="array">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:arrayName} ${3:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="exit" />
-		<completion string="linsert" />
+		<completion string="linsert">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:list} ${2:index} ${3:element} ${4:?element element ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="puts" />
 		<completion string="tcl_wordBreakAfter" />
 		<completion string="auto_execok" />
-		<completion string="expr" />
+		<completion string="expr">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:arg} ${2:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="list" />
 		<completion string="pwd" />
 		<completion string="tcl_wordBreakBefore" />
@@ -80,17 +122,45 @@ THE SOFTWARE.
 		<completion string="auto_mkindex_old" />
 		<completion string="file" />
 		<completion string="lrepeat" />
-		<completion string="regexp" />
+		<completion string="regexp">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:?switches?} ${2:expstring} ${3:?matchVar?} ${4:?subMatchVar subMatchVar ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="time" />
 		<completion string="auto_qualify" />
-		<completion string="fileevent" />
-		<completion string="lreplace" />
+		<completion string="fileevent">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:${3:readable} ${4:writable}} ${5:?script?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="lreplace">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:list} ${2:first} ${3:last} ${4:?element element ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="registry" />
 		<completion string="tm" />
 		<completion string="auto_reset" />
 		<completion string="filename" />
 		<completion string="lreverse" />
-		<completion string="regsub" />
+		<completion string="regsub">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:?switches?} ${2:expstring} ${3:subSpec} ${4:?varName?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="trace" />
 		<completion string="bgerror" />
 		<completion string="flush" />
@@ -103,12 +173,26 @@ THE SOFTWARE.
 		<completion string="return" />
 		<completion string="unload" />
 		<completion string="break" />
-		<completion string="foreach" />
+		<completion string="foreach">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+				<transform-into>(?1:$1: ${1:varlist1} ${2:list1} ${3:?varlist2 list2 ...?} ${4:body}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="lsort" />
 		<completion string="Safe Base" />
 		<completion string="unset" />
 		<completion string="catch" />
-		<completion string="format" />
+		<completion string="format">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+				<transform-into>(?1:$1: ${1:formatString} ${2:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="mathfunc" />
 		<completion string="scan" />
 		<completion string="update" />
@@ -150,7 +234,14 @@ THE SOFTWARE.
 		<completion string="dict" />
 		<completion string="info" />
 		<completion string="pid" />
-		<completion string="switch" />
+		<completion string="switch">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<transform-into>(?1:$1: ${1:?options?} ${2:string} ${3:pattern} ${4:body} ${5:?pattern body ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="encoding" />
 		<completion string="interp" />
 		<completion string="pkg::create" />
