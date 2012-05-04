@@ -27,7 +27,7 @@ THE SOFTWARE.
 <action-recipes>
 
 <!--new amira theMsg error-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.error" category="actions.snippets.tcl/tcl.code.snippets">
+    <snippet id="actions.snippets.tcl.amira.theMsg.error" category="actions.snippets.tcl/tcl.code.snippets.amira">
         <title>Amira message error</title>
         <text>theMsg error "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
         <syntax-context>source.Tcl, source.Tcl *</syntax-context>
@@ -35,7 +35,7 @@ THE SOFTWARE.
     </snippet>
     
 <!--new amira theMsg warning-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.warning" category="actions.snippets.tcl/tcl.code.snippets">
+    <snippet id="actions.snippets.tcl.amira.theMsg.warning" category="actions.snippets.tcl/tcl.code.snippets.amira">
         <title>Amira message warning</title>
         <text>theMsg warning "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
         <syntax-context>source.Tcl, source.Tcl *</syntax-context>
@@ -43,7 +43,7 @@ THE SOFTWARE.
     </snippet>
     
 <!--new amira theMsg question-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.question" category="actions.snippets.tcl/tcl.code.snippets">
+    <snippet id="actions.snippets.tcl.amira.theMsg.question" category="actions.snippets.tcl/tcl.code.snippets.amira">
         <title>Amira message question</title>
         <text>theMsg question "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
         <syntax-context>source.Tcl, source.Tcl *</syntax-context>
@@ -51,7 +51,7 @@ THE SOFTWARE.
     </snippet>
     
 <!--new amira theMsg filename-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.filename" category="actions.snippets.tcl/tcl.code.snippets">
+    <snippet id="actions.snippets.tcl.amira.theMsg.filename" category="actions.snippets.tcl/tcl.code.snippets.amira">
         <title>Amira message filename</title>
         <text>theMsg overwrite ${1:filename} $0</text>
         <syntax-context>source.Tcl, source.Tcl *</syntax-context>

@@ -34,13 +34,13 @@ THE SOFTWARE.
     	    <expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\s+tclsh</expression>
     	</zone>
     	
-    	<include collection="Comments" />
     	<include collection="Numeric" />
     	<include collection="tclLanguage" />
 		<include collection="FormatSpecifier"/>
     	<include collection="Variables" />
     	<include collection="Operators" />
 		<include syntax="source.Amira" /><!--can be deleted if Amira syntax extension is not needed-->
+		<include collection="Comments" />
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
     	<include collection="General" />

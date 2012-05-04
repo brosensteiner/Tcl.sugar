@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-@description Defines the Tcl Action menu categories
+@description Defines the Tcl Text Actions snippets
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
@@ -24,18 +24,38 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<action-categories>
+<action-recipes>
 
-	<category id="actions.snippets.tcl" show="sub">
-		<title>Tcl</title>
-	</category>
-	
-	<category id="tcl.code.snippets" show="sub">
-		<title>code snippets</title>
-	</category>
-	
-	<category id="tcl.code.snippets.amira" show="sub">
-		<title>Amira snippets</title>
-	</category>
+    <snippet id="actions.snippets.tcl.amira.theMsg.error" category="actions.snippets.tcl/tcl.code.snippets.amira">
+        <title>Amira script-object template</title>
+        <text># Amira-Script-Object V3.0
+        
+\$this proc constructor {} {
 
-</action-categories>
+
+
+}
+        
+\$this proc destructor {} {
+
+
+
+}
+
+\$this proc savePreparation { args } {
+
+
+
+}
+        
+\$this proc compute {} {
+
+
+
+}
+</text>
+        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+        <text-trigger>amirascro</text-trigger>
+    </snippet>
+
+</action-recipes>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-@description Defines the Tcl Text Actions snippets
+@description Defines the Tcl Text Actions
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
@@ -25,26 +25,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <action-recipes>
-
-<!--new function-->
-    <snippet id="actions.snippets.tcl.function.function" category="actions.snippets.tcl/tcl.code.snippets">
-        <title>new procedure</title>
-        <text>proc ${1:name} \{ ${2:arguments} \} \{
-	${3:body}
-\}
-$0</text>
-        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
-        <text-trigger>nproc</text-trigger>
-    </snippet>
-	
+	<action id="actions.snippets.tcl.execute-script" category="actions.snippets.tcl">
+		<class>TEALoader</class>
+			<title>execute Tcl script in terminal</title>
+			<key-equivalent>shift command r</key-equivalent>
+			<setup>
+				<script>exec-tcl-script.sh</script>
+				<input>document</input>
+                    <!--<alternate>line</alternate>-->
+                    <!--<output>text</output>-->
+        
+                    <!--<undo_name>My Action</undo_name>-->
+			<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+			<selection-context>none</selection-context>
+		</setup>
+	</action>
     
-<!--new one line function-->
-	<snippet id="actions.snippets.tcl.function.function-oneline" category="actions.snippets.tcl/tcl.code.snippets">
-        <title>new procedure at one line</title>
-        <text>proc ${1:name} \{ ${2:arguments} \} \{ ${3:body} \}
-        </text>
-        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
-        <text-trigger>nproc1</text-trigger>
-    </snippet> 
-
+	<action id="actions.snippets.tcl.execute-script" category="tools.Snippets">
+		<class>TEALoader</class>
+		<title>execute Tcl script in terminal</title>
+		<key-equivalent>shift command r</key-equivalent>
+		<setup>
+			<script>exec-tcl-script.sh</script>
+			<input>document</input>
+                <!--<alternate>line</alternate>-->
+                <!--<output>text</output>-->
+    
+                <!--<undo_name>My Action</undo_name>-->
+			<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+			<selection-context>none</selection-context>
+		</setup>
+	</action>
+        
 </action-recipes>
