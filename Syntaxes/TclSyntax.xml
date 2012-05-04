@@ -40,7 +40,7 @@ THE SOFTWARE.
 		<include collection="FormatSpecifier"/>
     	<include collection="Variables" />
     	<include collection="Operators" />
-		<include syntax="source.Amira" />
+		<include syntax="source.Amira" /><!--can be deleted if Amira syntax extension is not needed-->
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
     	<include collection="General" />
@@ -102,6 +102,11 @@ THE SOFTWARE.
 			    <ends-with>
 			        <expression>[^\\]\s*\n</expression>
 			    </ends-with>
+			    <subzones><!--stolen from php sugar-->
+			    	<zone name="markup.link">
+			    		<expression>(?i)\b(?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()&lt;>]+|\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\))+(?:\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\)|[^\s`!()\[\]{};:'".,&lt;>?«»“”‘’])</expression>
+			    	</zone>
+			    </subzones>
 			</zone>
 			
 			<zone name="tcl.keyword.comment.line">
@@ -205,9 +210,9 @@ THE SOFTWARE.
 		</collection>
 				
 		
-		<collection name="Strings">
+		<collection name="Strings"><!--yeah, i know this is not a Tcl String def - because ESIAS ;)-->
 			
-			<zone name="tcl.string.quoted.double.std">
+			<zone name="tcl.string.quoted.double">
 			    <starts-with>
 			        <expression>(?&lt;=\s|\{|\[)"</expression>
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.begin"/>
@@ -372,13 +377,45 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
+			<zone name="tcl.container.builtinfunc-regexp">
+			    <starts-with>
+			        <expression>\b(regexp)\s+((-\w+\s+)+)?(\{)</expression>
+			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
+			        <capture number="2" name="tcl.keyword.switches"/>
+			        <capture number="3" name="tcl.keyword.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\})</expression>
+			        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="source.Tcl" />
+			    </subzones>
+			</zone>
+			
+			<zone name="tcl.container.builtinfunc-regsub">
+			    <starts-with>
+			        <expression>\b(regsub)\s+((-\w+\s+)+)?(\{)</expression>
+			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
+			        <capture number="2" name="tcl.keyword.switches"/>
+			        <capture number="3" name="tcl.keyword.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\})</expression>
+			        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="source.Tcl" />
+			    </subzones>
+			</zone>
+			
 			<zone name="tcl.keyword.command.function">
 				    <expression>\bproc\s+(\w+)</expression>
 				    <capture number="1" name="tcl.keyword.command.function.name"/>
 			</zone>
 			
 			<zone name="tcl.keyword.command.builtinfunc">
-				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|regexp|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset|args)\b</expression>
+				<expression>\b(after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|regsub|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|continue|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset|args)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.switches">

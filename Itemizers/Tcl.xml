@@ -91,6 +91,12 @@ THE SOFTWARE.
 	<recipe name="tcl.comment">
 	    <class>ESCommentItem</class>
 	    <selector>tcl.comment</selector>
+	    <subrecipes>
+	    	<recipe name="tcl.comment.link">
+	    		<class>ESJSMarkupLink</class>
+	    		<selector>tcl.comment markup.link</selector>
+	    	</recipe>
+	    </subrecipes>
 	</recipe>
 	
 
