@@ -28,10 +28,8 @@ THE SOFTWARE.
 	
 	<behavior>
 		<append-dynamic>
-		
 			<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
 			<transform-into>(?1:$1: $0)</transform-into>
-		
 		</append-dynamic>
 	</behavior>
     
@@ -590,7 +588,7 @@ THE SOFTWARE.
 		<completion string="-variable" />
 	</set>
 	
-	<!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
+<!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<set name="com.rosensteiner.Tcl.function.amira.global-variables" casesensitive="true">
 		
@@ -600,7 +598,7 @@ THE SOFTWARE.
 		<completion string="SCRIPTDIR" />
 		<completion string="hideNewModules" />
 		<!--other stuff-->
-		<completion string="$this" />
+		<completion string="this" />
 				
 	</set>
 	

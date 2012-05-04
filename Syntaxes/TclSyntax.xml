@@ -149,14 +149,7 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.variable.definition.command-variable">
 			    <expression>\bvariable\b</expression>
 			</zone>
-			
-			<zone name="tcl.keyword.variable.definition.concat">
-			    <expression>([a-zA-Z0-9_]*)(\.)([a-zA-Z0-9_]*)</expression>
-			    <capture number="1" name="tcl.keyword.variable.definition.concat.rest"/>
-			    <capture number="2" name="tcl.keyword.variable.definition.concat.point"/>
-			    <capture number="3" name="tcl.keyword.variable.definition.concat.rest"/>
-			</zone>
-			
+						
 			<zone name="tcl.keyword.variable.definition.substitute">
 			    <starts-with>
 			        <expression>([a-zA-Z0-9_]*)(\$\{)</expression>
@@ -164,7 +157,7 @@ THE SOFTWARE.
 			        <capture number="2" name="tcl.keyword.variable.definition.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(\})([a-zA-Z0-9_]*)</expression>
+			        <expression>(\})([a-zA-Z0-9_?]*)</expression>
 			        <capture number="1" name="tcl.keyword.variable.definition.substitute.end"/>
 			        <capture number="2" name="tcl.keyword.variable.definition.substitute.rest"/>
 			    </ends-with>
@@ -175,12 +168,12 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.variable.definition.substitute.array">
 			    <starts-with>
-			        <expression>([a-zA-Z0-9_]*)(\$\()</expression>
+			        <expression>([a-zA-Z0-9_?]*)(\$\()</expression>
 			        <capture number="1" name="tcl.keyword.variable.definition.substitute.rest"/>
 			        <capture number="2" name="tcl.keyword.variable.definition.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(\))([a-zA-Z0-9_]*)</expression>
+			        <expression>(\))([a-zA-Z0-9_?]*)</expression>
 			        <capture number="1" name="tcl.keyword.variable.definition.substitute.end"/>
 			        <capture number="2" name="tcl.keyword.variable.definition.substitute.rest"/>
 			    </ends-with>
@@ -190,7 +183,7 @@ THE SOFTWARE.
 			</zone>
 						
 			<zone name="tcl.variable.definition.evaluate">
-			    <expression>(\$[a-zA-Z0-9_]+)\b</expression>
+			    <expression>(\$[a-zA-Z0-9_?]+)\b</expression>
 			</zone>
 			
 		</collection>
@@ -198,7 +191,7 @@ THE SOFTWARE.
 		<collection name="FlowControl">
 			
 			<zone name="tcl.keyword.control.start">
-			    <expression>\b(for|while|if|foreach|switch)\b</expression>
+			   <expression>\b(for|while|if|foreach|switch)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.control.additional">
@@ -368,11 +361,11 @@ THE SOFTWARE.
 			    <starts-with>
 			        <expression>\b(catch)\s+(\{)</expression>
 			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
-			        <capture number="2" name="tcl.punctuation.open-brace"/>
+			        <capture number="2" name="tcl.keyword.punctuation.open-brace"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\})</expression>
-			        <capture number="1" name="tcl.punctuation.close-brace"/>
+			        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
 			    	<include syntax="source.Tcl" />
