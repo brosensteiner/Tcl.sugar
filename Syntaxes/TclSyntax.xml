@@ -390,7 +390,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.container.builtinfunc-regexp">
 			    <starts-with>
-			        <expression>\b(regexp)\s+((-\w+\s+)+)?(\{)</expression>
+			        <expression>\b(regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
 			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
 			        <capture number="2" name="tcl.keyword.switches"/>
 			        <capture number="3" name="tcl.keyword.punctuation.open-brace"/>

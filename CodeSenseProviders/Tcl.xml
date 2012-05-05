@@ -27,24 +27,24 @@ THE SOFTWARE.
 <codesense>
     
 	<provider>
- 		<selector>language-root.tcl, language-root.tcl :not(tcl.escape,tcl.switches,tcl.shebang)</selector>
+ 		<selector>language-root.tcl,tcl :not(escape,switches,shebang)</selector>
  		<completions>com.rosensteiner.Tcl.functions</completions>
  		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape,tcl.switches,tcl.shebang)</selector>
+		<selector>language-root.tcl,tcl :not(escape,switches,shebang)</selector>
 		<completions>com.rosensteiner.Tcl.math</completions>
 		<complete-match>\b[a-zA-Z]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape,tcl.switches,tcl.shebang)</selector>
+		<selector>language-root.tcl,tcl :not(escape,switches,shebang)</selector>
 		<completions>com.rosensteiner.Tcl.global-procedures</completions>
 		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape,tcl.switches,tcl.shebang)</selector>
+		<selector>language-root.tcl,tcl :not(escape,switches,shebang)</selector>
 		<completions>com.rosensteiner.Tcl.global-variables</completions>
 		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
@@ -132,19 +132,19 @@ THE SOFTWARE.
 	<!--amira code sense provider, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape,tcl.switches,tcl.shebang)</selector>
+		<selector>language-root.tcl,tcl :not(escape,switches,shebang)</selector>
 		<completions>com.rosensteiner.amira</completions>
 		<complete-match>\b[a-zA-Z]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape,tcl.switches,tcl.shebang)</selector>
+		<selector>language-root.tcl,tcl :not(escape,switches,shebang)</selector>
 		<completions>com.rosensteiner.amira.data-classes</completions>
 		<complete-match>Hx[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape,tcl.switches,tcl.shebang)</selector>
+		<selector>language-root.tcl,tcl :not(escape,switches,shebang)</selector>
 		<completions>com.rosensteiner.amira.scriptobject</completions>
 		<complete-match>new[a-zA-Z]*</complete-match>
 	</provider>
