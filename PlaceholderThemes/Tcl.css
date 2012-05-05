@@ -19,8 +19,7 @@ tcl.global-procedures {
 	font-weight: bold;
 }
 
-tcl.variable.substitute,
-tcl.variable.concat {
+tcl.variable.substitute {
 	color: rgba(163, 214, 132, 0.8);
 }
 
@@ -115,8 +114,8 @@ tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword) + 
 	font-weight: bold;
 }
 
-tcl.keyword.options + switches {
-	color: rgba(186, 129, 233, 0.4);
+switches, {
+	color: rgba(186, 129, 233, 0.38);
 }
 
 tcl.keyword.command {
@@ -136,15 +135,12 @@ tcl.keyword.operator.logical {
 	font-weight: bold;
 }
 
-tcl.string {
-	background-color: rgba(207, 220, 243, 0.1);
-}
-
 tcl.punctuation.open-bracket,
 tcl.punctuation.close-bracket,
 tcl.keyword.string-format, {
 	color: #e82c13;
 }
+
 tcl.keyword.character-class,
 tcl.open-brace,
 tcl.close-brace,

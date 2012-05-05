@@ -130,7 +130,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.comment.multiline"><!--awkward tcl multiline comment :)-->
 			    <starts-with>
-			        <expression>if 0 \{</expression>
+			        <expression>if\s+0\s+\{</expression>
 			    </starts-with>
 			    <ends-with>
 			        <expression>\}</expression>
@@ -141,7 +141,7 @@ THE SOFTWARE.
 
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
-			<zone name="tcl.keyword.definition.command.upvar">
+			<zone name="tcl.keyword.command.definition.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
 			
@@ -158,11 +158,11 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.keyword.variable.new"/>
 			</zone>
 			
-			<zone name="tcl.keyword.definition.command-global">
+			<zone name="tcl.keyword.command.definition.command-global">
 			    <expression>\bglobal\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.definition.command-variable">
+			<zone name="tcl.keyword.command.definition.command-variable">
 			    <expression>\bvariable\b</expression>
 			</zone>
 						
@@ -423,6 +423,11 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.command.function">
 				    <expression>\bproc\s+(\w+)</expression>
 				    <capture number="1" name="tcl.keyword.command.function.name"/>
+			</zone>
+			
+			<zone name="tcl.keyword.command.class">
+				    <expression>\bclass\s+(\w+)</expression>
+				    <capture number="1" name="tcl.keyword.command.class.name"/>
 			</zone>
 			
 			<zone name="tcl.keyword.command.builtinfunc">

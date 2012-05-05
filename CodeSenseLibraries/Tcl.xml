@@ -588,6 +588,26 @@ THE SOFTWARE.
 		<completion string="-variable" />
 	</set>
 	
+	<!--string switches-->
+	<set name="com.rosensteiner.Tcl.function.string.compare" casesensitive="true">
+		<completion string="-nocase" />
+		<completion string="-length" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.equal" casesensitive="true">
+		<completion string="-nocase" />
+		<completion string="-length" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.switches" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.map" casesensitive="true">
+		<completion string="-nocase" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.match" casesensitive="true">
+		<completion string="-nocase" />
+	</set>
+	
 <!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<set name="com.rosensteiner.Tcl.function.amira.global-variables" casesensitive="true">

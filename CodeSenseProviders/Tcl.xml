@@ -27,67 +27,60 @@ THE SOFTWARE.
 <codesense>
     
 	<provider>
- 		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang) + *</selector>
+ 		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang)</selector>
  		<completions>com.rosensteiner.Tcl.functions</completions>
  		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang) + *</selector>
+		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang)</selector>
 		<completions>com.rosensteiner.Tcl.math</completions>
 		<complete-match>\b[a-zA-Z]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang) + *</selector>
+		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang)</selector>
 		<completions>com.rosensteiner.Tcl.global-procedures</completions>
 		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	<provider>
-		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang) + *</selector>
+		<selector>language-root.tcl, language-root.tcl :not(tcl.escape, tcl.shebang)</selector>
 		<completions>com.rosensteiner.Tcl.global-variables</completions>
 		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	
-	<!--builtin function options-->
-	<provider>
-		<selector>tcl.keyword.command.builtinfunc[text='fileevent'] + space + * + space + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.fileevents</completions>
-		<complete-match>\b[a-zA-Z]*</complete-match>
-	</provider>
+	<!--builtin function options and switches-->
 	
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + * + *</selector>
+		<selector>tcl.keyword.builtinfunc:capture(name) + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>\b[a-zA-Z]*</complete-match>
-	</provider>
-	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>\b[a-zA-Z]*</complete-match>
+		<complete-match>[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options) + space + * + *</selector>
+		<selector>tcl.keyword.builtinfunc:capture(name) + options:capture(options) + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>\b[a-zA-Z]*</complete-match>
-	</provider>
-	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options) + space + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>\b[a-zA-Z]*</complete-match>
+		<complete-match>[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options1) + space + options:capture(options2) + space + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
-		<complete-match>\b[a-zA-Z]*</complete-match>
+		<selector>tcl.keyword.builtinfunc:capture(name) + options:capture(options) + switches + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>[a-zA-Z0-9-]*</complete-match>
 	</provider>
+	
 	<provider>
-		<selector>tcl.keyword.command.builtinfunc:capture(name) + space + options:capture(options1) + space + options:capture(options2) + space + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
-		<complete-match>\b[a-zA-Z]*</complete-match>
+		<selector>tcl.keyword.builtinfunc:capture(name) + options:capture(options) + options + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}.switches</completions>
+		<complete-match>[a-zA-Z0-9-]*</complete-match>
 	</provider>
+	
+	<provider>
+		<selector>tcl.keyword.builtinfunc:capture(name) + options:capture(options) + options + switches + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}.switches</completions>
+		<complete-match>[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	
 	
 	
 	<!--amira code sense provider, can be deleted when not needed, but the author needs it desperately :)-->
@@ -183,7 +176,7 @@ THE SOFTWARE.
 	</provider>
 	
 	<provider>
-		<selector>tcl.keyword.command.amira.global.commands.window + space + *</selector>
+		<selector>tcl.keyword.command.amira.global.commands.window +  *</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.window</completions>
 		<complete-match>\b[a-zA-Z]*</complete-match>
 	</provider>
@@ -202,12 +195,12 @@ THE SOFTWARE.
 	
 	<!--"viewer" needs the two following providers-->
 	<provider>
-		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + space + *</selector>
+		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer +  *</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.viewer</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer + space + *</selector>
+		<selector>tcl.keyword.command.amira.global.commands.viewer + *, tcl.keyword.command.amira.global.commands.viewer +  *</selector>
 		<completions>com.rosensteiner.Tcl.function.amira.window</completions>
 		<complete-match>[a-zA-Z]*</complete-match>
 	</provider>
