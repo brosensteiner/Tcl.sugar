@@ -33,7 +33,7 @@ THE SOFTWARE.
 	${3:body}
 \}
 $0</text>
-        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
         <text-trigger>nproc</text-trigger>
     </snippet>
 	
@@ -43,7 +43,7 @@ $0</text>
         <title>new procedure at one line</title>
         <text>proc ${1:name} \{ ${2:arguments} \} \{ ${3:body} \}
         </text>
-        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
         <text-trigger>nproc1</text-trigger>
     </snippet> 
 

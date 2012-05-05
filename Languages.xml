@@ -28,7 +28,7 @@ THE SOFTWARE.
 
 	<language id="com.rosensteiner.Tcl">
 
-		<syntax-name>source.Tcl</syntax-name>
+		<syntax-name>language-root.tcl</syntax-name>
        
 		<name>Tcl</name>
        

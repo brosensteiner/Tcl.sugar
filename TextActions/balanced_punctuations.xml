@@ -30,28 +30,28 @@ THE SOFTWARE.
 	    <title>matched curly braces</title>
 	<text>{ ${EDITOR_SELECTION:${1:...}} }$0</text>
 		<key-equivalent>shift {</key-equivalent>
-	    <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+	    <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 	</snippet>
 	
 	<snippet id="actions.snippets.tcl.WrapBracket" category="actions.snippets.tcl">
 		<title>matched square brackets</title>
 		<key-equivalent>shift [</key-equivalent>
 		<text>[${EDITOR_SELECTION:${1:list}}]$0</text>
-		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 	</snippet>
 	
 	<snippet id="actions.snippets.tcl.WrapParenthesis" category="actions.snippets.tcl">
 		<title>matched parenthesis</title>
 		<key-equivalent>cmd (</key-equivalent>
 		<text>\(${EDITOR_SELECTION:${1:...}}\)$0</text>
-		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 	</snippet>
 	
 	<snippet id="actions.snippets.tcl.WrapDoubleQuote" category="actions.snippets.tcl">
 		<title>matched double quotes</title>
 		<key-equivalent>option "</key-equivalent>
 		<text>"${EDITOR_SELECTION:${1:string}}"$0</text>
-		<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 	</snippet>
 	
 	

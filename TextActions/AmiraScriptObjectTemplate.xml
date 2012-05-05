@@ -54,7 +54,7 @@ THE SOFTWARE.
 
 }
 </text>
-        <syntax-context>source.Tcl, source.Tcl *</syntax-context>
+        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
         <text-trigger>amirascro</text-trigger>
     </snippet>
 

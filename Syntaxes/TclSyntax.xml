@@ -24,7 +24,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<syntax name="source.Tcl">
+<syntax name="language-root.tcl">
 
     <zones>
     
@@ -69,7 +69,7 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.close-bracket"/>
 			    </ends-with>
 			    <subzones>
-			    	<include syntax="source.Tcl" />
+			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
 			
@@ -122,7 +122,7 @@ THE SOFTWARE.
 			        <expression>\}</expression>
 			    </ends-with>
 			    <subzones>
-			    	<include syntax="source.Tcl" />
+			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
 		
@@ -194,19 +194,19 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="FlowControl">
-			
+		
 			<zone name="tcl.keyword.control.start">
-			   <expression>\b(for|while|if|foreach|switch)\b</expression>
+				<expression>\b(for|while|if|foreach|switch)\b</expression>
 			</zone>
-			
+		
 			<zone name="tcl.keyword.control.additional">
-			    <expression>\b(elseif|else)\b</expression>
+				<expression>\b(elseif|else)\b</expression>
 			</zone>
-			
+		
 			<zone name="tcl.keyword.control.flow">
-			    <expression>\b(break|continue)\b</expression>
+				<expression>\b(break|continue)\b</expression>
 			</zone>
-			     			
+		
 		</collection>
 				
 		
@@ -373,7 +373,7 @@ THE SOFTWARE.
 			        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<include syntax="source.Tcl" />
+			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
 			
@@ -389,7 +389,7 @@ THE SOFTWARE.
 			        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<include syntax="source.Tcl" />
+			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
 			
@@ -405,7 +405,7 @@ THE SOFTWARE.
 			        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<include syntax="source.Tcl" />
+			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
 			

@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <injections>
 
-    <injection name="injection.amira" selector="source.Tcl tcl.function" action="attach-after-target">
+    <injection name="injection.amira" selector="language-root.tcl tcl.function" action="attach-after-target">
     <!--until now nothing is here-->
     </injection>
     
@@ -45,7 +45,7 @@ THE SOFTWARE.
         	    </ends-with>
         	    <subzones>
         	    	<include collection="Balanced" />
-        	    	<include syntax="source.Tcl" />
+        	    	<include syntax="language-root.tcl" />
         	    </subzones>
         	    <cut-off>
         	        <expression></expression>

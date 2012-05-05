@@ -36,7 +36,7 @@ THE SOFTWARE.
                     <!--<output>text</output>-->
         
                     <!--<undo_name>My Action</undo_name>-->
-			<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+			<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 			<selection-context>none</selection-context>
 		</setup>
 	</action>
@@ -52,7 +52,7 @@ THE SOFTWARE.
                 <!--<output>text</output>-->
     
                 <!--<undo_name>My Action</undo_name>-->
-			<syntax-context>source.Tcl, source.Tcl *</syntax-context>
+			<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 			<selection-context>none</selection-context>
 		</setup>
 	</action>
