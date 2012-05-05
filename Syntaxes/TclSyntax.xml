@@ -39,7 +39,7 @@ THE SOFTWARE.
 		<include collection="FormatSpecifier"/>
     	<include collection="Variables" />
     	<include collection="Operators" />
-		<include syntax="source.Amira" /><!--can be deleted if Amira syntax extension is not needed-->
+		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
 		<include collection="Comments" />
     	<include collection="Strings"/>
     	<include collection="FlowControl" />
@@ -91,27 +91,41 @@ THE SOFTWARE.
 			</zone>
 			
 		</collection>
+		
+		<collection name="Markup">
+		
+			<zone name="markup.link"><!--stolen from php sugar-->
+				<expression>(?i)\b(?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()&lt;>]+|\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\))+(?:\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\)|[^\s`!()\[\]{};:'".,&lt;>?«»“”‘’])</expression>
+			</zone>
+			
+		</collection>
 	
 		<collection name="Comments">
 			
-			<zone name="tcl.keyword.comment.multiline">
+			<zone name="tcl.keyword.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax ... -->
 			    <starts-with>
-			        <expression>(#)[^\d].*?(?&lt;!\\)\\$\n?</expression>
+			        <expression>(#)[^\d].*?(?&lt;!\\)\\\s*$\n?</expression>
 			        <capture number="1" name="tcl.keyword.comment.multiline.hash"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>[^\\]\s*\n</expression>
 			    </ends-with>
-			    <subzones><!--stolen from php sugar-->
-			    	<zone name="markup.link">
-			    		<expression>(?i)\b(?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()&lt;>]+|\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\))+(?:\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\)|[^\s`!()\[\]{};:'".,&lt;>?«»“”‘’])</expression>
-			    	</zone>
+			    <subzones>
+			    	<include collection="Markup"/>
 			    </subzones>
 			</zone>
 			
 			<zone name="tcl.keyword.comment.line">
-			    <expression>(#)[^\d].*$\n?</expression>
-			    <capture number="1" name="tcl.comment.hash"/>
+				<starts-with>
+			    	<expression>(#)[^\d]</expression>
+			    	<capture number="1" name="tcl.comment.hash"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\n</expression>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="Markup"/>
+			    </subzones>
 			</zone>
 			
 			<zone name="tcl.keyword.comment.multiline"><!--awkward tcl multiline comment :)-->
@@ -121,66 +135,63 @@ THE SOFTWARE.
 			    <ends-with>
 			        <expression>\}</expression>
 			    </ends-with>
-			    <subzones>
-			    	<include syntax="language-root.tcl" />
-			    </subzones>
 			</zone>
 		
 		</collection>
-		
+
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
-			<zone name="tcl.keyword.variable.definition.upvar">
+			<zone name="tcl.keyword.definition.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.variable.definition.general">
+			<zone name="tcl.keyword.definition.rename">
 			    <expression>\b(rename)\s+([\$a-zA-Z0-9\._]+)\s+([\$a-zA-Z0-9\._]+)</expression>
-			    <capture number="1" name="tcl.keyword.variable.definition.set"/>
-			    <capture number="2" name="tcl.keyword.variable.definition.oldname"/>
-			    <capture number="3" name="tcl.keyword.variable.definition.newname"/>
+			    <capture number="1" name="tcl.keyword.command.rename"/>
+			    <capture number="2" name="tcl.keyword.variable.rename.oldname"/>
+			    <capture number="3" name="tcl.keyword.variable.rename.newname"/>
 			</zone>
 			
-			<zone name="tcl.keyword.variable.definition.general">
+			<zone name="tcl.keyword.definition.general">
 			    <expression>\b(set|lset)\s+([a-zA-Z0-9_]+)</expression>
-			    <capture number="1" name="tcl.keyword.variable.definition.set"/>
-			    <capture number="2" name="tcl.keyword.variable.definition.new"/>
+			    <capture number="1" name="tcl.keyword.command.set"/>
+			    <capture number="2" name="tcl.keyword.variable.new"/>
 			</zone>
 			
-			<zone name="tcl.keyword.variable.definition.command-global">
+			<zone name="tcl.keyword.definition.command-global">
 			    <expression>\bglobal\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.variable.definition.command-variable">
+			<zone name="tcl.keyword.definition.command-variable">
 			    <expression>\bvariable\b</expression>
 			</zone>
 						
-			<zone name="tcl.keyword.variable.definition.substitute">
+			<zone name="tcl.keyword.variable.substitute">
 			    <starts-with>
 			        <expression>([a-zA-Z0-9_]*)(\$\{)</expression>
-			        <capture number="1" name="tcl.keyword.variable.definition.substitute.rest"/>
-			        <capture number="2" name="tcl.keyword.variable.definition.substitute.begin"/>
+			        <capture number="1" name="tcl.keyword.variable.substitute.rest"/>
+			        <capture number="2" name="tcl.keyword.variable.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\})([a-zA-Z0-9_?]*)</expression>
-			        <capture number="1" name="tcl.keyword.variable.definition.substitute.end"/>
-			        <capture number="2" name="tcl.keyword.variable.definition.substitute.rest"/>
+			        <capture number="1" name="tcl.keyword.variable.substitute.end"/>
+			        <capture number="2" name="tcl.keyword.variable.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.keyword.variable.definition.substitute.array">
+			<zone name="tcl.keyword.variable.substitute.array">
 			    <starts-with>
 			        <expression>([a-zA-Z0-9_?]*)(\$\()</expression>
-			        <capture number="1" name="tcl.keyword.variable.definition.substitute.rest"/>
-			        <capture number="2" name="tcl.keyword.variable.definition.substitute.begin"/>
+			        <capture number="1" name="tcl.keyword.variable.substitute.rest"/>
+			        <capture number="2" name="tcl.keyword.variable.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\))([a-zA-Z0-9_?]*)</expression>
-			        <capture number="1" name="tcl.keyword.variable.definition.substitute.end"/>
-			        <capture number="2" name="tcl.keyword.variable.definition.substitute.rest"/>
+			        <capture number="1" name="tcl.keyword.variable.substitute.end"/>
+			        <capture number="2" name="tcl.keyword.variable.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>

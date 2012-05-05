@@ -19,8 +19,8 @@ tcl.global-procedures {
 	font-weight: bold;
 }
 
-tcl.variable.definition.substitute,
-tcl.variable.definition.concat {
+tcl.variable.substitute,
+tcl.variable.concat {
 	color: rgba(163, 214, 132, 0.8);
 }
 
@@ -43,8 +43,8 @@ tcl.variable.evaluate {
 	font-weight: normal;
 }
 
-tcl.variable.definition,
-tcl.variable.definition.substitute.rest,
+tcl.variable,
+tcl.variable.substitute.rest,
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + word,
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + word,
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
@@ -94,7 +94,6 @@ tcl.upvar + numeric + :not(keyword) + :not(keyword) + :not(keyword) + :not(keywo
 tcl.upvar + numeric + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
 
 tcl.builtinfunc-catch + word,
-tcl.builtinfunc-catch + word,
 
 tcl.keyword.control.start[text='foreach'] + word,
 tcl.keyword.control.start[text='foreach'] + open-brace + word,
@@ -106,6 +105,7 @@ tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word + wo
 	font-weight: bold;
 }
 
+tcl.keyword.variable.rename.oldname,
 tcl.builtinfunc[text='unset'] + :not(keyword),
 tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword),
 tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword),
@@ -113,14 +113,6 @@ tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword) + 
 tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) {
 	color: #e51c1c;
 	font-weight: bold;
-}
-
-tcl.variable.definition.set,
-tcl.variable.definition.command-variable,
-tcl.variable.definition.command-global,
-tcl.variable.definition.upvar {
-	font-weight: normal;
-	color: #bb82e9;
 }
 
 tcl.keyword.options + switches {
