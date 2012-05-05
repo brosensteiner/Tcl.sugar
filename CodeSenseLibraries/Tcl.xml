@@ -607,40 +607,38 @@ THE SOFTWARE.
 	<set name="com.rosensteiner.Tcl.function.string.match" casesensitive="true">
 		<completion string="-nocase" />
 	</set>
-	
+	<!--subst switches-->
+	<set name="com.rosensteiner.Tcl.function.subst" casesensitive="true">
+		<completion string="-nobackslashes" />
+		<completion string="-nocommands" />
+		<completion string="-novariables" />
+	</set>
+	<!--regexp switches-->
+	<set name="com.rosensteiner.Tcl.function.regexp" casesensitive="true">
+		<completion string="-about" />
+		<completion string="-expanded" />
+		<completion string="-indices" />
+		<completion string="-line" />
+		<completion string="-linestop" />
+		<completion string="-lineanchor" />
+		<completion string="-nocase" />
+		<completion string="-all" />
+		<completion string="-inline" />
+		<completion string="-start" />
+	</set>
+
+
 <!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
 	
-	<set name="com.rosensteiner.Tcl.function.amira.global-variables" casesensitive="true">
+	<set name="com.rosensteiner.amira" casesensitive="true">
 		
+		<!--global variables-->
 		<completion string="AMIRA_ROOT" />
 		<completion string="AMIRA_LOCAL" />
 		<completion string="SCRIPTFILE" />
 		<completion string="SCRIPTDIR" />
 		<completion string="hideNewModules" />
-		<!--other stuff-->
-		<completion string="this" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.port.scriptobject" casesensitive="true">
-		
-		<completion string="newPortButtonList" />
-		<completion string="newPortButtonMenu" />
-		<completion string="newPortColormap" />
-		<completion string="newPortDoIt" />
-		<completion string="newPortFilename" />
-		<completion string="newPortFloatSlider" />
-		<completion string="newPortFloatTextN" />
-		<completion string="newPortMultiMenu" />
-		<completion string="newPortInfo" />
-		<completion string="newPortIntSlider" />
-		<completion string="newPortIntTextN" />
-		<completion string="newPortRadioBox" />
-		<completion string="newPortSeparator" />
-		<completion string="newPortText" />
-		<completion string="newPortTime" />
-		<completion string="newPortToggleList" />
-		<completion string="newPortConnection" />
+		<!--port-->
 		<completion string="deletePort" />
 		<completion string="setVar" />
 		<completion string="setVarSerialize" />
@@ -654,21 +652,7 @@ THE SOFTWARE.
 		<completion string="getMenuSensitivity" />
 		<completion string="setSensitivity" />
 		<completion string="getSensitivity" />
-		<completion string="newPort3DPointList" />
-		<completion string="newPortGeneric" />
-		<completion string="newPortTextEdit" />
-		<completion string="newPortChannelConfig" />
-		<completion string="newPortColorList" />
-		<completion string="newPortDrawStyle" />
-		<completion string="newPortFontSelection" />
-		<completion string="newPortMultiChannel" />
-		<completion string="newPortSharedColormap" />
-		<completion string="newPortTabBar" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.general-amira-object" casesensitive="true">
-		
+		<!--general amira object-->
 		<completion string="setValue" />
 		<completion string="getValue" />
 		<completion string="hasInterface" />
@@ -694,12 +678,7 @@ THE SOFTWARE.
 		<completion string="help" />
 		<completion string="getLabel" />
 		<completion string="setViewerMask" />
-		
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.amira-spatial-data-object" casesensitive="true">
-		
+		<!--spatial object-->
 		<completion string="getBoundingBox" />
 		<completion string="getTransform" />
 		<completion string="setTransform" />
@@ -722,11 +701,7 @@ THE SOFTWARE.
 		<completion string="removeDataWindow" />
 		<completion string="getRange" />
 		<completion string="touchMinMax" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.field3" casesensitive="true">
-		
+		<!--field3-->
 		<completion string="nDataVar" />
 		<completion string="evalprimType" />
 		<completion string="getDims" />
@@ -738,11 +713,7 @@ THE SOFTWARE.
 		<completion string="flip" />
 		<completion string="swapDims" />
 		<completion string="setBoundingBox" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.surface" casesensitive="true">
-		
+		<!--surface-->
 		<completion string="recompute" />
 		<completion string="fixOrientation" />
 		<completion string="invertOrientation" />
@@ -759,11 +730,7 @@ THE SOFTWARE.
 		<completion string="getPatchArea" />
 		<completion string="assignInsideMaterial" />
 		<completion string="assignOutsideMaterial" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.cluster" casesensitive="true">
-		
+		<!--cluster-->
 		<completion string="computeBounds" />
 		<completion string="computeConnectivity" />
 		<completion string="addPoint" />
@@ -784,22 +751,14 @@ THE SOFTWARE.
 		<completion string="getLabelValue" />
 		<completion string="setLabelColumnName" />
 		<completion string="getLabelColumnName" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.data" casesensitive="true">
-		
+		<!--data-->
 		<completion string="touch" />
 		<completion string="save" />
 		<completion string="parameters" />
 		<completion string="setDefaultFileFormat" />
 		<completion string="setEditor" />
 		<completion string="getEditor" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.interface-component-port" casesensitive="true">
-		
+		<!--interface component port-->
 		<completion string="source" />
 		<completion string="connect" />
 		<completion string="disconnect" />
@@ -810,11 +769,19 @@ THE SOFTWARE.
 		<completion string="allowEditing" />
 		<completion string="isEditable" />
 		<completion string="validSource" />
-				
-	</set>
-	
-	<set name="com.rosensteiner.Tcl.function.amira.interface-component-connectionport" casesensitive="true">
-		
+		<!--interface component generic port-->
+		<completion string="getColor" />
+		<completion string="isItemNew" />
+		<completion string="deleteItem" />
+		<completion string="insertIntText" />
+		<completion string="insertFloatText" />
+		<completion string="insertCheckBox" />
+		<completion string="insertRadioGroup" />
+		<completion string="insertComboBox" />
+		<completion string="insertPushButton" />
+		<completion string="insertColorButton" />
+		<completion string="insertLabel" />
+		<!--interface component connection port-->
 		<completion string="help" />
 		<completion string="isNew" />
 		<completion string="getState" />
@@ -837,54 +804,252 @@ THE SOFTWARE.
 		<completion string="isOfType" />
 		<completion string="getTypeId" />
 		<completion string="connect" />
-		
+		<!--viewer-->
+		<completion string="viewer" />
+		<completion string="snapshot" />
+		<completion string="setPosition" />
+		<completion string="getPosition" />
+		<completion string="setSize" />
+		<completion string="getSize" />
+		<completion string="setCamera" />
+		<completion string="getCamera" />
+		<completion string="setCameraPosition" />
+		<completion string="getCameraPosition" />
+		<completion string="setCameraOrientation" />
+		<completion string="getCameraOrientation" />
+		<completion string="setCameraFocalDistance" />
+		<completion string="getCameraFocalDistance" />
+		<completion string="setCameraHeightAngle" />
+		<completion string="getCameraHeightAngle" />
+		<completion string="setCameraHeight" />
+		<completion string="getCameraHeight" />
+		<completion string="setCameraType" />
+		<completion string="getCameraType" />
+		<completion string="setTransparencyType" />
+		<completion string="getTransparencyType" />
+		<completion string="setSortedLayersNumPasses" />
+		<completion string="getSortedLayersNumPasses" />
+		<completion string="setBackgroundColor" />
+		<completion string="getBackgroundColor" />
+		<completion string="setBackgroundColor2" />
+		<completion string="getBackgroundColor2" />
+		<completion string="setBackgroundMode" />
+		<completion string="getBackgroundMode" />
+		<completion string="setBackgroundImage" />
+		<completion string="getBackgroundImage" />
+		<completion string="setAutoRedraw" />
+		<completion string="isAutoRedraw" />
+		<completion string="transformScreenToWorld" />
+		<completion string="redraw" />
+		<completion string="rotate" />
+		<completion string="setDecoration" />
+		<completion string="saveScene" />
+		<completion string="viewAll" />
+		<completion string="view" />
+		<completion string="show" />
+		<completion string="hide" />
+		<completion string="fogRange" />
+		<completion string="setVideoFormat" />
+		<completion string="setVideoFrame" />
+		<!--global other-->
+		<completion string="addTimeout" />
+		<completion string="all" />
+		<completion string="aminfo" />
+		<completion string="clear" />
+		<completion string="create" />
+		<completion string="dso" />
+		<completion string="addPath" />
+		<completion string="echo" />
+		<completion string="help" />
+		<completion string="httpd" />
+		<completion string="limit" />
+		<completion string="load" />
+		<completion string="mem" />
+		<completion string="quit" />
+		<completion string="remove" />
+		<completion string="rename" />
+		<completion string="sleep" />
+		<completion string="source" />
+		<completion string="system" />
+		<completion string="saveNetwork" />
+		<completion string="saveNetworkAs" />
+		<!--workArea-->
+		<completion string="workArea setProgressInfo" />
+		<completion string="workArea setProgressValue" />
+		<completion string="workArea startWorking" />
+		<completion string="workArea stopWorking" />
+		<completion string="workArea wasInterrupted" />
+		<!--theMain-->
+		<completion string="theMain" /> <!--useful because theMain can habe other arguments too-->
+		<completion string="theMain snapshot" />
+		<completion string="theMain setViewerTogglesOnIcons" />
+		<completion string="theMain ignoreShow" />	
+		<!--theMsg-->		
+		<completion string="theMsg" /> <!--useful because theMsg can habe other arguments too-->
+		<completion string="theMsg error" />
+		<completion string="theMsg warning" />
+		<completion string="theMsg question" />
+		<completion string="theMsg overwrite" />	
+		<!--app-->		
+		<completion string="app version" />
+		<completion string="app uname" />
+		<completion string="app arch" />
+		<completion string="app hostid" />
+		<completion string="app listen" />
+		<completion string="app close" />
+		<completion string="app port" />
+		<completion string="app send" />
+		<completion string="app opengl" />
+		<completion string="app cluster" />
+		<!--window-->		
+		<completion string="getFrameGeometry" />
+		<completion string="getGeometry" />
+		<completion string="getPosition" />
+		<completion string="getRelativeGeometry" />
+		<completion string="getSize" />
+		<completion string="hide" />
+		<completion string="setCaption" />
+		<completion string="setFrameGeometry" />
+		<completion string="setGeometry" />
+		<completion string="setPosition" />
+		<completion string="setRelativeGeometry" />
+		<completion string="setSize" />
+		<completion string="show" />
+		<completion string="showMinimized" />
+		<completion string="showMaximized" />
+		<!--parameters-->		
+		<completion string="bundle" />
+		<completion string="flags" />
+		<completion string="getFlag" />
+		<completion string="getName" />
+		<completion string="hasBundle" />
+		<completion string="hasParameter" />
+		<completion string="index" />
+		<completion string="isBundle" />
+		<completion string="list" />
+		<completion string="nBundles" />
+		<completion string="newBundle" />
+		<completion string="setFlag" />
+		<completion string="setName" />
+		<completion string="size" />
+		<!--viewbase-->		
+		<completion string="createSurface" />
+		<completion string="setAlphaMode" />
+		<completion string="setNormalBinding" />
+		<completion string="setPointSize" />
+		<completion string="setPolygonOffsetMode" />
+		<completion string="setOutlineColor" />
+		<completion string="setLineWidth" />
+		<completion string="setHighlightColor" />
+		<completion string="setEmissiveColor" />
+		<completion string="setSpecularColor" />
+		<completion string="setShininess" />
+		<completion string="showBox" />
+		<completion string="hideBox" />
+		<!--additional commands-->		
+		<completion string="allInterfaceTypeIds" />
+		<completion string="allInterfaces" />
+		<completion string="applyTransform" />
+		<completion string="applyTransformBBox" />
+		<completion string="checkBorderTouch" />
+		<completion string="clearVisibleFlag" />
+		<completion string="collapse" />
+		<completion string="compareTransforms" />
+		<completion string="createDocFile" />
+		<completion string="createPortSnaps" />
+		<completion string="createWeights" />
+		<completion string="deleteWeights" />
+		<completion string="eval" />
+		<completion string="expand" />
+		<completion string="extract" />
+		<completion string="getControllingData" />
+		<completion string="getHelpHint" />
+		<completion string="getInterface" />
+		<completion string="getMaterialName" />
+		<completion string="getNoRenameFlag" />
+		<completion string="getPackage" />
+		<completion string="getScreen" />
+		<completion string="getSurfaceArea" />
+		<completion string="getTouchTime" />
+		<completion string="getTransformRounded" />
+		<completion string="getVarNames" />
+		<completion string="getViewerMask" />
+		<completion string="getVoxelSize" />
+		<completion string="gmcLabels" />
+		<completion string="gmcWeights" />
+		<completion string="hasMaterial" />
+		<completion string="interpolTransform" />
+		<completion string="isModified" />
+		<completion string="latticeType" />
+		<completion string="makeColormap" />
+		<completion string="primType" />
+		<completion string="primary" />
+		<completion string="proc" />
+		<completion string="relabel" />
+		<completion string="removeEmptyMaterials" />
+		<completion string="removeMaterial" />
+		<completion string="resize" />
+		<completion string="setControllingData" />
+		<completion string="setInvisible" />
+		<completion string="setModified" />
+		<completion string="setNoRemove" />
+		<completion string="setNoRemoveAll" />
+		<completion string="setNoRename" />
+		<completion string="setNoSave" />
+		<completion string="setRequiresPolygonOffset" />
+		<completion string="setScale" />
+		<completion string="setScreen" />
+		<completion string="setShadowStyle" />
+		<completion string="setTransformRounded" />
+		<completion string="setUnit" />
+		<completion string="sharedColormap" />
+		<completion string="unsetVar" />
+		<completion string="action" />
+		<completion string="DoIt" />
+		<completion string="call" />
+		<completion string="exec" />
+		<completion string="getResult" />
+		<completion string="isFirstCall" />
+		<completion string="script" />
+		<completion string="setPickCallback" />
+		<completion string="setResult" />
+		<completion string="this" />
 				
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.amira.interface-component-genericport" casesensitive="true">
+	<set name="com.rosensteiner.amira.scriptobject" casesensitive="true">
 		
-		<completion string="getColor" />
-		<completion string="isItemNew" />
-		<completion string="deleteItem" />
-		<completion string="insertIntText" />
-		<completion string="insertFloatText" />
-		<completion string="insertCheckBox" />
-		<completion string="insertRadioGroup" />
-		<completion string="insertComboBox" />
-		<completion string="insertPushButton" />
-		<completion string="insertColorButton" />
-		<completion string="insertLabel" />
-		
+		<completion string="newPortButtonList" />
+		<completion string="newPortButtonMenu" />
+		<completion string="newPortColormap" />
+		<completion string="newPortDoIt" />
+		<completion string="newPortFilename" />
+		<completion string="newPortFloatSlider" />
+		<completion string="newPortFloatTextN" />
+		<completion string="newPortMultiMenu" />
+		<completion string="newPortInfo" />
+		<completion string="newPortIntSlider" />
+		<completion string="newPortIntTextN" />
+		<completion string="newPortRadioBox" />
+		<completion string="newPortSeparator" />
+		<completion string="newPortText" />
+		<completion string="newPortTime" />
+		<completion string="newPortToggleList" />
+		<completion string="newPortConnection" />
+		<completion string="newPort3DPointList" />
+		<completion string="newPortGeneric" />
+		<completion string="newPortTextEdit" />
+		<completion string="newPortChannelConfig" />
+		<completion string="newPortColorList" />
+		<completion string="newPortDrawStyle" />
+		<completion string="newPortFontSelection" />
+		<completion string="newPortMultiChannel" />
+		<completion string="newPortSharedColormap" />
+		<completion string="newPortTabBar" />
 				
 	</set>
    	
-   	<set name="com.rosensteiner.Tcl.function.amira.global.other" casesensitive="true">
-   		
-   		<completion string="addTimeout" />
-   		<completion string="all" />
-   		<completion string="aminfo" />
-   		<completion string="clear" />
-   		<completion string="create" />
-   		<completion string="dso" />
-   		<completion string="addPath" />
-   		<completion string="echo" />
-   		<completion string="help" />
-   		<completion string="httpd" />
-   		<completion string="limit" />
-   		<completion string="load" />
-   		<completion string="mem" />
-   		<completion string="quit" />
-   		<completion string="remove" />
-   		<completion string="rename" />
-   		<completion string="sleep" />
-   		<completion string="source" />
-   		<completion string="system" />
-   		<completion string="saveNetwork" />
-   		<completion string="saveNetworkAs" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.data-classes" casesensitive="true">
+   	<set name="com.rosensteiner.amira.data-classes" casesensitive="true">
    		
    		<completion string="HxData" />
    		<completion string="HxSpreadSheet" />
@@ -1050,11 +1215,7 @@ THE SOFTWARE.
    		<completion string="HxParamBundle" />
    		<completion string="HxParamBase" />
    		<completion string="HxParamBase" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.port.type" casesensitive="true">
-   		
+   		<!--ports-->
    		<completion string="HxPortButtonList" />
    		<completion string="HxPortButtonMenu" />
    		<completion string="HxPortColorList" />
@@ -1073,233 +1234,7 @@ THE SOFTWARE.
    		<completion string="HxPort3DPointList" />
    				
    	</set>
+ 
    	
-   	<set name="com.rosensteiner.Tcl.global.commands.amira" casesensitive="true">
-   		
-   		<completion string="viewer" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.viewer" casesensitive="true">
-   		
-   		<completion string="snapshot" />
-   		<completion string="setPosition" />
-   		<completion string="getPosition" />
-   		<completion string="setSize" />
-   		<completion string="getSize" />
-   		<completion string="setCamera" />
-   		<completion string="getCamera" />
-   		<completion string="setCameraPosition" />
-   		<completion string="getCameraPosition" />
-   		<completion string="setCameraOrientation" />
-   		<completion string="getCameraOrientation" />
-   		<completion string="setCameraFocalDistance" />
-   		<completion string="getCameraFocalDistance" />
-   		<completion string="setCameraHeightAngle" />
-   		<completion string="getCameraHeightAngle" />
-   		<completion string="setCameraHeight" />
-   		<completion string="getCameraHeight" />
-   		<completion string="setCameraType" />
-   		<completion string="getCameraType" />
-   		<completion string="setTransparencyType" />
-   		<completion string="getTransparencyType" />
-   		<completion string="setSortedLayersNumPasses" />
-   		<completion string="getSortedLayersNumPasses" />
-   		<completion string="setBackgroundColor" />
-   		<completion string="getBackgroundColor" />
-   		<completion string="setBackgroundColor2" />
-   		<completion string="getBackgroundColor2" />
-   		<completion string="setBackgroundMode" />
-   		<completion string="getBackgroundMode" />
-   		<completion string="setBackgroundImage" />
-   		<completion string="getBackgroundImage" />
-   		<completion string="setAutoRedraw" />
-   		<completion string="isAutoRedraw" />
-   		<completion string="transformScreenToWorld" />
-   		<completion string="redraw" />
-   		<completion string="rotate" />
-   		<completion string="setDecoration" />
-   		<completion string="saveScene" />
-   		<completion string="viewAll" />
-   		<completion string="view" />
-   		<completion string="show" />
-   		<completion string="hide" />
-   		<completion string="fogRange" />
-   		<completion string="setVideoFormat" />
-   		<completion string="setVideoFrame" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.workArea" casesensitive="true">
-   		
-   		<completion string="workArea setProgressInfo" />
-   		<completion string="workArea setProgressValue" />
-   		<completion string="workArea startWorking" />
-   		<completion string="workArea stopWorking" />
-   		<completion string="workArea wasInterrupted" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.theMain" casesensitive="true">
-   		
-   		<completion string="theMain" /> <!--useful because theMain can habe other arguments too-->
-   		<completion string="theMain snapshot" />
-   		<completion string="theMain setViewerTogglesOnIcons" />
-   		<completion string="theMain ignoreShow" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.theMsg" casesensitive="true">
-   		
-   		<completion string="theMsg" /> <!--useful because theMsg can habe other arguments too-->
-   		<completion string="theMsg error" />
-   		<completion string="theMsg warning" />
-   		<completion string="theMsg question" />
-   		<completion string="theMsg overwrite" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.app" casesensitive="true">
-   		
-   		<completion string="app version" />
-   		<completion string="app uname" />
-   		<completion string="app arch" />
-   		<completion string="app hostid" />
-   		<completion string="app listen" />
-   		<completion string="app close" />
-   		<completion string="app port" />
-   		<completion string="app send" />
-   		<completion string="app opengl" />
-   		<completion string="app cluster" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.window" casesensitive="true">
-   		
-   		<completion string="getFrameGeometry" />
-   		<completion string="getGeometry" />
-   		<completion string="getPosition" />
-   		<completion string="getRelativeGeometry" />
-   		<completion string="getSize" />
-   		<completion string="hide" />
-   		<completion string="setCaption" />
-   		<completion string="setFrameGeometry" />
-   		<completion string="setGeometry" />
-   		<completion string="setPosition" />
-   		<completion string="setRelativeGeometry" />
-   		<completion string="setSize" />
-   		<completion string="show" />
-   		<completion string="showMinimized" />
-   		<completion string="showMaximized" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.parameters" casesensitive="true">
-   		
-   		<completion string="bundle" />
-   		<completion string="flags" />
-   		<completion string="getFlag" />
-   		<completion string="getName" />
-   		<completion string="hasBundle" />
-   		<completion string="hasParameter" />
-   		<completion string="index" />
-   		<completion string="isBundle" />
-   		<completion string="list" />
-   		<completion string="nBundles" />
-   		<completion string="newBundle" />
-   		<completion string="setFlag" />
-   		<completion string="setName" />
-   		<completion string="size" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.viewbase" casesensitive="true">
-   		
-   		<completion string="createSurface" />
-   		<completion string="setAlphaMode" />
-   		<completion string="setNormalBinding" />
-   		<completion string="setPointSize" />
-   		<completion string="setPolygonOffsetMode" />
-   		<completion string="setOutlineColor" />
-   		<completion string="setLineWidth" />
-   		<completion string="setHighlightColor" />
-   		<completion string="setEmissiveColor" />
-   		<completion string="setSpecularColor" />
-   		<completion string="setShininess" />
-   		<completion string="showBox" />
-   		<completion string="hideBox" />
-   				
-   	</set>
-   	
-   	<set name="com.rosensteiner.Tcl.function.amira.additional-commands" casesensitive="true">
-   		
-   		<completion string="allInterfaceTypeIds" />
-   		<completion string="allInterfaces" />
-   		<completion string="applyTransform" />
-   		<completion string="applyTransformBBox" />
-   		<completion string="checkBorderTouch" />
-   		<completion string="clearVisibleFlag" />
-   		<completion string="collapse" />
-   		<completion string="compareTransforms" />
-   		<completion string="createDocFile" />
-   		<completion string="createPortSnaps" />
-   		<completion string="createWeights" />
-   		<completion string="deleteWeights" />
-   		<completion string="eval" />
-   		<completion string="expand" />
-   		<completion string="extract" />
-   		<completion string="getControllingData" />
-   		<completion string="getHelpHint" />
-   		<completion string="getInterface" />
-   		<completion string="getMaterialName" />
-   		<completion string="getNoRenameFlag" />
-   		<completion string="getPackage" />
-   		<completion string="getScreen" />
-   		<completion string="getSurfaceArea" />
-   		<completion string="getTouchTime" />
-   		<completion string="getTransformRounded" />
-   		<completion string="getVarNames" />
-   		<completion string="getViewerMask" />
-   		<completion string="getVoxelSize" />
-   		<completion string="gmcLabels" />
-   		<completion string="gmcWeights" />
-   		<completion string="hasMaterial" />
-   		<completion string="interpolTransform" />
-   		<completion string="isModified" />
-   		<completion string="latticeType" />
-   		<completion string="makeColormap" />
-   		<completion string="primType" />
-   		<completion string="primary" />
-   		<completion string="proc" />
-   		<completion string="relabel" />
-   		<completion string="removeEmptyMaterials" />
-   		<completion string="removeMaterial" />
-   		<completion string="resize" />
-   		<completion string="setControllingData" />
-   		<completion string="setInvisible" />
-   		<completion string="setModified" />
-   		<completion string="setNoRemove" />
-   		<completion string="setNoRemoveAll" />
-   		<completion string="setNoRename" />
-   		<completion string="setNoSave" />
-   		<completion string="setRequiresPolygonOffset" />
-   		<completion string="setScale" />
-   		<completion string="setScreen" />
-   		<completion string="setShadowStyle" />
-   		<completion string="setTransformRounded" />
-   		<completion string="setUnit" />
-   		<completion string="sharedColormap" />
-   		<completion string="unsetVar" />
-   		<completion string="action" />
-   		<completion string="DoIt" />
-   		<completion string="call" />
-   		<completion string="exec" />
-   		<completion string="getResult" />
-   		<completion string="isFirstCall" />
-   		<completion string="script" />
-   		<completion string="setPickCallback" />
-   		<completion string="setResult" />
-   				
-   	</set>
     
 </codesense> 
