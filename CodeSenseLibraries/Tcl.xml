@@ -28,19 +28,20 @@ THE SOFTWARE.
 	
 	<behavior>
 		<append-dynamic>
-			<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
-			<transform-into>(?1:$1: $0)</transform-into>
+			<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+			<transform-into>(?1:: $0)</transform-into>
 		</append-dynamic>
 	</behavior>
     
 	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
 		
+		<completion string="prefix" />
 		<completion string="after" />
 		<completion string="error" />
 		<completion string="lappend">
 		<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:varName} ${2:?value value value ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -50,7 +51,7 @@ THE SOFTWARE.
 		<completion string="append">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:varName} ${2:?value value value ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -58,7 +59,7 @@ THE SOFTWARE.
 		<completion string="eval">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:?arg ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -74,7 +75,7 @@ THE SOFTWARE.
 		<completion string="array">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:option} ${2:arrayName} ${3:?arg arg ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -83,7 +84,7 @@ THE SOFTWARE.
 		<completion string="linsert">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:list} ${2:index} ${3:element} ${4:?element element ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -94,7 +95,7 @@ THE SOFTWARE.
 		<completion string="expr">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:arg} ${2:?arg arg ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -123,8 +124,8 @@ THE SOFTWARE.
 		<completion string="regexp">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
-					<transform-into>(?1:$1: ${1:?switches?} ${2:expstring} ${3:?matchVar?} ${4:?subMatchVar subMatchVar ...?}$0)</transform-into>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?switches?} ${2:expstring} ${3:?matchVar?} ${4:?subMatchVar subMatchVar ...?} $0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -133,7 +134,7 @@ THE SOFTWARE.
 		<completion string="fileevent">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:channelId} ${2:${3:readable} ${4:writable}} ${5:?script?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -141,7 +142,7 @@ THE SOFTWARE.
 		<completion string="lreplace">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:list} ${2:first} ${3:last} ${4:?element element ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -154,7 +155,7 @@ THE SOFTWARE.
 		<completion string="regsub">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:?switches?} ${2:expstring} ${3:subSpec} ${4:?varName?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -174,7 +175,7 @@ THE SOFTWARE.
 		<completion string="foreach">
 		<behavior>
 			<append-dynamic>
-				<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 				<transform-into>(?1:$1: ${1:varlist1} ${2:list1} ${3:?varlist2 list2 ...?} ${4:body}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -186,7 +187,7 @@ THE SOFTWARE.
 		<completion string="format">
 		<behavior>
 			<append-dynamic>
-				<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 				<transform-into>(?1:$1: ${1:formatString} ${2:?arg arg ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -223,6 +224,7 @@ THE SOFTWARE.
 		<completion string="if" />
 		<completion string="else" />
 		<completion string="elseif" />
+		<completion string="then" />
 		<completion string="package" />
 		<completion string="string" />
 		<completion string="dde" />
@@ -235,7 +237,7 @@ THE SOFTWARE.
 		<completion string="switch">
 			<behavior>
 				<append-dynamic>
-					<matched-suffix>(\s+[^\[\{\(])|\s*[^\[\{\(]?</matched-suffix>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:?options?} ${2:string} ${3:pattern} ${4:body} ${5:?pattern body ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
@@ -322,6 +324,15 @@ THE SOFTWARE.
 		
 	</set>
 	
+	<!--trace prefix-->
+	<set name="com.rosensteiner.Tcl.function.prefix" casesensitive="true">
+		
+		<completion string="all" />
+		<completion string="longest" />
+		<completion string="match" />
+				
+	</set>
+
 	<!--trace options-->
 	<set name="com.rosensteiner.Tcl.function.trace" casesensitive="true">
 		
@@ -333,7 +344,6 @@ THE SOFTWARE.
 		<completion string="vinfo" />
 				
 	</set>
-	
 	<set name="com.rosensteiner.Tcl.function.trace.add" casesensitive="true">
 		
 		<completion string="command" />
@@ -367,10 +377,26 @@ THE SOFTWARE.
 	
 	<!--binary options-->
 	<set name="com.rosensteiner.Tcl.function.binary" casesensitive="true">
-		
 		<completion string="scan" />
 		<completion string="format" />
-				
+		<completion string="encode" />
+		<completion string="decode" />
+	</set>
+	<!--binary options options-->
+	<set name="com.rosensteiner.Tcl.function.binary.encode" casesensitive="true">
+		<completion string="base64" />
+		<completion string="hex" />
+		<completion string="uuencode" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.binary.decode" casesensitive="true">
+		<completion string="base64" />
+		<completion string="hex" />
+		<completion string="uuencode" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.binary.format" casesensitive="true">
+		<completion string="base64" />
+		<completion string="hex" />
+		<completion string="uuencode" />
 	</set>
 	
 	<!--clock options-->
@@ -588,6 +614,14 @@ THE SOFTWARE.
 		<completion string="-variable" />
 	</set>
 	
+	<!--prefix switches-->
+	<set name="com.rosensteiner.Tcl.function.prefix.match" casesensitive="true">
+		
+		<completion string="-exact" />
+		<completion string="-message" />
+		<completion string="-error" />
+				
+	</set>
 	<!--string switches-->
 	<set name="com.rosensteiner.Tcl.function.string.compare" casesensitive="true">
 		<completion string="-nocase" />
@@ -626,6 +660,44 @@ THE SOFTWARE.
 		<completion string="-inline" />
 		<completion string="-start" />
 	</set>
+	<!--regsub switches-->
+	<set name="com.rosensteiner.Tcl.function.regsub" casesensitive="true">
+		<completion string="-expanded" />
+		<completion string="-line" />
+		<completion string="-linestop" />
+		<completion string="-lineanchor" />
+		<completion string="-nocase" />
+		<completion string="-all" />
+		<completion string="-start" />
+	</set>
+	<!--binary switches-->
+	<set name="com.rosensteiner.Tcl.function.binary.encode.base64" casesensitive="true">
+		<completion string="-maxlen" />
+		<completion string="-wrapchar" />
+		<completion string="-strict" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.binary.decode.base64" casesensitive="true">
+		<completion string="-maxlen" />
+		<completion string="-wrapchar" />
+		<completion string="-strict" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.binary.encode.hex" casesensitive="true">
+		<completion string="-strict" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.binary.decode.hex" casesensitive="true">
+		<completion string="-strict" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.binary.encode.uuencode" casesensitive="true">
+		<completion string="-maxlen" />
+		<completion string="-wrapchar" />
+		<completion string="-strict" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.binary.decode.uuencode" casesensitive="true">
+		<completion string="-maxlen" />
+		<completion string="-wrapchar" />
+		<completion string="-strict" />
+	</set>
+	
 
 
 <!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->

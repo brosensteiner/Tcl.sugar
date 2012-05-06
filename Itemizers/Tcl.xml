@@ -35,20 +35,19 @@ THE SOFTWARE.
 		<class>ESCodeClassItem</class>
 		<selector>tcl.class:has-child(name:capture(name))</selector>
 	</recipe>
-
-	<recipe name="tcl.container.if-block">
+	<!--capturing the if statement in tcl without then is not possible so that in the inspector is the condition shown, because of the tcl if syntax (same goes for elseif), but with the optional keyword "then" it can be done - looks anyway more readable ... :)-->
+	<recipe name="tcl.container.if-then">
 		<class>ESJSControlBlockItem</class>
-		<start-selector>tcl tcl.keyword[text='if']:capture(itemizer-firstused) + open-brace:capture(open-parameters)</start-selector>
-		<end-selector>tcl close-brace:capture(close-parameters)</end-selector>
+		<start-selector>tcl.keyword[text="if"]:capture(itemizer-firstused) + *:capture(open-parameters) ~ tcl.keyword[text="then"]:capture(close-parameters) + open-brace</start-selector>
+		<end-selector>tcl close-brace</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
 	</recipe>
-	
-	<recipe name="tcl.container.if-block">
+	<recipe name="tcl.container.elseif-then">
 		<class>ESJSControlBlockItem</class>
-		<start-selector>tcl tcl.keyword[text='if']:capture(itemizer-firstused) + *:capture(open-parameters) ~ open-brace:capture(close-parameters)</start-selector>
-		<end-selector>tcl close-brace:capture(close-parameters)</end-selector>
+		<start-selector>tcl.keyword.control[text="elseif"]:capture(itemizer-firstused) + *:capture(open-parameters) ~ tcl.keyword[text="then"]:capture(close-parameters) + open-brace</start-selector>
+		<end-selector>tcl close-brace</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
@@ -67,15 +66,6 @@ THE SOFTWARE.
 		<class>ESJSControlBlockItem</class>
 		<start-selector>tcl tcl.keyword[text='while']:capture(itemizer-firstused) + *:capture(open-parameters) ~ open-brace:capture(close-parameters)</start-selector>
 		<end-selector>tcl close-brace:capture(close-parameters)</end-selector>
-		<subrecipes>
-			<include-root-recipes />
-		</subrecipes>
-	</recipe>
-	
-	<recipe name="tcl.container.elseif-block">
-		<class>ESJSControlBlockItem</class>
-		<start-selector>tcl tcl.keyword[text='elseif']:capture(itemizer-firstused) + open-brace</start-selector>
-		<end-selector>tcl close-brace</end-selector>
 		<subrecipes>
 			<include-root-recipes />
 		</subrecipes>
@@ -105,10 +95,10 @@ THE SOFTWARE.
 		<selector>tcl tcl.keyword[text='for']:capture(name)</selector>
 	</recipe>
 	
-	<!--since tcl uses "{" ans "}" virtually everywhere (EIAS - everything is a string in tcl) there is no chance to get a nice code folding like in ruby.sugar for example, but with this itemizer it is not bad:-->
+	<!--since tcl uses "{" ans "}" virtually everywhere (EIAS - everything is a string in tcl) there is no chance to get a perfect code folding like in ruby.sugar for example, but with this itemizer it is not bad:-->
 	<recipe name="tcl.container.balanced-braces">
 		<class>ESCodeBlockItem</class>
-		<start-selector>tcl :not(numeric,word) + open-brace</start-selector>
+		<start-selector>tcl *:not(tcl.keyword.control) + open-brace</start-selector>
 		<end-selector>tcl close-brace</end-selector>
 		<subrecipes>
 			<include-root-recipes />
