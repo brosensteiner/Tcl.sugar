@@ -435,7 +435,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.switches">
-				<expression>-\w+\b</expression>
+				<expression>-[^\d]\S*\b</expression>
 			</zone>
             
         </collection>
