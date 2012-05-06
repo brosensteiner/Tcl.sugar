@@ -44,6 +44,9 @@ tcl.variable.evaluate {
 
 tcl.variable,
 tcl.variable.substitute.rest,
+
+tcl.builtinfunc[text='append'] + word,
+
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + word,
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + word,
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,

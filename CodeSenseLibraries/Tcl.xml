@@ -36,8 +36,22 @@ THE SOFTWARE.
 	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
 		
 		<completion string="prefix" />
-		<completion string="after" />
-		<completion string="error" />
+		<completion string="after">
+		<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:ms} ${2:?script script script ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="error">
+		<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:message} ${2:?info?} ${3:?code?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="lappend">
 		<behavior>
 				<append-dynamic>
@@ -160,7 +174,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="trace" />
+		<completion string="trace">
+		<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="bgerror" />
 		<completion string="flush" />
 		<completion string="lsearch" />
@@ -203,13 +224,34 @@ THE SOFTWARE.
 		<completion string="chan" />
 		<completion string="glob" />
 		<completion string="memory" />
-		<completion string="set" />
-		<completion string="upvar" />
+		<completion string="set">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:$1: ${1:varName} ${2:?value?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="upvar">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:$1: ${1:?level?} ${2:otherVar} ${3:myVar} ${4:?otherVar myVar ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="clock" />
 		<completion string="global" />
 		<completion string="msgcat" />
 		<completion string="socket" />
-		<completion string="variable" />
+		<completion string="variable">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:$1: ${1:?name value...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="close" />
 		<completion string="history" />
 		<completion string="namespace" />
@@ -603,23 +645,38 @@ THE SOFTWARE.
 	
 	<!--Tcl switches for builtin procedures-->
 	
-	<set name="com.rosensteiner.Tcl.function.namespace.export.switches" casesensitive="true">
+	<!--namespace switches-->
+	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
 		<completion string="-clear" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.import.switches" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.namespace.import" casesensitive="true">
 		<completion string="-force" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.which.switches" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.namespace.which" casesensitive="true">
 		<completion string="-command" />
 		<completion string="-variable" />
 	</set>
-	
+	<!--unset switches-->
+	<set name="com.rosensteiner.Tcl.function.unset" casesensitive="true">
+		<completion string="-nocomplain" />
+	</set>
 	<!--prefix switches-->
 	<set name="com.rosensteiner.Tcl.function.prefix.match" casesensitive="true">
 		
 		<completion string="-exact" />
 		<completion string="-message" />
 		<completion string="-error" />
+				
+	</set>
+	<!--switch switches-->
+	<set name="com.rosensteiner.Tcl.function.switch" casesensitive="true">
+		
+		<completion string="-exact" />
+		<completion string="-glob" />
+		<completion string="-regexp" />
+		<completion string="-nocase" />
+		<completion string="-matchvar" />
+		<completion string="-indexvar" />
 				
 	</set>
 	<!--string switches-->
