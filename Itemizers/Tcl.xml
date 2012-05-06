@@ -84,7 +84,7 @@ THE SOFTWARE.
 		<selector>tcl tcl.keyword[text='for']:capture(name)</selector>
 	</recipe>
 	
-	<!--since tcl uses "{" ans "}" virtually everywhere (EIAS - everything is a string in tcl) there is no chance to get a perfect code folding like in ruby.sugar for example, but with this itemizer it is not bad:-->
+	<!--since tcl uses "{" ans "}" virtually everywhere (EIAS - everything is a string in tcl) there is no chance to get a perfect code folding like in ruby.sugar for example, but with this itemizer it is not so bad:-->
 	<recipe name="tcl.container.balanced-braces">
 		<class>ESCodeBlockItem</class>
 		<start-selector>tcl open-brace</start-selector>

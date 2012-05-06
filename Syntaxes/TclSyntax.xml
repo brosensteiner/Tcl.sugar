@@ -86,7 +86,7 @@ THE SOFTWARE.
 		<!--some invalid syntax (will eventually be more over time)-->
 		<collection name="Invalid">
 		
-			<zone name="tcl.language.invalid.comment.semicolon">
+			<zone name="tcl.language.invalid.comment-semicolon">
 			    <expression>;\s+?#[^\d].*$\n?</expression>
 			</zone>
 			
@@ -104,7 +104,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax ... -->
 			    <starts-with>
-			        <expression>(#)[^\d].*?(?&lt;!\\)\\\s*$\n?</expression>
+			        <expression>(#)[^\d]?.*?(?&lt;!\\)\\\s*$\n?</expression>
 			        <capture number="1" name="tcl.keyword.comment.multiline.hash"/>
 			    </starts-with>
 			    <ends-with>
@@ -117,7 +117,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.comment.line">
 				<starts-with>
-			    	<expression>(#)[^\d]</expression>
+			    	<expression>(#)[^\d]?</expression>
 			    	<capture number="1" name="tcl.comment.hash"/>
 			    </starts-with>
 			    <ends-with>
@@ -445,8 +445,13 @@ THE SOFTWARE.
         	<zone name="tcl.constant.numeric.level-specifier">
         		<expression>(?&lt;!\w)#\d+\b</expression>
         	</zone>
-        
-			<zone name="tcl.constant.numeric.normal">
+        	
+        	<zone>
+        		<expression>(?&lt;!\w)(\d+\.)\s</expression>
+        		<capture number="1" name="tcl.constant.numeric.point"/>
+        	</zone>
+        	
+   			<zone name="tcl.constant.numeric.normal">
 				<expression>(?&lt;!\w)((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))\b</expression>
 			</zone>
 			
