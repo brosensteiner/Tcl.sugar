@@ -121,7 +121,7 @@ THE SOFTWARE.
 			    	<capture number="1" name="tcl.comment.hash"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>\n</expression>
+			        <expression>$\n?</expression>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>
