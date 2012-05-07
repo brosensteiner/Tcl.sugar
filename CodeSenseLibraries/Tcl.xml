@@ -26,12 +26,12 @@ THE SOFTWARE.
 -->
 <codesense version="1.0">
 	
-	<behavior>
+	<!--<behavior>
 		<append-dynamic>
 			<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 			<transform-into>(?1:: $0)</transform-into>
 		</append-dynamic>
-	</behavior>
+	</behavior>-->
     
 	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
 		

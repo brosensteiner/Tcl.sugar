@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <injections>
 
-    <injection name="injection.amira" selector="language-root.tcl tcl.function" action="attach-after-target">
+    <injection name="injection.amira" selector="language-root.tcl rexexp" action="attach-after-target">
     <!--until now nothing is here-->
     </injection>
     
