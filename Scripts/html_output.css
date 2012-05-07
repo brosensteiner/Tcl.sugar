@@ -1,0 +1,6 @@
+/* only for formatting the html output from execute_script action */
+
+error {
+	color: #d80e0e;
+	font-weight: bold;
+}

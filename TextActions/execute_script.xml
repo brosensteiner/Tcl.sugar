@@ -25,36 +25,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <action-recipes>
-	<action id="actions.snippets.tcl.execute-script" category="actions.snippets.tcl">
-		<class>TEALoader</class>
-			<title>execute Tcl script in terminal</title>
-			<key-equivalent>shift command r</key-equivalent>
-			<setup>
-				<script>exec-tcl-script.sh</script>
-				<input>document</input>
-                    <!--<alternate>line</alternate>-->
-                    <!--<output>text</output>-->
-        
-                    <!--<undo_name>My Action</undo_name>-->
-			<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-			<selection-context>none</selection-context>
-		</setup>
-	</action>
-    
-	<action id="actions.snippets.tcl.execute-script" category="tools.Snippets">
-		<class>TEALoader</class>
-		<title>execute Tcl script in terminal</title>
-		<key-equivalent>shift command r</key-equivalent>
-		<setup>
-			<script>exec-tcl-script.sh</script>
-			<input>document</input>
-                <!--<alternate>line</alternate>-->
-                <!--<output>text</output>-->
-    
-                <!--<undo_name>My Action</undo_name>-->
-			<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-			<selection-context>none</selection-context>
-		</setup>
+	
+	<action name="action.id" category="actions.snippets.tcl">
+		<title>execute tcl script</title>
+		<key-equivalent>command shift r</key-equivalent>
+	    <!--REQUIRED-->
+	    <class>OCShellAction</class>
+	
+	    <setup>
+	        <!--REQUIRED-->
+	        <script>exec-tcl-script.tcl</script>
+	
+	        <!--Available for all types of actions; default values shown-->
+	        <!--These say if your script can handle these scenarios or not-->
+	        <multiple-selections>true</multiple-selections>
+	        <single-selection>true</single-selection>
+	        <empty-selection>true</empty-selection>
+	        <!--Only set this to `false` if you want to be slapped in the face with errors-->
+	        <suppress-errors>false</suppress-errors>
+	
+	        <!--Applicable mainly for TextActions; default values shown-->
+	        <input>selection</input>
+	        <alternate>document</alternate>
+	        <output>html</output>
+	        <output-format>text</output-format>
+	    </setup>
 	</action>
         
 </action-recipes>
