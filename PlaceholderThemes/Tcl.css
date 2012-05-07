@@ -104,7 +104,6 @@ tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word,
 tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word + word,
 tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word + word + word  {
 	color: #7ac54d;
-	font-weight: bold;
 }
 
 tcl.keyword.variable.rename.oldname,
@@ -114,7 +113,6 @@ tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword),
 tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
 tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) {
 	color: #e51c1c;
-	font-weight: bold;
 }
 
 switches, {

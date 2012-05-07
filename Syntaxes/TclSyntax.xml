@@ -388,7 +388,7 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.container.builtinfunc-regexp">
+			<zone name="tcl.container.regex.builtinfunc-regexp">
 			    <starts-with>
 			        <expression>\b(regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
 			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
@@ -404,7 +404,7 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.container.builtinfunc-regsub">
+			<zone name="tcl.container.regex.builtinfunc-regsub">
 			    <starts-with>
 			        <expression>\b(regsub)\s+((-\w+\s+)+)?(\{)</expression>
 			        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
