@@ -442,6 +442,10 @@ THE SOFTWARE.
         
         <collection name="Numeric">
         
+        	<zone name="tcl.constant.language.end">
+        		<expression>\bend\b</expression>
+        	</zone>
+        
         	<zone name="tcl.constant.numeric.level-specifier">
         		<expression>(?&lt;!\w)#\d+\b</expression>
         	</zone>
