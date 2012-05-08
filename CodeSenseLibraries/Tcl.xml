@@ -133,7 +133,14 @@ THE SOFTWARE.
 		<completion string="refchan" />
 		<completion string="tell" />
 		<completion string="auto_mkindex_old" />
-		<completion string="file" />
+		<completion string="file">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:name} ${3:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="lrepeat" />
 		<completion string="regexp">
 			<behavior>
@@ -268,7 +275,14 @@ THE SOFTWARE.
 		<completion string="elseif" />
 		<completion string="then" />
 		<completion string="package" />
-		<completion string="string" />
+		<completion string="string">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:$1: ${1:options} ${2:arg} ${3:?arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="dde" />
 		<completion string="incr" />
 		<completion string="parray" />
@@ -366,15 +380,46 @@ THE SOFTWARE.
 		
 	</set>
 	
-	<!--trace prefix-->
-	<set name="com.rosensteiner.Tcl.function.prefix" casesensitive="true">
+	<!--file options-->
+	<set name="com.rosensteiner.Tcl.function.file" casesensitive="true">
 		
-		<completion string="all" />
-		<completion string="longest" />
-		<completion string="match" />
+		<completion string="attributes" />
+		<completion string="copy" />
+		<completion string="atime" />
+		<completion string="copy" />
+		<completion string="delete" />
+		<completion string="channels" />
+		<completion string="dirname" />
+		<completion string="executable" />
+		<completion string="exists" />
+		<completion string="extension" />
+		<completion string="isdirectory" />
+		<completion string="isfile" />
+		<completion string="join" />
+		<completion string="link" />
+		<completion string="lstat" />
+		<completion string="mkdir" />
+		<completion string="mtime" />
+		<completion string="owned" />
+		<completion string="pathtype" />
+		<completion string="nativename" />
+		<completion string="readlink" />
+		<completion string="normalize" />
+		<completion string="rename" />
+		<completion string="rootname" />
+		<completion string="size" />
+		<completion string="separator" />
+		<completion string="split" />
+		<completion string="stat" />
+		<completion string="system" />
+		<completion string="tempfile" />
+		<completion string="volumes" />
+		<completion string="tail" />
+		<completion string="type" />
+		<completion string="writable" />
+		<completion string="readable" />
 				
 	</set>
-
 	<!--trace options-->
 	<set name="com.rosensteiner.Tcl.function.trace" casesensitive="true">
 		
@@ -384,6 +429,14 @@ THE SOFTWARE.
 		<completion string="variable" />
 		<completion string="vdelete" />
 		<completion string="vinfo" />
+				
+	</set>
+	<!--trace prefix-->
+	<set name="com.rosensteiner.Tcl.function.trace.prefix" casesensitive="true">
+		
+		<completion string="all" />
+		<completion string="longest" />
+		<completion string="match" />
 				
 	</set>
 	<set name="com.rosensteiner.Tcl.function.trace.add" casesensitive="true">
@@ -443,47 +496,38 @@ THE SOFTWARE.
 	
 	<!--clock options-->
 	<set name="com.rosensteiner.Tcl.function.clock" casesensitive="true">
-		
 		<completion string="clicks" />
 		<completion string="format" />
 		<completion string="scan" />
 		<completion string="seconds" />
-				
 	</set>
 	
 	<!--dde options-->
 	<set name="com.rosensteiner.Tcl.function.dde" casesensitive="true">
-		
 		<completion string="eval" />
 		<completion string="execute" />
 		<completion string="poke" />
 		<completion string="request" />
 		<completion string="servername" />
 		<completion string="services" />
-				
 	</set>
 	
 	<!--encoding options-->
 	<set name="com.rosensteiner.Tcl.function.encoding" casesensitive="true">
-		
 		<completion string="convertfrom" />
 		<completion string="convertto" />
 		<completion string="names" />
 		<completion string="system" />
-		
 	</set>
 	
 	<!--fileevent options-->
 	<set name="com.rosensteiner.Tcl.function.fileevents" casesensitive="true">
-		
 		<completion string="readable" />
 		<completion string="writable" />
-		
 	</set>
 	
 	<!--history options-->
 	<set name="com.rosensteiner.Tcl.function.history" casesensitive="true">
-		
 		<completion string="add" />
 		<completion string="change" />
 		<completion string="clear" />
@@ -492,12 +536,10 @@ THE SOFTWARE.
 		<completion string="keep" />
 		<completion string="nextid" />
 		<completion string="redo" />
-				
 	</set>
 	
 	<!--namespace options-->
 	<set name="com.rosensteiner.Tcl.function.namespace" casesensitive="true">
-		
 		<completion string="children" />
 		<completion string="code" />
 		<completion string="current" />
@@ -517,13 +559,11 @@ THE SOFTWARE.
 		<completion string="upvar" />
 		<completion string="unknown" />
 		<completion string="which" />
-				
 	</set>
 	
 	
 	<!--array options-->
 	<set name="com.rosensteiner.Tcl.function.array" casesensitive="true">
-		
 		<completion string="anymore" />
 		<completion string="donesearch" />
 		<completion string="exists" />
@@ -535,7 +575,6 @@ THE SOFTWARE.
 		<completion string="startsearch" />
 		<completion string="statistics" />
 		<completion string="unset" />
-				
 	</set>
 	
 	<!--string options-->
@@ -570,11 +609,9 @@ THE SOFTWARE.
 		<completion string="trimright" />
 		<completion string="wordend" />
 		<completion string="wordstart" />
-				
 	</set>
-	
+	<!--string options options-->
 	<set name="com.rosensteiner.Tcl.function.string.is" casesensitive="true">
-		
 		<completion string="alnum" />
 		<completion string="alpha" />
 		<completion string="ascii" />
@@ -595,13 +632,10 @@ THE SOFTWARE.
 		<completion string="wideinteger" />
 		<completion string="wordchar" />
 		<completion string="xdigit" />
-		
-				
 	</set>
 	
 	<!--info options-->
 	<set name="com.rosensteiner.Tcl.function.info" casesensitive="true">
-		
 		<completion string="args" />
 		<completion string="body" />
 		<completion string="cmdcount" />
@@ -624,12 +658,9 @@ THE SOFTWARE.
 		<completion string="sharedlibextension" />
 		<completion string="tclversion" />
 		<completion string="vars" />
-		
-				
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.function.info.frame" casesensitive="true">
-		
 		<completion string="type" />
 		<completion string="line" />
 		<completion string="file" />
@@ -637,21 +668,42 @@ THE SOFTWARE.
 		<completion string="proc" />
 		<completion string="lambda" />
 		<completion string="level" />
-				
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.function.info.frame.type" casesensitive="true">
-		
 		<completion string="source" />
 		<completion string="proc" />
 		<completion string="eval" />
 		<completion string="precompiled" />
-				
 	</set>
 	
 	
 	<!--Tcl switches for builtin procedures-->
 	
+	<!--file switches-->
+	<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
+		<completion string="-group" />
+		<completion string="-owner" />
+		<completion string="-permissions" />
+		<completion string="-readonly" />
+		<completion string="-archive" />
+		<completion string="-hidden" />
+		<completion string="-longname" />
+		<completion string="-shortname" />
+		<completion string="-system" />
+		<completion string="-creator" />
+		<completion string="-hidden" />
+		<completion string="-rsrclength" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.file.copy" casesensitive="true">
+		<completion string="-force" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.file.delete" casesensitive="true">
+		<completion string="-force" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.file.rename" casesensitive="true">
+		<completion string="-force" />
+	</set>
 	<!--namespace switches-->
 	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
 		<completion string="-clear" />

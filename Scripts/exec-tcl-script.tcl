@@ -14,7 +14,7 @@ if { [info exists env(EDITOR_DIRECTORY_PATH)] && [info exists env(EDITOR_FILENAM
 
 puts "<strong>interpreted script:</strong> <a href=\"$myFilepath\">$myFilename</a><br>"
 
-# i want to catch all errors so here is a switch:
+# i want to catch all errors so here is a switch for all tcl error codes:
 switch [catch {
 
 	set filePathChannel [open $myFilepath]
@@ -25,13 +25,13 @@ switch [catch {
 } errMsg] {
 	0 { puts "all ok" }
 	1 { 
+		# formatting the output a little:
 		set savedInfo $errorInfo
 		regexp {while\sexecuting\s\".+?\"\s*\(.+\)} $savedInfo theExecuting
 		
 		set theSearchString {invoked\sfrom\swithin\s\".+?\"\s*\(.+\)}
 		
 		set theInvokedProcList [regexp -all -inline $theSearchString $savedInfo] 
-		set theReplcement "invoked from within"
 		
 		puts "<br><error>Error:</error> <strong>$errMsg</strong> $theExecuting<br>"
 		

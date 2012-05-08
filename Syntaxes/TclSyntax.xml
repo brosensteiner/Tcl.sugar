@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <syntax name="language-root.tcl">
 
-    <zones>
+    <zones name="ALL">
     
     	<include collection="Invalid" />
     	
@@ -284,6 +284,10 @@ THE SOFTWARE.
         
         <collection name="tclLanguage">
         
+        	<zone name="tcl.keyword.switches">
+        		<expression>-[^\d]\S*\b</expression>
+        	</zone>
+        
         	<zone name="tcl.keyword.character-class.semicolon">
         		<expression>;</expression>
         	</zone>
@@ -306,6 +310,10 @@ THE SOFTWARE.
         
 			<zone name="tcl.keyword.command.math">
 				<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.file">
+				<expression>(?&lt;=file\s)(attributes|copy|atime|copy|delete|channels|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|owned|pathtype|nativename|readlink|normalize|rename|rootname|size|separator|split|stat|system|tempfile|volumes|tail|type|writable|readable)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.array">
@@ -370,7 +378,7 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.options.info.frame.type">
 				<expression>(?&lt;=info\sframe\stype\s)(source|proc|eval|precompiled)\b</expression>
 			</zone>
-			
+			<!--for controlled regex syntax highlighting:-->
 			<zone name="tcl.container.regex.builtinfunc-regexp">
 			    <starts-with>
 			        <expression>\b(regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
@@ -386,7 +394,6 @@ THE SOFTWARE.
 			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
-
 			<zone name="tcl.container.regex.builtinfunc-regsub">
 			    <starts-with>
 			        <expression>\b(regsub)\s+((?:-\w+\s+)+)?(\{)</expression>
@@ -431,11 +438,7 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.command.builtinfunc">
 				<expression>\b(prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset|args)\b</expression>
 			</zone>
-			
-			<zone name="tcl.keyword.switches">
-				<expression>-[^\d]\S*\b</expression>
-			</zone>
-            
+			            
         </collection>
         
         <collection name="Numeric">
