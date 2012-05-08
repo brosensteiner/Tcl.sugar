@@ -25,15 +25,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <codesense version="1.0">
-	
-	<!--<behavior>
-		<append-dynamic>
-			<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-			<transform-into>(?1:: $0)</transform-into>
-		</append-dynamic>
-	</behavior>-->
-    
+	    
 	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
+		
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		
 		<completion string="prefix" />
 		<completion string="after">
@@ -139,7 +139,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-					<transform-into>(?1:$1: ${1:?switches?} ${2:expstring} ${3:?matchVar?} ${4:?subMatchVar subMatchVar ...?} $0)</transform-into>
+					<transform-into>(?1:$1: ${1:?switches?} ${2:exp} ${3:string} ${4:?matchVar?} ${5:?subMatchVar subMatchVar ...?} $0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -170,7 +170,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-					<transform-into>(?1:$1: ${1:?switches?} ${2:expstring} ${3:subSpec} ${4:?varName?}$0)</transform-into>
+					<transform-into>(?1:$1: ${1:?switches?} ${2:exp} ${3:string} ${4:subSpec} ${5:?varName?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -540,6 +540,13 @@ THE SOFTWARE.
 	
 	<!--string options-->
 	<set name="com.rosensteiner.Tcl.function.string" casesensitive="true">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		
 		<completion string="bytelength" />
 		<completion string="compare" />
@@ -760,6 +767,13 @@ THE SOFTWARE.
 <!--amira code sense library, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<set name="com.rosensteiner.amira" casesensitive="true">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		
 		<!--global variables-->
 		<completion string="AMIRA_ROOT" />
@@ -1147,6 +1161,13 @@ THE SOFTWARE.
 	</set>
 	
 	<set name="com.rosensteiner.amira.scriptobject" casesensitive="true">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		
 		<completion string="newPortButtonList" />
 		<completion string="newPortButtonMenu" />
@@ -1179,6 +1200,13 @@ THE SOFTWARE.
 	</set>
    	
    	<set name="com.rosensteiner.amira.data-classes" casesensitive="true">
+   	
+   		<behavior>
+   			<append-dynamic>
+   				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+   				<transform-into>(?1:: $0)</transform-into>
+   			</append-dynamic>
+   		</behavior>
    		
    		<completion string="HxData" />
    		<completion string="HxSpreadSheet" />

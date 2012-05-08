@@ -27,6 +27,7 @@ THE SOFTWARE.
 <action-recipes>
 	
 	<action name="action.id" category="actions.snippets.tcl">
+		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 		<title>execute tcl script</title>
 		<key-equivalent>command shift r</key-equivalent>
 	    <!--REQUIRED-->

@@ -1,5 +1,7 @@
 #!/usr/bin/tclsh
 
+# i want to learn tcl so this script is written in tcl :)
+
 # link for stylesheet:
 puts "<link href=\"Scripts\\html_output.css\" type=\"text/css\" rel=\"stylesheet\" /> "
 
@@ -15,14 +17,28 @@ puts "<strong>interpreted script:</strong> <a href=\"$myFilepath\">$myFilename</
 # i want to catch all errors so here is a switch:
 switch [catch {
 
-	source $myFilepath
+	set filePathChannel [open $myFilepath]
+	set theScript [read $filePathChannel]
+	close $filePathChannel
+	eval $theScript
 	
 } errMsg] {
 	0 { puts "all ok" }
-	1 {
+	1 { 
 		set savedInfo $errorInfo
-		puts "<br><error>Error:</error> <strong>$errMsg</strong><br>"
-		puts "$savedInfo"
+		regexp {while\sexecuting\s\".+?\"\s*\(.+\)} $savedInfo theExecuting
+		
+		set theSearchString {invoked\sfrom\swithin\s\".+?\"\s*\(.+\)}
+		
+		set theInvokedProcList [regexp -all -inline $theSearchString $savedInfo] 
+		set theReplcement "invoked from within"
+		
+		puts "<br><error>Error:</error> <strong>$errMsg</strong> $theExecuting<br>"
+		
+		foreach item $theInvokedProcList {
+			puts "$item<br>"
+		}
+				
 	}
 	2 { return $result }
 	3 { break }
@@ -31,4 +47,3 @@ switch [catch {
 }
 
 puts "<br><a href=\"#top\">To top</a>"
-

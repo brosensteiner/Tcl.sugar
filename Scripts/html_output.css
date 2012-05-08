@@ -1,6 +1,19 @@
-/* only for formatting the html output from execute_script action */
+/* .css for formatting the scripts */
 
 error {
 	color: #d80e0e;
 	font-weight: bold;
+}
+
+a:link {
+color: #4f76cf;
+}
+a:visited {
+color: #728ece;;
+}
+a:hover {
+color: #754FCF
+}
+a:active {
+color: #C24FCF
 }

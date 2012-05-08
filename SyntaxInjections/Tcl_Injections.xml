@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <injections>
 
-    <injection name="injection.amira" selector="language-root.tcl regex" action="insert-before-children">
+    <injection name="injection.amira" selector="language-root.tcl tcl.regex" action="insert-before-children">
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
     </injection>
     
