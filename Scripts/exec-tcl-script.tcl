@@ -1,6 +1,6 @@
 #!/usr/bin/tclsh
 
-# i want to learn tcl so this script is written in tcl :)
+# i want to learn tcl so this script which executes the user script is written in tcl :)
 
 # link for stylesheet:
 puts "<link href=\"Scripts\\html_output.css\" type=\"text/css\" rel=\"stylesheet\" /> "
@@ -25,7 +25,7 @@ switch [catch {
 } errMsg] {
 	0 { puts "all ok" }
 	1 { 
-		# formatting the output a little:
+		# formatting the error output a little:
 		set savedInfo $errorInfo
 		regexp {while\sexecuting\s\".+?\"\s*\(.+\)} $savedInfo theExecuting
 		

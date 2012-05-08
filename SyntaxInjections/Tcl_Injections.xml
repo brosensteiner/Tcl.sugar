@@ -25,15 +25,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <injections>
-
-    <injection name="injection.amira" selector="language-root.tcl tcl.regex" action="insert-before-children">
+	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "space" zones-->
+	<injection name="injection.zone-helper" selector="tcl builtinfunc" action="attach-before-target">
+	    <include collection="ZoneHelper" />
+	</injection>
+	
+    <injection name="injection.amira" selector="tcl tcl.regex" action="insert-before-children">
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
     </injection>
     
     <library>
-    
+    	<collection name="ZoneHelper">
+    		<zone name="space">
+				<starts-with>
+				    <expression>\s</expression>
+				</starts-with>
+				<ends-with>
+				    <expression>(?=\S)</expression>
+				</ends-with>
+    		</zone>			
+    	</collection>
+    	<!--here because it could be useful in future-->
         <collection name="Balanced">
-        				
         	<zone name="tcl.container.balanced-braces">
         	    <starts-with>
         	        <expression>\{</expression>
@@ -51,7 +64,6 @@ THE SOFTWARE.
         	        <expression></expression>
         	    </cut-off>
         	</zone>			
-        
         </collection>
         
     </library>

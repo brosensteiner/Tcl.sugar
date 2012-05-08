@@ -26,27 +26,23 @@ THE SOFTWARE.
 -->
 <syntax name="language-root.tcl">
 
-    <zones name="ALL">
-    
-    	<include collection="Invalid" />
-    	
-    	<zone name="tcl.shebang">
-    	    <expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\s+tclsh</expression>
-    	</zone>
-    	
-    	<include collection="Numeric" />
-    	<include collection="Variables" />
-    	<include collection="tclLanguage" />
+    <zones>
+		<include collection="Invalid" />
+		<zone name="tcl.shebang">
+			<expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\s+tclsh</expression>
+		</zone>
+		<include collection="Numeric" />
+		<include collection="Variables" />
+		<include collection="tclLanguage" />
 		<include collection="FormatSpecifier"/>
-    	<include collection="Operators" />
+		<include collection="Operators" />
 		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
 		<include collection="Comments" />
-    	<include collection="Strings"/>
-    	<include collection="FlowControl" />
-    	<include collection="General" />
-        <include collection="BracesBracketsParenthesis" />
-		
-    </zones>
+		<include collection="Strings"/>
+		<include collection="FlowControl" />
+		<include collection="General" />
+		<include collection="BracesBracketsParenthesis" />
+	</zones>
     
 	<library>
 	
@@ -285,7 +281,7 @@ THE SOFTWARE.
         <collection name="tclLanguage">
         
         	<zone name="tcl.keyword.switches">
-        		<expression>-[^\d]\S*\b</expression>
+        		<expression>-[a-zA-Z]+\b</expression>
         	</zone>
         
         	<zone name="tcl.keyword.character-class.semicolon">
@@ -313,31 +309,31 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.options.file">
-				<expression>(?&lt;=file\s)(attributes|copy|atime|copy|delete|channels|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|owned|pathtype|nativename|readlink|normalize|rename|rootname|size|separator|split|stat|system|tempfile|volumes|tail|type|writable|readable)\b</expression>
+				<expression>\b(attributes|copy|atime|copy|delete|channels|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|owned|pathtype|nativename|readlink|normalize|rename|rootname|size|separator|split|stat|system|tempfile|volumes|tail|type|writable|readable)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.array">
-				<expression>(?&lt;=array\s)(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
+				<expression>\b(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.after">
-				<expression>(?&lt;=after\s)(cancel|idle|info)\b</expression>
+				<expression>\b(cancel|idle|info)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.binary">
-				<expression>(?&lt;=binary\s)(scan|format)\b</expression>
+				<expression>\b(scan|format)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.clock">
-				<expression>(?&lt;=clock\s)(clicks|format|scan|seconds)\b</expression>
+				<expression>\b(clicks|format|scan|seconds)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.dde">
-				<expression>(?&lt;=dde\s)(eval|execute|poke|request|servername|services)\b</expression>
+				<expression>\b(eval|execute|poke|request|servername|services)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.encoding">
-				<expression>(?&lt;=encoding\s)(convertfrom|convertto|names|system)\b</expression>
+				<expression>\b(convertfrom|convertto|names|system)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.fileevent">
@@ -345,38 +341,38 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.options.history">
-				<expression>(?&lt;=history\s)(add|change|clear|event|info|keep|nextid|redo)\b</expression>
+				<expression>\b(add|change|clear|event|info|keep|nextid|redo)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.namespace">
-				<expression>(?&lt;=namespace\s)(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
+				<expression>\b(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.trace">
-				<expression>(?&lt;=trace\s)(add|remove|info|variable|vdelete|vinfo)\b</expression>
+				<expression>\b(add|remove|info|variable|vdelete|vinfo)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.trace.add-remove-info">
-				<expression>(?&lt;=trace\sadd\s|trace\sremove\s|trace\sinfo\s)(command|execution|variable)\b</expression>
+				<expression>\b(command|execution|variable)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.string">
-				<expression>(?&lt;=string\s)(bytelength|compare|equal|first|index|is|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
+			<zone name="tcl.keyword.options.string-options">
+				<expression>\b(bytelength|compare|equal|first|index|is|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.char-class.string-is">
-				<expression>(?&lt;=string\sis\s)(alnum|alpha|ascii|boolean|control|digit|double|false|graph|integer|list|lower|print|punct|space|true|upper|wideinteger|wordchar|xdigit)\b</expression>
+				<expression>\b(alnum|alpha|ascii|boolean|control|digit|double|false|graph|integer|list|lower|print|punct|space|true|upper|wideinteger|wordchar|xdigit)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.info">
-				<expression>(?&lt;=info\s)(args|body|cmdcount|commands|complete|default|exists|frame|functions|globals|hostname|level|library|loaded|locals|nameofexecutable|patchlevel|procs|script|sharedlibextension|tclversion|vars)\b</expression>
+				<expression>\b(args|body|cmdcount|commands|complete|default|exists|frame|functions|globals|hostname|level|library|loaded|locals|nameofexecutable|patchlevel|procs|script|sharedlibextension|tclversion|vars)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.info.frame">
-				<expression>(?&lt;=info\sframe\s)(type|line|file|cmd|proc|lambda|level)\b</expression>
+				<expression>\b(type|line|file|cmd|proc|lambda|level)\b</expression>
 			</zone>
 			<zone name="tcl.keyword.options.info.frame.type">
-				<expression>(?&lt;=info\sframe\stype\s)(source|proc|eval|precompiled)\b</expression>
+				<expression>\b(source|proc|eval|precompiled)\b</expression>
 			</zone>
 			<!--for controlled regex syntax highlighting:-->
 			<zone name="tcl.container.regex.builtinfunc-regexp">

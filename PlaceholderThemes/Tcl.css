@@ -45,7 +45,7 @@ tcl.variable.evaluate {
 tcl.variable,
 tcl.variable.substitute.rest,
 
-tcl.builtinfunc[text='append'] + word,
+tcl.builtinfunc[text='append'] + space + word,
 
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword),
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
@@ -53,60 +53,60 @@ tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
 tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
 
-tcl.builtinfunc[text='lassign'] + * + :not(keyword),
-tcl.builtinfunc[text='lassign'] + * + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='lassign'] + * + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='lassign'] + * + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='lassign'] + * + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword),
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
 
-tcl.builtinfunc-regexp + word,
-tcl.builtinfunc-regexp + :not(keyword) + word,
-tcl.builtinfunc-regexp + :not(keyword) + :not(keyword) + word,
-tcl.builtinfunc-regexp + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.builtinfunc-regexp + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.builtinfunc-regexp + :not(keyword) + :not(keyword) + :not(keyword) +  :not(keyword) + word,
+tcl.builtinfunc-regexp + space + word,
+tcl.builtinfunc-regexp + space + :not(keyword) + space + word,
+tcl.builtinfunc-regexp + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc-regexp + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc-regexp + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.builtinfunc-regexp + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) +  space + :not(keyword) + space + word,
 
-tcl.builtinfunc-regsub + * + * + word,
-tcl.builtinfunc-regsub + switches + * + * + word,
-tcl.builtinfunc-regsub + switches + switches + * + * + word,
-tcl.builtinfunc-regsub + switches + switches + switches + * + * + word,
-tcl.builtinfunc-regsub + switches + switches + switches + switches + * + * + word,
-tcl.builtinfunc-regsub + switches + switches + switches + switches + switches + * + * + word,
-tcl.builtinfunc-regsub + switches + switches + switches + switches + switches + switches + * + * + word,
-tcl.builtinfunc-regsub + switches + switches + switches + switches + switches + switches + switches + * + * + word,
+tcl.builtinfunc-regsub + space + * + space + * + space + word,
+tcl.builtinfunc-regsub + space + switches + space + * + space + * + space + word,
+tcl.builtinfunc-regsub + space + switches + space + switches + space + * + space + * + space + word,
+tcl.builtinfunc-regsub + space + switches + space + switches + space + switches + space + * + space + * + space + word,
+tcl.builtinfunc-regsub + space + switches + space + switches + space + switches + space + switches + space + * + space + * + space + word,
+tcl.builtinfunc-regsub + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + space + * + space + word,
+tcl.builtinfunc-regsub + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + space + * + space + word,
+tcl.builtinfunc-regsub + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + space + * + space + word,
 
-tcl.command-variable + word,
-tcl.command-variable + word + :not(keyword) + word,
-tcl.command-variable + word + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.command-variable + word + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.command-variable + word + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
+tcl.command-variable + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-variable + space + word + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.command-global + word,
-tcl.command-global + :not(keyword) + word,
-tcl.command-global + :not(keyword) + :not(keyword) + word,
-tcl.command-global + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.command-global + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
+tcl.command-global + space + word,
+tcl.command-global + space + :not(keyword) + space + word,
+tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.command-global + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.upvar + :not(keyword,numeric) + word,
-tcl.upvar + :not(keyword,numeric) + :not(keyword) + :not(keyword) + word,
-tcl.upvar + :not(keyword,numeric) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.upvar + :not(keyword,numeric) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.upvar + :not(keyword,numeric) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
+tcl.upvar + space + :not(keyword,numeric) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + :not(keyword,numeric) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.upvar + numeric + :not(keyword) + word,
-tcl.upvar + numeric + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.upvar + numeric + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.upvar + numeric + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
-tcl.upvar + numeric + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
+tcl.upvar + space + numeric + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + word,
 
-tcl.builtinfunc-catch + word,
+tcl.builtinfunc-catch + space + word,
 
-tcl.keyword.control.start[text='foreach'] + word,
-tcl.keyword.control.start[text='foreach'] + open-brace + word,
-tcl.keyword.control.start[text='foreach'] + open-brace + word + word,
-tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word,
-tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word + word,
-tcl.keyword.control.start[text='foreach'] + open-brace + word + word + word + word + word  {
+tcl.keyword.control.start[text='foreach'] + space + word,
+tcl.keyword.control.start[text='foreach'] + space + open-brace + space + word,
+tcl.keyword.control.start[text='foreach'] + space + open-brace + space + word + space + word,
+tcl.keyword.control.start[text='foreach'] + space + open-brace + space + word + space + word + space + word,
+tcl.keyword.control.start[text='foreach'] + space + open-brace + space + word + space + word + space + word + space + word,
+tcl.keyword.control.start[text='foreach'] + space + open-brace + space + word + space + word + space + word + space + word + space + word  {
 	color: #7ac54d;
 }
 
@@ -127,11 +127,11 @@ tcl.keyword.command {
 	color: #bb82e9;
 }
 
-tcl.builtinfunc + options,
-tcl.builtinfunc + options + options,
-tcl.builtinfunc + options + options + options,
-tcl.builtinfunc[text='fileevent'] + :not(keyword) + options.fileevent,
-tcl.builtinfunc[text='trace'] + options + :not(keyword) + options.trace-add-command-ops {
+tcl.builtinfunc + space + options,
+tcl.builtinfunc + space + options + space + options,
+tcl.builtinfunc + space + options + space + options + space + options,
+tcl.builtinfunc[text='fileevent'] + space + :not(keyword) + space + options.fileevent,
+tcl.builtinfunc[text='trace'] + space + options + space + :not(keyword) + space + options.trace-add-command-ops {
 	color: rgba(186, 129, 233, 0.6);
 }
 

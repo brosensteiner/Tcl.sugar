@@ -35,81 +35,81 @@ THE SOFTWARE.
  		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	
-	<!--func option-->
+	<!--func option && func switch-->
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z]*</complete-match>
 	</provider>
-	<!--func option option-->
+	<!--func option option && function option switch-->
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + options:capture(options) + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z-]*</complete-match>
 	</provider>
-	<!--func option switch option-->
+	<!--func option switch option && func option switch switch-->
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + options:capture(options) + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + * + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z-]*</complete-match>
 	</provider>
 	<!--func option option switch-->
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + options:capture(options) + options + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + options + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}.switches</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<!--func option char-class switch switch-->
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + options:capture(options) + char-class + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + char-class + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}.switches</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<!--func switch switch switch switch switch switch switch switch-->
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + switches + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + switches + switches + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + switches + switches + switches + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + switches + switches + switches + switches + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl builtinfunc:capture(name) + switches + switches + switches + switches + switches + switches + switches + switches + switches + *</selector>
+		<selector>tcl builtinfunc:capture(name) + space + switches + space + switches + space + switches + space + switches + space + switches + space + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	
 	
@@ -117,21 +117,21 @@ THE SOFTWARE.
 	<!--amira code sense provider, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<provider>
-		<selector>tcl, tcl *:not(escape,switches,shebang)</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira</completions>
 		<complete-match>\b[a-zA-Z]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(escape,switches,shebang)</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira.data-classes</completions>
-		<complete-match>Hx[a-zA-Z]*</complete-match>
+		<complete-match>[Hh][Xx][a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(escape,switches,shebang)</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira.scriptobject</completions>
-		<complete-match>new[a-zA-Z]*</complete-match>
+		<complete-match>[Nn][Ee][Ww][a-zA-Z]*</complete-match>
 	</provider>
 
  
