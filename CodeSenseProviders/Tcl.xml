@@ -24,6 +24,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
+
+<!--when you want to make useful code suggestions to user you have to go crazy in Tcl :)-->
+
 <codesense>
     
 	<provider>
@@ -35,37 +38,116 @@ THE SOFTWARE.
  		<complete-match>\b[a-zA-Z_]+</complete-match>
 	</provider>
 	
-	<!--func option && func switch-->
+	<!--proc option name switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch switch switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch switch switch switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch switch switch switch switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch switch switch switch switch switch switch switch switchs switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + variable + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	
+	<!--proc option && proc switch-->
 	<provider>
 		<selector>tcl builtinfunc:capture(name) + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
 		<complete-match>-?[a-zA-Z]*</complete-match>
 	</provider>
-	<!--func option option && function option switch-->
+	<!--proc option option-->
 	<provider>
 		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>-?[a-zA-Z-]*</complete-match>
+		<complete-match>[a-zA-Z-]*</complete-match>
 	</provider>
-	<!--func option switch option && func option switch switch-->
+	<!--proc option switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option switch option && proc option switch switch-->
 	<provider>
 		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + * + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>-?[a-zA-Z-]*</complete-match>
 	</provider>
-	<!--func option option switch-->
+	<!--proc option option switch-->
 	<provider>
-		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + options + space + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options}.switches</completions>
-		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options1) + space + options + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.switches</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
 	</provider>
-	<!--func option char-class switch switch-->
+	<!--proc option option switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options1) + space + options + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.switches</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option char-class switch switch-->
 	<provider>
 		<selector>tcl builtinfunc:capture(name) + space + options:capture(options) + space + char-class + space + switches + space + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options}.switches</completions>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
-	<!--func switch switch switch switch switch switch switch switch-->
+	<!--proc switch switch switch switch switch switch switch switch-->
 	<provider>
 		<selector>tcl builtinfunc:capture(name) + space + switches + space + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
@@ -112,24 +194,24 @@ THE SOFTWARE.
 		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	
+
 	
-	
-	<!--amira code sense provider, can be deleted when not needed, but the author needs it desperately :)-->
+	<!--amira code sense providers, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.switches) + space + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.options,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira</completions>
 		<complete-match>\b[a-zA-Z]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.switches) + space + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.options,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira.data-classes</completions>
 		<complete-match>[Hh][Xx][a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.switches) + space + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.options,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira.scriptobject</completions>
 		<complete-match>[Nn][Ee][Ww][a-zA-Z]*</complete-match>
 	</provider>

@@ -2,6 +2,7 @@
     @theme Tcl Placeholder
     @placeholder language-root.tcl
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
+    has some Amira hacks - delete Amira selector if needed
 */
 
 :not(tcl.comment, tcl.string) {
@@ -23,15 +24,6 @@ tcl.variable.substitute {
 	color: rgba(163, 214, 132, 0.8);
 }
 
-tcl.variable.amira,
-tcl.keyword.amira {
-	color: #4f76cf;
-	font-weight: bold;
-}
-tcl.keyword.option.amira {
-	font-weight: normal;
-}
-
 tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.option.amira.viewer,
 tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.option.amira.viewer {
 	color: #4f76cf;
@@ -44,14 +36,15 @@ tcl.variable.evaluate {
 
 tcl.variable,
 tcl.variable.substitute.rest,
+tcl.builtinfunc[text='set'] + space + :not(keyword),
 
 tcl.builtinfunc[text='append'] + space + word,
 
-tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='scan'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
+tcl.builtinfunc[text='scan'] + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword) + space + :not(keyword),
 
 tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword),
 tcl.builtinfunc[text='lassign'] + space + * + space + :not(keyword) + space + :not(keyword),
@@ -111,30 +104,42 @@ tcl.keyword.control.start[text='foreach'] + space + open-brace + space + word + 
 }
 
 tcl.keyword.variable.rename.oldname,
-tcl.builtinfunc[text='unset'] + :not(keyword),
-tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword),
-tcl.builtinfunc[text='unset'] + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) + :not(keyword) {
+tcl.builtinfunc[text='unset'] + space + :not(keyword,variable),
+tcl.builtinfunc[text='unset'] + space + :not(keyword,variable) + space + :not(keyword,variable),
+tcl.builtinfunc[text='unset'] + space + :not(keyword,variable) + space + :not(keyword,variable) + space + :not(keyword,variable),
+tcl.builtinfunc[text='unset'] + space + :not(keyword,variable) + space + :not(keyword,variable) + space + :not(keyword,variable) + space + :not(keyword,variable),
+tcl.builtinfunc[text='unset'] + space + :not(keyword,variable) + space + :not(keyword,variable) + space + :not(keyword,variable) + space + :not(keyword,variable) + space + :not(keyword,variable) {
 	color: #e51c1c;
 }
 
-switches, {
-	color: rgba(186, 129, 233, 0.38);
+***Amira***,
+tcl.keyword.options.trace,
+amira.variable,
+amira.keyword {
+	color: #4f76cf;
+	font-weight: bold;
+}
+tcl.keyword.option.amira {
+	font-weight: normal;
 }
 
 tcl.keyword.command {
 	color: #bb82e9;
 }
-
 tcl.builtinfunc + space + options,
 tcl.builtinfunc + space + options + space + options,
 tcl.builtinfunc + space + options + space + options + space + options,
+tcl.builtinfunc + space + builtinfunc,
+tcl.builtinfunc + space + builtinfunc + space + builtinfunc,
+tcl.builtinfunc + space + builtinfunc + space + builtinfunc + space + builtinfunc,
 tcl.builtinfunc[text='fileevent'] + space + :not(keyword) + space + options.fileevent,
 tcl.builtinfunc[text='trace'] + space + options + space + :not(keyword) + space + options.trace-add-command-ops {
 	color: rgba(186, 129, 233, 0.6);
+	font-weight: normal;
 }
-
+switches, {
+	color: rgba(186, 129, 233, 0.38);
+}
 
 tcl.keyword.operator.logical {
 	font-weight: bold;

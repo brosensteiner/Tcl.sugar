@@ -137,7 +137,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-					<transform-into>(?1:$1: ${1:option} ${2:name} ${3:?arg arg ...?}$0)</transform-into>
+					<transform-into>(?1:$1: ${1:option} ${2:name} ${3:?option value option value...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -692,7 +692,6 @@ THE SOFTWARE.
 		<completion string="-shortname" />
 		<completion string="-system" />
 		<completion string="-creator" />
-		<completion string="-hidden" />
 		<completion string="-rsrclength" />
 	</set>
 	<set name="com.rosensteiner.Tcl.function.file.copy" casesensitive="true">
