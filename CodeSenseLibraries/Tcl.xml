@@ -612,11 +612,11 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="with">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-				<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:?key ...?} ${3:body}$0)</transform-into>
-				</append-dynamic>
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:?key ...?} ${3:body}$0)</transform-into>
+					</append-dynamic>
 			</behavior>
 		</completion>
 				
@@ -720,10 +720,38 @@ THE SOFTWARE.
 	
 	<!--binary options-->
 	<set name="com.rosensteiner.Tcl.function.binary" casesensitive="true">
-		<completion string="scan" />
-		<completion string="format" />
-		<completion string="encode" />
-		<completion string="decode" />
+		<completion string="scan">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:string} ${2:formatString} ${3:?varName varName ...?}$0)</transform-into>
+					</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="format">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:formatString} ${2:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="encode">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:format} ${2:?-option value ...?} ${3:data}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="decode">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:format} ${2:?-option value ...?} ${3:data}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 	</set>
 	<!--binary options options-->
 	<set name="com.rosensteiner.Tcl.function.binary.encode" casesensitive="true">
@@ -732,11 +760,6 @@ THE SOFTWARE.
 		<completion string="uuencode" />
 	</set>
 	<set name="com.rosensteiner.Tcl.function.binary.decode" casesensitive="true">
-		<completion string="base64" />
-		<completion string="hex" />
-		<completion string="uuencode" />
-	</set>
-	<set name="com.rosensteiner.Tcl.function.binary.format" casesensitive="true">
 		<completion string="base64" />
 		<completion string="hex" />
 		<completion string="uuencode" />
@@ -1078,7 +1101,83 @@ THE SOFTWARE.
 		<completion string="-nocase" />
 		<completion string="-length" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.switches" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is.alnum" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.alpha" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.ascii" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.boolean" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.control" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.digit" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.double" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.false" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.graph" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.integer" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.list" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.lower" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.print" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.punct" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.space" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.true" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.upper" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.wideinteger" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.wordchar" casesensitive="true">
+		<completion string="-strict" />
+		<completion string="-failindex" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.string.is.xdigit" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
@@ -1201,7 +1300,6 @@ THE SOFTWARE.
 		<completion string="setPickable" />
 		<completion string="destroy" />
 		<completion string="getTypeId" />
-		<completion string="help" />
 		<completion string="getLabel" />
 		<completion string="setViewerMask" />
 		<!--spatial object-->
@@ -1308,7 +1406,6 @@ THE SOFTWARE.
 		<completion string="insertColorButton" />
 		<completion string="insertLabel" />
 		<!--interface component connection port-->
-		<completion string="help" />
 		<completion string="isNew" />
 		<completion string="getState" />
 		<completion string="setState" />

@@ -384,7 +384,11 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.options.binary">
-				<expression>\b(scan|format)\b</expression>
+				<expression>\b(scan|format|encode|decode)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.binary.encode-decode">
+				<expression>\b(base64|hex|uuencode)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.clock">

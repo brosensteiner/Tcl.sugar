@@ -132,14 +132,20 @@ this code completion scheme works well for all options but can make apperring a 
 	</provider>
 	<!--proc option option switch-->
 	<provider>
-		<selector>tcl builtinfunc:capture(name) + space + options:capture(options1) + space + options + space + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.switches</completions>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options1) + space + options:capture(options2) + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
 		<complete-match>-[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<!--proc option option switch switch-->
 	<provider>
-		<selector>tcl builtinfunc:capture(name) + space + options:capture(options1) + space + options + space + switches + space + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.switches</completions>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options1) + space + options:capture(options2) + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option option switch switch switch-->
+	<provider>
+		<selector>tcl builtinfunc:capture(name) + space + options:capture(options1) + space + options:capture(options2) + space + switches + space + switches + space + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
 		<complete-match>-[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<!--proc option char-class switch switch-->
