@@ -30,7 +30,7 @@ THE SOFTWARE.
 	    <include collection="ZoneHelper" />
 	</injection>
 	
-    <injection name="injection.amira" selector="tcl tcl.regex" action="insert-before-children">
+    <injection name="injection.regex" selector="tcl tcl.regex" action="insert-before-children">
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
     </injection>
     

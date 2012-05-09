@@ -25,7 +25,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 
-<!--when you want to make useful code suggestions to user you have to go crazy in Tcl :)-->
+<!--when you want to make useful code suggestions to user you have to go crazy in Tcl :)
+this code completion scheme works well for all options but can make apperring a suggestion for switches more often than allowed in real tcl syntax, but when needed switches code completion is always there and when not, most of the time out of the way. This is due the fact that i don´t catch switches specifically, only procedures and options - which would be to much useless work-->
 
 <codesense>
     
