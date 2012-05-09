@@ -357,7 +357,14 @@ THE SOFTWARE.
 		<completion string="incr" />
 		<completion string="parray" />
 		<completion string="subst" />
-		<completion string="dict" />
+		<completion string="dict">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:arg} ${3:?arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="info" />
 		<completion string="pid" />
 		<completion string="switch">
@@ -457,6 +464,170 @@ THE SOFTWARE.
 		
 	</set>
 	
+	<!--dict options-->
+	<set name="com.rosensteiner.Tcl.function.dict" casesensitive="true">
+		
+		<completion string="append">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?string ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="create">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?key value ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="exists">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue} ${2:key} ${3:?key ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="filter">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue} ${2:filterType} ${3:arg} ${4:?arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="for">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:{ keyVar valueVar }} ${2:dictionaryValue} ${3:body}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="get">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue} ${2:?key ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="incr">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?increment?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="info">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="keys">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue} ${2:?globPattern?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="lappend">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:pattern} ${4:?value ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="merge">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?dictionaryValue ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="remove">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue} ${2:?key ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="replace">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue} ${2:?key value ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="set">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?key ...?} ${4:value}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="size">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryValue}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="unset">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?key ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="update">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:varName} ${4:?key varName ...?} ${5:body}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="values">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:?globPattern?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="with">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:?key ...?} ${3:body}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+				
+	</set>
+	<set name="com.rosensteiner.Tcl.function.dict.filter" casesensitive="true">
+		
+		<completion string="key" />
+		<completion string="script" />
+		<completion string="value" />
+				
+	</set>
 	<!--file options-->
 	<set name="com.rosensteiner.Tcl.function.file" casesensitive="true">
 		
@@ -638,20 +809,96 @@ THE SOFTWARE.
 		<completion string="which" />
 	</set>
 	
-	
 	<!--array options-->
 	<set name="com.rosensteiner.Tcl.function.array" casesensitive="true">
-		<completion string="anymore" />
-		<completion string="donesearch" />
-		<completion string="exists" />
-		<completion string="get" />
-		<completion string="names" />
-		<completion string="nextelement" />
-		<completion string="set" />
-		<completion string="size" />
-		<completion string="startsearch" />
-		<completion string="statistics" />
-		<completion string="unset" />
+		<completion string="anymore">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName} ${2:searchId}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="donesearch">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName} ${2:searchId}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="exists">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="get">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName} ${2:?pattern?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="names">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName} ${2:?mode?} ${3:varName} ${4:?pattern?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="nextelement">
+		<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName} ${2:searchId}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="set">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName} ${2:list}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="size">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="startsearch">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="statistics">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="unset">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:arrayName} ${2:?pattern?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 	</set>
 	
 	<!--string options-->
@@ -801,6 +1048,14 @@ THE SOFTWARE.
 		<completion string="-exact" />
 		<completion string="-message" />
 		<completion string="-error" />
+				
+	</set>
+	<!--array switches-->
+	<set name="com.rosensteiner.Tcl.function.array.names" casesensitive="true">
+		
+		<completion string="-exact" />
+		<completion string="-glob" />
+		<completion string="-regexp" />
 				
 	</set>
 	<!--switch switches-->

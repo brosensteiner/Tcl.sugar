@@ -31,7 +31,7 @@ this code completion scheme works well for all options but can make apperring a 
 <codesense>
     
 	<provider>
- 		<selector>tcl, tcl *:not(escape,switches,shebang)</selector>
+ 		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + space + tcl.options,tcl.builtinfunc + space + tcl.options + space + options,tcl.switches) + space + * + *</selector>
  		<completions>com.rosensteiner.Tcl.functions</completions>
  		<completions>com.rosensteiner.Tcl.math</completions>
  		<completions>com.rosensteiner.Tcl.global-variables</completions>
@@ -200,19 +200,19 @@ this code completion scheme works well for all options but can make apperring a 
 	<!--amira code sense providers, can be deleted when not needed, but the author needs it desperately :)-->
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.options,tcl.switches) + space + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + space + tcl.options,tcl.builtinfunc + space + tcl.options + space + options,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira</completions>
 		<complete-match>\b[a-zA-Z]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.options,tcl.switches) + space + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + space + tcl.options,tcl.builtinfunc + space + tcl.options + space + options,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira.data-classes</completions>
 		<complete-match>[Hh][Xx][a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.options,tcl.switches) + space + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + space + tcl.options,tcl.builtinfunc + space + tcl.options + space + options,tcl.switches) + space + * + *</selector>
 		<completions>com.rosensteiner.amira.scriptobject</completions>
 		<complete-match>[Nn][Ee][Ww][a-zA-Z]*</complete-match>
 	</provider>

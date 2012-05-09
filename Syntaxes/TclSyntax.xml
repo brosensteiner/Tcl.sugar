@@ -371,6 +371,14 @@ THE SOFTWARE.
 				<expression>\b(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
 			</zone>
 			
+			<zone name="tcl.keyword.options.dict">
+				<expression>\b(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.dict.filter">
+				<expression>\b(key|script|value)\b</expression>
+			</zone>
+			
 			<zone name="tcl.keyword.options.after">
 				<expression>\b(cancel|idle|info)\b</expression>
 			</zone>

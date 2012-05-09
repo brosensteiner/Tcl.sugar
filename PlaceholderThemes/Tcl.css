@@ -133,6 +133,7 @@ tcl.builtinfunc + space + builtinfunc,
 tcl.builtinfunc + space + builtinfunc + space + builtinfunc,
 tcl.builtinfunc + space + builtinfunc + space + builtinfunc + space + builtinfunc,
 tcl.builtinfunc[text='fileevent'] + space + :not(keyword) + space + options.fileevent,
+tcl.builtinfunc[text='dict'] + space + options + space + * + space + dict.options,
 tcl.builtinfunc[text='trace'] + space + options + space + :not(keyword) + space + options.trace-add-command-ops {
 	color: rgba(186, 129, 233, 0.6);
 	font-weight: normal;
