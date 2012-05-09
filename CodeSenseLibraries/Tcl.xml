@@ -83,7 +83,14 @@ THE SOFTWARE.
 		<completion string="tcl_startOfNextWord" />
 		<completion string="apply" />
 		<completion string="exec" />
-		<completion string="lindex" />
+		<completion string="lindex">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:list} ${2:?index ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="proc" />
 		<completion string="tcl_startOfPreviousWord" />
 		<completion string="array">
@@ -114,12 +121,26 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="list" />
+		<completion string="list">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="pwd" />
 		<completion string="tcl_wordBreakBefore" />
 		<completion string="auto_import" />
 		<completion string="fblocked" />
-		<completion string="llength" />
+		<completion string="llength">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:list}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="re_syntax" />
 		<completion string="tcltest" />
 		<completion string="auto_load" />
@@ -129,7 +150,14 @@ THE SOFTWARE.
 		<completion string="tclvars" />
 		<completion string="auto_mkindex" />
 		<completion string="fcopy" />
-		<completion string="lrange" />
+		<completion string="lrange">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:list} ${2:first} ${3:last}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="refchan" />
 		<completion string="tell" />
 		<completion string="auto_mkindex_old" />
@@ -141,7 +169,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="lrepeat" />
+		<completion string="lrepeat">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?count?} ${2:element}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="regexp">
 			<behavior>
 				<append-dynamic>
@@ -172,7 +207,14 @@ THE SOFTWARE.
 		<completion string="tm" />
 		<completion string="auto_reset" />
 		<completion string="filename" />
-		<completion string="lreverse" />
+		<completion string="lreverse">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:list}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="regsub">
 			<behavior>
 				<append-dynamic>
@@ -182,7 +224,7 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="trace">
-		<behavior>
+			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:option} ${2:?arg arg ...?}$0)</transform-into>
@@ -191,7 +233,14 @@ THE SOFTWARE.
 		</completion>
 		<completion string="bgerror" />
 		<completion string="flush" />
-		<completion string="lsearch" />
+		<completion string="lsearch">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?options?} ${2:list} ${3:pattern}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="rename" />
 		<completion string="unknown" />
 		<completion string="binary" />
@@ -201,14 +250,21 @@ THE SOFTWARE.
 		<completion string="unload" />
 		<completion string="break" />
 		<completion string="foreach">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-				<transform-into>(?1:$1: ${1:varlist1} ${2:list1} ${3:?varlist2 list2 ...?} ${4:body}$0)</transform-into>
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:varlist1} ${2:list1} ${3:?varlist2 list2 ...?} ${4:body}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="lsort" />
+		<completion string="lsort">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?options?} ${2:list}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="Safe Base" />
 		<completion string="unset" />
 		<completion string="catch" />
@@ -232,18 +288,18 @@ THE SOFTWARE.
 		<completion string="glob" />
 		<completion string="memory" />
 		<completion string="set">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-				<transform-into>(?1:$1: ${1:varName} ${2:?value?}$0)</transform-into>
-				</append-dynamic>
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:varName} ${2:?value?}$0)</transform-into>
+					</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="upvar">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-				<transform-into>(?1:$1: ${1:?level?} ${2:otherVar} ${3:myVar} ${4:?otherVar myVar ...?}$0)</transform-into>
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?level?} ${2:otherVar} ${3:myVar} ${4:?otherVar myVar ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -252,11 +308,11 @@ THE SOFTWARE.
 		<completion string="msgcat" />
 		<completion string="socket" />
 		<completion string="variable">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-				<transform-into>(?1:$1: ${1:?name value...?}$0)</transform-into>
-				</append-dynamic>
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?name value...?}$0)</transform-into>
+					</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="close" />
@@ -264,10 +320,24 @@ THE SOFTWARE.
 		<completion string="namespace" />
 		<completion string="source" />
 		<completion string="vwait" />
-		<completion string="concat" />
+		<completion string="concat">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="http" />
 		<completion string="open" />
-		<completion string="split" />
+		<completion string="split">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:string} ${2:?splitChars?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="while" />
 		<completion string="continue" />
 		<completion string="if" />
@@ -276,11 +346,11 @@ THE SOFTWARE.
 		<completion string="then" />
 		<completion string="package" />
 		<completion string="string">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-				<transform-into>(?1:$1: ${1:options} ${2:arg} ${3:?arg ...?}$0)</transform-into>
-				</append-dynamic>
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:options} ${2:arg} ${3:?arg ...?}$0)</transform-into>
+					</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="dde" />
@@ -302,7 +372,14 @@ THE SOFTWARE.
 		<completion string="interp" />
 		<completion string="pkg::create" />
 		<completion string="eof" />
-		<completion string="join" />
+		<completion string="join">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:list} ${2:?joinString?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="pkg_mkIndex" />
 		<completion string="tcl_endOfWord" />
 		

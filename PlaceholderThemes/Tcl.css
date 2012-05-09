@@ -36,7 +36,7 @@ tcl.variable.evaluate {
 
 tcl.variable,
 tcl.variable.substitute.rest,
-tcl.builtinfunc[text='set'] + space + :not(keyword),
+tcl.builtinfunc[text='set'] + space + word,
 
 tcl.builtinfunc[text='append'] + space + word,
 
