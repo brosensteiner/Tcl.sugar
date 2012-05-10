@@ -287,8 +287,11 @@ THE SOFTWARE.
         		<expression>\\\s*?\n</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.character-class.namespace">
+        	<zone name="tcl.keyword.namespace.character-class">
         		<expression>::</expression>
+           	</zone>
+        	<zone name="tcl.keyword.namespace.characters">
+        		<expression>([^:\s]+(?=::))|((?&lt;=::)[^:\s]+)</expression>
         	</zone>
         	
         	<!--for controlled regex syntax highlighting:-->
@@ -359,6 +362,13 @@ THE SOFTWARE.
         	<zone name="tcl.keyword.variable.global-variables">
         		<expression>\b(env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|argc|argv|argv0|tcl_interactive|geometry)\b</expression>
         	</zone>
+        	
+        	<zone name="tcl.keyword.options.package">
+        		<expression>\b(forget|ifneeded|names|present|provide|require|unknown|vcompare|versions|package|prefer|vsatisfies)\b</expression>
+        	</zone>
+        	<zone name="tcl.keyword.options.package.prefer">
+        		<expression>\b(latest|stable|unstable)\b</expression>
+        	</zone>
 			
 			<zone name="tcl.keyword.options.file">
 				<expression>\b(attributes|copy|atime|copy|delete|channels|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|owned|pathtype|nativename|readlink|normalize|rename|rootname|size|separator|split|stat|system|tempfile|volumes|tail|type|writable|readable)\b</expression>
@@ -367,9 +377,9 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.options.array">
 				<expression>\b(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
 			</zone>
-			
+			<!--here more specificity is needed because "for" is also the keyword for the for loop and there is no way to discriminate both-->
 			<zone name="tcl.keyword.options.dict">
-				<expression>\b(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with)\b</expression>
+				<expression>(?&lt;=dict\s)(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.dict.filter">
@@ -484,11 +494,11 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.constant.numeric.hexadecimal">
-				<expression>\\0?x[a-fA-F\d]{1,2}\b</expression>
+				<expression>\\0?x\h{1,2}\b</expression>
 			</zone>
 			
 			<zone name="tcl.constant.numeric.unicode">
-				<expression>\\u[a-fA-F\d]{1,4}\b</expression>
+				<expression>\\u\h{1,4}\b</expression>
 			</zone>
 			
         </collection>

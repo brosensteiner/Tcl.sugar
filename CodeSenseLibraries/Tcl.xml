@@ -630,7 +630,7 @@ THE SOFTWARE.
 				<append-dynamic>
 					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:dictionaryVariable} ${2:?key ...?} ${3:body}$0)</transform-into>
-					</append-dynamic>
+				</append-dynamic>
 			</behavior>
 		</completion>
 				
@@ -641,6 +641,97 @@ THE SOFTWARE.
 		<completion string="script" />
 		<completion string="value" />
 				
+	</set>
+	<!--package options-->
+	<set name="com.rosensteiner.Tcl.function.package" casesensitive="true">
+		
+		<completion string="forget">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?package package ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="ifneeded">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:package} ${2:version} ${3:?script?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="names" />
+		<completion string="present">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:-exact} ${2:package} ${3:version}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="provide">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:package} ${2:?version?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="require">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:-exact} ${2:package} ${3:?requirement...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="unknown">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?command?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="vcompare">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:version1} ${2:version2}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="versions">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:package}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="prefer">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?latest|stable?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="vsatisfies">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:version} ${2:requirement...}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+	</set>
+	<set name="com.rosensteiner.Tcl.function.package.prefer" casesensitive="true">
+		<completion string="latest" />
+		<completion string="stable" />
+		<completion string="unstable" />
 	</set>
 	<!--file options-->
 	<set name="com.rosensteiner.Tcl.function.file" casesensitive="true">
@@ -1063,6 +1154,13 @@ THE SOFTWARE.
 	
 	<!--Tcl switches for builtin procedures-->
 	
+	<!--package switches-->
+	<set name="com.rosensteiner.Tcl.function.package.present" casesensitive="true">
+		<completion string="-exact" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.package.require" casesensitive="true">
+		<completion string="-exact" />
+	</set>
 	<!--file switches-->
 	<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
 		<completion string="-group" />
@@ -1665,6 +1763,7 @@ THE SOFTWARE.
 		<completion string="unsetVar" />
 		<completion string="action" />
 		<completion string="DoIt" />
+		<completion string="doIt" />
 		<completion string="call" />
 		<completion string="exec" />
 		<completion string="getResult" />
