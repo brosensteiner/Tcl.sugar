@@ -92,11 +92,9 @@ THE SOFTWARE.
 			
 		<!--some invalid syntax (will eventually be more over time)-->
 		<collection name="Invalid">
-		
 			<zone name="tcl.language.invalid.comment-semicolon">
 			    <expression>;\s+?#[^\d].*$\n?</expression>
 			</zone>
-			
 		</collection>
 		
 		<collection name="Markup">

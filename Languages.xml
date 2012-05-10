@@ -33,7 +33,7 @@ THE SOFTWARE.
 		<name>Tcl</name>
        
 		<detectors>
-			<extension casesensitive="true">tcl</extension>
+			<extension casesensitive="true">tcl</extension><!--tcl-->
 			<extension casesensitive="true">scro</extension><!--amira-->
 			<extension casesensitive="true">rc</extension><!--amira-->
 			<extension casesensitive="true">hx</extension><!--amira-->

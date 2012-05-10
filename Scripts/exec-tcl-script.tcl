@@ -41,8 +41,8 @@ switch [catch {
 				
 	}
 	2 { return $catchVar }
-	3 { break }
-	4 { continue }
+	3 {  } # break
+	4 {  } # continue
 	default { puts "default" }
 }
 
