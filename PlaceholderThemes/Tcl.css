@@ -93,6 +93,7 @@ tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keywo
 tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 
 tcl.builtinfunc-catch + s + word,
+tcl.builtinfunc-catch + s + word + s + word,
 
 tcl.keyword.control.start[text='foreach'] + s + word,
 tcl.keyword.control.start[text='foreach'] + s + open-brace + s + word,

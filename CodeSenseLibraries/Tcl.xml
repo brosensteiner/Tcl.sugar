@@ -450,6 +450,13 @@ THE SOFTWARE.
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.global-procedures" casesensitive="true">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		
 		<completion string="auto_execs" />
 		<completion string="auto_index" />
@@ -461,6 +468,13 @@ THE SOFTWARE.
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.global-variables" casesensitive="true">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		
 		<completion string="env" />
 		<completion string="errorCode" />
@@ -482,14 +496,25 @@ THE SOFTWARE.
 		<completion string="argv0" />
 		<completion string="tcl_interactive" />
 		<completion string="geometry" />
+		<!--this has to go somewhere:-->
 		<completion string="TCL_OK" />
 		<completion string="TCL_ERROR" />
 		<completion string="TCL_RETURN" />
 		<completion string="TCL_BREAK" />
 		<completion string="TCL_CONTINUE" />
 		<completion string="resultVarName" />
-		<completion string="args" /><!--this has to go somewhere-->
+		<completion string="args" />
 		
+	</set>
+	
+	<!--don´t know where to put else:-->
+	<set name="com.rosensteiner.Tcl.other-things" casesensitive="true">
+		<completion string="errorinfo" />
+		<completion string="errorcode" />
+		<completion string="errorline" />
+		<completion string="errorstack" />
+		<completion string="code" />
+		<completion string="level" />
 	</set>
 	
 	<!--dict options-->
@@ -1166,8 +1191,7 @@ THE SOFTWARE.
 	</set>
 	
 	
-	<!--Tcl switches for builtin procedures-->
-	
+	<!--Tcl switches-->
 	<!--package switches-->
 	<set name="com.rosensteiner.Tcl.function.package.present" casesensitive="true">
 		<completion string="-exact" />

@@ -29,8 +29,8 @@ THE SOFTWARE.
 <!--for loop-->
     <snippet id="actions.snippets.tcl.for" category="actions.snippets.tcl/tcl.code.snippets">
         <title>new for loop</title>
-        <text>for \{ ${1:set i 0} \} \{ ${2:test} \} \{ ${3:incr i} \} \{
-	${4:body}
+        <text>for \{ ${1:set i 0} \} \{ ${2:\$i &lt; ${3:count} } \} \{ ${4:incr i} \} \{
+	${5:body}
 \}$0</text>
         <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
         <text-trigger>for</text-trigger>
@@ -39,7 +39,7 @@ THE SOFTWARE.
 <!--for loop one line-->
     <snippet id="actions.snippets.tcl.for-oneline" category="actions.snippets.tcl/tcl.code.snippets">
         <title>new for loop at one line</title>
-        <text>for \{ ${1:set i 0} \} \{ ${2:test} \} \{ ${3:incr i} \} \{ ${4:body} \}$0</text>
+        <text>for \{ ${1:set i 0} \} \{ ${2:\$i &lt; ${3:count} } \} \{ ${4:incr i} \} \{ ${5:body} \}$0</text>
         <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
         <text-trigger>for1</text-trigger>
     </snippet>
