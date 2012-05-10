@@ -16,7 +16,7 @@ puts "<strong>interpreted script:</strong> <a href=\"$myFilepath\">$myFilename</
 
 # i want to catch all errors so here is a switch for all tcl error codes:
 switch [catch {
-
+	
 	set filePathChannel [open $myFilepath]
 	set theScript [read $filePathChannel]
 	close $filePathChannel

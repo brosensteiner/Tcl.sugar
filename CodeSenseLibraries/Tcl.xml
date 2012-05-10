@@ -37,7 +37,7 @@ THE SOFTWARE.
 		
 		<completion string="prefix" />
 		<completion string="after">
-		<behavior>
+			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 					<transform-into>(?1:$1: ${1:ms} ${2:?script script script ...?}$0)</transform-into>
@@ -269,15 +269,22 @@ THE SOFTWARE.
 		<completion string="unset" />
 		<completion string="catch" />
 		<completion string="format">
-		<behavior>
-			<append-dynamic>
+			<behavior>
+				<append-dynamic>
 				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
 				<transform-into>(?1:$1: ${1:formatString} ${2:?arg arg ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="mathfunc" />
-		<completion string="scan" />
+		<completion string="scan">
+			<behavior>
+				<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:$1: ${1:string} ${2:format} ${3:?varName varName ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="update" />
 		<completion string="cd" />
 		<completion string="gets" />
@@ -356,7 +363,14 @@ THE SOFTWARE.
 		<completion string="dde" />
 		<completion string="incr" />
 		<completion string="parray" />
-		<completion string="subst" />
+		<completion string="subst">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?options?} ${2:string}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="dict">
 			<behavior>
 				<append-dynamic>
@@ -692,6 +706,28 @@ THE SOFTWARE.
 		<completion string="command" />
 		<completion string="execution" />
 		<completion string="variable" />
+				
+	</set>
+	<set name="com.rosensteiner.Tcl.function.trace.add.command" casesensitive="true">
+		
+		<completion string="rename" />
+		<completion string="delete" />
+				
+	</set>
+	<set name="com.rosensteiner.Tcl.function.trace.add.execution" casesensitive="true">
+		
+		<completion string="enter" />
+		<completion string="leave" />
+		<completion string="enterstep" />
+		<completion string="leavestep" />
+				
+	</set>
+	<set name="com.rosensteiner.Tcl.function.trace.add.variable" casesensitive="true">
+		
+		<completion string="array" />
+		<completion string="read" />
+		<completion string="write" />
+		<completion string="unset" />
 				
 	</set>
 	<set name="com.rosensteiner.Tcl.function.trace.remove" casesensitive="true">

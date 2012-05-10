@@ -33,6 +33,7 @@ THE SOFTWARE.
 		</zone>
 		<include collection="Numeric" />
 		<include collection="Variables" />
+		<include collection="Math" />
 		<include collection="tclLanguage" />
 		<include collection="FormatSpecifier"/>
 		<include collection="Operators" />
@@ -69,10 +70,10 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.keyword.punctuation.open-brace">
+			<zone name="tcl.punctuation.open-brace">
 			    <expression>\{</expression>
 			</zone>
-			<zone name="tcl.keyword.punctuation.close-brace">
+			<zone name="tcl.punctuation.close-brace">
 			    <expression>\}</expression>
 			</zone>
 			
@@ -263,12 +264,12 @@ THE SOFTWARE.
         </collection>
         
         <collection name="FormatSpecifier">
-        	<zone name="tcl.keyword.string-format">
+        	<zone name="tcl.keyword.format-specifier.string-format">
         		<expression>%(-|\+|#|0|[[:space:]])?(\d+)?(\.\d+)?([cdEefgGiouxXqs])</expression>
-        		<capture number="1" name="tcl.keyword.additional.string-format-flags"/>
-        		<capture number="2" name="tcl.keyword.additional.string-format-width"/>
-        		<capture number="3" name="tcl.keyword.additional.string-format-precision"/>
-        		<capture number="4" name="tcl.keyword.additional.string-format-type"/>
+        		<capture number="1" name="tcl.keyword.additional.format-flags"/>
+        		<capture number="2" name="tcl.keyword.additional.format-width"/>
+        		<capture number="3" name="tcl.keyword.additional.format-precision"/>
+        		<capture number="4" name="tcl.keyword.additional.format-type"/>
         	</zone>
         </collection>
         
@@ -296,11 +297,11 @@ THE SOFTWARE.
         	        <expression>\b(regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
         	        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
         	        <capture number="2" name="tcl.keyword.switches"/>
-        	        <capture number="3" name="tcl.keyword.punctuation.open-brace"/>
+        	        <capture number="3" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
         	        <expression>(\})</expression>
-        	        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
+        	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	    </ends-with>
         	    <subzones>
         	    	<include syntax="language-root.tcl" />
@@ -311,11 +312,11 @@ THE SOFTWARE.
         	        <expression>\b(regsub)\s+((?:-\w+\s+)+)?(\{)</expression>
         	        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
         	        <capture number="2" name="tcl.keyword.switches"/>
-        	        <capture number="3" name="tcl.keyword.punctuation.open-brace"/>
+        	        <capture number="3" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
         	        <expression>(\})</expression>
-        	        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
+        	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	    </ends-with>
         	    <subzones>
         	    	<include syntax="language-root.tcl" />
@@ -326,11 +327,11 @@ THE SOFTWARE.
         	    <starts-with>
         	        <expression>\b(catch)\s+(\{)</expression>
         	        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
-        	        <capture number="2" name="tcl.keyword.punctuation.open-brace"/>
+        	        <capture number="2" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
         	        <expression>(\})</expression>
-        	        <capture number="1" name="tcl.keyword.punctuation.close-brace"/>
+        	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	    </ends-with>
         	    <subzones>
         	    	<include syntax="language-root.tcl" />
@@ -358,10 +359,6 @@ THE SOFTWARE.
         	<zone name="tcl.keyword.variable.global-variables">
         		<expression>\b(env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|argc|argv|argv0|tcl_interactive|geometry)\b</expression>
         	</zone>
-        
-			<zone name="tcl.keyword.command.math">
-				<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
-			</zone>
 			
 			<zone name="tcl.keyword.options.file">
 				<expression>\b(attributes|copy|atime|copy|delete|channels|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|owned|pathtype|nativename|readlink|normalize|rename|rootname|size|separator|split|stat|system|tempfile|volumes|tail|type|writable|readable)\b</expression>
@@ -423,6 +420,18 @@ THE SOFTWARE.
 				<expression>\b(command|execution|variable)\b</expression>
 			</zone>
 			
+			<zone name="tcl.keyword.options.trace.add-command">
+				<expression>\b(rename|delete)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.trace.add-execution">
+				<expression>\b(enter|leave|enterstep|leavestep)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.trace.add-variable">
+				<expression>\b(array|read|write|unset)\b</expression>
+			</zone>
+			
 			<zone name="tcl.keyword.options.string-options">
 				<expression>\b(bytelength|compare|equal|first|index|is|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
 			</zone>
@@ -442,6 +451,13 @@ THE SOFTWARE.
 				<expression>\b(source|proc|eval|precompiled)\b</expression>
 			</zone>
 			            
+        </collection>
+        
+        <collection name="Math">
+        	<zone name="tcl.keyword.command.math">
+        		<expression>(-?)(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
+        		<capture number="1" name="tcl.keyword.operator.arithmetic"/>
+        	</zone>
         </collection>
         
         <collection name="Numeric">

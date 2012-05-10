@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <injections>
-	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "space" zones-->
+	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "s" zones-->
 	<injection name="injection.zone-helper" selector="tcl builtinfunc" action="attach-before-target">
 	    <include collection="ZoneHelper" />
 	</injection>
@@ -34,16 +34,33 @@ THE SOFTWARE.
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
     </injection>
     
+    <injection name="injection.balanced-braces" selector="tcl, tcl *" action="attach-before-target">
+        <include collection="Balanced" />
+    </injection>
+    
+    
     <library>
     	<collection name="ZoneHelper">
-    		<zone name="space">
+    		<zone name="s">
 				<starts-with>
-				    <expression>\s</expression>
+				    <expression>(?&lt;!\{|\(|\[)\s</expression>
 				</starts-with>
 				<ends-with>
 				    <expression>(?=\S)</expression>
 				</ends-with>
     		</zone>			
+    	</collection>
+    	<!--maybe to much, so here for storage:-->
+    	<collection name="FormatSpecifierBinary">
+    		<zone name="tcl.keyword.options.binary.format.format-specifier">
+				<expression>([aAbBHhcsStinWmfrRdqQxX@])(.?)(\d*|\*)</expression>
+				<capture number="1" name="tcl.keyword.additional.format-type"/>
+				<capture number="2" name="tcl.keyword.additional.format-flags"/>
+				<capture number="3" name="tcl.keyword.additional.format-precision"/>
+				<cut-off>
+					<expression>\S</expression>
+				</cut-off>
+			</zone>			
     	</collection>
     	<!--here because it could be useful in future-->
         <collection name="Balanced">
