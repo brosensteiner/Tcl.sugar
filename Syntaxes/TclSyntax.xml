@@ -306,9 +306,6 @@ THE SOFTWARE.
         	        <expression>(\})</expression>
         	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	    </ends-with>
-        	    <subzones>
-        	    	<include syntax="language-root.tcl" />
-        	    </subzones>
         	</zone>
         	<zone name="tcl.container.regex.builtinfunc-regsub">
         	    <starts-with>
@@ -321,9 +318,6 @@ THE SOFTWARE.
         	        <expression>(\})</expression>
         	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	    </ends-with>
-        	    <subzones>
-        	    	<include syntax="language-root.tcl" />
-        	    </subzones>
         	</zone>
         	
         	<zone name="tcl.container.builtinfunc-catch"><!--catch assigns a variable we will catch so here is a zone definition for it-->

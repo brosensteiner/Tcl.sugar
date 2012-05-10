@@ -452,6 +452,7 @@ THE SOFTWARE.
 		<completion string="unknown_pending" />
 		
 	</set>
+	
 	<set name="com.rosensteiner.Tcl.global-variables" casesensitive="true">
 		
 		<completion string="env" />
@@ -633,8 +634,8 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-				
 	</set>
+	
 	<set name="com.rosensteiner.Tcl.function.dict.filter" casesensitive="true">
 		
 		<completion string="key" />
