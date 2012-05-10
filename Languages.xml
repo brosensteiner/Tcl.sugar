@@ -34,9 +34,9 @@ THE SOFTWARE.
        
 		<detectors>
 			<extension casesensitive="true">tcl</extension>
-			<extension casesensitive="true">scro</extension>
-			<extension casesensitive="true">rc</extension>
-			<extension casesensitive="true">hx</extension>
+			<extension casesensitive="true">scro</extension><!--amira-->
+			<extension casesensitive="true">rc</extension><!--amira-->
+			<extension casesensitive="true">hx</extension><!--amira-->
 			
 			<match-content lines="2">^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh|#\s+Amira-Script-Object|#\s+Amira Script</match-content> 
 		</detectors>
@@ -48,7 +48,7 @@ THE SOFTWARE.
 			<description>Tcl.sugar for Macrabbit´s Espresso with support for Visage Imagings´s Amira Tcl Interface</description>
 			<author>Bernhard Rosensteiner</author>
 			<identifier>com.rosensteiner.Sugar.Tcl</identifier>
-			<version status="preview">0.99</version>
+			<version status="beta">0.995</version>
 			<download format="git">https://github.com/brosensteiner/Tcl.sugar</download>
 		</meta>
        

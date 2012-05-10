@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <injections>
-	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "s" zones-->
+	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "s" zones, but code completion is now fairly intelligent-->
 	<injection name="injection.zone-helper" selector="tcl builtinfunc" action="attach-before-target">
 	    <include collection="ZoneHelper" />
 	</injection>
@@ -33,12 +33,7 @@ THE SOFTWARE.
     <injection name="injection.regex" selector="tcl tcl.regex" action="insert-before-children">
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
     </injection>
-    
-    <injection name="injection.balanced-braces" selector="tcl, tcl *" action="attach-before-target">
-        <include collection="Balanced" />
-    </injection>
-    
-    
+      
     <library>
     	<collection name="ZoneHelper">
     		<zone name="s">
@@ -62,26 +57,6 @@ THE SOFTWARE.
 				</cut-off>
 			</zone>			
     	</collection>
-    	<!--here because it could be useful in future-->
-        <collection name="Balanced">
-        	<zone name="tcl.container.balanced-braces">
-        	    <starts-with>
-        	        <expression>\{</expression>
-        	        <capture number="0" name="tcl.punctuation.open-brace"/>
-        	    </starts-with>
-        	    <ends-with>
-        	        <expression>\}</expression>
-        	        <capture number="0" name="tcl.punctuation.close-brace"/>
-        	    </ends-with>
-        	    <subzones>
-        	    	<include collection="Balanced" />
-        	    	<include syntax="language-root.tcl" />
-        	    </subzones>
-        	    <cut-off>
-        	        <expression></expression>
-        	    </cut-off>
-        	</zone>			
-        </collection>
         
     </library>
     

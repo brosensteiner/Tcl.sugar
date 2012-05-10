@@ -124,7 +124,7 @@ tcl.keyword.option.amira {
 }
 
 tcl.keyword.command {
-	color: #bb82e9;
+	color: rgb(73, 134, 185);
 }
 tcl.builtinfunc + s + options,
 tcl.builtinfunc + s + options + s + options,

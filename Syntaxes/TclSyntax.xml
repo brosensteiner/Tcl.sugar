@@ -70,14 +70,24 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.punctuation.open-brace">
-			    <expression>\{</expression>
+			<zone name="tcl.container.balanced-braces">
+			    <starts-with>
+			        <expression>\{</expression>
+			        <capture number="0" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="tcl.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="Balanced" />
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
+			    <cut-off>
+			        <expression></expression>
+			    </cut-off>
 			</zone>
-			<zone name="tcl.punctuation.close-brace">
-			    <expression>\}</expression>
-			</zone>
-			
-		
+				
 		</collection>
 			
 		<!--some invalid syntax (will eventually be more over time)-->
@@ -143,7 +153,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.definition.rename">
-			    <expression>\b(rename)\s+([\$a-zA-Z0-9\._]+)\s+([\$a-zA-Z0-9\._]+)</expression>
+			    <expression>\b(rename)\s+([\$[:alnum:]_?!:\.]+)\s+([\$[:alnum:]_?!:\.]+)</expression>
 			    <capture number="1" name="tcl.keyword.command.rename"/>
 			    <capture number="2" name="tcl.keyword.variable.rename.oldname"/>
 			    <capture number="3" name="tcl.keyword.variable.rename.newname"/>
@@ -159,12 +169,12 @@ THE SOFTWARE.
 						
 			<zone name="tcl.keyword.variable.substitute">
 			    <starts-with>
-			        <expression>([a-zA-Z0-9_]*)(\$\{)</expression>
+			        <expression>([[:alnum:]_?!:\.]*)(\$\{)</expression>
 			        <capture number="1" name="tcl.keyword.variable.substitute.rest"/>
 			        <capture number="2" name="tcl.keyword.variable.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(\})([a-zA-Z0-9_?]*)</expression>
+			        <expression>(\})([[:alnum:]_?!:\.]*)</expression>
 			        <capture number="1" name="tcl.keyword.variable.substitute.end"/>
 			        <capture number="2" name="tcl.keyword.variable.substitute.rest"/>
 			    </ends-with>
@@ -175,12 +185,12 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.variable.substitute.array">
 			    <starts-with>
-			        <expression>([a-zA-Z0-9_?]*)(\$\()</expression>
+			        <expression>([[:alnum:]_?!:\.]*)(\$\()</expression>
 			        <capture number="1" name="tcl.keyword.variable.substitute.rest"/>
 			        <capture number="2" name="tcl.keyword.variable.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(\))([a-zA-Z0-9_?]*)</expression>
+			        <expression>(\))([[:alnum:]_?!:\.]*)</expression>
 			        <capture number="1" name="tcl.keyword.variable.substitute.end"/>
 			        <capture number="2" name="tcl.keyword.variable.substitute.rest"/>
 			    </ends-with>
@@ -190,7 +200,7 @@ THE SOFTWARE.
 			</zone>
 						
 			<zone name="tcl.variable.definition.evaluate">
-			    <expression>(\$[a-zA-Z0-9_?:]+)\b</expression>
+			    <expression>(\$[[:alnum:]_?!:\.]+)\b</expression>
 			</zone>
 			
 		</collection>
@@ -204,13 +214,16 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.control.additional">
 				<expression>\b(elseif|else|then)\b</expression>
 			</zone>
+			
+			<zone name="tcl.keyword.control.additional">
+				<expression>([?]|[:])</expression>
+			</zone>
 		
 			<zone name="tcl.keyword.control.flow">
-				<expression>\b(break|continue)\b</expression>
+				<expression>\b(break|continue|[?&lt;!:]:[?!:])\b</expression>
 			</zone>
 		
 		</collection>
-				
 		
 		<collection name="Strings"><!--yeah, i know this is not a Tcl String def - because ESIAS ;)-->
 			
@@ -276,7 +289,7 @@ THE SOFTWARE.
         <collection name="tclLanguage">
         
         	<zone name="tcl.keyword.switches">
-        		<expression>-[a-zA-Z]+\b</expression>
+        		<expression>-[[:alnum:]_?!:\.]+\b</expression>
         	</zone>
         
         	<zone name="tcl.keyword.character-class.semicolon">
@@ -291,7 +304,8 @@ THE SOFTWARE.
         		<expression>::</expression>
            	</zone>
         	<zone name="tcl.keyword.namespace.characters">
-        		<expression>([^:\s]+(?=::))|((?&lt;=::)[^:\s]+)</expression>
+        		<expression>(?:[[:alnum:]_?!\.]+(::))|((?&lt;=::)[[:alnum:]_?!:\.]+)</expression>
+        		<capture number="1" name="tcl.keyword.namespace.character-class"/>
         	</zone>
         	
         	<!--for controlled regex syntax highlighting:-->
@@ -354,7 +368,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.variable.global-variables">
-        		<expression>\b(env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|argc|argv|argv0|tcl_interactive|geometry)\b</expression>
+        		<expression>\b(env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE|resultVarName)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.options.package">
@@ -500,7 +514,7 @@ THE SOFTWARE.
         <collection name="General">
         	
         	<zone name="tcl.language.word"> 
-        		<expression>[a-zA-Z0-9_?!]+|,</expression>
+        		<expression>[[:alnum:]_?!:\.]+|,</expression>
         	</zone>
         	
         </collection>

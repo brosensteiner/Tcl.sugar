@@ -267,7 +267,14 @@ THE SOFTWARE.
 		</completion>
 		<completion string="Safe Base" />
 		<completion string="unset" />
-		<completion string="catch" />
+		<completion string="catch">
+			<behavior>
+				<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:$1: ${1:script} ${2:?resultVarName?} ${3:?optionsVarName?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="format">
 			<behavior>
 				<append-dynamic>
@@ -475,6 +482,12 @@ THE SOFTWARE.
 		<completion string="argv0" />
 		<completion string="tcl_interactive" />
 		<completion string="geometry" />
+		<completion string="TCL_OK" />
+		<completion string="TCL_ERROR" />
+		<completion string="TCL_RETURN" />
+		<completion string="TCL_BREAK" />
+		<completion string="TCL_CONTINUE" />
+		<completion string="resultVarName" />
 		<completion string="args" /><!--this has to go somewhere-->
 		
 	</set>

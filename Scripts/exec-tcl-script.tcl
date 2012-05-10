@@ -22,8 +22,8 @@ switch [catch {
 	close $filePathChannel
 	eval $theScript
 	
-} errMsg] {
-	0 { puts "all ok" }
+} catchVar] {
+	0 { puts $catchVar }
 	1 { 
 		# formatting the error output a little:
 		set savedInfo $errorInfo
@@ -33,7 +33,7 @@ switch [catch {
 		
 		set theInvokedProcList [regexp -all -inline $theSearchString $savedInfo] 
 		
-		puts "<br><error>Error:</error> <strong>$errMsg</strong> $theExecuting<br>"
+		puts "<br><error>Error:</error> <strong>$catchVar</strong> $theExecuting<br>"
 		
 		foreach item $theInvokedProcList {
 			puts "$item<br>"
