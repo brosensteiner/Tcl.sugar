@@ -7,6 +7,8 @@ and if you want regex syntax highlighting in "regexp" and "regsub" commands you 
 
 ## Installation
 
+Type the following in terminal:
+
 ```bash
     cd ~/Library/Application\ Support/Espresso/Sugars
     git clone git://github.com/brosensteiner/Tcl.sugar.git

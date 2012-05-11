@@ -28,8 +28,9 @@ THE SOFTWARE.
 
     <zones>
 		<include collection="Invalid" />
-		<zone name="tcl.shebang">
-			<expression>^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\s+tclsh</expression>
+		<zone name="tcl.comment.shebang">
+			<expression>^(#!).*?\b(tclsh|wish)\b.*?$[\n\r]*|^(#!).*?\benv\s+?tclsh.*?$[\n\r]*</expression>
+			<capture number="1" name="punctuation.definition.begin"/>
 		</zone>
 		<include collection="Numeric" />
 		<include collection="Variables" />
@@ -93,7 +94,7 @@ THE SOFTWARE.
 		<!--some invalid syntax (will eventually be more over time)-->
 		<collection name="Invalid">
 			<zone name="tcl.language.invalid.comment-semicolon">
-			    <expression>;\s+?#[^\d].*$\n?</expression>
+			    <expression>;\s+?#[^\d].*?$[\n\r]*</expression>
 			</zone>
 		</collection>
 		
@@ -107,13 +108,13 @@ THE SOFTWARE.
 	
 		<collection name="Comments">
 			
-			<zone name="tcl.keyword.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax ... -->
+			<zone name="tcl.keyword.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
 			        <expression>(#)[^\d]?.*?(?&lt;!\\)\\\s*$\n?</expression>
-			        <capture number="1" name="tcl.keyword.comment.multiline.hash"/>
+			        <capture number="1" name="tcl.punctuation.comment.hash"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>[^\\]\s*\n</expression>
+			        <expression>[^\\]\s*?$[\n\r]+</expression>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>
@@ -123,10 +124,10 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.comment.line">
 				<starts-with>
 			    	<expression>(#)[^\d]?</expression>
-			    	<capture number="1" name="tcl.comment.hash"/>
+			    	<capture number="1" name="tcl.punctuation.comment.hash"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>$\n?</expression>
+			        <expression>$[\n\r]*</expression>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>

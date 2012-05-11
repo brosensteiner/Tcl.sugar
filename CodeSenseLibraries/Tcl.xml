@@ -110,7 +110,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="puts" />
+		<completion string="puts">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:-nonewline} ${2:?channelId?} ${3:string}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="tcl_wordBreakAfter" />
 		<completion string="auto_execok" />
 		<completion string="expr">
@@ -1192,6 +1199,10 @@ THE SOFTWARE.
 	
 	
 	<!--Tcl switches-->
+	<!--puts switch-->
+	<set name="com.rosensteiner.Tcl.function.puts" casesensitive="true">
+		<completion string="-nonewline" />
+	</set>
 	<!--package switches-->
 	<set name="com.rosensteiner.Tcl.function.package.present" casesensitive="true">
 		<completion string="-exact" />
