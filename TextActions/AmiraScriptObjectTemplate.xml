@@ -26,8 +26,8 @@ THE SOFTWARE.
 -->
 <action-recipes>
 
-    <snippet id="actions.snippets.tcl.amira.theMsg.error" category="actions.snippets.tcl/tcl.code.snippets.amira">
-        <title>Amira script-object template</title>
+    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.scro-template" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <title>Amira script object template</title>
         <text># Amira-Script-Object V3.0
         
 \$this proc constructor {} {
@@ -54,7 +54,7 @@ THE SOFTWARE.
 
 }
 </text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+        <language-context>tcl</language-context>
         <text-trigger>amirascro</text-trigger>
     </snippet>
 

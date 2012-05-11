@@ -25,9 +25,37 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <action-recipes>
+
+	<!--didn´t get "<output>log</output>" to work properly in ShellActions.sugar, so here is it with TEALoader-->
+	<action name="com.rosensteiner.execute.tcl.script.shell.1" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.execute.tcl">
+		<language-context>tcl</language-context>
+		<class>TEALoader</class>
+		<title>execute tcl script in terminal</title>
+		<key-equivalent>command option r</key-equivalent>
+		<setup>
+			<script>exec-tcl-script-shell.sh</script>
+			<input>selection</input>
+			<alternate>document</alternate>
+			<!--<output>text</output>-->
+			<!--<undo_name>My Action</undo_name>-->
+		</setup>
+	</action>
+	<action name="com.rosensteiner.execute.tcl.script.shell.2" category="tools.Snippets">
+		<language-context>tcl</language-context>
+	    <class>TEALoader</class>
+		<title>execute tcl script in terminal</title>
+		<key-equivalent>command option r</key-equivalent>
+		<setup>
+			<script>exec-tcl-script-shell.sh</script>
+			<input>selection</input>
+			<alternate>document</alternate>
+			<!--<output>text</output>-->
+			<!--<undo_name>My Action</undo_name>-->
+		</setup>
+	</action>
 	
-	<action name="execute.tcl.script.html" category="actions.snippets.tcl">
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+	<action name="com.rosensteiner.execute.tcl.script.html.1" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.execute.tcl">
+		<language-context>tcl</language-context>
 		<title>execute tcl script as html</title>
 		<key-equivalent>command shift r</key-equivalent>
 	    <!--REQUIRED-->
@@ -53,17 +81,31 @@ THE SOFTWARE.
 	    </setup>
 	</action>
 	
-	<action name="execute.tcl.script.shell" category="actions.snippets.tcl">
-		    <class>TEALoader</class>
-			<title>execute tcl script in terminal</title>
-			<setup>
-				<script>exec-tcl-script-shell.sh</script>
-				<input>selection</input>
-				<alternate>document</alternate>
-				<!--<output>text</output>-->
-				<!--<undo_name>My Action</undo_name>-->
-			<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-		</setup>
+	<action name="com.rosensteiner.execute.tcl.script.html.2" category="tools.Snippets">
+		<language-context>tcl</language-context>
+		<title>execute tcl script as html</title>
+		<key-equivalent>command shift r</key-equivalent>
+	    <!--REQUIRED-->
+	    <class>OCShellAction</class>
+	
+	    <setup>
+	        <!--REQUIRED-->
+	        <script>exec-tcl-script-html.tcl</script>
+	
+	        <!--Available for all types of actions; default values shown-->
+	        <!--These say if your script can handle these scenarios or not-->
+	        <multiple-selections>true</multiple-selections>
+	        <single-selection>true</single-selection>
+	        <empty-selection>true</empty-selection>
+	        <!--Only set this to `false` if you want to be slapped in the face with errors-->
+	        <suppress-errors>true</suppress-errors>
+	
+	        <!--Applicable mainly for TextActions; default values shown-->
+	        <input>selection</input>
+	        <alternate>document</alternate>
+	        <output>html</output>
+	        <output-format>text</output-format>
+	    </setup>
 	</action>
-        
+	        
 </action-recipes>

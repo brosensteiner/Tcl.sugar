@@ -26,25 +26,24 @@ THE SOFTWARE.
 -->
 <action-recipes>
 
-<!--new function-->
-    <snippet id="actions.snippets.tcl.function.function" category="actions.snippets.tcl/tcl.code.snippets">
-        <title>new procedure</title>
-        <text>proc ${1:name} \{ ${2:arguments} \} \{
+<!--new procedure-->
+	<snippet id="com.rosensteiner.actions.snippets.tcl.function.function" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+		<title>new procedure</title>
+		<text>proc ${1:name} \{ ${2:arguments} \} \{
 	${3:body}
 \}
 $0</text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-        <text-trigger>nproc</text-trigger>
-    </snippet>
+		<language-context>tcl</language-context>
+		<text-trigger>proc</text-trigger>
+	</snippet>
 	
-    
-<!--new one line function-->
-	<snippet id="actions.snippets.tcl.function.function-oneline" category="actions.snippets.tcl/tcl.code.snippets">
-        <title>new procedure at one line</title>
-        <text>proc ${1:name} \{ ${2:arguments} \} \{ ${3:body} \}
-        </text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-        <text-trigger>nproc1</text-trigger>
-    </snippet> 
+	
+<!--new one line procedure-->
+	<snippet id="com.rosensteiner.actions.snippets.tcl.function.function-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+		<title>new procedure at one line</title>
+		<text>proc ${1:name} \{ ${2:arguments} \} \{ ${3:body} \}$0</text>
+		<language-context>tcl</language-context>
+		<text-trigger>proc1</text-trigger>
+	</snippet> 
 
 </action-recipes>

@@ -26,16 +26,21 @@ THE SOFTWARE.
 -->
 <action-categories>
 
-	<category id="actions.snippets.tcl" show="sub">
+	<!--Tcl-->
+	<category id="com.rosensteiner.actions.snippets.tcl" show="sub">
 		<title>Tcl</title>
 	</category>
-	
-	<category id="tcl.code.snippets" show="sub">
-		<title>code snippets</title>
+	<!--execute script-->
+	<category id="com.rosensteiner.actions.text.execute.tcl" show="inline separated"></category>
+	<!--e.g. balanced_punctuations.xml-->
+	<category id="com.rosensteiner.actions.text.generic.tcl" show="inline separated"></category>
+	<!--e.g. ifforwhileswitchcatch_Snippet.xml-->
+	<category id="com.rosensteiner.tcl.code.snippets" show="sub">
+		<title>Tcl code snippets</title>
 	</category>
-	
-	<category id="tcl.code.snippets.amira" show="sub">
-		<title>Amira snippets</title>
+	<!--amira-->
+	<category id="com.rosensteiner.tcl.amira.code.snippets" show="sub">
+		<title>Amira</title>
 	</category>
 
 </action-categories>

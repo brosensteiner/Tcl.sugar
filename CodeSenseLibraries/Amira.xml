@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codesense>
+			
+	<set name="com.rosensteiner.amira" casesensitive="true">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<!--global variables-->
+		<completion string="AMIRA_ROOT" />
+		<completion string="AMIRA_LOCAL" />
+		<completion string="SCRIPTFILE" />
+		<completion string="SCRIPTDIR" />
+		<completion string="hideNewModules" />
+		<!--port-->
+		<completion string="deletePort" />
+		<completion string="setVar" />
+		<completion string="setVarSerialize" />
+		<completion string="getVar" />
+		<completion string="hasVar" /><!--not documented in Amira 5.2.4-->
+		<completion string="testBreak" />
+		<completion string="setNum" />
+		<completion string="getNum" />
+		<completion string="setValueString" />
+		<completion string="setMenuSensitivity" />
+		<completion string="getMenuSensitivity" />
+		<completion string="setSensitivity" />
+		<completion string="getSensitivity" />
+		<!--general amira object-->
+		<completion string="setValue" />
+		<completion string="getValue" />
+		<completion string="hasInterface" />
+		<completion string="duplicate" />
+		<completion string="showIcon" />
+		<completion string="hideIcon" />
+		<completion string="iconVisible" />
+		<completion string="select" />
+		<completion string="deselect" />
+		<completion string="setLabel" />
+		<completion string="fire" />
+		<completion string="compute" />
+		<completion string="allPorts" />
+		<completion string="connectionPorts" />
+		<completion string="downStreamConnections" />
+		<completion string="setIconPosition" />
+		<completion string="getIconPosition" />
+		<completion string="clipGeom" />
+		<completion string="unclipGeom" />
+		<completion string="setPickable" />
+		<completion string="destroy" />
+		<completion string="getTypeId" />
+		<completion string="getLabel" />
+		<completion string="setViewerMask" />
+		<!--spatial object-->
+		<completion string="getBoundingBox" />
+		<completion string="getTransform" />
+		<completion string="setTransform" />
+		<completion string="getInverseTransform" />
+		<completion string="getTranslation" />
+		<completion string="setTranslation" />
+		<completion string="getRotation" />
+		<completion string="setRotation" />
+		<completion string="getScaleFactor" />
+		<completion string="setScaleFactor" />
+		<completion string="translate" />
+		<completion string="rotate" />
+		<completion string="scale" />
+		<completion string="multTransform" />
+		<completion string="hasUndefinedValue" />
+		<completion string="getUndefinedValue" />
+		<completion string="setUndefinedValue" />
+		<completion string="hasDataWindow" />
+		<completion string="setDataWindow" />
+		<completion string="removeDataWindow" />
+		<completion string="getRange" />
+		<completion string="touchMinMax" />
+		<!--field3-->
+		<completion string="nDataVar" />
+		<completion string="evalprimType" />
+		<completion string="getDims" />
+		<completion string="coordType" />
+		<completion string="swapByteOrder" />
+		<completion string="clearSlice" />
+		<completion string="exchangeSlices" />
+		<completion string="crop" />
+		<completion string="flip" />
+		<completion string="swapDims" />
+		<completion string="setBoundingBox" />
+		<!--surface-->
+		<completion string="recompute" />
+		<completion string="fixOrientation" />
+		<completion string="invertOrientation" />
+		<completion string="makeOnePatch" />
+		<completion string="cleanup" />
+		<completion string="getArea" />
+		<completion string="getVolume" />
+		<completion string="setColor" />
+		<completion string="setTransparency" />
+		<completion string="add -point" />
+		<completion string="add -triangle" />
+		<completion string="merge" />
+		<completion string="refine" />
+		<completion string="getPatchArea" />
+		<completion string="assignInsideMaterial" />
+		<completion string="assignOutsideMaterial" />
+		<!--cluster-->
+		<completion string="computeBounds" />
+		<completion string="computeConnectivity" />
+		<completion string="addPoint" />
+		<completion string="removePoint" />
+		<completion string="resetIds" />
+		<completion string="setId" />
+		<completion string="getId" />
+		<completion string="getIndex" />
+		<completion string="setNumDataColumns" />
+		<completion string="getNumDataColumns" />
+		<completion string="setDataValue" />
+		<completion string="getDataValue" />
+		<completion string="setDataColumnName" />
+		<completion string="getDataColumnName" />
+		<completion string="setNumLabelColumns" />
+		<completion string="getNumLabelColumns" />
+		<completion string="setLabelValue" />
+		<completion string="getLabelValue" />
+		<completion string="setLabelColumnName" />
+		<completion string="getLabelColumnName" />
+		<!--data-->
+		<completion string="touch" />
+		<completion string="save" />
+		<completion string="parameters" />
+		<completion string="setDefaultFileFormat" />
+		<completion string="setEditor" />
+		<completion string="getEditor" />
+		<!--interface component port-->
+		<completion string="source" />
+		<completion string="connect" />
+		<completion string="disconnect" />
+		<completion string="setTightness" />
+		<completion string="isTight" />
+		<completion string="setVisibility" />
+		<completion string="isVisible" />
+		<completion string="allowEditing" />
+		<completion string="isEditable" />
+		<completion string="validSource" />
+		<!--interface component generic port-->
+		<completion string="getColor" />
+		<completion string="isItemNew" />
+		<completion string="deleteItem" />
+		<completion string="insertIntText" />
+		<completion string="insertFloatText" />
+		<completion string="insertCheckBox" />
+		<completion string="insertRadioGroup" />
+		<completion string="insertComboBox" />
+		<completion string="insertPushButton" />
+		<completion string="insertColorButton" />
+		<completion string="insertLabel" />
+		<!--interface component connection port-->
+		<completion string="isNew" />
+		<completion string="getState" />
+		<completion string="setState" />
+		<completion string="getLabel" />
+		<completion string="setLabel" />
+		<completion string="getLabelWidth" />
+		<completion string="setLabelWidth" />
+		<completion string="align" />
+		<completion string="getPin" />
+		<completion string="setPin" />
+		<completion string="touch" />
+		<completion string="untouch" />
+		<completion string="object" />
+		<completion string="send" />
+		<completion string="show" />
+		<completion string="hide" />
+		<completion string="isVisible" />
+		<completion string="reposition" />
+		<completion string="isOfType" />
+		<completion string="getTypeId" />
+		<completion string="connect" />
+		<!--viewer-->
+		<completion string="viewer" />
+		<completion string="snapshot" />
+		<completion string="setPosition" />
+		<completion string="getPosition" />
+		<completion string="setSize" />
+		<completion string="getSize" />
+		<completion string="setCamera" />
+		<completion string="getCamera" />
+		<completion string="setCameraPosition" />
+		<completion string="getCameraPosition" />
+		<completion string="setCameraOrientation" />
+		<completion string="getCameraOrientation" />
+		<completion string="setCameraFocalDistance" />
+		<completion string="getCameraFocalDistance" />
+		<completion string="setCameraHeightAngle" />
+		<completion string="getCameraHeightAngle" />
+		<completion string="setCameraHeight" />
+		<completion string="getCameraHeight" />
+		<completion string="setCameraType" />
+		<completion string="getCameraType" />
+		<completion string="setTransparencyType" />
+		<completion string="getTransparencyType" />
+		<completion string="setSortedLayersNumPasses" />
+		<completion string="getSortedLayersNumPasses" />
+		<completion string="setBackgroundColor" />
+		<completion string="getBackgroundColor" />
+		<completion string="setBackgroundColor2" />
+		<completion string="getBackgroundColor2" />
+		<completion string="setBackgroundMode" />
+		<completion string="getBackgroundMode" />
+		<completion string="setBackgroundImage" />
+		<completion string="getBackgroundImage" />
+		<completion string="setAutoRedraw" />
+		<completion string="isAutoRedraw" />
+		<completion string="transformScreenToWorld" />
+		<completion string="redraw" />
+		<completion string="rotate" />
+		<completion string="setDecoration" />
+		<completion string="saveScene" />
+		<completion string="viewAll" />
+		<completion string="view" />
+		<completion string="show" />
+		<completion string="hide" />
+		<completion string="fogRange" />
+		<completion string="setVideoFormat" />
+		<completion string="setVideoFrame" />
+		<!--global other-->
+		<completion string="addTimeout" />
+		<completion string="all" />
+		<completion string="aminfo" />
+		<completion string="clear" />
+		<completion string="create" />
+		<completion string="dso" />
+		<completion string="addPath" />
+		<completion string="echo" />
+		<completion string="help" />
+		<completion string="httpd" />
+		<completion string="limit" />
+		<completion string="load" />
+		<completion string="mem" />
+		<completion string="quit" />
+		<completion string="remove" />
+		<completion string="rename" />
+		<completion string="sleep" />
+		<completion string="source" />
+		<completion string="system" />
+		<completion string="saveNetwork" />
+		<completion string="saveNetworkAs" />
+		<!--workArea-->
+		<completion string="workArea setProgressInfo" />
+		<completion string="workArea setProgressValue" />
+		<completion string="workArea startWorking" />
+		<completion string="workArea stopWorking" />
+		<completion string="workArea wasInterrupted" />
+		<!--theMain-->
+		<completion string="theMain" /> <!--useful because theMain can have other arguments too-->
+		<completion string="theMain snapshot" />
+		<completion string="theMain setViewerTogglesOnIcons" />
+		<completion string="theMain ignoreShow" />
+		<!--theMsg-->
+		<completion string="theMsg" /> <!--useful because theMsg can have other arguments too-->
+		<completion string="theMsg error" />
+		<completion string="theMsg warning" />
+		<completion string="theMsg question" />
+		<completion string="theMsg overwrite" />
+		<!--app-->
+		<completion string="app version" />
+		<completion string="app uname" />
+		<completion string="app arch" />
+		<completion string="app hostid" />
+		<completion string="app listen" />
+		<completion string="app close" />
+		<completion string="app port" />
+		<completion string="app send" />
+		<completion string="app opengl" />
+		<completion string="app cluster" />
+		<!--window-->
+		<completion string="getFrameGeometry" />
+		<completion string="getGeometry" />
+		<completion string="getPosition" />
+		<completion string="getRelativeGeometry" />
+		<completion string="getSize" />
+		<completion string="hide" />
+		<completion string="setCaption" />
+		<completion string="setFrameGeometry" />
+		<completion string="setGeometry" />
+		<completion string="setPosition" />
+		<completion string="setRelativeGeometry" />
+		<completion string="setSize" />
+		<completion string="show" />
+		<completion string="showMinimized" />
+		<completion string="showMaximized" />
+		<!--parameters-->
+		<completion string="bundle" />
+		<completion string="flags" />
+		<completion string="getFlag" />
+		<completion string="getName" />
+		<completion string="hasBundle" />
+		<completion string="hasParameter" />
+		<completion string="index" />
+		<completion string="isBundle" />
+		<completion string="list" />
+		<completion string="nBundles" />
+		<completion string="newBundle" />
+		<completion string="setFlag" />
+		<completion string="setName" />
+		<completion string="size" />
+		<!--viewbase-->
+		<completion string="createSurface" />
+		<completion string="setAlphaMode" />
+		<completion string="setNormalBinding" />
+		<completion string="setPointSize" />
+		<completion string="setPolygonOffsetMode" />
+		<completion string="setOutlineColor" />
+		<completion string="setLineWidth" />
+		<completion string="setHighlightColor" />
+		<completion string="setEmissiveColor" />
+		<completion string="setSpecularColor" />
+		<completion string="setShininess" />
+		<completion string="showBox" />
+		<completion string="hideBox" />
+		<!--additional commands-->
+		<completion string="allInterfaceTypeIds" />
+		<completion string="allInterfaces" />
+		<completion string="applyTransform" />
+		<completion string="applyTransformBBox" />
+		<completion string="checkBorderTouch" />
+		<completion string="clearVisibleFlag" />
+		<completion string="collapse" />
+		<completion string="compareTransforms" />
+		<completion string="createDocFile" />
+		<completion string="createPortSnaps" />
+		<completion string="createWeights" />
+		<completion string="deleteWeights" />
+		<completion string="eval" />
+		<completion string="expand" />
+		<completion string="extract" />
+		<completion string="getControllingData" />
+		<completion string="getHelpHint" />
+		<completion string="getInterface" />
+		<completion string="getMaterialName" />
+		<completion string="getNoRenameFlag" />
+		<completion string="getPackage" />
+		<completion string="getScreen" />
+		<completion string="getSurfaceArea" />
+		<completion string="getTouchTime" />
+		<completion string="getTransformRounded" />
+		<completion string="getVarNames" />
+		<completion string="getViewerMask" />
+		<completion string="getVoxelSize" />
+		<completion string="gmcLabels" />
+		<completion string="gmcWeights" />
+		<completion string="hasMaterial" />
+		<completion string="interpolTransform" />
+		<completion string="isModified" />
+		<completion string="latticeType" />
+		<completion string="makeColormap" />
+		<completion string="primType" />
+		<completion string="primary" />
+		<completion string="proc" />
+		<completion string="relabel" />
+		<completion string="removeEmptyMaterials" />
+		<completion string="removeMaterial" />
+		<completion string="resize" />
+		<completion string="setControllingData" />
+		<completion string="setInvisible" />
+		<completion string="setModified" />
+		<completion string="setNoRemove" />
+		<completion string="setNoRemoveAll" />
+		<completion string="setNoRename" />
+		<completion string="setNoSave" />
+		<completion string="setRequiresPolygonOffset" />
+		<completion string="setScale" />
+		<completion string="setScreen" />
+		<completion string="setShadowStyle" />
+		<completion string="setTransformRounded" />
+		<completion string="setUnit" />
+		<completion string="sharedColormap" />
+		<completion string="unsetVar" />
+		<completion string="action" />
+		<completion string="DoIt" />
+		<completion string="doIt" />
+		<completion string="call" />
+		<completion string="exec" />
+		<completion string="getResult" />
+		<completion string="isFirstCall" />
+		<completion string="script" />
+		<completion string="setPickCallback" />
+		<completion string="setResult" />
+		<completion string="this" />
+				
+	</set>
+		
+	<set name="com.rosensteiner.amira.scriptobject" casesensitive="true">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1:: $0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<completion string="newPortButtonList" />
+		<completion string="newPortButtonMenu" />
+		<completion string="newPortColormap" />
+		<completion string="newPortDoIt" />
+		<completion string="newPortFilename" />
+		<completion string="newPortFloatSlider" />
+		<completion string="newPortFloatTextN" />
+		<completion string="newPortMultiMenu" />
+		<completion string="newPortInfo" />
+		<completion string="newPortIntSlider" />
+		<completion string="newPortIntTextN" />
+		<completion string="newPortRadioBox" />
+		<completion string="newPortSeparator" />
+		<completion string="newPortText" />
+		<completion string="newPortTime" />
+		<completion string="newPortToggleList" />
+		<completion string="newPortConnection" />
+		<completion string="newPort3DPointList" />
+		<completion string="newPortGeneric" />
+		<completion string="newPortTextEdit" />
+		<completion string="newPortChannelConfig" />
+		<completion string="newPortColorList" />
+		<completion string="newPortDrawStyle" />
+		<completion string="newPortFontSelection" />
+		<completion string="newPortMultiChannel" />
+		<completion string="newPortSharedColormap" />
+		<completion string="newPortTabBar" />
+				
+	</set>
+	   	
+   	<set name="com.rosensteiner.amira.data-classes" casesensitive="true">
+   	
+   		<behavior>
+   			<append-dynamic>
+   				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+   				<transform-into>(?1:: $0)</transform-into>
+   			</append-dynamic>
+   		</behavior>
+   		
+   		<completion string="HxData" />
+   		<completion string="HxSpreadSheet" />
+   		<completion string="HxColormap" />
+   		<completion string="HxColormap256" />
+   		<completion string="HxCameraPath" />
+   		<completion string="HxKeyframeCameraPath" />
+   		<completion string="HxSpatialData" />
+   		<completion string="HxIvData" />
+   		<completion string="HxField3" />
+   		<completion string="HxScalarField3" />
+   		<completion string="HxRegScalarField3" />
+   		<completion string="HxUniformScalarField3" />
+   		<completion string="HxUniformLabelField3" />
+   		<completion string="HxStackedScalarField3" />
+   		<completion string="HxStackedLabelField3" />
+   		<completion string="HxAnnaScalarField3" />
+   		<completion string="HxTetraScalarField3" />
+   		<completion string="HxHexaScalarField3" />
+   		<completion string="HxVectorField3" />
+   		<completion string="HxRegVectorField3" />
+   		<completion string="HxUniformVectorField3" />
+   		<completion string="HxEdgeElemVectorField3" />
+   		<completion string="HxAnnaVectorField3" />
+   		<completion string="HxTetraVectorField3" />
+   		<completion string="HxHexaVectorField3" />
+   		<completion string="HxComplexScalarField3" />
+   		<completion string="HxRegComplexScalarField3" />
+   		<completion string="HxUniformComplexScalarField3" />
+   		<completion string="HxTetraComplexScalarField3" />
+   		<completion string="HxHexaComplexScalarField3" />
+   		<completion string="HxComplexVectorField3" />
+   		<completion string="HxRegComplexVectorField3" />
+   		<completion string="HxUniformComplexVectorField3" />
+   		<completion string="HxEdgeElemComplexVectorField3" />
+   		<completion string="HxTetraComplexVectorField3" />
+   		<completion string="HxHexaComplexVectorField3" />
+   		<completion string="HxColorField3" />
+   		<completion string="HxRegColorField3" />
+   		<completion string="HxUniformColorField3" />
+   		<completion string="HxRegField3" />
+   		<completion string="HxTetraField3" />
+   		<completion string="HxHexaField3" />
+   		<completion string="HxVertexSet" />
+   		<completion string="HxSurface" />
+   		<completion string="HxTetraGrid" />
+   		<completion string="HxHexaGrid" />
+   		<completion string="HxLineSet" />
+   		<completion string="HxLandmarkSet" />
+   		<completion string="HxCluster" />
+   		<completion string="HxSurfaceField" />
+   		<completion string="HxSurfaceScalarField" />
+   		<completion string="HxSurfaceVectorField" />
+   		<completion string="HxSurfaceComplexScalarField" />
+   		<completion string="HxSurfaceComplexVectorField" />
+   		<!--additional:-->
+   		<completion string="HxGenerateTensorData" />
+   		<completion string="HxArithmetic" />
+   		<completion string="HxBSpline" />
+   		<completion string="HxColormapSC" />
+   		<completion string="HxConvertToDiskData" />
+   		<completion string="HxGPUShader" />
+   		<completion string="HxLinearVectorField3" />
+   		<completion string="HxMagDipol" />
+   		<completion string="HxMosaic" />
+   		<completion string="HxMovieData" />
+   		<completion string="HxSpatialGraph" />
+   		<completion string="HxSurfacePathSet" />
+   		<completion string="HxTime" />
+   		<completion string="HxScriptObject" /> 
+   		<completion string="HxIvDisplay" />  
+   		<completion string="HxAnnotation" /> 
+   		<completion string="HxSound" /> 
+   		<completion string="HxSQLite" /> 
+   		<completion string="HxTridelity" /> 
+   		<completion string="Hx2DMesh" /> 
+   		<completion string="HxCreateSphere" /> 
+   		<completion string="HxFakeModule" /> 
+   		<completion string="HxDynamicFileSeriesCtrl" /> 
+   		<completion string="HxGeometryToSurface" /> 
+   		<completion string="HxLDAExpertSettings" /> 
+   		<completion string="HxMolTrajectoryBundle" /> 
+   		<completion string="HxPSFGen" /> 
+   		<completion string="HxParametricSurface" /> 
+   		<completion string="HxStereoTestPattern" /> 
+   		<completion string="HxVoxelSurface" /> 
+   		<completion string="HxCalculus" />  
+   		<completion string="HxCircularCameraPath" /> 
+   		<completion string="HxArbitraryCut" /> 
+   		<completion string="HxMultiChannelField3" /> 
+   		<completion string="HxMultiChannelField" /> 
+   		<completion string="HxScale" />
+   		<completion string="HxGMC" />
+   		<completion string="HxVolren" />
+   		<completion string="HxVoltex" /> 
+   		<completion string="HxAffineRegistration" /> 
+   		<completion string="HxAlignSlices" /> 
+   		<completion string="HxAnonymizeImageStack" /> 
+   		<completion string="HxApplyTransform" />  
+   		<completion string="HxAverageBrain" /> 
+   		<completion string="HxCorrectBlockFace" />  
+   		<completion string="HxCanny2D" /> 
+   		<completion string="HxCastField" /> 
+   		<completion string="HxCastLattice" /> 
+   		<completion string="HxChannelWorks" /> 
+   		<completion string="HxColorCombine" /> 
+   		<completion string="HxCompareLatticeData" /> 
+   		<completion string="HxComputeTensor" /> 
+   		<completion string="HxComputeTensorOutOfCore" /> 
+   		<completion string="HxDicomSend" /> 
+   		<completion string="HxFieldAsLattice" /> 
+   		<completion string="HxFilterBySpreadsheet" /> 
+   		<completion string="HxGradient" /> 
+   		<completion string="HxFrameInterpolator" /> 
+   		<completion string="HxLabelVoxel" /> 
+   		<completion string="HxLatToHex" /> 
+   		<completion string="HxMerge" /> 
+   		<completion string="HxNormalizeImage" /> 
+   		<completion string="HxResample" /> 
+   		<completion string="HxSegmentBrain" /> 
+   		<completion string="HxShear" /> 
+   		<completion string="HxSplitLattice" /> 
+   		<completion string="HxVolumeEdit" />
+   		<completion string="HxStandardView" /> 
+   		<completion string="HxSelectRoi" /> 
+   		<completion string="HxProjectionView" /> 
+   		<completion string="HxOrthoSlice" /> 
+   		<completion string="HxObliqueSlice" /> 
+   		<completion string="HxAxis" /> 
+   		<completion string="HxIsosurface" /> 
+   		<completion string="HxIsolines" /> 
+   		<completion string="HxHeightField" /> 
+   		<completion string="HxFilteredObliqueSlice" /> 
+   		<completion string="HxCurvedSlice" /> 
+   		<completion string="HxCornerCut" /> 
+   		<completion string="HxCityPlot" /> 
+   		<completion string="HxBumpSlice" /> 
+   		<completion string="HxAnnotatedIsolines" /> 
+   		<completion string="HxObjectTransformAnimation" /> 
+   		<completion string="HxBeadExtract" /> 
+   		<completion string="HxConvolution" /> 
+   		<completion string="HxCorrectZDrop" /> 
+   		<completion string="HxDataPreprocess" /> 
+   		<completion string="HxDeconvolution" /> 
+   		<completion string="HxFFT" />
+   		<completion string="HxImageFilters" />
+   		<completion string="HxConnectedComponentAnalysis" /> 
+   		<completion string="HxCorrelationPlot" /> 
+   		<completion string="HxLocalThreshold" /> 
+   		<completion string="HxSeparateMorpho" /> 
+   		<completion string="HxWatershedSegmentation" /> 
+   		<completion string="HxHistogram" /> 
+   		<completion string="HxLineProbe" /> 
+   		<completion string="HxLineSetProbe" /> 
+   		<completion string="HxPointProbe" /> 
+   		<completion string="HxShapeAnalysis" /> 
+   		<completion string="HxSplineProbe" />  
+   		<completion string="HxExtAutoSkeleton" /> 
+   		<completion string="HxTEASAR" /> 
+   		<completion string="HxDOThinner2" />
+   		<completion string="HxTissueStatistics" />
+   		<completion string="HxParameterEditor" />
+   		<completion string="HxParamBundle" />
+   		<completion string="HxParamBase" />
+   		<completion string="HxParamBase" />
+   		<!--ports-->
+   		<completion string="HxPortButtonList" />
+   		<completion string="HxPortButtonMenu" />
+   		<completion string="HxPortColorList" />
+   		<completion string="HxPortFloatslider" />
+   		<completion string="HxPortFloatTextN" />
+   		<completion string="HxPortGeneric" />
+   		<completion string="HxPortIntSlider" />
+   		<completion string="HxPortMultiMenu" />
+   		<completion string="HxPortMultiOptions" />
+   		<completion string="HxPortRadioBox" />
+   		<completion string="HxPortRangeSlider" />
+   		<completion string="HxPortTabBar" />
+   		<completion string="HxPortText" />
+   		<completion string="HxPortTextEdit" />
+   		<completion string="HxPortToggleList" />
+   		<completion string="HxPort3DPointList" />
+   				
+   	</set>
+
+</codesense>

@@ -27,35 +27,35 @@ THE SOFTWARE.
 <action-recipes>
 
 <!--new amira theMsg error-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.error" category="actions.snippets.tcl/tcl.code.snippets.amira">
-        <title>Amira message error</title>
+    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.error" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <title>message error</title>
         <text>theMsg error "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-        <text-trigger>nMsge</text-trigger>
+       <language-context>tcl</language-context>
+        <text-trigger>Msge</text-trigger>
     </snippet>
     
 <!--new amira theMsg warning-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.warning" category="actions.snippets.tcl/tcl.code.snippets.amira">
-        <title>Amira message warning</title>
+    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.warning" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <title>message warning</title>
         <text>theMsg warning "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-        <text-trigger>nMsgw</text-trigger>
+       <language-context>tcl</language-context>
+        <text-trigger>Msgw</text-trigger>
     </snippet>
     
 <!--new amira theMsg question-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.question" category="actions.snippets.tcl/tcl.code.snippets.amira">
-        <title>Amira message question</title>
+    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.question" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <title>message question</title>
         <text>theMsg question "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-        <text-trigger>nMsgq</text-trigger>
+       <language-context>tcl</language-context>
+        <text-trigger>Msgq</text-trigger>
     </snippet>
     
 <!--new amira theMsg filename-->
-    <snippet id="actions.snippets.tcl.amira.theMsg.filename" category="actions.snippets.tcl/tcl.code.snippets.amira">
-        <title>Amira message filename</title>
-        <text>theMsg overwrite ${1:filename} $0</text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-        <text-trigger>nMsgf</text-trigger>
+    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.filename" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <title>message overwrite</title>
+        <text>theMsg overwrite ${1:file} $0</text>
+       <language-context>tcl</language-context>
+        <text-trigger>Msgo</text-trigger>
     </snippet> 
 
 </action-recipes>

@@ -216,29 +216,6 @@ this code completion scheme works well for all options but can make apperring a 
 		<selector>tcl builtinfunc:capture(name) + s + switches + s + switches + s + switches + s + switches + s + switches + s + s + switches + s + switches + s + switches + s + switches + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
 		<complete-match>-?[a-zA-Z0-9-]*</complete-match>
-	</provider>
-	
+	</provider>	
 
-	
-	<!--amira code sense providers, can be deleted when not needed, but the author needs it desperately :)-->
-	
-	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + s + tcl.options,tcl.builtinfunc + s + tcl.options + s + options,tcl.switches) + s + * + *</selector>
-		<completions>com.rosensteiner.amira</completions>
-		<complete-match>(?&lt;!\\|_)[a-zA-Z]+</complete-match>
-	</provider>
-	
-	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + s + tcl.options,tcl.builtinfunc + s + tcl.options + s + options,tcl.switches) + s + * + *</selector>
-		<completions>com.rosensteiner.amira.data-classes</completions>
-		<complete-match>[Hh][Xx][a-zA-Z]*</complete-match>
-	</provider>
-	
-	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + s + tcl.options,tcl.builtinfunc + s + tcl.options + s + options,tcl.switches) + s + * + *</selector>
-		<completions>com.rosensteiner.amira.scriptobject</completions>
-		<complete-match>[Nn][Ee][Ww][a-zA-Z]*</complete-match>
-	</provider>
-
- 
 </codesense> 

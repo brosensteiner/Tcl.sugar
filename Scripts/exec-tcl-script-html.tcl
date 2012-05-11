@@ -11,7 +11,7 @@ if { [info exists env(EDITOR_DIRECTORY_PATH)] && [info exists env(EDITOR_FILENAM
 } else {
 	puts "could not find \$EDITOR_DIRECTORY_PATH or \$EDITOR_FILENAME"
 }
-
+ 
 puts "<strong>interpreted script:</strong> <a href=\"$myFilepath\">$myFilename</a><br>"
 
 # i want to catch all errors so here is a switch for all tcl error codes:
@@ -25,7 +25,7 @@ switch [catch {
 } catchVar] {
 	0 { puts $catchVar }
 	1 { 
-		# formatting the error output a little:
+		# let´s the error output look nice:
 		set savedInfo $errorInfo
 		regexp {while\sexecuting\s\".+?\"\s*\(.+\)} $savedInfo theExecuting
 		

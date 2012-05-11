@@ -24,12 +24,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
+
+<!--TODO: seems not wo work now in Espresso 2.0.1-->
 <settings>
 	
 	<!-- This is the title used for the documentation lookup action for this context -->
 	<setting name="documentation-lookup-title">
 		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-		<value>documention</value>
+		<value>documentation</value>
 	</setting>
 
 	<!-- This is the first pattern that we check; if the URL is 404 or otherwise nonexistent, then we use the fallback -->
@@ -47,7 +49,7 @@ THE SOFTWARE.
 	<!-- This specifies what, aside from alphanumeric characters, will be considered a word character -->
 	<setting name="documentation-lookup-word-characters">
 		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-		<value>_:</value>
+		<value>_:!?</value>
 	</setting>
 	
 </settings>

@@ -27,8 +27,7 @@ THE SOFTWARE.
 <action-recipes>
 
 <!--insert MIT license("")-->
-	<snippet id="actions.snippets.tcl.MIT-license" category="actions.snippets.tcl/actions.snippets.tcl.MIT-license">
-		<title>insert MIT License</title>
+	<snippet id="com.rosensteiner.text.snippets.tcl.MIT-license" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.text.snippets.tcl.MIT-license">
 		<text>The MIT License
 
 Copyright (c) `date +%Y` &lt;`whoami`&gt;
@@ -52,7 +51,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 $0</text>
-		<syntax-context>language-root.tcl</syntax-context>
+		<language-context>tcl</language-context>
 		<text-trigger>MIT</text-trigger>
 	</snippet>    
 

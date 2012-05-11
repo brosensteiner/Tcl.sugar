@@ -26,32 +26,32 @@ THE SOFTWARE.
 -->
 <action-recipes>
 
-	<snippet id="actions.snippets.tcl.WrapBraces" category="actions.snippets.tcl">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
 	    <title>matched curly braces</title>
 	<text>{ ${EDITOR_SELECTION:${1:...}} }$0</text>
 		<key-equivalent>shift {</key-equivalent>
-	    <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+	    <language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="actions.snippets.tcl.WrapBracket" category="actions.snippets.tcl">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBracket" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
 		<title>matched square brackets</title>
 		<key-equivalent>shift [</key-equivalent>
 		<text>[${EDITOR_SELECTION:${1:list}}]$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="actions.snippets.tcl.WrapParenthesis" category="actions.snippets.tcl">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapParenthesis" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
 		<title>matched parenthesis</title>
 		<key-equivalent>cmd (</key-equivalent>
 		<text>\(${EDITOR_SELECTION:${1:...}}\)$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="actions.snippets.tcl.WrapDoubleQuote" category="actions.snippets.tcl">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapDoubleQuote" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
 		<title>matched double quotes</title>
 		<key-equivalent>option "</key-equivalent>
 		<text>"${EDITOR_SELECTION:${1:string}}"$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 	</snippet>
 	
 	

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<action-sort-instructions>
+
+	<sort-template>
+		
+		<selector>com.rosensteiner.actions.text.execute.tcl</selector>
+		<selector>com.rosensteiner.actions.text.generic.tcl</selector>
+		<selector>com.rosensteiner.tcl.code.snippets</selector>
+		<selector>com.rosensteiner.tcl.amira.code.snippets</selector>
+		<selector>com.rosensteiner.actions.snippets.tcl</selector>
+		<selector>*</selector>
+
+	</sort-template>
+	
+</action-sort-instructions>

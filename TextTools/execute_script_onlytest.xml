@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--only test:-->
+<tool-recipes>
+	
+	<tool type="toolbar" id="com.rosensteiner.text-tools.tcl.execute.html" category="macrabbit">
+	
+		<class>ESTextActionToolbarTool</class>
+		<setup>
+			<main-action-selector>com.rosensteiner.actions.snippets.tcl.MIT-license</main-action-selector>
+			<image>ToolNewTag</image>
+		</setup>
+		
+	</tool>
+	
+</tool-recipes>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--only test:-->
+<settings>
+
+	<setting name="bracket-close-transform-expression">
+		<language-context>tcl</language-context>
+		<value>[$0]</value>
+	</setting>
+
+	<setting name="braces-close-transform-expression">
+		<language-context>tcl</language-context>
+		<value>{ $0 }</value>
+	</setting>
+	
+	<setting name="parenthesis-close-transform-expression">
+		<language-context>tcl</language-context>
+		<value>( $0 )</value>
+	</setting>
+	
+</settings>

@@ -27,144 +27,139 @@ THE SOFTWARE.
 <action-recipes>
 
 <!--for loop-->
-    <snippet id="actions.snippets.tcl.for" category="actions.snippets.tcl/tcl.code.snippets">
+    <snippet id="com.rosensteiner.actions.snippets.tcl.for" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
         <title>new for loop</title>
         <text>for \{ ${1:set i 0} \} \{ ${2:\$i &lt; ${3:count} } \} \{ ${4:incr i} \} \{
 	${5:body}
 \}$0</text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+        <language-context>tcl</language-context>
         <text-trigger>for</text-trigger>
     </snippet>
     
 <!--for loop one line-->
-    <snippet id="actions.snippets.tcl.for-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+    <snippet id="com.rosensteiner.actions.snippets.tcl.for-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
         <title>new for loop at one line</title>
         <text>for \{ ${1:set i 0} \} \{ ${2:\$i &lt; ${3:count} } \} \{ ${4:incr i} \} \{ ${5:body} \}$0</text>
-        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+        <language-context>tcl</language-context>
         <text-trigger>for1</text-trigger>
     </snippet>
 	
     
 <!--if-->
-	<snippet id="actions.snippets.tcl.if" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 	        <title>new if</title>
 	        <text>if \{ ${1:condition} \} then \{
 	${2:body}
-\} $0</text>
-	        <syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+\}$0</text>
+	        <language-context>tcl</language-context>
 	        <text-trigger>if</text-trigger>
 	</snippet>
 	
 <!--if one line-->
-	<snippet id="actions.snippets.tcl.if-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new if at one line</title>
 		<text>if \{ ${1:condition} \} then \{ ${2:body} \}$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<text-trigger>if1</text-trigger>
 	</snippet>
 	
 <!--elseif-->
-	<snippet id="actions.snippets.tcl.elseif" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.elseif" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 	        <title>new elseif</title>
 	        <text>elseif \{ ${1:condition} \} then \{
 	${2:body}
-\} $0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+\}$0</text>
+		<language-context>tcl</language-context>
 		<text-trigger>elseif</text-trigger>
 	</snippet>
 <!--elseif one line-->
-	<snippet id="actions.snippets.tcl.if-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new elseif at one line</title>
 		<text>elseif \{ ${1:condition} \} then \{ ${2:body} \}$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<text-trigger>elseif1</text-trigger>
 	</snippet>
 	 
 <!--if else-->
-	<snippet id="actions.snippets.tcl.ifelse" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.ifelse" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new if else</title>
 			<text>if \{ ${1:condition} \} \{
 	 	${2:body}
 	 \} else \{
 	 	${3:body}
-\}
-$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+\}$0</text>
+		<language-context>tcl</language-context>
 		<text-trigger>ifelse</text-trigger>
 	</snippet>
 	
 	<!--else-->
-	<snippet id="actions.snippets.tcl.if-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>else</title>
 		<text>else \{ ${1:body} \}$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<text-trigger>else</text-trigger>
 	</snippet>
 
 <!--while-->	
-	<snippet id="actions.snippets.tcl.while" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.while" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new while</title>
 		<text>while \{ ${1:condition} \} \{
 	${2:body}
-\}
-$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+\}$0</text>
+		<language-context>tcl</language-context>
 		<text-trigger>while</text-trigger>
 	</snippet>
 	
 <!--while one line-->	
-	<snippet id="actions.snippets.tcl.while-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.while-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new while at one line</title>
 		<text>while \{ ${1:condition} \} \{ ${2:body} \}$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<text-trigger>while1</text-trigger>
 	</snippet>
 	
 <!--switch-->	
-	<snippet id="actions.snippets.tcl.switch" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.switch" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new switch</title>
 		<text>switch ${1:\{${2:pattern}\}} ${3:\{
 	${4:body}
-\}}
-$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+\}}$0</text>
+		<language-context>tcl</language-context>
 		<text-trigger>switch</text-trigger>
 	</snippet>
 
 <!--foreach-->
-	<snippet id="actions.snippets.tcl.foreach" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new foreach</title>
 		<text>foreach ${1:var} ${2:list} \{
 	${3:body}
-\}
-$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+\}$0</text>
+		<language-context>tcl</language-context>
 		<text-trigger>foreach</text-trigger>
 	</snippet>
 	
 <!--foreach one line-->
-	<snippet id="actions.snippets.tcl.foreach-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new foreach at one line</title>
 		<text>foreach ${1:var} ${2:list} \{ ${3:body} \}$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<text-trigger>foreach1</text-trigger>
 	</snippet>
 	
 <!--catch-->
-	<snippet id="actions.snippets.tcl.catch" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.catch" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new catch</title>
 		<text>catch \{
 	${1:body}
-\} ${2:resultVar}
-$0</text>
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+\} ${2:resultVar}$0</text>
+		<language-context>tcl</language-context>
 		<text-trigger>catch</text-trigger>
 	</snippet>
 
-	<snippet id="actions.snippets.tcl.catch-oneline" category="actions.snippets.tcl/tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.catch-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 			<title>new catch at one line</title>
 			<text>catch \{ ${1:body} \} ${2:resultVar}$0</text>
-			<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+			<language-context>tcl</language-context>
 			<text-trigger>catch1</text-trigger>
 		</snippet>
 		
