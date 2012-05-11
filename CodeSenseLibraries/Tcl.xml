@@ -305,7 +305,14 @@ THE SOFTWARE.
 		<completion string="mathop" />
 		<completion string="seek" />
 		<completion string="uplevel" />
-		<completion string="chan" />
+		<completion string="chan">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:?arg arg ...?}$0)</transform-into>
+					</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="glob" />
 		<completion string="memory" />
 		<completion string="set">
@@ -327,7 +334,14 @@ THE SOFTWARE.
 		<completion string="clock" />
 		<completion string="global" />
 		<completion string="msgcat" />
-		<completion string="socket" />
+		<completion string="socket">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+					<transform-into>(?1:$1: ${1:?options?} ${2:host} ${3:port}$0)</transform-into>
+					</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="variable">
 			<behavior>
 				<append-dynamic>
@@ -1199,6 +1213,19 @@ THE SOFTWARE.
 	
 	
 	<!--Tcl switches-->
+	<!--socket switches-->
+	<set name="com.rosensteiner.Tcl.function.socket" casesensitive="true">
+		<completion string="-server" />
+		<completion string="-myaddr" />
+		<completion string="-myport" />
+		<completion string="-async" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.socket.-server" casesensitive="true">
+		<completion string="-myaddr" />
+		<completion string="-error" />
+		<completion string="-sockname" />
+		<completion string="-peername" />
+	</set>
 	<!--puts switch-->
 	<set name="com.rosensteiner.Tcl.function.puts" casesensitive="true">
 		<completion string="-nonewline" />

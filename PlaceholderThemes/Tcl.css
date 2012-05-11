@@ -125,8 +125,10 @@ tcl.keyword.option.amira {
 }
 
 tcl.keyword.command {
-	color: rgb(73, 134, 185);
+	color: rgb(185, 121, 73);
 }
+,
+tcl.format-specifier,
 tcl.builtinfunc + s + options,
 tcl.builtinfunc + s + options + s + options,
 tcl.builtinfunc + s + options + s + options + s + options,
@@ -139,11 +141,11 @@ tcl.builtinfunc[text='trace'] + s + options + s + command,
 tcl.builtinfunc[text='trace'] + s + options + s + * + s + * + s + keyword,
 tcl.builtinfunc[text='trace'] + s + options + s + * + s + * + s + balanced-braces > keyword,
 tcl.builtinfunc[text='trace'] + s + options + s + * + s + * + s + balanced-brackets > keyword:not(builtinfunc[text='list']) {
-	color: rgba(186, 129, 233, 0.6);
+	color: rgba(185, 121, 73, 0.6);
 	font-weight: normal;
 }
 switches, {
-	color: rgba(186, 129, 233, 0.38);
+	color: rgba(185, 121, 73, 0.38);
 }
 
 tcl.keyword.operator.logical {
@@ -151,8 +153,7 @@ tcl.keyword.operator.logical {
 }
 
 tcl.punctuation.open-bracket,
-tcl.punctuation.close-bracket,
-tcl.format-specifier, {
+tcl.punctuation.close-bracket {
 	color: #e82c13;
 }
 tcl.format-type{

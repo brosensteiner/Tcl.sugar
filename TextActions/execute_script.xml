@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <action-recipes>
 	
-	<action name="execute.script.html" category="actions.snippets.tcl">
+	<action name="execute.tcl.script.html" category="actions.snippets.tcl">
 		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
 		<title>execute tcl script as html</title>
 		<key-equivalent>command shift r</key-equivalent>
@@ -53,31 +53,17 @@ THE SOFTWARE.
 	    </setup>
 	</action>
 	
-	<action name="execute.script.shell" category="actions.snippets.tcl">
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
-		<title>execute tcl script in terminal</title>
-		<key-equivalent>command option r</key-equivalent>
-	    <!--REQUIRED-->
-	    <class>OCShellAction</class>
-	
-	    <setup>
-	        <!--REQUIRED-->
-	        <script>exec-tcl-script-shell.sh</script>
-	
-	        <!--Available for all types of actions; default values shown-->
-	        <!--These say if your script can handle these scenarios or not-->
-	        <multiple-selections>true</multiple-selections>
-	        <single-selection>true</single-selection>
-	        <empty-selection>true</empty-selection>
-	        <!--Only set this to `false` if you want to be slapped in the face with errors-->
-	        <suppress-errors>false</suppress-errors>
-	
-	        <!--Applicable mainly for TextActions; default values shown-->
-	        <input>selection</input>
-	        <alternate>document</alternate>
-	        <output>log</output>
-	        <output-format>text</output-format>
-	    </setup>
+	<action name="execute.tcl.script.shell" category="actions.snippets.tcl">
+		    <class>TEALoader</class>
+			<title>execute tcl script in terminal</title>
+			<setup>
+				<script>exec-tcl-script-shell.sh</script>
+				<input>selection</input>
+				<alternate>document</alternate>
+				<!--<output>text</output>-->
+				<!--<undo_name>My Action</undo_name>-->
+			<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		</setup>
 	</action>
         
 </action-recipes>
