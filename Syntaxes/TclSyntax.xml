@@ -158,13 +158,6 @@ THE SOFTWARE.
 			    <expression>upvar</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.definition.rename">
-			    <expression>\b(rename)\s+([\$[:alnum:]_?!:\.]+)\s+([\$[:alnum:]_?!:\.]+)</expression>
-			    <capture number="1" name="tcl.keyword.command.rename"/>
-			    <capture number="2" name="tcl.keyword.variable.rename.oldname"/>
-			    <capture number="3" name="tcl.keyword.variable.rename.newname"/>
-			</zone>
-			
 			<zone name="tcl.keyword.command.definition.command-global">
 			    <expression>\bglobal\b</expression>
 			</zone>
@@ -294,11 +287,11 @@ THE SOFTWARE.
         
         <collection name="tclLanguage">
                 
-        	<zone name="tcl.keyword.character-class.semicolon">
+        	<zone name="tcl.punctuation.terminator.semicolon">
         		<expression>;</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.character-class.backslash">
+        	<zone name="tcl.punctuation.go-on.backslash">
         		<expression>\\\s*?[\n\r]</expression>
         	</zone>
         	
@@ -307,7 +300,7 @@ THE SOFTWARE.
            	</zone>
         	<zone name="tcl.keyword.namespace.characters">
         		<expression>(?:[[:alnum:]_?!\.]+(::))|((?&lt;=::)[[:alnum:]_?!:\.]+)</expression>
-        		<capture number="1" name="tcl.keyword.namespace.character-class"/>
+        		<capture number="1" name="tcl.punctuation.namespace"/>
         	</zone>
         	
         	<!--for controlled regex syntax highlighting:-->
@@ -362,7 +355,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.builtinfunc">
-        		<expression>\b(prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset|set|lset|args)\b</expression>
+        		<expression>\b(rename|prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset|set|lset|args)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global-procedures">

@@ -93,20 +93,17 @@ tcl.builtinfunc-catch + s + word,
 tcl.builtinfunc-catch + s + word + s + word,
 
 tcl.keyword.control.start[text='foreach'] + s + word,
-tcl.keyword.control.start[text='foreach'] + s + open-brace + s + word,
-tcl.keyword.control.start[text='foreach'] + s + open-brace + s + word + s + word,
-tcl.keyword.control.start[text='foreach'] + s + open-brace + s + word + s + word + s + word,
-tcl.keyword.control.start[text='foreach'] + s + open-brace + s + word + s + word + s + word + s + word,
-tcl.keyword.control.start[text='foreach'] + s + open-brace + s + word + s + word + s + word + s + word + s + word  {
+tcl.keyword.control.start[text='foreach'] + s + balanced-braces word,
+tcl.builtinfunc[text='rename'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) {
 	color: #7ac54d;
 }
 
-tcl.keyword.variable.rename.oldname,
-tcl.builtinfunc[text='unset'] + s + :not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) {
+tcl.builtinfunc[text='rename'] + s + *:not(keyword,variable),
+tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable),
+tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable),
+tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) + s + *:not(keyword,variable),
+tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) + s + :not(keyword,variable) + s + *:not(keyword,variable),
+tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) + s + :not(keyword,variable) + s + *:not(keyword,variable) + s + *:not(keyword,variable) {
 	color: #e51c1c;
 }
 

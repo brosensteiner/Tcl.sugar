@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <action-recipes>
 
-<!--insert MIT license("")-->
+<!--insert MIT license-->
 	<snippet id="com.rosensteiner.text.snippets.tcl.MIT-license" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.text.snippets.tcl.MIT-license">
 		<text># The MIT License \
  \
@@ -52,6 +52,7 @@ THE SOFTWARE.
 $0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>MIT</text-trigger>
+		<when-disabled>show</when-disabled>
 	</snippet>    
 
 </action-recipes>

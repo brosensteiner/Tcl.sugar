@@ -256,14 +256,6 @@ THE SOFTWARE.
 		<completion string="return" />
 		<completion string="unload" />
 		<completion string="break" />
-		<completion string="foreach">
-			<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-					<transform-into>(?1:$1: ${1:varlist1} ${2:list1} ${3:?varlist2 list2 ...?} ${4:body}$0)</transform-into>
-				</append-dynamic>
-			</behavior>
-		</completion>
 		<completion string="lsort">
 			<behavior>
 				<append-dynamic>
@@ -374,7 +366,8 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="continue" />
-		<!--<completion string="while" />
+		<!--<completion string="foreach" />
+		<completion string="while" />
 		<completion string="if" />
 		<completion string="else" />
 		<completion string="elseif" />-->
