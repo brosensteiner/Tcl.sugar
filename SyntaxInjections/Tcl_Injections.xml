@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <injections>
 	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "s" zones, but code completion is now fairly intelligent-->
-	<injection name="injection.zone-helper" selector="tcl builtinfunc" action="attach-before-target">
+	<injection name="injection.zone-helper" selector="tcl function-call" action="attach-before-target">
 	    <include collection="ZoneHelper" />
 	</injection>
 	

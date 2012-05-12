@@ -1205,8 +1205,8 @@ THE SOFTWARE.
 	</set>
 	
 	
-	<!--Tcl switches-->
-	<!--socket switches-->
+	<!--Tcl property-name-->
+	<!--socket property-name-->
 	<set name="com.rosensteiner.Tcl.function.socket" casesensitive="true">
 		<completion string="-server" />
 		<completion string="-myaddr" />
@@ -1223,14 +1223,14 @@ THE SOFTWARE.
 	<set name="com.rosensteiner.Tcl.function.puts" casesensitive="true">
 		<completion string="-nonewline" />
 	</set>
-	<!--package switches-->
+	<!--package property-name-->
 	<set name="com.rosensteiner.Tcl.function.package.present" casesensitive="true">
 		<completion string="-exact" />
 	</set>
 	<set name="com.rosensteiner.Tcl.function.package.require" casesensitive="true">
 		<completion string="-exact" />
 	</set>
-	<!--file switches-->
+	<!--file property-name-->
 	<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
 		<completion string="-group" />
 		<completion string="-owner" />
@@ -1253,7 +1253,7 @@ THE SOFTWARE.
 	<set name="com.rosensteiner.Tcl.function.file.rename" casesensitive="true">
 		<completion string="-force" />
 	</set>
-	<!--namespace switches-->
+	<!--namespace property-name-->
 	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
 		<completion string="-clear" />
 	</set>
@@ -1264,11 +1264,11 @@ THE SOFTWARE.
 		<completion string="-command" />
 		<completion string="-variable" />
 	</set>
-	<!--unset switches-->
+	<!--unset property-name-->
 	<set name="com.rosensteiner.Tcl.function.unset" casesensitive="true">
 		<completion string="-nocomplain" />
 	</set>
-	<!--prefix switches-->
+	<!--prefix property-name-->
 	<set name="com.rosensteiner.Tcl.function.prefix.match" casesensitive="true">
 		
 		<completion string="-exact" />
@@ -1276,7 +1276,7 @@ THE SOFTWARE.
 		<completion string="-error" />
 				
 	</set>
-	<!--array switches-->
+	<!--array property-name-->
 	<set name="com.rosensteiner.Tcl.function.array.names" casesensitive="true">
 		
 		<completion string="-exact" />
@@ -1284,7 +1284,7 @@ THE SOFTWARE.
 		<completion string="-regexp" />
 				
 	</set>
-	<!--switch switches-->
+	<!--switch property-name-->
 	<set name="com.rosensteiner.Tcl.function.switch" casesensitive="true">
 		
 		<completion string="-exact" />
@@ -1295,7 +1295,7 @@ THE SOFTWARE.
 		<completion string="-indexvar" />
 				
 	</set>
-	<!--string switches-->
+	<!--string property-name-->
 	<set name="com.rosensteiner.Tcl.function.string.compare" casesensitive="true">
 		<completion string="-nocase" />
 		<completion string="-length" />
@@ -1390,13 +1390,13 @@ THE SOFTWARE.
 	<set name="com.rosensteiner.Tcl.function.string.match" casesensitive="true">
 		<completion string="-nocase" />
 	</set>
-	<!--subst switches-->
+	<!--subst property-name-->
 	<set name="com.rosensteiner.Tcl.function.subst" casesensitive="true">
 		<completion string="-nobackslashes" />
 		<completion string="-nocommands" />
 		<completion string="-novariables" />
 	</set>
-	<!--regexp switches-->
+	<!--regexp property-name-->
 	<set name="com.rosensteiner.Tcl.function.regexp" casesensitive="true">
 		<completion string="-about" />
 		<completion string="-expanded" />
@@ -1409,7 +1409,7 @@ THE SOFTWARE.
 		<completion string="-inline" />
 		<completion string="-start" />
 	</set>
-	<!--regsub switches-->
+	<!--regsub property-name-->
 	<set name="com.rosensteiner.Tcl.function.regsub" casesensitive="true">
 		<completion string="-expanded" />
 		<completion string="-line" />
@@ -1419,7 +1419,7 @@ THE SOFTWARE.
 		<completion string="-all" />
 		<completion string="-start" />
 	</set>
-	<!--binary switches-->
+	<!--binary property-name-->
 	<set name="com.rosensteiner.Tcl.function.binary.encode.base64" casesensitive="true">
 		<completion string="-maxlen" />
 		<completion string="-wrapchar" />

@@ -2,19 +2,19 @@
 <codesense>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + s + tcl.options,tcl.builtinfunc + s + tcl.options + s + options,tcl.switches,tcl.control) + s + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name,tcl.control) + s + * + *</selector>
 		<completions>com.rosensteiner.amira</completions>
 		<complete-match>(?&lt;!\\|_)[a-zA-Z]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + s + tcl.options,tcl.builtinfunc + s + tcl.options + s + options,tcl.switches,tcl.control) + s + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name,tcl.control) + s + * + *</selector>
 		<completions>com.rosensteiner.amira.data-classes</completions>
 		<complete-match>[Hh][Xx][a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.builtinfunc,tcl.builtinfunc + s + tcl.options,tcl.builtinfunc + s + tcl.options + s + options,tcl.switches,tcl.control) + s + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name,tcl.control) + s + * + *</selector>
 		<completions>com.rosensteiner.amira.scriptobject</completions>
 		<complete-match>[Nn][Ee][Ww][a-zA-Z]*</complete-match>
 	</provider>

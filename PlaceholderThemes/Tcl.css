@@ -4,10 +4,7 @@
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
     has some Amira hacks - delete Amira selector if needed
 */
-* {
-	spell-check: enabled;
-}
-*:not(tcl.comment, tcl.string) {
+:not(tcl.comment, tcl.string) {
 	spell-check: disabled;
 }
 
@@ -26,44 +23,39 @@ tcl.variable.substitute {
 	color: rgba(163, 214, 132, 0.8);
 }
 
-tcl.variable.evaluate {
-	color: #82c0e5;
-	font-weight: normal;
-}
+tcl.set-variable,
+tcl.set-variable.substitute.rest,
+tcl.function-call[text='set'] + s + :not(keyword),
 
-tcl.variable,
-tcl.variable.substitute.rest,
-tcl.builtinfunc[text='set'] + s + *,
+tcl.function-call[text='append'] + s + word,
 
-tcl.builtinfunc[text='append'] + s + word,
+tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 
-tcl.builtinfunc[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.builtinfunc[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.builtinfunc[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.builtinfunc[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.builtinfunc[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='lassign'] + s + * + s + :not(keyword),
+tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 
-tcl.builtinfunc[text='lassign'] + s + * + s + :not(keyword),
-tcl.builtinfunc[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword),
-tcl.builtinfunc[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.builtinfunc[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.builtinfunc[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
+tcl.function-call-regexp + s + word,
+tcl.function-call-regexp + s + :not(keyword) + s + word,
+tcl.function-call-regexp + s + :not(keyword) + s + :not(keyword) + s + word,
+tcl.function-call-regexp + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
+tcl.function-call-regexp + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
+tcl.function-call-regexp + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + word,
 
-tcl.builtinfunc-regexp + s + word,
-tcl.builtinfunc-regexp + s + :not(keyword) + s + word,
-tcl.builtinfunc-regexp + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.builtinfunc-regexp + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.builtinfunc-regexp + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.builtinfunc-regexp + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + word,
-
-tcl.builtinfunc-regsub + s + * + s + * + s + word,
-tcl.builtinfunc-regsub + s + switches + s + * + s + * + s + word,
-tcl.builtinfunc-regsub + s + switches + s + switches + s + * + s + * + s + word,
-tcl.builtinfunc-regsub + s + switches + s + switches + s + switches + s + * + s + * + s + word,
-tcl.builtinfunc-regsub + s + switches + s + switches + s + switches + s + switches + s + * + s + * + s + word,
-tcl.builtinfunc-regsub + s + switches + s + switches + s + switches + s + switches + s + switches + s + * + s + * + s + word,
-tcl.builtinfunc-regsub + s + switches + s + switches + s + switches + s + switches + s + switches + s + switches + s + * + s + * + s + word,
-tcl.builtinfunc-regsub + s + switches + s + switches + s + switches + s + switches + s + switches + s + switches + s + switches + s + * + s + * + s + word,
+tcl.function-call-regsub + s + * + s + * + s + word,
+tcl.function-call-regsub + s + property-name + s + * + s + * + s + word,
+tcl.function-call-regsub + s + property-name + s + property-name + s + * + s + * + s + word,
+tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
+tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
+tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
+tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
+tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
 
 tcl.command-variable + s + word,
 tcl.command-variable + s + word + s + :not(keyword) + s + word,
@@ -89,26 +81,26 @@ tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keywo
 tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 
-tcl.builtinfunc-catch + s + word,
-tcl.builtinfunc-catch + s + word + s + word,
+tcl.function-call-catch + s + word,
+tcl.function-call-catch + s + word + s + word,
 
 tcl.keyword.control.start[text='foreach'] + s + word,
 tcl.keyword.control.start[text='foreach'] + s + balanced-braces word,
-tcl.builtinfunc[text='rename'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) {
+tcl.function-call[text='rename'] + s + :not(keyword,variable) + s + :not(keyword,variable) {
 	color: #7ac54d;
 }
 
-tcl.builtinfunc[text='rename'] + s + *:not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) + s + *:not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) + s + :not(keyword,variable) + s + *:not(keyword,variable),
-tcl.builtinfunc[text='unset'] + s + *:not(keyword,variable) + s + *:not(keyword,variable) + s + :not(keyword,variable) + s + *:not(keyword,variable) + s + *:not(keyword,variable) {
+tcl.function-call[text='rename'] + s + :not(keyword,variable),
+tcl.function-call[text='unset'] + s + :not(keyword,variable),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) {
 	color: #e51c1c;
 }
 
 **********Amira**********,
-*:not(tcl.options) + s + *:not(keyword) + s + tcl.keyword.options.trace,
+:not(tcl.options) + s + :not(keyword) + s + tcl.keyword.options.trace,
 amira.variable,
 amira.keyword {
 	color: #4f76cf;
@@ -118,39 +110,29 @@ tcl.keyword.option.amira {
 	font-weight: normal;
 }
 
-tcl.keyword.command {
-	color: rgb(185, 121, 73);
-}
-tcl.builtinfunc[text='expr'] + s + container.balanced-parenthesis keyword-control-additional {
+tcl.function-call[text='expr'] + s + container.balanced-parenthesis keyword-control-additional {
 	color: rgb(243, 134, 42);
 	font-weight: bold;
 }
 
 tcl.format-specifier,
-tcl.builtinfunc + s + options,
-tcl.builtinfunc + s + options + s + options,
-tcl.builtinfunc + s + options + s + options + s + options,
-tcl.builtinfunc + s + builtinfunc,
-tcl.builtinfunc + s + builtinfunc + s + builtinfunc,
-tcl.builtinfunc + s + builtinfunc + s + builtinfunc + s + builtinfunc,
-tcl.builtinfunc[text='fileevent'] + s + :not(keyword) + s + options.fileevent,
-tcl.builtinfunc[text='dict'] + s + options + s + * + s + dict.options,
-tcl.builtinfunc[text='trace'] + s + options + s + command,
-tcl.builtinfunc[text='trace'] + s + options + s + * + s + * + s + keyword,
-tcl.builtinfunc[text='trace'] + s + options + s + * + s + * + s + balanced-braces > keyword,
-tcl.builtinfunc[text='trace'] + s + options + s + * + s + * + s + balanced-brackets > keyword:not(builtinfunc[text='list']) {
+tcl.function-call + s + options,
+tcl.function-call + s + options + s + options,
+tcl.function-call + s + options + s + options + s + options,
+tcl.function-call + s + function-call,
+tcl.function-call + s + function-call + s + function-call,
+tcl.function-call + s + function-call + s + function-call + s + function-call,
+tcl.function-call[text='fileevent'] + s + :not(keyword) + s + options.fileevent,
+tcl.function-call[text='dict'] + s + options + s + * + s + dict.options,
+tcl.function-call[text='trace'] + s + options + s + command,
+tcl.function-call[text='trace'] + s + options + s + * + s + * + s + keyword,
+tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-braces > keyword,
+tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-brackets > keyword:not(function-call[text='list']) {
 	color: rgba(185, 121, 73, 0.6);
 	font-weight: normal;
 }
-tcl.switches, {
-	color: rgba(185, 121, 73, 0.38);
-}
 
-tcl.keyword.operator.logical {
-	font-weight: bold;
-}
-
-tcl.format-type{
+tcl.format-type {
 	font-weight:bold;
 }
 

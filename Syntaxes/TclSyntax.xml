@@ -157,41 +157,39 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.command.definition.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
-			
 			<zone name="tcl.keyword.command.definition.command-global">
 			    <expression>\bglobal\b</expression>
 			</zone>
-			
 			<zone name="tcl.keyword.command.definition.command-variable">
 			    <expression>\bvariable\b</expression>
 			</zone>
 						
-			<zone name="tcl.keyword.variable.substitute">
+			<zone name="tcl.keyword.set-variable.substitute">
 			    <starts-with>
 			        <expression>([[:alnum:]_?!:\.]*)(\$\{)</expression>
-			        <capture number="1" name="tcl.keyword.variable.substitute.rest"/>
-			        <capture number="2" name="tcl.keyword.variable.substitute.begin"/>
+			        <capture number="1" name="tcl.keyword.set-variable.substitute.rest"/>
+			        <capture number="2" name="tcl.keyword.set-variable.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\})([[:alnum:]_?!:\.]*)</expression>
-			        <capture number="1" name="tcl.keyword.variable.substitute.end"/>
-			        <capture number="2" name="tcl.keyword.variable.substitute.rest"/>
+			        <capture number="1" name="tcl.keyword.set-variable.substitute.end"/>
+			        <capture number="2" name="tcl.keyword.set-variable.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.keyword.variable.substitute.array">
+			<zone name="tcl.keyword.set-variable.substitute.array">
 			    <starts-with>
 			        <expression>([[:alnum:]_?!:\.]*)(\$\()</expression>
-			        <capture number="1" name="tcl.keyword.variable.substitute.rest"/>
-			        <capture number="2" name="tcl.keyword.variable.substitute.begin"/>
+			        <capture number="1" name="tcl.keyword.set-variable.substitute.rest"/>
+			        <capture number="2" name="tcl.keyword.set-variable.substitute.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\))([[:alnum:]_?!:\.]*)</expression>
-			        <capture number="1" name="tcl.keyword.variable.substitute.end"/>
-			        <capture number="2" name="tcl.keyword.variable.substitute.rest"/>
+			        <capture number="1" name="tcl.keyword.set-variable.substitute.end"/>
+			        <capture number="2" name="tcl.keyword.set-variable.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
@@ -304,11 +302,11 @@ THE SOFTWARE.
         	</zone>
         	
         	<!--for controlled regex syntax highlighting:-->
-        	<zone name="tcl.container.regex.builtinfunc-regexp">
+        	<zone name="tcl.container.regex.function-call-regexp">
         	    <starts-with>
         	        <expression>\b(regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
-        	        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
-        	        <capture number="2" name="tcl.keyword.switches"/>
+        	        <capture number="1" name="tcl.keyword.command.function-call"/>
+        	        <capture number="2" name="tcl.keyword.property-name"/>
         	        <capture number="3" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
@@ -316,11 +314,11 @@ THE SOFTWARE.
         	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	    </ends-with>
         	</zone>
-        	<zone name="tcl.container.regex.builtinfunc-regsub">
+        	<zone name="tcl.container.regex.function-call-regsub">
         	    <starts-with>
         	        <expression>\b(regsub)\s+((?:-\w+\s+)+)?(\{)</expression>
-        	        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
-        	        <capture number="2" name="tcl.keyword.switches"/>
+        	        <capture number="1" name="tcl.keyword.command.function-call"/>
+        	        <capture number="2" name="tcl.keyword.property-name"/>
         	        <capture number="3" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
@@ -329,10 +327,10 @@ THE SOFTWARE.
         	    </ends-with>
         	</zone>
         	
-        	<zone name="tcl.container.builtinfunc-catch"><!--catch assigns a variable we will catch so here is a zone definition for it-->
+        	<zone name="tcl.container.function-call-catch"><!--catch assigns a variable we will catch so here is a zone definition for it-->
         	    <starts-with>
         	        <expression>\b(catch)\s+(\{)</expression>
-        	        <capture number="1" name="tcl.keyword.command.builtinfunc"/>
+        	        <capture number="1" name="tcl.keyword.command.function-call"/>
         	        <capture number="2" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
@@ -354,7 +352,7 @@ THE SOFTWARE.
         		    <capture number="1" name="tcl.keyword.command.class.name"/>
         	</zone>
         	
-        	<zone name="tcl.keyword.command.builtinfunc">
+        	<zone name="tcl.keyword.command.function-call">
         		<expression>\b(rename|prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset|set|lset|args)\b</expression>
         	</zone>
         	
@@ -366,7 +364,7 @@ THE SOFTWARE.
         		<expression>\b(env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE|resultVarName|-errorinfo|-errorcode|-errorline|-errorstack|-code|-level)\b</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.switches">
+        	<zone name="tcl.keyword.property-name">
         		<expression>-[[:alnum:]_?!:\.]+\b</expression>
         	</zone>
         	
