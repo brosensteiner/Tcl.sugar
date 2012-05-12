@@ -49,12 +49,19 @@ THE SOFTWARE.
 	<library>
 	
 		<collection name="BracesBracketsParenthesis">
-						
-			<zone name="tcl.keyword.punctuation.open-parenthesis">
-			    <expression>\(</expression>
-			</zone>
-			<zone name="tcl.keyword.punctuation.close-parenthesis">
-			    <expression>\)</expression>
+			
+			<zone name="tcl.container.balanced-parenthesis">
+			    <starts-with>
+			        <expression>\(</expression>
+			        <capture number="0" name="tcl.keyword.punctuation.open-parenthesis"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\)</expression>
+			        <capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
 			</zone>
 						
 			<zone name="tcl.container.balanced-brackets">
@@ -110,7 +117,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
-			        <expression>(#)[^\d]?.*?(?&lt;!\\)\\\s*$\n?</expression>
+			        <expression>(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
 			        <capture number="1" name="tcl.punctuation.comment.hash"/>
 			    </starts-with>
 			    <ends-with>
@@ -214,7 +221,7 @@ THE SOFTWARE.
 				<expression>\b(elseif|else|then)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.control.additional">
+			<zone name="tcl.keyword-control-additional">
 				<expression>([?]|[:])</expression>
 			</zone>
 		
@@ -292,7 +299,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.character-class.backslash">
-        		<expression>\\\s*?\n</expression>
+        		<expression>\\\s*?[\n\r]</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.namespace.character-class">

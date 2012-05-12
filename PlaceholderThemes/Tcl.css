@@ -4,8 +4,10 @@
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
     has some Amira hacks - delete Amira selector if needed
 */
-
-:not(tcl.comment, tcl.string) {
+* {
+	spell-check: enabled;
+}
+*:not(tcl.comment, tcl.string) {
 	spell-check: disabled;
 }
 
@@ -22,11 +24,6 @@ tcl.global-procedures {
 
 tcl.variable.substitute {
 	color: rgba(163, 214, 132, 0.8);
-}
-
-tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.option.amira.viewer,
-tcl.keyword.command.amira.global.commands.viewer + tcl.keyword.option.amira.viewer {
-	color: #4f76cf;
 }
 
 tcl.variable.evaluate {
@@ -127,7 +124,11 @@ tcl.keyword.option.amira {
 tcl.keyword.command {
 	color: rgb(185, 121, 73);
 }
-,
+tcl.builtinfunc[text='expr'] + s + container.balanced-parenthesis keyword-control-additional {
+	color: rgb(243, 134, 42);
+	font-weight: bold;
+}
+
 tcl.format-specifier,
 tcl.builtinfunc + s + options,
 tcl.builtinfunc + s + options + s + options,
@@ -144,7 +145,7 @@ tcl.builtinfunc[text='trace'] + s + options + s + * + s + * + s + balanced-brack
 	color: rgba(185, 121, 73, 0.6);
 	font-weight: normal;
 }
-switches, {
+tcl.switches, {
 	color: rgba(185, 121, 73, 0.38);
 }
 
@@ -152,13 +153,10 @@ tcl.keyword.operator.logical {
 	font-weight: bold;
 }
 
-tcl.punctuation.open-bracket,
-tcl.punctuation.close-bracket {
-	color: #e82c13;
-}
 tcl.format-type{
 	font-weight:bold;
 }
+
 tcl.keyword.character-class,
 tcl.open-brace,
 tcl.close-brace,

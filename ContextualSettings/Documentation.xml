@@ -30,25 +30,25 @@ THE SOFTWARE.
 	
 	<!-- This is the title used for the documentation lookup action for this context -->
 	<setting name="documentation-lookup-title">
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<value>documentation</value>
 	</setting>
 
 	<!-- This is the first pattern that we check; if the URL is 404 or otherwise nonexistent, then we use the fallback -->
 	<setting name="documentation-lookup-pattern">
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<value>http://www.tcl.tk/man/tcl/TclCmd/$EDITOR_TERM</value>
 	</setting>
 
 	<!-- The URL we use if the pattern doesn't check out; typically should point to search results for our docs site -->
 	<setting name="documentation-lookup-fallback">
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<value>http://www.tcl.tk/man/tcl/contents.htm</value>
 	</setting>
 	
 	<!-- This specifies what, aside from alphanumeric characters, will be considered a word character -->
 	<setting name="documentation-lookup-word-characters">
-		<syntax-context>language-root.tcl, language-root.tcl *</syntax-context>
+		<language-context>tcl</language-context>
 		<value>_:!?</value>
 	</setting>
 	

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!--only test:-->
+<!--TODO: only test, don´t get it to work:-->
 <tool-recipes>
 	
-	<tool type="toolbar" id="com.rosensteiner.text-tools.tcl.execute.html" category="macrabbit">
+	<tool type="toolbar" id="com.rosensteiner.text-tools.tcl.execute.html" category="rosensteiner">
 	
 		<class>ESTextActionToolbarTool</class>
 		<setup>
