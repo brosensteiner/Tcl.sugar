@@ -5,8 +5,8 @@
 	
 		<behavior>
 			<append-dynamic>
-				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
-				<transform-into>(?1:: $0)</transform-into>
+				<matched-suffix>(\S|\s*$)|\s*[^\S]</matched-suffix>
+				<transform-into>(?1: $0:)</transform-into>
 			</append-dynamic>
 		</behavior>
 		
