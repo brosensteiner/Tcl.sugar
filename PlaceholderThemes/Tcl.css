@@ -14,6 +14,14 @@ tcl.shebang {
 	background-color: rgba(57, 79, 227, 0.3);
 }
 
+tcl.keyword.character-class,
+tcl.open-brace,
+tcl.close-brace,
+tcl.open-parenthesis,
+tcl.close-parenthesis {
+	color: #7f7f7f;
+}
+
 tcl.global-variables,
 tcl.global-procedures {
 	font-weight: bold;
@@ -90,12 +98,12 @@ tcl.function-call[text='rename'] + s + :not(keyword,variable) + s + :not(keyword
 	color: #7ac54d;
 }
 
-tcl.function-call[text='rename'] + s + :not(keyword,variable),
-tcl.function-call[text='unset'] + s + :not(keyword,variable),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) {
+tcl.function-call[text='rename'] + s + :not(keyword,variable,punctuation),
+tcl.function-call[text='unset'] + s + :not(keyword,variable,punctuation),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation),
+tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation) {
 	color: #e51c1c;
 }
 
@@ -134,12 +142,4 @@ tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-bra
 
 tcl.format-type {
 	font-weight:bold;
-}
-
-tcl.keyword.character-class,
-tcl.open-brace,
-tcl.close-brace,
-tcl.open-parenthesis,
-tcl.close-parenthesis {
-	color: #7f7f7f;
 }

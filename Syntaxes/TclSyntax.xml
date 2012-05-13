@@ -157,13 +157,13 @@ THE SOFTWARE.
 
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
-			<zone name="tcl.keyword.command.definition.command.upvar">
+			<zone name="tcl.keyword.command.function-call.definition.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
-			<zone name="tcl.keyword.command.definition.command-global">
+			<zone name="tcl.keyword.command.function-call.definition.command-global">
 			    <expression>\bglobal\b</expression>
 			</zone>
-			<zone name="tcl.keyword.command.definition.command-variable">
+			<zone name="tcl.keyword.command.function-call.definition.command-variable">
 			    <expression>\bvariable\b</expression>
 			</zone>
 						
@@ -171,11 +171,11 @@ THE SOFTWARE.
 			    <starts-with>
 			        <expression>([[:alnum:]_?!:\.]*)(\$\{)</expression>
 			        <capture number="1" name="tcl.keyword.set-variable.substitute.rest"/>
-			        <capture number="2" name="tcl.keyword.set-variable.substitute.begin"/>
+			        <capture number="2" name="tcl.keyword.set-variable.substitute.open-brace"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\})([[:alnum:]_?!:\.]*)</expression>
-			        <capture number="1" name="tcl.keyword.set-variable.substitute.end"/>
+			        <capture number="1" name="tcl.keyword.set-variable.substitute.close-brace"/>
 			        <capture number="2" name="tcl.keyword.set-variable.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
@@ -343,13 +343,14 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.function">
-        		    <expression>\bproc\s+(\w+)</expression>
-        		    <capture number="1" name="tcl.keyword.command.function.name"/>
+        		<expression>\b(proc)\s+(\w+)</expression>
+        		<capture number="1" name="tcl.keyword.command.function.function-call"/>
+        		<capture number="2" name="tcl.keyword.command.function.name"/>
         	</zone>
         	
         	<zone name="tcl.keyword.command.class">
-        		    <expression>\bclass\s+(\w+)</expression>
-        		    <capture number="1" name="tcl.keyword.command.class.name"/>
+        		<expression>\bclass\s+(\w+)</expression>
+        		<capture number="1" name="tcl.keyword.command.class.name"/>
         	</zone>
         	
         	<zone name="tcl.keyword.command.function-call">
