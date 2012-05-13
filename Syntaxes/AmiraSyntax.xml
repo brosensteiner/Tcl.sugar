@@ -71,7 +71,7 @@ THE SOFTWARE.
     	
         <!--snapshot could interfere with "theMain snapshot", so amira.keyword.options.viewer is here the lower syntax zone and should not be changed-->
         <zone name="amira.keyword.option.viewer">
-        	<expression>\b(snapshot|setPosition|getPosition|setSize|getSize|setCamera|getCamera|setCameraPosition|getCameraPosition|setCameraOrientation|getCameraOrientation|setCameraFocalDistance|getCameraFocalDistance|setCameraHeightAngle|getCameraHeightAngle|setCameraHeight|getCameraHeight|setCameraType|getCameraType|setTransparencyType|getTransparencyType|setSortedLayersNumPasses|getSortedLayersNumPasses|setBackgroundColor|getBackgroundColor|setBackgroundColor2|getBackgroundColor2|setBackgroundMode|getBackgroundMode|setBackgroundImage|getBackgroundImage|setAutoRedraw|isAutoRedraw|transformScreenToWorld|redraw|rotate|setDecoration|saveScene|viewAll|view|show|hide|fogRange|setVideoFormat|setVideoFrame)\b</expression>
+        	<expression>(?&lt;=(\w|\])\s)(snapshot|setPosition|getPosition|setSize|getSize|setCamera|getCamera|setCameraPosition|getCameraPosition|setCameraOrientation|getCameraOrientation|setCameraFocalDistance|getCameraFocalDistance|setCameraHeightAngle|getCameraHeightAngle|setCameraHeight|getCameraHeight|setCameraType|getCameraType|setTransparencyType|getTransparencyType|setSortedLayersNumPasses|getSortedLayersNumPasses|setBackgroundColor|getBackgroundColor|setBackgroundColor2|getBackgroundColor2|setBackgroundMode|getBackgroundMode|setBackgroundImage|getBackgroundImage|setAutoRedraw|isAutoRedraw|transformScreenToWorld|redraw|rotate|setDecoration|saveScene|viewAll|view|show|hide|fogRange|setVideoFormat|setVideoFrame)\b</expression>
         	<capture number="2" name="amira.keyword.option.viewer.argument"/>
         </zone>
     	        	        	
@@ -80,43 +80,43 @@ THE SOFTWARE.
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-port">
-    	    <expression>\b(getValue|setValue|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(getValue|setValue|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-connectionport">
-    	    <expression>\b(source|connect|disconnect|setTightness|isTight|setVisibility|isVisible|allowEditing|isEditable|validSource)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(source|connect|disconnect|setTightness|isTight|setVisibility|isVisible|allowEditing|isEditable|validSource)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-genericport">
-    	    <expression>\b(getColor|isItemNew|deleteItem|insertIntText|insertFloatText|insertCheckBox|insertRadioGroup|insertComboBox|insertPushButton|insertColorButton|insertLabel)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(getColor|isItemNew|deleteItem|insertIntText|insertFloatText|insertCheckBox|insertRadioGroup|insertComboBox|insertPushButton|insertColorButton|insertLabel)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.general-amira-object">
-    	    <expression>\b(hasInterface|duplicate|showIcon|hideIcon|iconVisible|select|deselect|setLabel|fire|compute|allPorts|connectionPorts|downStreamConnections|setIconPosition|getIconPosition|clipGeom|unclipGeom|setPickable|destroy|getTypeId|help|getLabel|setViewerMask)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(hasInterface|duplicate|showIcon|hideIcon|iconVisible|select|deselect|setLabel|fire|compute|allPorts|connectionPorts|downStreamConnections|setIconPosition|getIconPosition|clipGeom|unclipGeom|setPickable|destroy|getTypeId|help|getLabel|setViewerMask)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.amira-spatial-data-object">
-    	    <expression>\b(getBoundingBox|getTransform|setTransform|getInverseTransform|getTranslation|setTranslation|getRotation|setRotation|getScaleFactor|setScaleFactor|translate|rotate|scale|multTransform|hasUndefinedValue|getUndefinedValue|setUndefinedValue|hasDataWindow|setDataWindow|removeDataWindow|getRange|touchMinMax)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(getBoundingBox|getTransform|setTransform|getInverseTransform|getTranslation|setTranslation|getRotation|setRotation|getScaleFactor|setScaleFactor|translate|rotate|scale|multTransform|hasUndefinedValue|getUndefinedValue|setUndefinedValue|hasDataWindow|setDataWindow|removeDataWindow|getRange|touchMinMax)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.field3">
-    	    <expression>\b(nDataVar|evalprimType|getDims|coordType|swapByteOrder|clearSlice|exchangeSlices|crop|flip|swapDims|setBoundingBox)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(nDataVar|evalprimType|getDims|coordType|swapByteOrder|clearSlice|exchangeSlices|crop|flip|swapDims|setBoundingBox)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.surface">
-    	    <expression>\b(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.cluster">
-    	    <expression>\b(computeBounds|computeConnectivity|addPoint|removePoint|resetIds|setId|getId|getIndex|clear|setNumDataColumns|getNumDataColumns|setDataValue|getDataValue|setDataColumnName|getDataColumnName|setNumLabelColumns|getNumLabelColumns|setLabelValue|getLabelValue|setLabelColumnName|getLabelColumnName)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(computeBounds|computeConnectivity|addPoint|removePoint|resetIds|setId|getId|getIndex|clear|setNumDataColumns|getNumDataColumns|setDataValue|getDataValue|setDataColumnName|getDataColumnName|setNumLabelColumns|getNumLabelColumns|setLabelValue|getLabelValue|setLabelColumnName|getLabelColumnName)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.data">
-    	    <expression>\b(touch|save|parameters|setDefaultFileFormat|setEditor|getEditor)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(touch|save|parameters|setDefaultFileFormat|setEditor|getEditor)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.global.other">
-    	    <expression>\b(addTimeout|all|aminfo|clear|create|dso|addPath|echo|help|httpd|limit|load|mem|quit|remove|rename|sleep|source|system|saveNetwork|saveNetworkAs)\b</expression>
+    	    <expression>\b(addTimeout|all|aminfo|clear|create|dso|addPath|echo|help|httpd|limit|load|mem|quit|remove|rename|sleep|system|saveNetwork|saveNetworkAs)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.data-classes">
@@ -132,15 +132,15 @@ THE SOFTWARE.
     	</zone>
     	
     	<zone name="amira.keyword.command.parameters">
-    	    <expression>\b(bundle|flags|getFlag|getName|hasBundle|hasParameter|index|isBundle|list|nBundles|newBundle|setFlag|setName|size)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(bundle|flags|getFlag|getName|hasBundle|hasParameter|index|isBundle|list|nBundles|newBundle|setFlag|setName|size)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.viewbase">
-    	    <expression>\b(createSurface|setAlphaMode|setNormalBinding|setPointSize|setPolygonOffsetMode|setOutlineColor|setLineWidth|setHighlightColor|setEmissiveColor|setSpecularColor|setShininess|showBox|hideBox)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(createSurface|setAlphaMode|setNormalBinding|setPointSize|setPolygonOffsetMode|setOutlineColor|setLineWidth|setHighlightColor|setEmissiveColor|setSpecularColor|setShininess|showBox|hideBox)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.additional-commands">
-    	    <expression>\b(allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap| primType|primary|proc|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap| primType|primary|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
     	</zone>
 		
     </zones>

@@ -14,7 +14,6 @@ tcl.shebang {
 	background-color: rgba(57, 79, 227, 0.3);
 }
 
-tcl.keyword.character-class,
 tcl.open-brace,
 tcl.close-brace,
 tcl.open-parenthesis,
@@ -24,6 +23,14 @@ tcl.close-parenthesis {
 
 tcl.global-variables,
 tcl.global-procedures {
+	font-weight: bold;
+}
+
+**********Amira**********,
+:not(tcl.options) + s + :not(keyword) + s + tcl.keyword.options.trace,
+amira.variable,
+amira.keyword {
+	color: #4f76cf;
 	font-weight: bold;
 }
 
@@ -49,7 +56,6 @@ tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword
 tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 
-tcl.function-call-regexp + s + word,
 tcl.function-call-regexp + s + :not(keyword) + s + word,
 tcl.function-call-regexp + s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.function-call-regexp + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
@@ -107,13 +113,6 @@ tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,
 	color: #e51c1c;
 }
 
-**********Amira**********,
-:not(tcl.options) + s + :not(keyword) + s + tcl.keyword.options.trace,
-amira.variable,
-amira.keyword {
-	color: #4f76cf;
-	font-weight: bold;
-}
 tcl.keyword.option.amira {
 	font-weight: normal;
 }
@@ -136,7 +135,7 @@ tcl.function-call[text='trace'] + s + options + s + command,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + keyword,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-braces > keyword,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-brackets > keyword:not(function-call[text='list']) {
-	color: rgba(73, 108, 185, 0.7);
+	color: rgb(249, 212, 123);
 	font-weight: normal;
 }
 
