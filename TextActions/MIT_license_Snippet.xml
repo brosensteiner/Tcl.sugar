@@ -52,7 +52,6 @@ THE SOFTWARE.
 $0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>MIT</text-trigger>
-		<when-disabled>show</when-disabled>
 	</snippet>    
 
 </action-recipes>

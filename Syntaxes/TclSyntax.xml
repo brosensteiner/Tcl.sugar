@@ -60,6 +60,9 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
 			    </ends-with>
 			    <subzones>
+			    	<zone name="tcl.keyword-control-additional"><!--only really valid in parenthesis when before is a "expr" command-->
+			    		<expression>([?]|[:])</expression>
+			    	</zone>
 			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
@@ -107,28 +110,28 @@ THE SOFTWARE.
 		
 		<collection name="Markup">
 		
-			<zone name="markup.link"><!--stolen from php sugar-->
+			<zone name="markup.link"><!--stolen from php sugar - really crazy regex :)-->
 				<expression>(?i)\b(?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()&lt;>]+|\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\))+(?:\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\)|[^\s`!()\[\]{};:'".,&lt;>?«»“”‘’])</expression>
 			</zone>
 			
 		</collection>
 	
 		<collection name="Comments">
-			
-			<zone name="tcl.keyword.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
+			<!--this multiline comment is actually a convinient way to write comments in tcl because this approach doesn´t fill Espresso´s Navigator with every comment line:-->
+			<zone name="tcl.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
 			        <expression>(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
 			        <capture number="1" name="tcl.punctuation.comment.hash"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>[^\\]\s*?$[\n\r]+</expression>
+			        <expression>[^\\]\s*$[\n\r]+</expression>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.keyword.comment.line">
+			<zone name="tcl.comment.line">
 				<starts-with>
 			    	<expression>(#)[^\d]?</expression>
 			    	<capture number="1" name="tcl.punctuation.comment.hash"/>
@@ -141,7 +144,7 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.keyword.comment.multiline"><!--awkward tcl multiline comment :)-->
+			<zone name="tcl.comment.multiline"><!--awkward tcl multiline comment :)-->
 			    <starts-with>
 			        <expression>if\s+0\s+\{</expression>
 			    </starts-with>
@@ -197,7 +200,8 @@ THE SOFTWARE.
 			</zone>
 						
 			<zone name="tcl.variable.definition.evaluate">
-			    <expression>(\$[[:alnum:]_?!:\.]+)\b</expression>
+			    <expression>(\$)[[:alnum:]_?!:\.]+\b</expression>
+			    <capture number="1" name="tcl.variable.definition.evaluate.punctuation"/>
 			</zone>
 			
 		</collection>
@@ -211,11 +215,7 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.control.additional">
 				<expression>\b(elseif|else|then)\b</expression>
 			</zone>
-			
-			<zone name="tcl.keyword-control-additional">
-				<expression>([?]|[:])</expression>
-			</zone>
-		
+					
 			<zone name="tcl.keyword.control.flow">
 				<expression>\b(break|continue|[?&lt;!:]:[?!:])\b</expression>
 			</zone>
@@ -364,8 +364,8 @@ THE SOFTWARE.
         		<expression>\b(env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE|resultVarName|-errorinfo|-errorcode|-errorline|-errorstack|-code|-level)\b</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.property-name">
-        		<expression>-[[:alnum:]_?!:\.]+\b</expression>
+        	<zone name="tcl.keyword.property-name"><!--catches all switches in tcl (e.g. "-switch")-->
+        		<expression>(?&lt;![[:alnum:]_?!:\.])-[[:alnum:]_?!:\.]+\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.options.package">

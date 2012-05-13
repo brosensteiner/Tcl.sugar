@@ -128,7 +128,7 @@ tcl.function-call[text='trace'] + s + options + s + command,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + keyword,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-braces > keyword,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-brackets > keyword:not(function-call[text='list']) {
-	color: rgba(185, 121, 73, 0.6);
+	color: rgba(73, 108, 185, 0.7);
 	font-weight: normal;
 }
 
