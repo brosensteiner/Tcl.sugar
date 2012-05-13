@@ -24,7 +24,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<!--Visage Imaging´s Amira can be scripted with Tcl (Amira 5.2.4 has built in Tcl 8.4)-->
+<!--Visage Imaging´s Amira can be scripted with Tcl, so here are most of the built in Amira commands (Amira 5.2.4 has built in Tcl 8.4).
+Tcl gets precedence for syntax highlighting, so Amira commands have to live with a "(?&lt;=(\w|\])\s)" regex when necessary in front of them (actually they are methods not commands). This means only one space between the Amira command and the preceding word is allowed to match the Amira command. This is neccesary, because Amira and Tcl share sometimes the same commands/keywords and there is no way to distinguish them otherwise.
+-->
 <syntax name="language-root.amira">
 
     <zones>

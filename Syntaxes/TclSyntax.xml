@@ -234,12 +234,7 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.end"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="EscapeChar"/>
-			       	<include collection="FormatSpecifier"/>
-			    	<include collection="AmiraExtension" />
-			    	<include collection="BracesBracketsParenthesis" />
-			    	<include collection="Variables" />
-			    	<include collection="General" />
+			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
 		
@@ -343,13 +338,13 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.function">
-        		<expression>\b(proc)\s+(\w+)</expression>
+        		<expression>\b(proc)\s+([[:alnum:]_?!:\.]+)</expression>
         		<capture number="1" name="tcl.keyword.command.function.function-call"/>
         		<capture number="2" name="tcl.keyword.command.function.name"/>
         	</zone>
         	
         	<zone name="tcl.keyword.command.class">
-        		<expression>\bclass\s+(\w+)</expression>
+        		<expression>\bclass\s+([[:alnum:]_?!:\.]+)</expression>
         		<capture number="1" name="tcl.keyword.command.class.name"/>
         	</zone>
         	
