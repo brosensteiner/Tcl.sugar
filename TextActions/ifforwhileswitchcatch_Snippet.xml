@@ -33,7 +33,7 @@ THE SOFTWARE.
 	${5:body}
 \}$0</text>
         <language-context>tcl</language-context>
-        <text-trigger>for</text-trigger>
+        <text-trigger>nfor</text-trigger>
     </snippet>
     
 <!--for loop one line-->
@@ -41,7 +41,7 @@ THE SOFTWARE.
         <title>new for loop at one line</title>
         <text>for \{ ${1:set i 0} \} \{ ${2:\$i &lt; ${3:count} } \} \{ ${4:incr i} \} \{ ${5:body} \}$0</text>
         <language-context>tcl</language-context>
-        <text-trigger>for1</text-trigger>
+        <text-trigger>nfor1</text-trigger>
     </snippet>
 	
     
@@ -52,7 +52,7 @@ THE SOFTWARE.
 	${2:body}
 \}$0</text>
 	        <language-context>tcl</language-context>
-	        <text-trigger>if</text-trigger>
+	        <text-trigger>nif</text-trigger>
 	</snippet>
 	
 <!--if one line-->
@@ -60,7 +60,7 @@ THE SOFTWARE.
 		<title>new if at one line</title>
 		<text>if \{ ${1:condition} \} then \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>if1</text-trigger>
+		<text-trigger>nif1</text-trigger>
 	</snippet>
 	
 <!--elseif-->
@@ -70,14 +70,14 @@ THE SOFTWARE.
 	${2:body}
 \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>elseif</text-trigger>
+		<text-trigger>nelseif</text-trigger>
 	</snippet>
 <!--elseif one line-->
 	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new elseif at one line</title>
 		<text>elseif \{ ${1:condition} \} then \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>elseif1</text-trigger>
+		<text-trigger>nelseif1</text-trigger>
 	</snippet>
 	 
 <!--if else-->
@@ -89,7 +89,7 @@ THE SOFTWARE.
 	 	${3:body}
 \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>ifelse</text-trigger>
+		<text-trigger>nifelse</text-trigger>
 	</snippet>
 	
 	<!--else-->
@@ -97,7 +97,7 @@ THE SOFTWARE.
 		<title>else</title>
 		<text>else \{ ${1:body} \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>else</text-trigger>
+		<text-trigger>nelse</text-trigger>
 	</snippet>
 
 <!--while-->	
@@ -107,7 +107,7 @@ THE SOFTWARE.
 	${2:body}
 \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>while</text-trigger>
+		<text-trigger>nwhile</text-trigger>
 	</snippet>
 	
 <!--while one line-->	
@@ -115,7 +115,7 @@ THE SOFTWARE.
 		<title>new while at one line</title>
 		<text>while \{ ${1:condition} \} \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>while1</text-trigger>
+		<text-trigger>nwhile1</text-trigger>
 	</snippet>
 	
 <!--switch-->	
@@ -125,7 +125,7 @@ THE SOFTWARE.
 	${4:body}
 \}}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>switch</text-trigger>
+		<text-trigger>nswitch</text-trigger>
 	</snippet>
 
 <!--foreach-->
@@ -135,7 +135,7 @@ THE SOFTWARE.
 	${3:body}
 \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>foreach</text-trigger>
+		<text-trigger>nforeach</text-trigger>
 	</snippet>
 	
 <!--foreach one line-->
@@ -143,7 +143,7 @@ THE SOFTWARE.
 		<title>new foreach at one line</title>
 		<text>foreach ${1:var} ${2:list} \{ ${3:body} \}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>foreach1</text-trigger>
+		<text-trigger>nforeach1</text-trigger>
 	</snippet>
 	
 <!--catch-->
@@ -153,14 +153,14 @@ THE SOFTWARE.
 	${1:body}
 \} ${2:resultVar}$0</text>
 		<language-context>tcl</language-context>
-		<text-trigger>catch</text-trigger>
+		<text-trigger>ncatch</text-trigger>
 	</snippet>
 
 	<snippet id="com.rosensteiner.actions.snippets.tcl.catch-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 			<title>new catch at one line</title>
 			<text>catch \{ ${1:body} \} ${2:resultVar}$0</text>
 			<language-context>tcl</language-context>
-			<text-trigger>catch1</text-trigger>
+			<text-trigger>ncatch1</text-trigger>
 		</snippet>
 		
 </action-recipes>

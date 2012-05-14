@@ -121,7 +121,7 @@ THE SOFTWARE.
 			<zone name="tcl.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
 			        <expression>(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
-			        <capture number="1" name="tcl.punctuation.comment.hash"/>
+			        <capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>[^\\]\s*$[\n\r]+</expression>
@@ -134,7 +134,7 @@ THE SOFTWARE.
 			<zone name="tcl.comment.line">
 				<starts-with>
 			    	<expression>(#)[^\d]?</expression>
-			    	<capture number="1" name="tcl.punctuation.comment.hash"/>
+			    	<capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>$[\n\r]*</expression>

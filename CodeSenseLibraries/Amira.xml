@@ -360,7 +360,7 @@
 		<completion string="makeColormap" />
 		<completion string="primType" />
 		<completion string="primary" />
-		<completion string="proc" />
+		<!--<completion string="proc" />--><!--is in Tcl already-->
 		<completion string="relabel" />
 		<completion string="removeEmptyMaterials" />
 		<completion string="removeMaterial" />

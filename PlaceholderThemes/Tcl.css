@@ -102,6 +102,7 @@ tcl.keyword.control.start[text='foreach'] + s + word,
 tcl.keyword.control.start[text='foreach'] + s + balanced-braces word,
 tcl.function-call[text='rename'] + s + :not(keyword,variable) + s + :not(keyword,variable) {
 	color: #7ac54d;
+	font-style: italic;
 }
 
 tcl.function-call[text='rename'] + s + :not(keyword,variable,punctuation),
@@ -111,6 +112,7 @@ tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,
 tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation),
 tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation) {
 	color: #e51c1c;
+	font-style: italic;
 }
 
 tcl.keyword.option.amira {
