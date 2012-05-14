@@ -119,9 +119,11 @@ tcl.keyword.option.amira {
 	font-weight: normal;
 }
 
-tcl.function-call[text='expr'] + s + container.balanced-parenthesis keyword-control-additional {
+tcl.function-call[text='expr'] + s + container word[text='?'],
+tcl.function-call[text='expr'] + s + container word[text=':'] {
 	color: rgb(243, 134, 42);
 	font-weight: bold;
+	font-style: italic;
 }
 
 tcl.format-specifier,

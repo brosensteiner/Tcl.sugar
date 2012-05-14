@@ -59,12 +59,6 @@ THE SOFTWARE.
 			        <expression>\)</expression>
 			        <capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
 			    </ends-with>
-			    <subzones>
-			    	<zone name="tcl.keyword-control-additional"><!--only really valid in parenthesis when before is a "expr" command-->
-			    		<expression>([?]|[:])</expression>
-			    	</zone>
-			    	<include syntax="language-root.tcl" />
-			    </subzones>
 			</zone>
 						
 			<zone name="tcl.container.balanced-brackets">
@@ -479,16 +473,16 @@ THE SOFTWARE.
         	</zone>
         
         	<zone name="tcl.constant.numeric.level-specifier">
-        		<expression>(?&lt;!\w)#\d+\b</expression>
+        		<expression>(?&lt;![[:alnum:]_?!\.])#\d+\b</expression>
         	</zone>
         	
         	<zone>
-        		<expression>(?&lt;!\w)(\d+\.)\s</expression>
+        		<expression>(?&lt;![[:alnum:]_?!\.])(\d+\.)\s</expression>
         		<capture number="1" name="tcl.constant.numeric.point"/>
         	</zone>
         	
    			<zone name="tcl.constant.numeric.normal">
-				<expression>(?&lt;!\w)((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))\b</expression>
+				<expression>(?&lt;![[:alnum:]_?!\.])((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))\b</expression>
 			</zone>
 			
 			<zone name="tcl.constant.numeric.octal">
