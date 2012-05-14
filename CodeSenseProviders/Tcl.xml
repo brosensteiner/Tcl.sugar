@@ -25,13 +25,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 
-<!--when you want to make useful code suggestions to user you have to go crazy in Tcl :)
-this code completion scheme works well for all options but can make apperring a suggestion for property-name more often than allowed in real tcl syntax, but when needed property-name code completion is always there and when not, most of the time out of the way. This is due the fact that i don´t catch property-name specifically, only procedures and options - which would be to much useless work-->
+<!--when you want to make useful code suggestions to users you have to go crazy in Tcl :)
+this code completion scheme works well for all options but can make apperring a suggestion for switches more often than allowed in real tcl syntax, but when needed property-name code completion is always there and when not, most of the time out of the way. This is due to the fact that i don´t catch property-name specifically (see regex in TclSyntax.xml which catches words which begin with a "-"), only procedures and options - which would be to much useless hard work ... -->
 
 <codesense>
     
 	<provider>
- 		<selector>tcl, tcl :not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name) + * + * + *</selector>
+ 		<selector>tcl, tcl :not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name) + * + * + *, tcl.punctuation + * + *</selector>
  		<completions>com.rosensteiner.Tcl.functions</completions>
  		<completions>com.rosensteiner.Tcl.math</completions>
  		<completions>com.rosensteiner.Tcl.global-variables</completions>
@@ -39,9 +39,9 @@ this code completion scheme works well for all options but can make apperring a 
  		<complete-match>(?&lt;!\\|_)[a-zA-Z_]+</complete-match>
 	</provider>
 	<provider>
-			<selector>tcl, tcl :not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name,tcl.control) + * + * + *</selector>
-			<completions>com.rosensteiner.Tcl.other-things</completions>
-			<complete-match>(?&lt;=-)[a-zA-Z_]+</complete-match>
+		<selector>tcl, tcl :not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name,tcl.control) + * + * + *, tcl.punctuation + * + *</selector>
+		<completions>com.rosensteiner.Tcl.other-things</completions>
+		<complete-match>(?&lt;=-)[a-zA-Z_]+</complete-match>
 	</provider>
 	
 	<!--proc option name switch-->
