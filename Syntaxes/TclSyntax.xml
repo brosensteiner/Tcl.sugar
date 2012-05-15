@@ -59,6 +59,9 @@ THE SOFTWARE.
 			        <expression>\)</expression>
 			        <capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
 			    </ends-with>
+			    <subzones>
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
 			</zone>
 						
 			<zone name="tcl.container.balanced-brackets">
@@ -283,12 +286,21 @@ THE SOFTWARE.
         		<expression>\\\s*?[\n\r]</expression>
         	</zone>
         	
-        	<zone name="tcl.punctuation.namespace">
-        		<expression>::</expression>
-           	</zone>
-        	<zone name="tcl.keyword.namespace.function-call">
-        		<expression>(?:[[:alnum:]_?!\.]+(::))|((?&lt;=::)[[:alnum:]_?!:\.]+)</expression>
-        		<capture number="1" name="tcl.punctuation.namespace"/>
+        	<zone name="tcl.namespace.function-call">
+           		<starts-with>
+        		    <expression>(?:[[:alnum:]_?!\.]+)?(::)</expression>
+        		    <capture number="1" name="tcl.punctuation.namespace"/>
+        		</starts-with>
+        		<ends-with>
+        		    <expression>(?=\s|[\(\{\[])</expression>
+        		    <capture number="1" name="tcl.punctuation.close-brace"/>
+        		</ends-with>
+        		<subzones>
+        			<zone>
+        				<expression>(::)(?:[[:alnum:]_?!\.]*)</expression>
+        				<capture number="1" name="tcl.punctuation.namespace"/>
+        			</zone>
+        		</subzones>
         	</zone>
         	
         	<!--for controlled regex syntax highlighting:-->

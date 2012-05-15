@@ -8,12 +8,6 @@
 	spell-check: disabled;
 }
 
-tcl.shebang {
-	color: #d44950;
-	font-weight: bold;
-	background-color: rgba(57, 79, 227, 0.3);
-}
-
 tcl.open-brace,
 tcl.close-brace,
 tcl.open-parenthesis,
