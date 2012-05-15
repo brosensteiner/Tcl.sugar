@@ -292,7 +292,7 @@ THE SOFTWARE.
         		    <capture number="1" name="tcl.punctuation.namespace"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=\s|[\(\{\[])</expression>
+        		    <expression>(?=[^[:alnum:]_?!:\.]|[[:space:]])</expression>
         		    <capture number="1" name="tcl.punctuation.close-brace"/>
         		</ends-with>
         		<subzones>
