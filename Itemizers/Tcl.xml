@@ -31,6 +31,11 @@ THE SOFTWARE.
 		<selector>tcl.function:has-child(name:capture(name))</selector>
 	</recipe>
 	
+	<recipe name="tcl.keyword.command.function.anonymous">
+		<class>ESJSAnonymousFunctionItem</class>
+		<selector>tcl.function-call[text='apply']:capture(itemizer-firstused)</selector>
+	</recipe>
+	
 	<recipe name="tcl.keyword.command.class">
 		<class>ESCodeClassItem</class>
 		<selector>tcl.class:has-child(name:capture(name))</selector>
