@@ -21,7 +21,6 @@ tcl.global-procedures {
 }
 
 **********Amira**********,
-:not(tcl.options) + s + :not(keyword) + s + tcl.keyword.options.trace,
 amira.variable,
 amira.keyword {
 	color: #4f76cf;
@@ -34,9 +33,12 @@ tcl.variable.substitute {
 
 tcl.set-variable,
 tcl.set-variable.substitute.rest,
-tcl.function-call[text='set'] + s + :not(keyword),
-
-tcl.function-call[text='append'] + s + word,
+tcl.set-var,
+tcl.global-var,
+tcl.variable-var,
+tcl.append-var,
+tcl.catch-var,
+tcl.catch-options-var,
 
 tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
@@ -65,18 +67,6 @@ tcl.function-call-regsub + s + property-name + s + property-name + s + property-
 tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
 tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
 
-tcl.command-variable + s + word,
-tcl.command-variable + s + word + s + :not(keyword) + s + word,
-tcl.command-variable + s + word + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.command-variable + s + word + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.command-variable + s + word + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-
-tcl.command-global + s + word,
-tcl.command-global + s + :not(keyword) + s + word,
-tcl.command-global + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.command-global + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.command-global + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-
 tcl.upvar + s + :not(keyword,numeric) + s + word,
 tcl.upvar + s + :not(keyword,numeric) + s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.upvar + s + :not(keyword,numeric) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
@@ -89,22 +79,15 @@ tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keywo
 tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 
-tcl.function-call-catch + s + word,
-tcl.function-call-catch + s + word + s + word,
-
 tcl.keyword.control.start[text='foreach'] + s + word,
 tcl.keyword.control.start[text='foreach'] + s + balanced-braces word,
-tcl.function-call[text='rename'] + s + :not(keyword,variable) + s + :not(keyword,variable) {
+tcl.rename-var-newname {
 	color: #7ac54d;
 	font-style: italic;
 }
 
-tcl.function-call[text='rename'] + s + :not(keyword,variable,punctuation),
-tcl.function-call[text='unset'] + s + :not(keyword,variable,punctuation),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation),
-tcl.function-call[text='unset'] + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable) + s + :not(keyword,variable,punctuation) {
+tcl.rename-var-oldname,
+tcl.unset-var {
 	color: #e51c1c;
 	font-style: italic;
 }

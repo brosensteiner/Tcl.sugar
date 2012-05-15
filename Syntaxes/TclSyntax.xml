@@ -32,7 +32,6 @@ THE SOFTWARE.
 			<expression>^(#!).*?\b(tclsh|wish)\b.*?$[\n\r]*|^(#!).*?\benv\s+?tclsh.*?$[\n\r]*</expression>
 			<capture number="1" name="punctuation.definition.begin"/>
 		</zone>
-		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
 		<include collection="Numeric" />
 		<include collection="Variables" />
 		<include collection="Math" />
@@ -42,6 +41,7 @@ THE SOFTWARE.
 		<include collection="Comments" />
 		<include collection="Strings"/>
 		<include collection="FlowControl" />
+		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
 		<include collection="General" />
 		<include collection="BracesBracketsParenthesis" />
 	</zones>
@@ -157,11 +157,36 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.command.function-call.definition.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
-			<zone name="tcl.keyword.command.function-call.definition.command-global">
-			    <expression>\bglobal\b</expression>
+			<zone name="tcl.set-function-call.definition">
+			    <expression>\b(set)\s+([[:alnum:]_?!:\.]+)</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-set"/>
+			    <capture number="2" name="tcl.set-var"/>
 			</zone>
-			<zone name="tcl.keyword.command.function-call.definition.command-variable">
-			    <expression>\bvariable\b</expression>
+			<zone name="tcl.append-function-call.definition">
+			    <expression>\b(append)\s+([[:alnum:]_?!:\.]+)</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-append"/>
+			    <capture number="2" name="tcl.append-var"/>
+			</zone>
+			<zone name="tcl.rename-function-call.definition">
+			    <expression>\b(rename)\s+([[:alnum:]_?!:\.]+)(\s+[[:alnum:]_?!:\.]+)?</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-rename"/>
+			    <capture number="2" name="tcl.rename-var-oldname"/>
+			    <capture number="3" name="tcl.rename-var-newname"/>
+			</zone>
+			<zone name="tcl.global-function-call.definition">
+			    <expression>\b(global)((\s+[[:alnum:]_?!:\.]+)+)</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-global"/>
+			    <capture number="2" name="tcl.global-var"/>
+			</zone>
+			<zone name="tcl.variable-function-call.definition">
+			    <expression>\b(variable)((\s+[[:alnum:]_?!:\.]+)+)</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-variable"/>
+			    <capture number="2" name="tcl.variable-var"/>
+			</zone>
+			<zone name="tcl.unset-function-call.definition">
+			    <expression>\b(unset)((\s+[[:alnum:]_?!:\.]+)+)</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.definition.unset-global"/>
+			    <capture number="2" name="tcl.unset-var"/>
 			</zone>
 						
 			<zone name="tcl.keyword.set-variable.substitute">
@@ -232,7 +257,18 @@ THE SOFTWARE.
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
-			    	<include syntax="language-root.tcl" />
+			    	<include collection="Invalid" />
+			    	<include collection="Numeric" />
+			    	<include collection="Variables" />
+			    	<include collection="Math" />
+			    	<include collection="tclLanguage" />
+			    	<include collection="FormatSpecifier"/>
+			    	<include collection="Comments" />
+			    	<include collection="Strings"/>
+			    	<include collection="FlowControl" />
+			    	<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
+			    	<include collection="General" />
+			    	<include collection="BracesBracketsParenthesis" />
 			    </subzones>
 			</zone>
 		
@@ -329,15 +365,17 @@ THE SOFTWARE.
         	    </ends-with>
         	</zone>
         	
-        	<zone name="tcl.container.function-call-catch"><!--catch assigns a variable we will catch so here is a zone definition for it-->
+        	<zone name="tcl.container.function-call-catch"><!--catch assigns a variable so here is a zone definition for it-->
         	    <starts-with>
         	        <expression>\b(catch)\s+(\{)</expression>
         	        <capture number="1" name="tcl.keyword.command.function-call"/>
         	        <capture number="2" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
-        	        <expression>(\})</expression>
+        	        <expression>(\})\s+([[:alnum:]_?!:\.]+)(\s+[[:alnum:]_?!:\.]+)?</expression>
         	        <capture number="1" name="tcl.punctuation.close-brace"/>
+        	        <capture number="2" name="tcl.catch-var"/>
+        	        <capture number="3" name="tcl.catch-options-var"/>
         	    </ends-with>
         	    <subzones>
         	    	<include syntax="language-root.tcl" />
@@ -356,7 +394,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.function-call">
-        		<expression>\b(rename|prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|append|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|unset|set|lset|args)(?=\s|\])</expression>
+        		<expression>\b(prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|args)(?=\s|\])</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global-procedures">
