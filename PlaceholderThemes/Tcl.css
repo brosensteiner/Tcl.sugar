@@ -13,6 +13,7 @@ tcl.close-brace,
 tcl.open-parenthesis,
 tcl.close-parenthesis {
 	color: #7f7f7f;
+	font-style: normal;
 }
 
 tcl.global-variables,
@@ -79,8 +80,8 @@ tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keywo
 tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 
-tcl.keyword.control.start[text='foreach'] + s + word,
-tcl.keyword.control.start[text='foreach'] + s + balanced-braces word,
+tcl.keyword.control.start[text='foreach'] + s + :not(punctuation),
+tcl.keyword.control.start[text='foreach'] + s + balanced-braces :not(punctuation),
 tcl.rename-var-newname {
 	color: #7ac54d;
 	font-style: italic;

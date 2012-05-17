@@ -58,20 +58,7 @@ THE SOFTWARE.
 	
 	<recipe name="tcl.container.while-block">
 		<class>ESJSControlBlockItem</class>
-		<start-selector>tcl tcl.keyword[text='while']:capture(itemizer-firstused) + open-brace:capture(open-parameters)</start-selector>
-		<end-selector>tcl close-brace:capture(close-parameters)</end-selector>
-		<subrecipes>
-			<include-root-recipes />
-		</subrecipes>
-	</recipe>
-	
-	<recipe name="tcl.container.while-block">
-		<class>ESJSControlBlockItem</class>
-		<start-selector>tcl tcl.keyword[text='while']:capture(itemizer-firstused) + *:capture(open-parameters) ~ open-brace:capture(close-parameters)</start-selector>
-		<end-selector>tcl close-brace:capture(close-parameters)</end-selector>
-		<subrecipes>
-			<include-root-recipes />
-		</subrecipes>
+		<selector>tcl tcl.keyword[text='while']:capture(itemizer-firstused)</selector>
 	</recipe>
 	
 	<recipe name="tcl.container.foreach">

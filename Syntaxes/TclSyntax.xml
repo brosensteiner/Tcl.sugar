@@ -32,6 +32,7 @@ THE SOFTWARE.
 			<expression>^(#!).*?\b(tclsh|wish)\b.*?$[\n\r]*|^(#!).*?\benv\s+?tclsh.*?$[\n\r]*</expression>
 			<capture number="1" name="punctuation.definition.begin"/>
 		</zone>
+		<include collection="EscapeChar"/>
 		<include collection="Numeric" />
 		<include collection="Variables" />
 		<include collection="Math" />
@@ -394,7 +395,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.function-call">
-        		<expression>\b(prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|args)(?=\s|\])</expression>
+        		<expression>\b(prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|args)(?=\s|\]|;)</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global-procedures">
@@ -523,16 +524,16 @@ THE SOFTWARE.
         	</zone>
         
         	<zone name="tcl.constant.numeric.level-specifier">
-        		<expression>(?&lt;![[:alnum:]_?!\.])#\d+\b</expression>
+        		<expression>(?&lt;![[:alnum:]_?!:\.])#\d+\b</expression>
         	</zone>
         	
-        	<zone>
-        		<expression>(?&lt;![[:alnum:]_?!\.])(\d+\.)\s</expression>
+        	<zone><!--"." after number-->
+        		<expression>(?&lt;![[:alnum:]_?!:\.])(\d+\.)(?!\w)</expression>
         		<capture number="1" name="tcl.constant.numeric.point"/>
         	</zone>
         	
    			<zone name="tcl.constant.numeric.normal">
-				<expression>(?&lt;![[:alnum:]_?!\.])((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))\b</expression>
+				<expression>(?&lt;![[:alnum:]_?!:\.])((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))(?!\w|\.[[:alnum:]_?!:\.])</expression>
 			</zone>
 			
 			<zone name="tcl.constant.numeric.octal">
