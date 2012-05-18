@@ -26,14 +26,42 @@ THE SOFTWARE.
 -->
 <action-recipes>
 
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces.padding" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+	    <title>matched curly braces (padded)</title>
+	<text>{ ${EDITOR_SELECTION:${1:...}} }$0</text>
+		<key-equivalent>shift command {</key-equivalent>
+	    <language-context>tcl</language-context>
+	</snippet>
+	
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces.padding" category="tools.Snippets">
+	    <title>matched curly braces (padded)</title>
+	<text>{ ${EDITOR_SELECTION:${1:...}} }$0</text>
+		<key-equivalent>shift command {</key-equivalent>
+	    <language-context>tcl</language-context>
+	</snippet>
+	
 	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
 	    <title>matched curly braces</title>
-	<text>{ ${EDITOR_SELECTION:${1:...}} }$0</text>
+	<text>{${EDITOR_SELECTION:${1:...}}}$0</text>
+		<key-equivalent>shift {</key-equivalent>
+	    <language-context>tcl</language-context>
+	</snippet>
+	
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces" category="tools.Snippets">
+	    <title>matched curly braces</title>
+	<text>{${EDITOR_SELECTION:${1:...}}}$0</text>
 		<key-equivalent>shift {</key-equivalent>
 	    <language-context>tcl</language-context>
 	</snippet>
 	
 	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBracket" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+		<title>matched square brackets</title>
+		<key-equivalent>shift [</key-equivalent>
+		<text>[${EDITOR_SELECTION:${1:list}}]$0</text>
+		<language-context>tcl</language-context>
+	</snippet>
+	
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBracket" category="tools.Snippets">
 		<title>matched square brackets</title>
 		<key-equivalent>shift [</key-equivalent>
 		<text>[${EDITOR_SELECTION:${1:list}}]$0</text>
@@ -47,10 +75,24 @@ THE SOFTWARE.
 		<language-context>tcl</language-context>
 	</snippet>
 	
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapParenthesis" category="tools.Snippets">
+		<title>matched parenthesis</title>
+		<key-equivalent>cmd (</key-equivalent>
+		<text>\(${EDITOR_SELECTION:${1:...}}\)$0</text>
+		<language-context>tcl</language-context>
+	</snippet>
+	
 	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapDoubleQuote" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
 		<title>matched double quotes</title>
 		<key-equivalent>option "</key-equivalent>
-		<text>"${EDITOR_SELECTION:${1:string}}"$0</text>
+		<text>"${EDITOR_SELECTION:${1:EIAS}}"$0</text>
+		<language-context>tcl</language-context>
+	</snippet>
+	
+	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapDoubleQuote" category="tools.Snippets">
+		<title>matched double quotes</title>
+		<key-equivalent>option "</key-equivalent>
+		<text>"${EDITOR_SELECTION:${1:EIAS}}"$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
