@@ -78,10 +78,24 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="lassign" />
+		<completion string="lassign">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+					<transform-into>(?1:$1: ${1:list} ${2:?varName ...??}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="platform::shell" />
 		<completion string="tcl_startOfNextWord" />
-		<completion string="apply" />
+		<completion string="apply">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+					<transform-into>(?1:$1: ${1:func} ${2:?arg1 arg2 ...??}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="exec" />
 		<completion string="lindex">
 			<behavior>
@@ -149,7 +163,14 @@ THE SOFTWARE.
 		<completion string="read" />
 		<completion string="tclvars" />
 		<completion string="auto_mkindex" />
-		<completion string="fcopy" />
+		<completion string="fcopy">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+					<transform-into>(?1:$1: ${1:inchan} ${2:outchan} ${3:?-size size?} ${4:?-command callback?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="lrange">
 			<behavior>
 				<append-dynamic>
@@ -1660,6 +1681,11 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	    
+	</set>
+	<!--fcopy options-->
+	<set name="com.rosensteiner.Tcl.function.fcopy" casesensitive="true">
+		<completion string="-size" />
+		<completion string="-command" />
 	</set>
 	<!--source options-->
 	<set name="com.rosensteiner.Tcl.function.source" casesensitive="true">

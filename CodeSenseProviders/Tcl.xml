@@ -31,7 +31,7 @@ this code completion scheme works well for all options but can make apperring a 
 <codesense>
     
 	<provider>
-	 	<selector>tcl, tcl :not(tcl.keyword,tcl.keyword + s + tcl.options,tcl.keyword + s + tcl.options + s + options,tcl.property-name) + * + * + *, tcl.punctuation + * + *</selector>
+	 	<selector>tcl, tcl :not(keyword,keyword + s + options,tcl.keyword + s + options + s + options,property-name) + * + * + *, punctuation + * + *</selector>
 	 	<completions>com.rosensteiner.Tcl.functions</completions>
 	 	<completions>com.rosensteiner.Tcl.math</completions>
 	 	<completions>com.rosensteiner.Tcl.global-variables</completions>
@@ -39,11 +39,23 @@ this code completion scheme works well for all options but can make apperring a 
 	 	<complete-match>(?&lt;!\\|_|-)[a-zA-Z_]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl :not(tcl.keyword,tcl.keyword + s + tcl.options,tcl.keyword + s + tcl.options + s + options,tcl.property-name) + * + * + *, tcl.punctuation + * + *</selector>
+		<selector>tcl, tcl :not(keyword,keyword + s + options,keyword + s + options + s + options,property-name) + * + * + *, punctuation + * + *</selector>
 		<completions>com.rosensteiner.Tcl.other-things</completions>
 		<complete-match>(?&lt;=-)[a-zA-Z_]*</complete-match>
 	</provider>
 	
+	<!--proc name name switch-->
+	<provider>
+		<selector>tcl keyword:capture(name) + s + * + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc name name switch name switch-->
+	<provider>
+		<selector>tcl keyword:capture(name) + s + * + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
 	<!--proc option name switch-->
 	<provider>
 		<selector>tcl keyword:capture(name) + s + *:capture(options) + s + variable + s + * + *</selector>
