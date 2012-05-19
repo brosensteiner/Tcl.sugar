@@ -400,9 +400,9 @@ THE SOFTWARE.
         	    	<include syntax="language-root.tcl" />
         	    </subzones>
         	</zone>
-        	        	
+        	
         	<zone name="tcl.keyword.command.function-call">
-        		<expression>\b(prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|args)(?=\s|\]|;)</expression>
+        		<expression>\b(try|prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|args)(?=\s|\]|;)</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global-procedures">
@@ -432,16 +432,24 @@ THE SOFTWARE.
 			    <expression>\b(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read|start|current|end|auto|binary|cr|crlf|lf)\b</expression>
 			</zone>
 			
+			<zone name="tcl.keyword.options.try">
+			    <expression>\b(on|trap|finally)\b</expression>
+			</zone>
+			
 			<zone name="tcl.keyword.options.http">
 			    <expression>\b(config|geturl|formatQuery|reset|wait|data|error|status|code|ncode|size|meta|cleanup|register|unregister)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.array">
-				<expression>\b(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
+			    <expression>\b(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
 			</zone>
 			<!--here more specificity is needed because "for" is also the keyword for the for loop and there is no way to discriminate both-->
 			<zone name="tcl.keyword.options.dict">
-				<expression>(?&lt;=dict\s)(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with)\b</expression>
+			    <expression>(?&lt;=dict\s)(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with)\b</expression>
+			</zone>
+			
+			<zone name="tcl.keyword.options.prefix">
+			    <expression>\b(all|longest|match)\b</expression>
 			</zone>
 			
 			<zone name="tcl.keyword.options.dict.filter">
