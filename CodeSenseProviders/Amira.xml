@@ -2,19 +2,19 @@
 <codesense>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name) + * + * + *, tcl.punctuation + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.keyword,tcl.keyword + s + tcl.options,tcl.keyword + s + tcl.options + s + options,tcl.property-name) + * + * + *, tcl.punctuation + * + *</selector>
 		<completions>com.rosensteiner.amira</completions>
 		<complete-match>(?&lt;!\\|_|-)[a-zA-Z\s]+</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name,tcl.control) + * + * + *, tcl.punctuation + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.keyword,tcl.keyword + s + tcl.options,tcl.keyword + s + tcl.options + s + options,tcl.property-name,tcl.control) + * + * + *, tcl.punctuation + * + *</selector>
 		<completions>com.rosensteiner.amira.data-classes</completions>
 		<complete-match>(?&lt;!\\|_|-)[Hh][Xx][a-zA-Z\s]*</complete-match>
 	</provider>
 	
 	<provider>
-		<selector>tcl, tcl *:not(tcl.function-call,tcl.function-call + s + tcl.options,tcl.function-call + s + tcl.options + s + options,tcl.property-name,tcl.control) + * + * + *, tcl.punctuation + * + *</selector>
+		<selector>tcl, tcl *:not(tcl.keyword,tcl.keyword + s + tcl.options,tcl.keyword + s + tcl.options + s + options,tcl.property-name,tcl.control) + * + * + *, tcl.punctuation + * + *</selector>
 		<completions>com.rosensteiner.amira.scriptobject</completions>
 		<complete-match>(?&lt;!\\|_|-)[Nn][Ee][Ww][a-zA-Z\s]*</complete-match>
 	</provider>

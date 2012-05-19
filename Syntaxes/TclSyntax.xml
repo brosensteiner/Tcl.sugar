@@ -174,36 +174,36 @@ THE SOFTWARE.
 
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
-			<zone name="tcl.keyword.command.function-call.definition.command.upvar">
+			<zone name="tcl.keyword.command.definition.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
-			<zone name="tcl.function-call.set-function-call.definition">
+			<zone name="tcl.keyword.set-function-call.definition">
 			    <expression>\b(set)\s+([[:alnum:]_?!]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-set"/>
 			    <capture number="2" name="tcl.set-var"/>
 			</zone>
-			<zone name="tcl.function-call.append-function-call.definition">
+			<zone name="tcl.keyword.append-function-call.definition">
 			    <expression>\b(append)\s+([[:alnum:]_?!]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-append"/>
 			    <capture number="2" name="tcl.append-var"/>
 			</zone>
-			<zone name="tcl.function-call.rename-function-call.definition">
+			<zone name="tcl.keyword.rename-function-call.definition">
 			    <expression>\b(rename)\s+([[:alnum:]_?!]+)?(\s+[[:alnum:]_?!]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-rename"/>
 			    <capture number="2" name="tcl.rename-var-oldname"/>
 			    <capture number="3" name="tcl.rename-var-newname"/>
 			</zone>
-			<zone name="tcl.function-call.global-function-call.definition">
+			<zone name="tcl.keyword.global-function-call.definition">
 			    <expression>\b(global)((\s+[[:alnum:]_?!]+)+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-global"/>
 			    <capture number="2" name="tcl.global-var"/>
 			</zone>
-			<zone name="tcl.function-call.variable-function-call.definition">
+			<zone name="tcl.keyword.variable-function-call.definition">
 			    <expression>\b(variable)((\s+[[:alnum:]_?!]+)+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-variable"/>
 			    <capture number="2" name="tcl.variable-var"/>
 			</zone>
-			<zone name="tcl.function-call.unset-function-call.definition">
+			<zone name="tcl.keyword.unset-function-call.definition">
 			    <expression>\b(unset)(\s+-nocomplain)?((\s+[[:alnum:]_?!]+)+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.definition.unset-global"/>
 			    <capture number="2" name="tcl.keyword.property-name"/>
