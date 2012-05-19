@@ -338,7 +338,14 @@ THE SOFTWARE.
 		<completion string="close" />
 		<completion string="history" />
 		<completion string="namespace" />
-		<completion string="source" />
+		<completion string="source">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?-encoding?} ${2:encodingName fileName}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="vwait" />
 		<completion string="concat">
 			<behavior>
@@ -401,7 +408,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:table} ${2:string}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:table} ${2:string}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -409,7 +416,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:table} ${2:string}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:table} ${2:string}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -417,7 +424,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:?options?} ${2:table} ${3:string}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:?options?} ${2:table} ${3:string}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -426,7 +433,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryVariable key} ${2:?string ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?string ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -434,7 +441,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?key value ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?key value ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -442,7 +449,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue key} ${2:?key ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue key} ${2:?key ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -450,7 +457,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue filterType arg} ${2:?arg ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue filterType arg} ${2:?arg ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -458,7 +465,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:keyVar valueVar} ${2:}} ${3:dictionaryValue body}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:keyVar valueVar} ${2:}} ${3:dictionaryValue body}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -466,7 +473,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue} ${2:?key ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue} ${2:?key ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -474,7 +481,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryVariable key} ${2:?increment?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?increment?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -482,7 +489,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -490,7 +497,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue} ${2:?globPattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue} ${2:?globPattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -498,7 +505,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryVariable key} ${2:?value ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?value ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -506,7 +513,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?dictionaryValue ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?dictionaryValue ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -514,7 +521,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue} ${2:?key ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue} ${2:?key ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -522,7 +529,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue} ${2:?key value ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue} ${2:?key value ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -530,7 +537,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryVariable key} ${2:?key ...?} ${3:value}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?key ...?} ${3:value}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -538,7 +545,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -546,7 +553,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryVariable key} ${2:?key ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?key ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -554,7 +561,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryVariable key varName} ${2:?key varName ...?} ${3:body}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable key varName} ${2:?key varName ...?} ${3:body}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -562,7 +569,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryValue} ${2:?globPattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue} ${2:?globPattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -570,7 +577,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:dictionaryVariable} ${2:?key ...?} ${3:body}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable} ${2:?key ...?} ${3:body}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -579,7 +586,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName searchId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName searchId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -587,7 +594,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName searchId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName searchId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -595,7 +602,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -603,7 +610,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName} ${2:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName} ${2:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -611,7 +618,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName} ${2:?mode?} ${3:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName} ${2:?mode?} ${3:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -619,7 +626,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName searchId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName searchId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -627,7 +634,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName list}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName list}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -635,7 +642,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -643,7 +650,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -651,7 +658,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -659,7 +666,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:arrayName} ${2:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:arrayName} ${2:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -668,7 +675,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?options?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?options?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -676,7 +683,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:url} ${2:?options?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:url} ${2:?options?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -684,7 +691,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:key value} ${2:?key value?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:key value} ${2:?key value?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -692,7 +699,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token} ${2:?why?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token} ${2:?why?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -700,7 +707,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -708,7 +715,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -716,7 +723,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -724,7 +731,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -732,7 +739,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -740,7 +747,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -748,7 +755,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -756,7 +763,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -764,7 +771,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:token}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -772,7 +779,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:proto port command}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:proto port command}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -780,7 +787,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:proto}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:proto}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -822,7 +829,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:command} ${2:?exec?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:command} ${2:?exec?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -830,7 +837,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:newValue} ${2:?event?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:newValue} ${2:?event?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -839,7 +846,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?event?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?event?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -847,7 +854,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?count?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?count?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -855,7 +862,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?count?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?count?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -864,7 +871,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?event?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?event?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -873,7 +880,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:procname}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:procname}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -881,7 +888,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:procname}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:procname}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -889,7 +896,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:subcommand class} ${2:?arg ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:subcommand class} ${2:?arg ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -898,7 +905,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -906,7 +913,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:command}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:command}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -915,7 +922,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:procname arg varname}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:procname arg varname}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -923,7 +930,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:varName}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:varName}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -931,7 +938,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?number?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?number?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -939,7 +946,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -947,7 +954,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -956,7 +963,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?number?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?number?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -965,7 +972,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?interp?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?interp?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -973,7 +980,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -982,7 +989,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:subcommand object} ${2:?arg ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:subcommand object} ${2:?arg ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -991,7 +998,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -999,7 +1006,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?filename?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?filename?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1009,7 +1016,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1018,7 +1025,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1026,7 +1033,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-nocase?} ${2:?-length int?} ${3:string1 string2}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-nocase?} ${2:?-length int?} ${3:string1 string2}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1034,7 +1041,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-nocase?} ${2:?-length int?} ${3:string1 string2}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-nocase?} ${2:?-length int?} ${3:string1 string2}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1042,7 +1049,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:needleString haystackString} ${2:?startIndex?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:needleString haystackString} ${2:?startIndex?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1050,7 +1057,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string charIndex}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string charIndex}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1058,7 +1065,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:class} ${2:?-strict?} ${3:?-failindex varname?} ${4:string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:class} ${2:?-strict?} ${3:?-failindex varname?} ${4:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1066,7 +1073,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:needleString haystackString} ${2:?lastIndex?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:needleString haystackString} ${2:?lastIndex?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1074,7 +1081,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1082,7 +1089,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-nocase?} ${2:mapping string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-nocase?} ${2:mapping string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1090,7 +1097,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-nocase?} ${2:pattern} ${3:string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-nocase?} ${2:pattern} ${3:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1098,7 +1105,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string first last}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string first last}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1106,7 +1113,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string count}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string count}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1114,7 +1121,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string first last} ${2:?newstring?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string first last} ${2:?newstring?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1122,7 +1129,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1130,7 +1137,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string} ${2:?first?} ${3:?last?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string} ${2:?first?} ${3:?last?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1138,7 +1145,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string} ${2:?first?} ${3:?last?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string} ${2:?first?} ${3:?last?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1146,7 +1153,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string} ${2:?first?} ${3:?last?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string} ${2:?first?} ${3:?last?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1154,7 +1161,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string} ${2:?chars?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string} ${2:?chars?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1162,7 +1169,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string} ${2:?chars?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string} ${2:?chars?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1170,7 +1177,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string} ${2:?chars?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string} ${2:?chars?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1178,7 +1185,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string charIndex}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string charIndex}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1186,7 +1193,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string charIndex}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string charIndex}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1196,7 +1203,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name} ${2:?time?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name} ${2:?time?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1204,7 +1211,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1212,7 +1219,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name} ${2:?option?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name} ${2:?option?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1220,7 +1227,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name} ${2:?option value option value...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name} ${2:?option value option value...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1228,7 +1235,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1236,7 +1243,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-force?} ${2:?--?} ${3:source} ${4:target}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-force?} ${2:?--?} ${3:source} ${4:target}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1244,7 +1251,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-force?} ${2:?--?} ${3:source} ${4:?source?} ${5:targetDir}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-force?} ${2:?--?} ${3:source} ${4:?source?} ${5:targetDir}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1252,7 +1259,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-force?} ${2:?--?} ${3:?pathname?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-force?} ${2:?--?} ${3:?pathname?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1260,7 +1267,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1268,7 +1275,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1276,7 +1283,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1284,7 +1291,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1292,7 +1299,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1300,7 +1307,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1308,7 +1315,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name} ${2:?name ...?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name} ${2:?name ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1316,7 +1323,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-linktype?} ${2:linkName} ${3:?target?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-linktype?} ${2:linkName} ${3:?target?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1324,7 +1331,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name varName}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name varName}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1332,7 +1339,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?dir?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?dir?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1340,7 +1347,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name} ${2:?time?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name} ${2:?time?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1348,7 +1355,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1356,7 +1363,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1364,7 +1371,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1372,7 +1379,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1380,7 +1387,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1388,7 +1395,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1396,7 +1403,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-force?} ${2:?--?} ${3:source} ${4:target}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-force?} ${2:?--?} ${3:source} ${4:target}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1404,7 +1411,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-force?} ${2:?--?} ${3:source} ${4:?source?} ${5:targetDir}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-force?} ${2:?--?} ${3:source} ${4:?source?} ${5:targetDir}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1412,7 +1419,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1420,7 +1427,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?name?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?name?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1428,7 +1435,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1436,7 +1443,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1444,7 +1451,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name varName}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name varName}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1452,7 +1459,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1460,7 +1467,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1468,7 +1475,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?nameVar?} ${2:?template?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?nameVar?} ${2:?template?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1476,7 +1483,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1485,7 +1492,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1495,7 +1502,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1503,7 +1510,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1511,7 +1518,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId} ${2:?optionName?} ${3:?value?} ${4:?optionName value?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId} ${2:?optionName?} ${3:?value?} ${4:?optionName value?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1519,7 +1526,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:inputChan outputChan} ${2:?-size size?} ${3:?-command callback?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:inputChan outputChan} ${2:?-size size?} ${3:?-command callback?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1527,7 +1534,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:mode cmdPrefix}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:mode cmdPrefix}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1535,7 +1542,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1543,7 +1550,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId event} ${2:?script?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId event} ${2:?script?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1551,7 +1558,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1559,7 +1566,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId} ${2:?varName?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId} ${2:?varName?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1567,7 +1574,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?pattern?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?pattern?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1575,7 +1582,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:mode channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:mode channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1584,7 +1591,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1592,7 +1599,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId eventSpec}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId eventSpec}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1600,7 +1607,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId cmdPrefix}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId cmdPrefix}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1608,7 +1615,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-nonewline?} ${2:?channelId?} ${3:string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-nonewline?} ${2:?channelId?} ${3:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1616,7 +1623,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId} ${2:?numChars?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId} ${2:?numChars?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1624,7 +1631,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:?-nonewline?} ${2:channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:?-nonewline?} ${2:channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1632,7 +1639,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId offset} ${2:?origin?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId offset} ${2:?origin?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1640,7 +1647,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1648,37 +1655,40 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelId} ${2:?length?}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId} ${2:?length?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
 	    
 	</set>
-	
+	<!--source options-->
+	<set name="com.rosensteiner.Tcl.function.source" casesensitive="true">
+		<completion string="-encoding" />
+	</set>
 	<!--socket options-->
-		<set name="com.rosensteiner.Tcl.function.socket" casesensitive="true">
-			<completion string="-server" />
-			<completion string="-myaddr" />
-			<completion string="-myport" />
-			<completion string="-async" />
-		</set>
-		<set name="com.rosensteiner.Tcl.function.socket.-server" casesensitive="true">
-			<completion string="-myaddr" />
-			<completion string="-error" />
-			<completion string="-sockname" />
-			<completion string="-peername" />
-		</set>
-		<!--puts options-->
-		<set name="com.rosensteiner.Tcl.function.puts" casesensitive="true">
-			<completion string="-nonewline" />
-		</set>
-		<!--package options-->
-		<set name="com.rosensteiner.Tcl.function.package.present" casesensitive="true">
-			<completion string="-exact" />
-		</set>
-		<set name="com.rosensteiner.Tcl.function.package.require" casesensitive="true">
-			<completion string="-exact" />
-		</set>
+	<set name="com.rosensteiner.Tcl.function.socket" casesensitive="true">
+		<completion string="-server" />
+		<completion string="-myaddr" />
+		<completion string="-myport" />
+		<completion string="-async" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.socket.-server" casesensitive="true">
+		<completion string="-myaddr" />
+		<completion string="-error" />
+		<completion string="-sockname" />
+		<completion string="-peername" />
+	</set>
+	<!--puts options-->
+	<set name="com.rosensteiner.Tcl.function.puts" casesensitive="true">
+		<completion string="-nonewline" />
+	</set>
+	<!--package options-->
+	<set name="com.rosensteiner.Tcl.function.package.present" casesensitive="true">
+		<completion string="-exact" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.package.require" casesensitive="true">
+		<completion string="-exact" />
+	</set>
 	<!--file options-->
 		<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
 			<completion string="-group" />
@@ -1786,7 +1796,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:code variableList script}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:code variableList script}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1794,7 +1804,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:pattern variableList script}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:pattern variableList script}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1802,7 +1812,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:script}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:script}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1819,7 +1829,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:mimetypes}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:mimetypes}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1827,7 +1837,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:hostname}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:hostname}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1835,7 +1845,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:number}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:number}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1843,7 +1853,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:command}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:command}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1851,7 +1861,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:encoding}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:encoding}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1859,7 +1869,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:string}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1875,7 +1885,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:boolean}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:boolean}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1883,7 +1893,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:size}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:size}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1891,7 +1901,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1899,7 +1909,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:callback}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:callback}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1907,7 +1917,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:callback}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:callback}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1915,7 +1925,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:keyvaluelist}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:keyvaluelist}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1923,7 +1933,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:boolean}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:boolean}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1931,7 +1941,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:type}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:type}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1939,7 +1949,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:address}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:address}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1947,7 +1957,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:callback}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:callback}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1955,7 +1965,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:version}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:version}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1963,7 +1973,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:query}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:query}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1971,7 +1981,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:size}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:size}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1979,7 +1989,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:channelID}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:channelID}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1987,7 +1997,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:callback}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:callback}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1995,7 +2005,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:boolean}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:boolean}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2003,7 +2013,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:milliseconds}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:milliseconds}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2011,7 +2021,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:mime-type}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:mime-type}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2019,7 +2029,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:boolean}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:boolean}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2196,7 +2206,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:object}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -2204,7 +2214,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:object}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -2212,7 +2222,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:object class}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:object class}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -2220,7 +2230,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:object}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -2228,7 +2238,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-		            <transform-into> ${1:object class}$0</transform-into>
+		            <transform-into>(?1:$1: ${1:object class}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -2280,7 +2290,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:boolean}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:boolean}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2288,7 +2298,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:newValue}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:newValue}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2296,7 +2306,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:newSize}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:newSize}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2304,7 +2314,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:name}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2312,7 +2322,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:char}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:char}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2320,7 +2330,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	                <transform-into> ${1:mode}$0</transform-into>
+	                <transform-into>(?1:$1: ${1:mode}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
