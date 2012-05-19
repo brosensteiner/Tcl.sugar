@@ -34,6 +34,14 @@ THE SOFTWARE.
 	            <transform-into>(?1:: $0)</transform-into>
 	        </append-dynamic>
 	    </behavior>
+	    <completion string="try">
+	    	<behavior>
+	    		<append-dynamic>
+	    		<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	    		<transform-into>(?1:$1: ${1:body} ${2:?handler...??} ${3:?finally script?}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
 	    <completion string="prefix"/>
 		<completion string="after"/>
 		<completion string="error">
