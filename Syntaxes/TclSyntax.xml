@@ -36,7 +36,6 @@ THE SOFTWARE.
 		<include collection="EscapeChar"/>
 		<include collection="Numeric" />
 		<include collection="Variables" />
-		<include collection="Math" />
 		<!--procedures and classes only make sense in language-root zone-->
 		<zone name="tcl.keyword.command.function">
 			<expression>\b(proc)\s+([[:alnum:]_?!:\.]+)</expression>
@@ -47,17 +46,16 @@ THE SOFTWARE.
 			<expression>\bclass\s+([[:alnum:]_?!:\.]+)</expression>
 			<capture number="1" name="tcl.keyword.command.class.name"/>
 		</zone>
+		<include collection="Math" />
 		<include collection="tclLanguage" />
 		<include collection="FormatSpecifier"/>
-		<include collection="Operators" />
+		<include collection="FlowControl" />
 		<include collection="OperatorsNotInQuotesAllowed" />
 		<include collection="Comments" />
 		<include collection="Strings"/>
-		<include collection="FlowControl" />
 		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
 		<include collection="General" />
 		<include collection="BracesBrackets" />
-		<include collection="Parenthesis" />
 		
 	</zones>
     
@@ -75,6 +73,7 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.close-bracket"/>
 			    </ends-with>
 			    <subzones>
+			    	<include collection="Operators" />
 			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
@@ -96,11 +95,11 @@ THE SOFTWARE.
 			    	<include collection="Math" />
 			    	<include collection="tclLanguage" />
 			    	<include collection="FormatSpecifier"/>
+			    	<include collection="FlowControl" />
 			    	<include collection="Operators" />
 			    	<include collection="OperatorsNotInQuotesAllowed" />
 			    	<include collection="Comments" />
 			    	<include collection="Strings"/>
-			    	<include collection="FlowControl" />
 			    	<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
 			    	<include collection="General" />
 			    	<include collection="BracesBrackets" />
@@ -110,12 +109,20 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="Parenthesis">
-			
-			<zone name="tcl.keyword.punctuation.open-parenthesis">
-				<expression>\(</expression>
-			</zone>
-			<zone name="tcl.keyword.punctuation.open-parenthesis">
-				<expression>\)</expression>
+						
+			<zone name="tcl.container.balanced-parenthesis">
+			    <starts-with>
+			        <expression>\(</expression>
+			        <capture number="0" name="tcl.punctuation.open-parenthesis"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\)</expression>
+			        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="Operators" />
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
 			</zone>
 				
 		</collection>
@@ -179,10 +186,48 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.command.definition.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
+			
+			<zone name="tcl.keyword.set-variable.array">
+			    <starts-with>
+			        <expression>\b(set)\s+([[:alnum:]_?!]+)(\()</expression>
+			        <capture number="1" name="tcl.keyword.command.function-call.definition.command-set"/>
+			        <capture number="2" name="tcl.keyword.var"/>
+			        <capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\))</expression>
+			        <capture number="1" name="tcl.keyword.punctuation.open-parenthesis"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
+			</zone>
+			<zone name="tcl.keyword.unset-variable.array">
+			    <starts-with>
+			        <expression>\b(unset)\s+([[:alnum:]_?!]+)(\()</expression>
+			        <capture number="1" name="tcl.keyword.command.function-call.definition.command-unset"/>
+			        <capture number="2" name="tcl.unset-var"/>
+			        <capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>(\))</expression>
+			        <capture number="1" name="tcl.keyword.punctuation.open-parenthesis"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
+			</zone>
+			
 			<zone name="tcl.keyword.set-function-call.definition">
 			    <expression>\b(set)\s+([[:alnum:]_]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.definition.command-set"/>
 			    <capture number="2" name="tcl.var"/>
+			</zone>
+			<zone name="tcl.keyword.unset-function-call.definition">
+			    <expression>\b(unset)(?:\s+(-nocomplain))?((\s+([[:alnum:]_]+))+)?</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.definition.unset-global"/>
+			    <capture number="2" name="tcl.keyword.property-name"/>
+			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.keyword.append-function-call.definition">
 			    <expression>\b(append)\s+([[:alnum:]_]+)?</expression>
@@ -217,12 +262,6 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.keyword.options.array-dict"/>
 			    <capture number="3" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.keyword.unset-function-call.definition">
-			    <expression>\b(unset)(?:\s+(-nocomplain))?((\s+([[:alnum:]_]+))+)?</expression>
-			    <capture number="1" name="tcl.keyword.command.function-call.definition.unset-global"/>
-			    <capture number="2" name="tcl.keyword.property-name"/>
-			    <capture number="3" name="tcl.unset-var"/>
-			</zone>
 						
 			<zone name="tcl.keyword.set-variable.substitute">
 			    <starts-with>
@@ -236,28 +275,28 @@ THE SOFTWARE.
 			        <capture number="2" name="tcl.keyword.var.substitute.rest"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="EscapeChar"/>
+				    <include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
-			<!--TODO: not shure anymore what this sould be :)-->
-			<zone name="tcl.keyword.set-variable.substitute.array">
+
+			<zone name="tcl.container.array-evaluate">
 			    <starts-with>
-			        <expression>([[:alnum:]_?!]*)(\$\()</expression>
-			        <capture number="1" name="tcl.keyword.var.substitute.rest"/>
-			        <capture number="2" name="tcl.keyword.var.substitute.begin"/>
+			        <expression>(\$)([[:alnum:]_]+)(\()</expression>
+			        <capture number="1" name="tcl.variable.definition.evaluate.punctuation"/>
+			        <capture number="2" name="tcl.variable.definition.evaluate"/>
+			        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(\))([[:alnum:]_?!]*)</expression>
-			        <capture number="1" name="tcl.keyword.var.substitute.end"/>
-			        <capture number="2" name="tcl.keyword.var.substitute.rest"/>
+			        <expression>\)</expression>
+			        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="EscapeChar"/>
+			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
-						
+								
 			<zone name="tcl.variable.definition.evaluate">
-			    <expression>(\$)[[:alnum:]_?!]+\b</expression>
+			    <expression>(\$)[[:alnum:]_]+\b</expression>
 			    <capture number="1" name="tcl.variable.definition.evaluate.punctuation"/>
 			</zone>
 			
@@ -307,23 +346,23 @@ THE SOFTWARE.
 		</collection>
         
         <collection name="Operators"><!--(?=\$|\s|\[|\d) makes the zone more specific so that no syntax highlighting for strings which have e.g. test-test-->
-               
+            
            	<zone name="tcl.keyword.operator.relational">
-        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)((=|!)=|&lt;=?|>=?)(?=\$|\s|\[|\(|\d)</expression>
+        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)((=|!)=|&lt;=?|>=?)</expression>
         	</zone>
         	        	
         	<zone name="tcl.keyword.operator.logical">
-        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(\|\||&amp;&amp;|!)(?=\$|\s|\[|\(|\d)</expression>
+        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(\|\||&amp;&amp;|!)</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.operator.bitwise">
-        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(&gt;&gt;|&lt;&lt;|\||\^|&amp;|~)(?=\$|\s|\[|\(|\d)</expression>
+        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(&gt;&gt;|&lt;&lt;|\||\^|&amp;|~)</expression>
         	</zone>
         	        	
         	<zone name="tcl.keyword.operator.arithmetic">
-        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(\+|-|\*\*?|\/|%)(?=\$|\s|\[|\(|\d)</expression>
+        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(\+|-|\*\*?|\/|%)</expression>
         	</zone>
-        	
+        	        	
         </collection>
         <!--these procuce syntax error when quoted so there is a extra definition to exclude it from quoted stuff:-->
         <collection name="OperatorsNotInQuotesAllowed">
@@ -406,7 +445,7 @@ THE SOFTWARE.
         	        <capture number="2" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
-        	        <expression>(\})\s+([[:alnum:]_?!]+)(\s+[[:alnum:]_?!]+)?</expression>
+        	        <expression>(\})\s+([[:alnum:]_]+)(\s+[[:alnum:]_]+)?</expression>
         	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	        <capture number="2" name="tcl.var.catch-var"/>
         	        <capture number="3" name="tcl.var.catch-options-var"/>
@@ -415,7 +454,7 @@ THE SOFTWARE.
         	    	<include syntax="language-root.tcl" />
         	    </subzones>
         	</zone>
-        	
+        	        	
         	<zone name="tcl.keyword.command.function-call">
         		<expression>\b(try|prefix|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|array|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|trace|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|source|vwait|concat|http|open|split|package|string|dde|incr|parray|subst|dict|info|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|args)(?=\s|\]|;)</expression>
         	</zone>
@@ -545,11 +584,27 @@ THE SOFTWARE.
         </collection>
         
         <collection name="Math">
-        
+        	
+        	<zone name="tcl.container.function-call-expr">
+        	    <starts-with>
+        	        <expression>\b(expr)\s+(\()</expression>
+        	        <capture number="1" name="tcl.keyword.command.function-call"/>
+        	        <capture number="2" name="tcl.punctuation.open-parenthesis"/>
+        	    </starts-with>
+        	    <ends-with>
+        	        <expression>\)</expression>
+        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        	    </ends-with>
+        	    <subzones>
+        	    	<include collection="Operators" />
+        	    	<include collection="Parenthesis" />
+        	    	<include syntax="language-root.tcl" />
+        	    </subzones>
+        	</zone>
         	<!--tcl has some parenthesis syntactical sugar for math-->
         	<zone name="tcl.container.math">
         		<starts-with>
-        			<expression>(\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|=)?(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\s*(\()</expression>
+        			<expression>(\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|=)?([[:alnum:]_]+)\s*(\()</expression>
         			<capture number="1" name="tcl.keyword.operator.arithmetic"/>
         			<capture number="2" name="tcl.keyword.operator.math"/>
         			<capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
@@ -559,6 +614,7 @@ THE SOFTWARE.
         			<capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
         		</ends-with>
         		<subzones>
+        			<include collection="Operators" />
         			<include syntax="language-root.tcl" />
         		</subzones>
         	</zone>
@@ -580,12 +636,12 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone><!--"." after number-->
-        		<expression>(?&lt;![[:alnum:]_?!:\.\$])(\d+\.)(?!\w)</expression>
+        		<expression>(?&lt;![[:alnum:]_!\.\$])(\d+\.)(?!\w)</expression>
         		<capture number="1" name="tcl.constant.numeric.point"/>
         	</zone>
         	
    			<zone name="tcl.constant.numeric.normal">
-				<expression>(?&lt;![[:alnum:]_?!:\.\$])((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))(?!\w|\.[[:alnum:]_?!:\.])</expression>
+				<expression>(?&lt;![[:alnum:]_!\.\$])((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))(?!\w|\.[[:alnum:]_?!:\.])</expression>
 			</zone>
 			
 			<zone name="tcl.constant.numeric.octal">
@@ -604,7 +660,10 @@ THE SOFTWARE.
         
         <collection name="General">
         	<zone name="tcl.language.word"> 
-        		<expression>[[:alnum:]_?!:\-\.]+|,</expression>
+        		<expression>[[:alnum:]_\-!,\.;@]+</expression>
+        	</zone>
+        	<zone name="tcl.language.word"> 
+        		<expression>[\?:\(\)]</expression>
         	</zone>
         </collection>
         

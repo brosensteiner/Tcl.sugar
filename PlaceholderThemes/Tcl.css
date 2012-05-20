@@ -4,7 +4,8 @@
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
     has some Amira hacks - delete Amira selector if needed
 */
-
+tcl.function-call[text='expr'] + s + container word[text='('],
+tcl.function-call[text='expr'] + s + container word[text=')'],
 tcl.open-brace,
 tcl.close-brace,
 tcl.open-parenthesis,
@@ -78,15 +79,15 @@ tcl.unset-var {
 	font-style: italic;
 }
 
-tcl.keyword.option.amira {
-	font-weight: normal;
-}
-
 tcl.function-call[text='expr'] + s + container word[text='?'],
 tcl.function-call[text='expr'] + s + container word[text=':'] {
 	color: rgb(243, 134, 42);
 	font-weight: bold;
 	font-style: italic;
+}
+
+tcl.keyword.option.amira {
+	font-weight: normal;
 }
 
 tcl.format-specifier,
