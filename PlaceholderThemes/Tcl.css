@@ -4,9 +4,6 @@
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
     has some Amira hacks - delete Amira selector if needed
 */
-:not(tcl.comment, tcl.string) {
-	spell-check: disabled;
-}
 
 tcl.open-brace,
 tcl.close-brace,
@@ -28,18 +25,7 @@ amira.keyword {
 	font-weight: bold;
 }
 
-tcl.variable.substitute {
-	color: rgba(163, 214, 132, 0.8);
-}
-
-tcl.set-variable,
-tcl.set-variable.substitute.rest,
-tcl.set-var,
-tcl.global-var,
-tcl.variable-var,
-tcl.append-var,
-tcl.catch-var,
-tcl.catch-options-var,
+tcl.var,
 
 tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
@@ -87,7 +73,6 @@ tcl.rename-var-newname {
 	font-style: italic;
 }
 
-tcl.rename-var-oldname,
 tcl.unset-var {
 	color: #e51c1c;
 	font-style: italic;
@@ -105,6 +90,7 @@ tcl.function-call[text='expr'] + s + container word[text=':'] {
 }
 
 tcl.format-specifier,
+tcl.function-call + options,
 tcl.function-call + s + options,
 tcl.function-call + s + options + s + options,
 tcl.function-call + s + options + s + options + s + options,

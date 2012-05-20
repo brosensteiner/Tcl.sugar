@@ -279,7 +279,14 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="Safe Base" />
-		<completion string="unset" />
+		<completion string="unset">
+			<behavior>
+				<append-dynamic>
+				<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+				<transform-into>(?1:$1: ${1:?-nocomplain?} ${2:?name name name ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="catch">
 			<behavior>
 				<append-dynamic>
@@ -405,7 +412,7 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="dict"/>
+		<completion string="dict" />
 		<completion string="info" />
 		<completion string="pid" />
 		<completion string="switch" />

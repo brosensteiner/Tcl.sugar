@@ -31,7 +31,7 @@ this code completion scheme works well for all options but can make apperring a 
 <codesense>
     
 	<provider>
-	 	<selector>tcl, tcl :not(keyword,keyword + s + options,tcl.keyword + s + options + s + options,property-name) + * + * + *, punctuation + * + *</selector>
+	 	<selector>tcl, tcl :not(keyword + s + options,tcl.keyword + s + options + s + options,property-name) + * + * + *, punctuation + * + *</selector>
 	 	<completions>com.rosensteiner.Tcl.functions</completions>
 	 	<completions>com.rosensteiner.Tcl.math</completions>
 	 	<completions>com.rosensteiner.Tcl.global-variables</completions>
@@ -39,7 +39,7 @@ this code completion scheme works well for all options but can make apperring a 
 	 	<complete-match>(?&lt;!\\|_|-)[a-zA-Z_]*</complete-match>
 	</provider>
 	<provider>
-		<selector>tcl, tcl :not(keyword,keyword + s + options,keyword + s + options + s + options,property-name) + * + * + *, punctuation + * + *</selector>
+		<selector>tcl, tcl :not(keyword + s + options,keyword + s + options + s + options,property-name) + * + * + *, punctuation + * + *</selector>
 		<completions>com.rosensteiner.Tcl.other-things</completions>
 		<complete-match>(?&lt;=-)[a-zA-Z_]*</complete-match>
 	</provider>
