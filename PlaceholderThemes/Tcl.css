@@ -4,8 +4,7 @@
     @author Bernhard Rosensteiner <brosensteiner@gmail.com>
     has some Amira hacks - delete Amira selector if needed
 */
-tcl.function-call[text='expr'] + s + container word[text='('],
-tcl.function-call[text='expr'] + s + container word[text=')'],
+
 tcl.open-brace,
 tcl.close-brace,
 tcl.open-parenthesis,

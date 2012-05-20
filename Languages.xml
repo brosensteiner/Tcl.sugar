@@ -48,7 +48,7 @@ THE SOFTWARE.
 			<description>Tcl.sugar for Macrabbit´s Espresso with support for Visage Imagings´s Amira Tcl Interface</description>
 			<author>Bernhard Rosensteiner</author>
 			<identifier>com.rosensteiner.Sugar.Tcl</identifier>
-			<version status="beta">0.995</version>
+			<version status="shipping">1.0</version>
 			<download format="git">https://github.com/brosensteiner/Tcl.sugar</download>
 		</meta>
        
