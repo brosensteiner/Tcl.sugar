@@ -1,6 +1,6 @@
 # Tcl.sugar
 
-this sugar has the goal to be the ultimate Tcl IDE for MacRabbit´s Espresso 2.0 (complete code sense and syntax highlighting of all Tcl built-in procedures, options and switches - mostly  auto-generated with a script from the Tcl 8.6 manual and when needed tuned by hand). This Sugar also provides all typical Espresso Sugar "bells and whistles" (nice icons navigator view, proper code folding ...). So if someone has suggestions or questions please let me know and [email me](mailto:brosensteiner@gmail.com)
+this sugar has the goal to be the ultimate Tcl IDE for MacRabbit´s Espresso 2.0 (complete code sense and syntax highlighting of all Tcl built-in procedures, options and switches - mostly  auto-generated with a script from the Tcl 8.6 manual and when needed tuned by hand). This Sugar also provides all typical Espresso Sugar "bells and whistles" (nice icons navigator view, proper code folding ...). So if someone has suggestions (e.g. with tcl it is not so easy to catch all things accurate - EISA) or questions please let me know and [email me](mailto:brosensteiner@gmail.com)
 
 **IMPORTANT:** In order to use some of the text actions the [ShellActions-sugar](https://github.com/onecrayon/ShellActions-sugar) is needed
 and if you want regex syntax highlighting in "regexp" and "regsub" commands you need the [regex.sugar](https://github.com/elliottcable/regex.sugar)

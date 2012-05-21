@@ -47,10 +47,10 @@ THE SOFTWARE.
 			<capture number="1" name="tcl.keyword.command.class.name"/>
 		</zone>
 		<include collection="Math" />
+		<include collection="VariableExpansion" />
 		<include collection="tclLanguage" />
 		<include collection="FormatSpecifier"/>
 		<include collection="FlowControl" />
-		<include collection="OperatorsNotInQuotesAllowed" />
 		<include collection="Comments" />
 		<include collection="Strings"/>
 		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
@@ -73,6 +73,8 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.close-bracket"/>
 			    </ends-with>
 			    <subzones>
+			    	<include collection="OperatorsNotInQuotesAllowed" />
+			    	<include collection="VariableExpansion" />
 			    	<include syntax="language-root.tcl" />
 			    	<include collection="Operators" />
 			    </subzones>
@@ -93,6 +95,7 @@ THE SOFTWARE.
 			    	<include collection="Numeric" />
 			    	<include collection="Variables" />
 			    	<include collection="Math" />
+			    	<include collection="VariableExpansion" />
 			    	<include collection="tclLanguage" />
 			    	<include collection="FormatSpecifier"/>
 			    	<include collection="FlowControl" />
@@ -183,7 +186,7 @@ THE SOFTWARE.
 
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 		
-			<zone name="tcl.keyword.command.definition.command.upvar">
+			<zone name="tcl.keyword.command.function-call.command.upvar">
 			    <expression>upvar</expression>
 			</zone>
 			
@@ -278,27 +281,6 @@ THE SOFTWARE.
 				    <include collection="EscapeChar"/>
 			    </subzones>
 			</zone>
-
-			<zone name="tcl.container.array-evaluate">
-			    <starts-with>
-			        <expression>(\$)(\w+)(\()</expression>
-			        <capture number="1" name="tcl.variable.definition.evaluate.punctuation"/>
-			        <capture number="2" name="tcl.variable.definition.evaluate"/>
-			        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>\)</expression>
-			        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
-			    </ends-with>
-			    <subzones>
-			    	<include syntax="language-root.tcl" />
-			    </subzones>
-			</zone>
-								
-			<zone name="tcl.variable.definition.evaluate">
-			    <expression>(\$)\w+\b</expression>
-			    <capture number="1" name="tcl.variable.definition.evaluate.punctuation"/>
-			</zone>
 			
 		</collection>
 		
@@ -331,9 +313,8 @@ THE SOFTWARE.
 			    </ends-with>
 			    <subzones>
 			    	<include collection="EscapeChar"/>
-			    	<include collection="Invalid" />
+			    	<include collection="VariableExpansion" />
 			    	<include collection="Numeric" />
-			    	<include collection="Variables" />
 			    	<include collection="Math" />
 			    	<include collection="FormatSpecifier"/>
 			    	<include collection="Operators" />
@@ -384,6 +365,30 @@ THE SOFTWARE.
         		<capture number="3" name="tcl.keyword.additional.format-precision"/>
         		<capture number="4" name="tcl.keyword.additional.format-type"/>
         	</zone>
+        </collection>
+        
+        <collection name="VariableExpansion">
+        
+        	<zone name="tcl.container.array-evaluate">
+        	    <starts-with>
+        	        <expression>(\$)(\w+)(\()</expression>
+        	        <capture number="1" name="tcl.variable.definition.evaluate.punctuation"/>
+        	        <capture number="2" name="tcl.variable.definition.evaluate"/>
+        	        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
+        	    </starts-with>
+        	    <ends-with>
+        	        <expression>\)</expression>
+        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        	    </ends-with>
+        	    <subzones>
+        	    	<include syntax="language-root.tcl" />
+        	    </subzones>
+        	</zone>
+        	<zone name="tcl.variable.definition.evaluate">
+        	    <expression>(\$)\w+\b</expression>
+        	    <capture number="1" name="tcl.variable.definition.evaluate.punctuation"/>
+        	</zone>
+        	
         </collection>
         
         <collection name="tclLanguage">
@@ -660,7 +665,7 @@ THE SOFTWARE.
         
         <collection name="General">
         	<zone name="tcl.language.word"> 
-        		<expression>[\w!,\.;@]+|[\w\-]{2,}</expression>
+        		<expression>[\w!,\.@]+|[\w\-]{2,}</expression>
         	</zone>
         	<zone name="tcl.language.word"> 
         		<expression>[\?:\(\)]</expression>
