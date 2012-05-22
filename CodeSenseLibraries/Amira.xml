@@ -322,6 +322,17 @@
 		<completion string="setShininess" />
 		<completion string="showBox" />
 		<completion string="hideBox" />
+		<!--spreadsheet object-->
+		<completion string="master" />
+		<completion string="addColumn" />
+		<completion string="getNumCols" />
+		<completion string="setColName" />
+		<completion string="getNumRows" />
+		<completion string="setDecimalPoint" />
+		<completion string="setNumFormat" />
+		<completion string="setNumRows" />
+		<completion string="autoFormat" />
+		<completion string="print" />
 		<!--additional commands-->
 		<completion string="allInterfaceTypeIds" />
 		<completion string="allInterfaces" />

@@ -31,7 +31,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
 
     <zones>
     
-		<zone name="amira.sciptobject.shebang">
+		<zone name="amira.sciptobject.comment.shebang">
     	    <expression>^# (Amira-Script-Object V3\.0|Amira Script)</expression>
     	</zone>
     	
@@ -142,7 +142,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.additional-commands">
-    	    <expression>(?&lt;=(\w|\])\s)(allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap| primType|primary|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(master|addColumn|getNumCols|setColName|getNumRows|setDecimalPoint|setNumFormat|setNumRows|autoFormat|print|allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap| primType|primary|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
     	</zone>
 		
     </zones>

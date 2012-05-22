@@ -38,7 +38,7 @@ THE SOFTWARE.
 			<extension casesensitive="true">rc</extension><!--amira-->
 			<extension casesensitive="true">hx</extension><!--amira-->
 			
-			<match-content lines="2">^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh|#\s+Amira-Script-Object|#\s+Amira Script</match-content> 
+			<match-content lines="3">^#!\\.+\\(tclsh|wish)|^#!\\.+\\env\stclsh|#\s+Amira-Script-Object|#\s+Amira Script|^exec\s+tclsh</match-content> 
 		</detectors>
 		
  		<default-extension>tcl</default-extension>

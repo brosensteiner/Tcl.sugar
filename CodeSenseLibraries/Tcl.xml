@@ -34,11 +34,20 @@ THE SOFTWARE.
 	            <transform-into>(?1:: $0)</transform-into>
 	        </append-dynamic>
 	    </behavior>
+	    
+	    <completion string="tclsh">
+	    	<behavior>
+	    		<append-dynamic>
+	    		<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	    		<transform-into>(?1:$1: ${1:?-encoding name?} ${2:?fileName arg arg ...?}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
 	    <completion string="try">
 	    	<behavior>
 	    		<append-dynamic>
 	    		<matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	    		<transform-into>(?1:$1: ${1:body} ${2:?handler...??} ${3:?finally script?}$0)</transform-into>
+	    		<transform-into>(?1:$1: ${1:body} ${2:?handler...?} ${3:?finally script?}$0)</transform-into>
 	    		</append-dynamic>
 	    	</behavior>
 	    </completion>
@@ -1688,6 +1697,31 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	    
+	</set>
+	<!--tclsh options-->
+	<set name="com.rosensteiner.Tcl.function.tclsh" casesensitive="true">
+		<completion string="-encoding" />
+	</set>
+	<!--lsearch options-->
+	<set name="com.rosensteiner.Tcl.function.lsearch" casesensitive="true">
+	    <completion string="-exact"/>
+	    <completion string="-glob"/>
+	    <completion string="-regexp"/>
+	    <completion string="-sorted"/>
+	    <completion string="-all"/>
+	    <completion string="-inline"/>
+	    <completion string="-not"/>
+	    <completion string="-start"/>
+	    <completion string="-ascii"/>
+	    <completion string="-dictionary"/>
+	    <completion string="-integer"/>
+	    <completion string="-nocase"/>
+	    <completion string="-real"/>
+	    <completion string="-decreasing"/>
+	    <completion string="-increasing"/>
+	    <completion string="-bisect"/>
+	    <completion string="-index"/>
+	    <completion string="-subindices"/>
 	</set>
 	<!--fcopy options-->
 	<set name="com.rosensteiner.Tcl.function.fcopy" casesensitive="true">

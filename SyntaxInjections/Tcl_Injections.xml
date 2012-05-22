@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <injections>
 	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "s" zones, but code completion is now fairly intelligent-->
-	<injection name="injection.zone-helper" selector="tcl function-call" action="attach-before-target">
+	<injection name="tcl.injection.zone-helper" selector="tcl, tcl *" action="attach-before-target">
 	    <include collection="ZoneHelper" />
 	</injection>
 	
@@ -35,8 +35,9 @@ THE SOFTWARE.
     </injection>
       
     <library>
+    
     	<collection name="ZoneHelper">
-    		<zone name="s">
+    		<zone name="tcl.s">
 				<starts-with>
 				    <expression>(?&lt;!\{|\(|\[)\s</expression>
 				</starts-with>
@@ -44,18 +45,6 @@ THE SOFTWARE.
 				    <expression>(?=\S)</expression>
 				</ends-with>
     		</zone>			
-    	</collection>
-    	<!--maybe to much, so here for storage:-->
-    	<collection name="FormatSpecifierBinary">
-    		<zone name="tcl.keyword.options.binary.format.format-specifier">
-				<expression>([aAbBHhcsStinWmfrRdqQxX@])(.?)(\d*|\*)</expression>
-				<capture number="1" name="tcl.keyword.additional.format-type"/>
-				<capture number="2" name="tcl.keyword.additional.format-flags"/>
-				<capture number="3" name="tcl.keyword.additional.format-precision"/>
-				<cut-off>
-					<expression>\S</expression>
-				</cut-off>
-			</zone>			
     	</collection>
         
     </library>
