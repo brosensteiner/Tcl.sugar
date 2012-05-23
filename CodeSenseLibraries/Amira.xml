@@ -395,7 +395,7 @@
 		<completion string="DoIt" />
 		<completion string="doIt" />
 		<completion string="call" />
-		<completion string="exec" />
+		<!--<completion string="exec" />--><!--is in Tcl already-->
 		<completion string="getResult" />
 		<completion string="isFirstCall" />
 		<completion string="script" />

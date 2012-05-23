@@ -190,6 +190,12 @@ this code completion scheme works well for all options but can make apperring a 
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
 		<complete-match>-?[a-zA-Z]*</complete-match>
 	</provider>
+	<!--proc name option-->
+	<provider>
+		<selector>tcl keyword:capture(name) + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>[a-zA-Z-]*</complete-match>
+	</provider>
 	<!--proc option option-->
 	<provider>
 		<selector>tcl keyword:capture(name) + s + *:capture(options) + s + * + *</selector>
@@ -205,6 +211,12 @@ this code completion scheme works well for all options but can make apperring a 
 	<!--proc option switch option && proc option switch switch-->
 	<provider>
 		<selector>tcl keyword:capture(name) + s + *:capture(options) + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-?[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option switch option option && proc option switch switch switch-->
+	<provider>
+		<selector>tcl keyword:capture(name) + s + *:capture(options) + s + * + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>-?[a-zA-Z-]*</complete-match>
 	</provider>
