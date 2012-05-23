@@ -2251,6 +2251,8 @@ THE SOFTWARE.
 	    <completion string="wideinteger"/>
 	    <completion string="wordchar"/>
 	    <completion string="xdigit"/>
+	    <completion string="-strict" />
+	    <completion string="-failindex" />
 	</set>
 	<!--string property-name-->
 	<set name="com.rosensteiner.Tcl.function.string.compare" casesensitive="true">
@@ -2261,83 +2263,83 @@ THE SOFTWARE.
 		<completion string="-nocase" />
 		<completion string="-length" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.alnum" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is alnum" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.alpha" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is alpha" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.ascii" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is ascii" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.boolean" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is boolean" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.control" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is control" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.digit" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is digit" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.double" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is double" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.false" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is false" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.graph" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is graph" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.integer" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is integer" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.list" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is list" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.lower" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is lower" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.print" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is print" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.punct" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is punct" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.space" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is space" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.true" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is true" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.upper" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is upper" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.wideinteger" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is wideinteger" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.wordchar" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is wordchar" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is.xdigit" casesensitive="true">
+	<set name="com.rosensteiner.Tcl.function.string.is xdigit" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
