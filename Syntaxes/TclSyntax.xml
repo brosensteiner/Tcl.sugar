@@ -165,7 +165,7 @@ THE SOFTWARE.
 			    	<capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>$[\n\r]*</expression>
+			        <expression>\s*$[\n\r]*</expression>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>
