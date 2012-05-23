@@ -473,7 +473,7 @@ THE SOFTWARE.
         	    <capture number="3" name="tcl.keyword.options.prefix"/>
         	</zone>
         	<zone>
-        		<expression>\b(trace)(\s+)(add|remove|info|variable|vdelete|vinfo)\b</expression>
+        		<expression>\b(trace)(\s+)(add(\s+(command|execution|variable))?|remove(\s+(command|execution|variable))?|info(\s+(command|execution|variable))?|variable|vdelete|vinfo)\b</expression>
         		<capture number="1" name="tcl.keyword.command.function-call"/>
         		<capture number="2" name="tcl.s"/>
         		<capture number="3" name="tcl.keyword.options.trace"/>
@@ -514,6 +514,18 @@ THE SOFTWARE.
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.keyword.options.http"/>
         	</zone>
+        	<zone>
+        	    <expression>\b(file)(\s+)(atime|attributes|channels|copy|delete|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|nativename|normalize|owned|pathtype|readable|readlink|rename|rename|rootname|separator|size|split|stat|system|tail|tempfile|type|volumes|writable)\b</expression>
+        	    <capture number="1" name="tcl.keyword.command.function-call"/>
+        	    <capture number="2" name="tcl.s"/>
+        	    <capture number="3" name="tcl.keyword.options.file"/>
+        	</zone>
+        	<zone>
+        		<expression>\b(package)(\s+)(forget|ifneeded|names|present|provide|require|unknown|vcompare|versions|package|prefer|vsatisfies)\b</expression>
+        		<capture number="1" name="tcl.keyword.command.function-call"/>
+        		<capture number="2" name="tcl.s"/>
+        		<capture number="3" name="tcl.keyword.options.package"/>
+        	</zone>
         	      	        	
         	<zone name="tcl.keyword.command.function-call">
         		<expression>\b(tclsh|try|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset)(?=\s|\]|;)</expression>
@@ -530,18 +542,11 @@ THE SOFTWARE.
         	<zone name="tcl.keyword.property-name">
         		<expression>(?&lt;![\w?!])-[\w?!]+\b|(?&lt;![\w?!])--(?=\s)</expression>
         	</zone>
-        	       	
-        	<zone name="tcl.keyword.options.package">
-        		<expression>\b(forget|ifneeded|names|present|provide|require|unknown|vcompare|versions|package|prefer|vsatisfies)\b</expression>
-        	</zone>
+        	
         	<zone name="tcl.keyword.options.package.prefer">
         		<expression>\b(latest|stable|unstable)\b</expression>
         	</zone>
-			
-			<zone name="tcl.keyword.options.file">
-			    <expression>\b(atime|attributes|channels|copy|delete|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|nativename|normalize|owned|pathtype|readable|readlink|rename|rename|rootname|separator|size|split|stat|system|tail|tempfile|type|volumes|writable)\b</expression>
-			</zone>
-			
+						
 			<zone name="tcl.keyword.options.chan">
 			    <expression>\b(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read|start|current|end|auto|binary|cr|crlf|lf)\b</expression>
 			</zone>
@@ -589,23 +594,7 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.options.namespace">
 				<expression>\b(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
 			</zone>
-						
-			<zone name="tcl.keyword.options.trace.add-remove-info">
-				<expression>\b(command|execution|variable)\b</expression>
-			</zone>
-			
-			<zone name="tcl.keyword.options.trace.add-command">
-				<expression>\b(rename|delete)\b</expression>
-			</zone>
-			
-			<zone name="tcl.keyword.options.trace.add-execution">
-				<expression>\b(enter|leave|enterstep|leavestep)\b</expression>
-			</zone>
-			
-			<zone name="tcl.keyword.options.trace.add-variable">
-				<expression>\b(array|read|write|unset)\b</expression>
-			</zone>
-						
+				
 			<zone name="tcl.keyword.options.info.frame">
 				<expression>\b(type|line|file|cmd|proc|lambda|level)\b</expression>
 			</zone>
