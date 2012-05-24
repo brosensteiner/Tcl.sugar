@@ -5,6 +5,16 @@ this sugar has the goal to be the ultimate Tcl IDE for MacRabbit´s Espresso 2.0
 **IMPORTANT:** In order to use some of the text actions the [ShellActions-sugar](https://github.com/onecrayon/ShellActions-sugar) is needed
 and if you want regex syntax highlighting in "regexp" and "regsub" commands you need the [regex.sugar](https://github.com/elliottcable/regex.sugar)
 
+## Amira Tcl interface
+
+This sugar contains special commands from Visage Imaging´s Amira (5.2.4) Tcl scripting interface. Since the Amira Tcl commands are only a Tcl library this commands are not in a separate sugar. If you don´t need it (most people will not need it) you can easily delete the following files in the Tcl.sugar:
+
+- /Syntaxes/AmiraSyntax.xml
+- /CodeSenseLibraries/Amira.xml
+- /CodeSenseProvieders/Amira.xml
+- /TextActions/Amira.*
+- /PlaceholderThemes/Tcl.css (only Amira selector in the file!)
+
 ## Installation
 
 Paste the following in terminal:
