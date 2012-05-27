@@ -44,6 +44,12 @@ $0</text>
 		<text>proc ${1:name} \{ ${2:arguments} \} \{ ${3:body} \}$0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>nproc1</text-trigger>
-	</snippet> 
+	</snippet>
+	
+	<snippet id="com.rosensteiner.actions.snippets.tcl.argument-expansion" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+		<title>argument expansion</title>
+		<text>\{*\}$0</text>
+		<language-context>tcl</language-context>
+	</snippet>
 
 </action-recipes>

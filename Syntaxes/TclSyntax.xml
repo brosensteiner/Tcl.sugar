@@ -148,7 +148,7 @@ THE SOFTWARE.
 			<!--this multiline comment is actually a convinient way to write comments in tcl because this approach doesn´t fill Espresso´s Navigator with every comment line:-->
 			<zone name="tcl.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
-			        <expression>(?&lt;=;|\s|^|\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
+			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
 			        <capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
@@ -161,7 +161,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.comment.line">
 				<starts-with>
-			    	<expression>(?&lt;=;|\s|^|\{)(#)[^\d]?</expression>
+			    	<expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?</expression>
 			    	<capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
@@ -407,6 +407,9 @@ THE SOFTWARE.
         	</zone>
         	<zone name="tcl.punctuation.command-goes-on">
         		<expression>\\\s*?[\n\r]</expression>
+        	</zone>
+        	<zone name="tcl.keyword.command.argument-expansion">
+        		<expression>\{\*\}</expression>
         	</zone>
         	
         	<zone>
