@@ -650,6 +650,10 @@ THE SOFTWARE.
         		<subzones>
         			<include collection="Operators" />
         			<include syntax="language-root.tcl" />
+        			<zone>
+        				<expression>(?&lt;!,),(?!,)</expression>
+        				<capture number="0" name="tcl.keyword.punctuation.comma"/>
+        			</zone>
         		</subzones>
         	</zone>
         	<zone>

@@ -1719,6 +1719,48 @@ THE SOFTWARE.
 	    </completion>
 	    
 	</set>
+	<!--lsort options-->
+	<set name="com.rosensteiner.Tcl.function.lsort" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-ascii"/>
+	    <completion string="-dictionary"/>
+	    <completion string="-integer"/>
+	    <completion string="-real"/>
+	    <completion string="-command">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:command}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-increasing"/>
+	    <completion string="-decreasing"/>
+	    <completion string="-indices"/>
+	    <completion string="-index">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:indexList}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-stride">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:strideLength}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-nocase"/>
+	    <completion string="-unique"/>
+	</set>
 	<!--trace options-->
 	<set name="com.rosensteiner.Tcl.function.trace.add" casesensitive="true">
 	    <behavior>

@@ -39,7 +39,7 @@ THE SOFTWARE.
     	<collection name="ZoneHelper">
     		<zone name="tcl.s">
 				<starts-with>
-				    <expression>(?&lt;!\{|\(|\[)\s</expression>
+				    <expression>(?&lt;!\{|"|\[)\s</expression>
 				</starts-with>
 				<ends-with>
 				    <expression>(?=\S)</expression>

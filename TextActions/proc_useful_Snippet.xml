@@ -47,9 +47,10 @@ $0</text>
 	</snippet>
 	
 	<snippet id="com.rosensteiner.actions.snippets.tcl.argument-expansion" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
-		<title>argument expansion</title>
+		<title>argument expansion ({*})</title>
 		<text>\{*\}$0</text>
 		<language-context>tcl</language-context>
+		<text-trigger>ep</text-trigger>
 	</snippet>
 
 </action-recipes>
