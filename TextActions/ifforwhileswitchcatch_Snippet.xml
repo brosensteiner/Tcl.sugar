@@ -121,8 +121,8 @@ THE SOFTWARE.
 <!--switch-->	
 	<snippet id="com.rosensteiner.actions.snippets.tcl.switch" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new switch</title>
-		<text>switch ${1:\{${2:pattern}\}} ${3:\{
-	${4:body}
+		<text>switch ${1:-switches} ${2:\{${3:pattern}\}} ${4:\{
+	${5:body}
 \}}$0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>nswitch</text-trigger>
@@ -131,7 +131,7 @@ THE SOFTWARE.
 <!--foreach-->
 	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new foreach</title>
-		<text>foreach ${1:var} ${2:list} \{
+		<text>foreach ${1:var} \$${2:list} \{
 	${3:body}
 \}$0</text>
 		<language-context>tcl</language-context>
@@ -141,7 +141,7 @@ THE SOFTWARE.
 <!--foreach one line-->
 	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new foreach at one line</title>
-		<text>foreach ${1:var} ${2:list} \{ ${3:body} \}$0</text>
+		<text>foreach ${1:var} \$${2:list} \{ ${3:body} \}$0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>nforeach1</text-trigger>
 	</snippet>

@@ -29,7 +29,7 @@ THE SOFTWARE.
 	<injection name="tcl.injection.zone-helper" selector="tcl, tcl *" action="attach-before-target">
 	    <include collection="ZoneHelper" />
 	</injection>
-	
+	<!--injects the regex.sugar:-->
     <injection name="injection.regex" selector="tcl tcl.regex" action="insert-before-children">
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
     </injection>

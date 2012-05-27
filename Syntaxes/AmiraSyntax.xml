@@ -32,7 +32,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     <zones>
     
 		<zone name="amira.sciptobject.comment.shebang">
-    	    <expression>^# (Amira-Script-Object V3\.0|Amira Script)</expression>
+    	    <expression>^#\s(Amira-Script-Object V3\.0|Amira Script)</expression>
     	</zone>
     	
     	<zone name="amira.keyword.global.variables">
@@ -86,7 +86,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-connectionport">
-    	    <expression>(?&lt;=(\w|\])\s)(source|connect|disconnect|setTightness|isTight|setVisibility|isVisible|allowEditing|isEditable|validSource)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(source|connect|connectTo|align|getValidTypes|sourceHasInterface|disconnect|setTightness|isTight|setVisibility|isVisible|allowEditing|isEditable|validSource)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-genericport">

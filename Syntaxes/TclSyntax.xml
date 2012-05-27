@@ -38,12 +38,12 @@ THE SOFTWARE.
 		<include collection="Variables" />
 		<!--procedures and classes only make sense in language-root zone-->
 		<zone name="tcl.keyword.command.function">
-			<expression>\b(proc)\s+([\w?!:\.]+)</expression>
+			<expression>\b(proc)\s+([^\[]+)</expression>
 			<capture number="1" name="tcl.keyword.command.function.function-call"/>
 			<capture number="2" name="tcl.keyword.command.function.name"/>
 		</zone>
 		<zone name="tcl.keyword.command.class">
-			<expression>\bclass\s+([\w?!:\.]+)</expression>
+			<expression>\bclass\s+([^\[]+)</expression>
 			<capture number="1" name="tcl.keyword.command.class.name"/>
 		</zone>
 		<include collection="tclLanguage" />
@@ -52,9 +52,9 @@ THE SOFTWARE.
 		<include collection="VariableExpansion" />
 		<include collection="FormatSpecifier"/>
 		<include collection="FlowControl" />
-		<include collection="Comments" />
 		<include collection="Strings"/>
 		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
+		<include collection="Comments" />
 		<include collection="General" />
 		<include collection="BracesBrackets" />
 		
@@ -101,9 +101,9 @@ THE SOFTWARE.
 			    	<include collection="FlowControl" />
 			    	<include collection="Operators" />
 			    	<include collection="OperatorsNotInQuotesAllowed" />
-			    	<include collection="Comments" />
 			    	<include collection="Strings"/>
 			    	<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
+			    	<include collection="Comments" />
 			    	<include collection="General" />
 			    	<include collection="BracesBrackets" />
 			    </subzones>
@@ -148,7 +148,7 @@ THE SOFTWARE.
 			<!--this multiline comment is actually a convinient way to write comments in tcl because this approach doesn´t fill Espresso´s Navigator with every comment line:-->
 			<zone name="tcl.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
-			        <expression>(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
+			        <expression>(?&lt;=;|\s|^)(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
 			        <capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
@@ -161,7 +161,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.comment.line">
 				<starts-with>
-			    	<expression>(#)[^\d]?</expression>
+			    	<expression>(?&lt;=;|\s|^)(#)[^\d]?</expression>
 			    	<capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
@@ -317,8 +317,8 @@ THE SOFTWARE.
 			    	<include collection="Operators" />
 			    	<include collection="Math" />
 			    	<include collection="FormatSpecifier"/>
-			    	<include collection="Comments" />
 			    	<include syntax="language-root.amira" />
+			    	<include collection="Comments" />
 			    	<include collection="General" />
 			    	<include collection="BracesBrackets" />
 			    </subzones>
@@ -336,15 +336,19 @@ THE SOFTWARE.
         	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(\|\||&amp;&amp;)(?!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.tcl-operator.logical.unari">
+        	<zone name="tcl.keyword.tcl-operator.logical.unary">
         	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(!)(?!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.tcl-operator.bitwise">
         	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(&gt;&gt;|&lt;&lt;|\||\^|&amp;|~)(?!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)</expression>
         	</zone>
+        	
+        	<zone name="tcl.keyword.tcl-operator.arithmetic.unary">
+        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(\+|-)(?=\$|\[|"|\{)</expression>
+        	</zone>
         	        	
-        	<zone name="tcl.keyword.tcl-operator.arithmetic">
+        	<zone name="tcl.keyword.tcl-operator.arithmetic.binary">
         	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(\+|-|\*\*?|\/|%)(?!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)</expression>
         	</zone>
         	        	
@@ -526,17 +530,23 @@ THE SOFTWARE.
         		<capture number="2" name="tcl.s"/>
         		<capture number="3" name="tcl.keyword.options.package"/>
         	</zone>
+        	<zone>
+        	    <expression>\b(chan)(\s+)(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read|start|current|end)\b</expression>
+        	    <capture number="1" name="tcl.keyword.command.function-call"/>
+        	    <capture number="2" name="tcl.s"/>
+        	    <capture number="3" name="tcl.keyword.options.chan"/>
+        	</zone>
 			
         	<zone name="tcl.keyword.command.function-call">
         		<expression>\b(tclsh|try|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset)(?=\s|\]|;)</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.command.global-procedures">
+        	<zone name="tcl.keyword.command.global.global-procedures">
         		<expression>\b(auto_execs|auto_index|auto_noexec|auto_noload|auto_path|unknown_pending)\b</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.global-variables">
-        		<expression>\b(args|env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|tcl_prompt1|tcl_prompt2|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE|resultVarName|-errorinfo|-errorcode|-errorline|-errorstack|-code|-level)\b</expression>
+        	<zone name="tcl.keyword.global.global-variables">
+        		<expression>\b(args|env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|tcl_prompt1|tcl_prompt2|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE|resultVarName)\b</expression>
         	</zone>
         	<!--catches all switches in tcl (e.g. "-switch"):-->
         	<zone name="tcl.keyword.property-name">
@@ -547,10 +557,6 @@ THE SOFTWARE.
         		<expression>\b(latest|stable|unstable)\b</expression>
         	</zone>
 						
-			<zone name="tcl.keyword.options.chan">
-			    <expression>\b(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read|start|current|end|auto|binary|cr|crlf|lf)\b</expression>
-			</zone>
-			
 			<zone name="tcl.keyword.options.close">
 			    <expression>\b(read|write)\b</expression>
 			</zone>
@@ -631,7 +637,7 @@ THE SOFTWARE.
         		<starts-with>
         			<expression>(?&lt;=\s|^)(\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|=)?(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\s*(\()</expression>
         			<capture number="1" name="tcl.keyword.tcl-operator.arithmetic"/>
-        			<capture number="2" name="tcl.keyword.tcl-operator.math"/>
+        			<capture number="2" name="tcl.keyword.operator.math"/>
         			<capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
         		</starts-with>
         		<ends-with>
@@ -643,9 +649,10 @@ THE SOFTWARE.
         			<include syntax="language-root.tcl" />
         		</subzones>
         	</zone>
-        	<zone name="tcl.keyword.tcl-operator.math">
+        	<zone>
         		<expression>(?&lt;=\s|^)(\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|=)?(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
         		<capture number="1" name="tcl.keyword.tcl-operator.arithmetic"/>
+        		<capture number="2" name="tcl.keyword.operator.math"/>
         	</zone>
         	
         </collection>

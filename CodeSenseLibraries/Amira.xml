@@ -138,6 +138,10 @@
 		<!--interface component port-->
 		<completion string="source" />
 		<completion string="connect" />
+		<completion string="connectTo" />
+		<completion string="align" />
+		<completion string="getValidTypes" />
+		<completion string="sourceHasInterface" />
 		<completion string="disconnect" />
 		<completion string="setTightness" />
 		<completion string="isTight" />
@@ -222,8 +226,6 @@
 		<completion string="saveScene" />
 		<completion string="viewAll" />
 		<completion string="view" />
-		<completion string="show" />
-		<completion string="hide" />
 		<completion string="fogRange" />
 		<completion string="setVideoFormat" />
 		<completion string="setVideoFrame" />
@@ -283,14 +285,12 @@
 		<completion string="getPosition" />
 		<completion string="getRelativeGeometry" />
 		<completion string="getSize" />
-		<completion string="hide" />
 		<completion string="setCaption" />
 		<completion string="setFrameGeometry" />
 		<completion string="setGeometry" />
 		<completion string="setPosition" />
 		<completion string="setRelativeGeometry" />
 		<completion string="setSize" />
-		<completion string="show" />
 		<completion string="showMinimized" />
 		<completion string="showMaximized" />
 		<!--parameters-->
