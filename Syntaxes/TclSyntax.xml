@@ -38,12 +38,12 @@ THE SOFTWARE.
 		<include collection="Variables" />
 		<!--procedures and classes only make sense in language-root zone-->
 		<zone name="tcl.keyword.command.function">
-			<expression>\b(proc)\s+([^\[\s]+)</expression>
+			<expression>\b(proc)\s+([^"\[][^\[\s]*)</expression>
 			<capture number="1" name="tcl.keyword.command.function.function-call"/>
 			<capture number="2" name="tcl.keyword.command.function.name"/>
 		</zone>
 		<zone name="tcl.keyword.command.class">
-			<expression>\bclass\s+([^\[\s]+)</expression>
+			<expression>\bclass\s+([^"\[][^\[\s]*)</expression>
 			<capture number="1" name="tcl.keyword.command.class.name"/>
 		</zone>
 		<include collection="tclLanguage" />
@@ -303,7 +303,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.container.string.quoted.double">
 			    <starts-with>
-			        <expression>"</expression>
+			        <expression>(?&lt;=\s|^)"</expression>
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.begin"/>
 			    </starts-with>
 			    <ends-with>
