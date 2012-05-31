@@ -649,6 +649,7 @@ THE SOFTWARE.
         		</ends-with>
         		<subzones>
         			<include collection="Operators" />
+        			<include collection="Parenthesis" />
         			<include syntax="language-root.tcl" />
         			<zone>
         				<expression>,</expression>
