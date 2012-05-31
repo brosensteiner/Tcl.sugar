@@ -471,6 +471,23 @@ THE SOFTWARE.
         	    	<include syntax="language-root.tcl" />
         	    </subzones>
         	</zone>
+        	<!--that expr don´t get mixed up with math functions and parenthesis can be highlighted:-->
+        	<zone name="tcl.container.function-call-expr">
+        	    <starts-with>
+        	        <expression>\b(expr)\s+(\()</expression>
+        	        <capture number="1" name="tcl.keyword.command.function-call"/>
+        	        <capture number="2" name="tcl.punctuation.open-parenthesis"/>
+        	    </starts-with>
+        	    <ends-with>
+        	        <expression>\)</expression>
+        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        	    </ends-with>
+        	    <subzones>
+        	    	<include collection="Operators" />
+        	    	<include collection="Parenthesis" />
+        	    	<include syntax="language-root.tcl" />
+        	    </subzones>
+        	</zone>
         	
         	<!--here comes zones which can maybe produce nameclashes (especially with amira syntax) with other keywords so they are more specific-->
         	<zone>
@@ -618,30 +635,13 @@ THE SOFTWARE.
         </collection>
         
         <collection name="Math">
-        	<!--that expr don´t get mixed up with math functions and parenthesis can be highlighted:-->
-        	<zone name="tcl.container.function-call-expr">
-        	    <starts-with>
-        	        <expression>\b(expr)\s+(\()</expression>
-        	        <capture number="1" name="tcl.keyword.command.function-call"/>
-        	        <capture number="2" name="tcl.punctuation.open-parenthesis"/>
-        	    </starts-with>
-        	    <ends-with>
-        	        <expression>\)</expression>
-        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
-        	    </ends-with>
-        	    <subzones>
-        	    	<include collection="Operators" />
-        	    	<include collection="Parenthesis" />
-        	    	<include syntax="language-root.tcl" />
-        	    </subzones>
-        	</zone>
+        	
         	<!--tcl has some parenthesis syntactical sugar for math (since tcl 8.5 one can define individual math functions, but this can not be handled with epresso zone syntax, because it would conflict with EIAS in tcl)-->
         	<zone name="tcl.container.math">
         		<starts-with>
-        			<expression>(?&lt;=\s|^)(\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|=)?(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\s*(\()</expression>
-        			<capture number="1" name="tcl.keyword.tcl-operator.arithmetic"/>
-        			<capture number="2" name="tcl.keyword.operator.math"/>
-        			<capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
+        			<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\s*(\()</expression>
+        			<capture number="1" name="tcl.keyword.command.function-call.operator.tcl-operator"/>
+        			<capture number="2" name="tcl.keyword.punctuation.open-parenthesis"/>
         		</starts-with>
         		<ends-with>
         			<expression>\)</expression>
@@ -651,15 +651,14 @@ THE SOFTWARE.
         			<include collection="Operators" />
         			<include syntax="language-root.tcl" />
         			<zone>
-        				<expression>(?&lt;!,),(?!,)</expression>
+        				<expression>,</expression>
         				<capture number="0" name="tcl.keyword.punctuation.comma"/>
         			</zone>
         		</subzones>
         	</zone>
         	<zone>
-        		<expression>(?&lt;=\s|^)(\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|=)?(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
-        		<capture number="1" name="tcl.keyword.tcl-operator.arithmetic"/>
-        		<capture number="2" name="tcl.keyword.operator.math"/>
+        		<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
+        		<capture number="1" name="tcl.keyword.command.function-call.operator.tcl-operator"/>
         	</zone>
         	
         </collection>
