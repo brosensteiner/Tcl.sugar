@@ -47,10 +47,10 @@ THE SOFTWARE.
 			<capture number="1" name="tcl.keyword.command.class.name"/>
 		</zone>
 		<include collection="tclLanguage" />
+		<include collection="FormatSpecifier"/>
 		<include collection="Operators" />
 		<include collection="Math" />
 		<include collection="VariableExpansion" />
-		<include collection="FormatSpecifier"/>
 		<include collection="FlowControl" />
 		<include collection="Strings"/>
 		<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
@@ -226,7 +226,7 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.unset-function-call.definition">
-			    <expression>\b(unset)(\s+-nocomplain)?((\s+(\w+))+)?</expression>
+			    <expression>\b(unset)\s+(-nocomplain)?((\s+(\w+))+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
@@ -313,10 +313,10 @@ THE SOFTWARE.
 			    <subzones>
 			    	<include collection="EscapeChar"/>
 			    	<include collection="VariableExpansion" />
+			    	<include collection="FormatSpecifier"/>
 			    	<include collection="Numeric" />
 			    	<include collection="Operators" />
 			    	<include collection="Math" />
-			    	<include collection="FormatSpecifier"/>
 			    	<include syntax="language-root.amira" />
 			    	<include collection="Comments" />
 			    	<include collection="General" />
@@ -393,7 +393,7 @@ THE SOFTWARE.
         	    </subzones>
         	</zone>
         	<zone name="tcl.definition.expand">
-        	    <expression>(\$)([\w:]+)</expression>
+        	    <expression>(\$)([\w]+)</expression>
         	    <capture number="1" name="tcl.variable.evaluate.punctuation"/>
         	    <capture number="2" name="tcl.variable.evaluate"/>
         	</zone>

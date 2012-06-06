@@ -82,7 +82,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-port">
-    	    <expression>(?&lt;=(\w|\])\s)(getValue|setValue|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(getValue|setValue|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect|getNumMenus)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-connectionport">
@@ -97,8 +97,12 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	    <expression>(?&lt;=(\w|\])\s)(hasInterface|duplicate|showIcon|hideIcon|iconVisible|select|deselect|setLabel|fire|compute|allPorts|connectionPorts|downStreamConnections|setIconPosition|getIconPosition|clipGeom|unclipGeom|setPickable|destroy|getTypeId|help|getLabel|setViewerMask)\b</expression>
     	</zone>
     	
+    	<zone name="amira.keyword.command.arbitary-cut-amira-object">
+    	    <expression>(?&lt;=(\w|\])\s)(frame|setFrameColor|setFrameWidth|getPlane|setPlane|setMinPlanePoint|unsetMinPlanePoint|setMaxPlanePoint|unsetMaxPlanePoint|setAutoClippingPlane|connectPlane|disconnectPlane|createImage|setNumSubPixels|writeTexture|channels|contrastLimit|frameSettings|getNormal|getOrigin|getuVec|getvVec|invertClippingPlane|isAutoClippingPlane|isClippingPlaneInverted|mapping|normal|origin|setAlpha|setLighting|setPolygonOffsetEnabled|sliceNumber|sliceOrientation|transparency|animate|getMaxPlanePoint|getMinPlanePoint|getScale|hasFrame|overlayType|sampling|saveTexture|setAlphaThreshold|setResolution|setTranslateRange)\b</expression>
+    	</zone>
+    	
     	<zone name="amira.keyword.command.amira-spatial-data-object">
-    	    <expression>(?&lt;=(\w|\])\s)(getBoundingBox|getTransform|setTransform|getInverseTransform|getTranslation|setTranslation|getRotation|setRotation|getScaleFactor|setScaleFactor|translate|rotate|scale|multTransform|hasUndefinedValue|getUndefinedValue|setUndefinedValue|hasDataWindow|setDataWindow|removeDataWindow|getRange|touchMinMax)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(getBoundingBox|getTransform|setTransform|getInverseTransform|getTranslation|setTranslation|getRotation|setRotation|getScaleFactor|setScaleFactor|translate|rotate|scale|multTransform|hasUndefinedValue|getUndefinedValue|setUndefinedValue|hasDataWindow|setDataWindow|removeDataWindow|getRange|touchMinMax|jitter|getNumPoints|getPoint|setPoint)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.field3">
@@ -119,6 +123,26 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	
     	<zone name="amira.keyword.command.global.other">
     	    <expression>\b(addTimeout|all|aminfo|clear|create|dso|addPath|echo|help|httpd|limit|load|mem|quit|remove|rename|sleep|system|saveNetwork|saveNetworkAs)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.interface-component-buttonport">
+    	    <expression>\b(wasShiftDown|wasCtrlDown|wasAltDown|setShiftDown|setCtrlDown|setAltDown|setCmd|getCmd|getNumButtons|setNumButtons|enableSnapToggle|snap|isSnapped|wasHit)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.interface-component-buttonmenu">
+    	    <expression>\b(setNumOptEntries|getNumOptEntries|setOptValue|setOptValueString|getOptValue|setOptLabel|setOptLabels|getOptLabel|setOptSensitivity|getOptSensitivity)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.interface-component-slider">
+    	    <expression>\b(getFormat|getIncrement|getMaxValue|getMinValue|getNumColumns|getSliderWidth|getTracking|hasButtons|hasSubRangeButtons|isDiscrete|setButtons|setDiscrete|setFormat|setIncrement|setMinMax|setNumColumns|setSliderWidth|setSubMinMax|setSubRangeButtons|setTracking)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.interface-component-toggle">
+    	    <expression>\b(getIsTristate|getMask|isToggleVisible|setIsTristate|setMask|setToggleVisible|setValueAndMask)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.interface-component-savefile">
+    	    <expression>\b(getFileType|getFilename|getMode|registerFileType|setFilename|setFilenames|setMode)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.data-classes">
