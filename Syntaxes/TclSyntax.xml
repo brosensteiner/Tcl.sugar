@@ -624,13 +624,6 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.options.namespace">
 				<expression>\b(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
 			</zone>
-				
-			<zone name="tcl.keyword.options.info.frame">
-				<expression>\b(type|line|file|cmd|proc|lambda|level)\b</expression>
-			</zone>
-			<zone name="tcl.keyword.options.info.frame.type">
-				<expression>\b(source|proc|eval|precompiled)\b</expression>
-			</zone>
 			            
         </collection>
         

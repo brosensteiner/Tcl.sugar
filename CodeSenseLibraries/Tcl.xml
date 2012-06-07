@@ -2504,21 +2504,6 @@ THE SOFTWARE.
 	    <completion string="-all"/>
 	    <completion string="-private"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.info.frame" casesensitive="true">
-	    <behavior>
-	        <append-dynamic>
-	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
-	            <transform-into>(?1:: $0)</transform-into>
-	        </append-dynamic>
-	    </behavior>
-	    <completion string="type"/>
-	    <completion string="line"/>
-	    <completion string="file"/>
-	    <completion string="cmd"/>
-	    <completion string="proc"/>
-	    <completion string="lambda"/>
-	    <completion string="level"/>
-	</set>
 	<!--chan options-->
 	<set name="com.rosensteiner.Tcl.function.chan.configure" casesensitive="true">
 	    <behavior>
