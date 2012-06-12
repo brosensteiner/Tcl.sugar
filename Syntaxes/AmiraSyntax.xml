@@ -71,6 +71,10 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	    <expression>\b(workArea|app)\b</expression>
     	</zone>
     	
+    	<zone name="amira.keyword.global-procedures">
+    		<expression>\b(__isProduct|unknown|auto_import|auto_execok|exists|printSelection|remove_tmpio|alignProteinTrajectory|mergeMolecules|poolCleaner|newMolFromAminoAcidCode1|ls|printMutations|newMolFromAminoAcidCode3|auto_load_index|addBondTypeAttributeToTrajBundle|__checkLDM|showSurface|newMolFromSmiles|__checkMultiChannelLDM|setSelectionLevel|auto_qualify|sel|showAll|showHBondsLevel|runMolTests|BlackOnWhite\.plotconfig|computeHIVAsymmetries|useSet|newMolFromPDB|printMutationsosBundle|alignProteinBundle|forEachTrajectoryInBundle|hideAll|alignProtein|doForAllMolecules|restrictBundleToLongestChains|showHBonds|printSelectionByAtoms|auto_load|onPWKeyF4|showBrowser|onKeyF10|onKeyF12|printSelectionByLevel|tclLog|copyFilter|getBoundingBox|mergeTrajectories|createLogos|addBondTypeAttributeToMolecule|__isEdition|saveBundleAsMMFFPQR|onKeyF5|allSelected|desel|printSelectionByResidues|newMolFromSelection|mergeMoleculesToTrajBundle|addSet|showSticks|_HXTIME_CreateTransformDaVinci|printAllSolvationEnergy|messageBox|case|amiramesh|html|theAppSkin|tViewInfo|system|shader|writePresetObjects|echoLog|Compute|dataClass|removeTimeout|subApplication|macroButton|thePrefDialog|theDemoDirector|thePresetMgr|user|Colormaps|mainWindow|rename\.orig|editor|clear|preset|processEvents|Display|Object-Pool|wait|Settings|sleepProcessEvents|module|host|Animation-Demo-Scripts|Data|job|interfaceFactory|AmiraVR|testClass|dataFile|printf|tclwrapper|_mbr_DisplayLogos_constructor|DisplayLogos|_mbr_DisplayLogos_getScreen|_mbr_DisplayLogos_setScreen|thread_source|_mbr_DisplayLogos_compute|pkg_compareExtension|_mbr_DisplayLogos_destructor)\b</expression>
+    	</zone>
+    	
         <!--snapshot could interfere with "theMain snapshot", so amira.keyword.options.viewer is here the lower syntax zone and should not be changed-->
         <zone name="amira.keyword.option.viewer">
         	<expression>(?&lt;=(\w|\])\s)(snapshot|setPosition|getPosition|setSize|getSize|setCamera|getCamera|setCameraPosition|getCameraPosition|setCameraOrientation|getCameraOrientation|setCameraFocalDistance|getCameraFocalDistance|setCameraHeightAngle|getCameraHeightAngle|setCameraHeight|getCameraHeight|setCameraType|getCameraType|setTransparencyType|getTransparencyType|setSortedLayersNumPasses|getSortedLayersNumPasses|setBackgroundColor|getBackgroundColor|setBackgroundColor2|getBackgroundColor2|setBackgroundMode|getBackgroundMode|setBackgroundImage|getBackgroundImage|setAutoRedraw|isAutoRedraw|transformScreenToWorld|redraw|rotate|setDecoration|saveScene|viewAll|view|show|hide|fogRange|setVideoFormat|setVideoFrame)\b</expression>
@@ -79,6 +83,26 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	        	        	
     	<zone name="amira.keyword.command.port.scriptobject">
     	    <expression>\b(newPortButtonList|newPortButtonMenu|newPortColormap|newPortDoIt|newPortFilename|newPortFloatSlider|newPortFloatTextN|newPortMultiMenu|newPortInfo|newPortIntSlider|newPortIntTextN|newPortRadioBox|newPortSeparator|newPortText|newPortTime|newPortToggleList|newPortConnection|deletePort|setVar|getVar|hasVar|setVarSerialize|testBreak|setNum|getNum|setValueString|setMenuSensitivity|getMenuSensitivity|setSensitivity|getSensitivity|newPort3DPointList|newPortGeneric|newPortTextEdit|newPortChannelConfig|newPortColorList|newPortDrawStyle|newPortFontSelection|newPortMultiChannel|newPortSharedColormap|newPortTabBar)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.surface-editor">
+    	    <expression>(?&lt;=(\w|\])\s)(checkHoles|fillHoles|fillAllHoles)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.remeshsurface-module">
+    	    <expression>(?&lt;=(\w|\])\s)(bisectEdge|curvDebug|extractDensityField|getTriangleError|op1|pumpContours|refineBadRegions|refineByEdgeLength|relocatePoint|setVerbosity)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.lineprobe-module">
+    	    <expression>(?&lt;=(\w|\])\s)(appendPoint|getInterpol|getLength|getOrder|getSamplePoints|getSampledValues|insertPoint|makeLineSet|setImmediate|setInterpol|setOrder|setOrientation|setOrtho|showPlot)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.tetragen-module">
+    	    <expression>(?&lt;=(\w|\])\s)(savePartialGrid|setBatch|setMaxDiamRatio|setMaxNumTetras|setMeshSize|setNumNextVert|setStatusChecked|skipPostProc)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.triangledistortion-module">
+    	    <expression>(?&lt;=(\w|\])\s)(getVal)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-port">
@@ -166,7 +190,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.additional-commands">
-    	    <expression>(?&lt;=(\w|\])\s)(master|addColumn|getNumCols|setColName|getNumRows|setDecimalPoint|setNumFormat|setNumRows|autoFormat|print|allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap| primType|primary|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(master|addColumn|getNumCols|setColName|getNumRows|setDecimalPoint|setNumFormat|setNumRows|autoFormat|print|allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap|primType|primary|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
     	</zone>
 		
     </zones>

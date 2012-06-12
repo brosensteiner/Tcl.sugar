@@ -4,19 +4,88 @@
 	<provider>
 		<selector>tcl, tcl *</selector>
 		<completions>com.rosensteiner.amira</completions>
-		<complete-match>(?&lt;!\\|_|-)[\w]*</complete-match>
+		<complete-match>(?&lt;!\\|-)[a-zA-Z0-9_]*</complete-match>
 	</provider>
 	
 	<provider>
 		<selector>tcl, tcl *</selector>
 		<completions>com.rosensteiner.amira.data-classes</completions>
-		<complete-match>(?&lt;!\\|_|-)[Hh][Xx][\w]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-)[Hh][Xx][a-zA-Z0-9_]*</complete-match>
 	</provider>
 	
 	<provider>
 		<selector>tcl, tcl *</selector>
 		<completions>com.rosensteiner.amira.scriptobject</completions>
-		<complete-match>(?&lt;!\\|_|-)[Nn][Ee][Ww][\w]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-)[Nn][Ee][Ww][a-zA-Z0-9_]*</complete-match>
+	</provider>
+	
+	<!--switches-->
+	<provider>
+		<selector>tcl amira:capture(name) + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + property-name + s + * + s + property-name  + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	
+	<!--switches with "\"-->
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + command-nextline + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl amira:capture(name) + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + property-name + s + * + s + command-nextline + s + * + *</selector>
+		<completions>com.rosensteiner.amira.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	
 </codesense>

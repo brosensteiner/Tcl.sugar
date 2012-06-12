@@ -36,12 +36,12 @@ this code completion scheme works well for all options but can make apperring a 
 	 	<completions>com.rosensteiner.Tcl.math</completions>
 	 	<completions>com.rosensteiner.Tcl.global-variables</completions>
 	 	<completions>com.rosensteiner.Tcl.global-procedures</completions>
-	 	<complete-match>(?&lt;!\\|_|-)[a-zA-Z_]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-)[a-zA-Z0-9_]*</complete-match>
 	</provider>
 	<provider>
 		<selector>tcl, tcl :not(keyword + s + options,keyword + s + options + s + options,property-name) + * + * + *, punctuation + * + *</selector>
 		<completions>com.rosensteiner.Tcl.other-things</completions>
-		<complete-match>(?&lt;=-)[a-zA-Z_]*</complete-match>
+		<complete-match>(?&lt;=-)[a-zA-Z0-9_]*</complete-match>
 	</provider>
 	
 	<!--proc name name switch-->
@@ -242,13 +242,13 @@ this code completion scheme works well for all options but can make apperring a 
 	<provider>
 		<selector>tcl keyword:capture(name) + s + *:capture(options1) + s + *:capture(options2) + s + * + s + * + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>[\w-]*</complete-match>
 	</provider>
 	<!--proc option option name option option option options-->
 	<provider>
 		<selector>tcl keyword:capture(name) + s + *:capture(options1) + s + *:capture(options2) + s + * + s + * + s + * + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
-		<complete-match>[a-zA-Z0-9-]*</complete-match>
+		<complete-match>[\w-]*</complete-match>
 	</provider>
 	<!--proc option char-class switch switch-->
 	<provider>

@@ -467,6 +467,8 @@ THE SOFTWARE.
 		</completion>
 		<completion string="pkg_mkIndex" />
 		<completion string="tcl_endOfWord" />
+		<completion string="tclPkgSetup" />
+		<completion string="tclPkgUnknown" />
 		
 		<!--prefix-->
 		<completion string="prefix all">

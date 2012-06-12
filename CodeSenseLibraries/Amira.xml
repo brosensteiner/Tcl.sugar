@@ -15,7 +15,113 @@
 		<completion string="AMIRA_LOCAL" />
 		<completion string="SCRIPTFILE" />
 		<completion string="SCRIPTDIR" />
+		<completion string="PRIMARY" />
 		<completion string="hideNewModules" />
+		<!--global procedures-->
+		<completion string="__isProduct" />
+		<completion string="exists" />
+		<completion string="printSelection" />
+		<completion string="remove_tmpio" />
+		<completion string="alignProteinTrajectory" />
+		<completion string="mergeMolecules" />
+		<completion string="poolCleaner" />
+		<completion string="newMolFromAminoAcidCode1" />
+		<completion string="printMutations" />
+		<completion string="newMolFromAminoAcidCode3" />
+		<completion string="addBondTypeAttributeToTrajBundle" />
+		<completion string="__checkLDM" />
+		<completion string="showSurface" />
+		<completion string="newMolFromSmiles" />
+		<completion string="__checkMultiChannelLDM" />
+		<completion string="setSelectionLevel" />
+		<completion string="sel" />
+		<completion string="showAll" />
+		<completion string="showHBondsLevel" />
+		<completion string="runMolTests" />
+		<completion string="BlackOnWhite.plotconfig" />
+		<completion string="computeHIVAsymmetries" />
+		<completion string="useSet" />
+		<completion string="newMolFromPDB" />
+		<completion string="printMutationsosBundle" />
+		<completion string="alignProteinBundle" />
+		<completion string="forEachTrajectoryInBundle" />
+		<completion string="hideAll" />
+		<completion string="alignProtein" />
+		<completion string="doForAllMolecules" />
+		<completion string="restrictBundleToLongestChains" />
+		<completion string="showHBonds" />
+		<completion string="printSelectionByAtoms" />
+		<completion string="onPWKeyF4" />
+		<completion string="showBrowser" />
+		<completion string="onKeyF10" />
+		<completion string="onKeyF12" />
+		<completion string="printSelectionByLevel" />
+		<completion string="tclLog" />
+		<completion string="copyFilter" />
+		<completion string="getBoundingBox" />
+		<completion string="mergeTrajectories" />
+		<completion string="createLogos" />
+		<completion string="addBondTypeAttributeToMolecule" />
+		<completion string="__isEdition" />
+		<completion string="saveBundleAsMMFFPQR" />
+		<completion string="onKeyF5" />
+		<completion string="allSelected" />
+		<completion string="desel" />
+		<completion string="printSelectionByResidues" />
+		<completion string="newMolFromSelection" />
+		<completion string="mergeMoleculesToTrajBundle" />
+		<completion string="addSet" />
+		<completion string="showSticks" />
+		<completion string="_HXTIME_CreateTransformDaVinci" />
+		<completion string="printAllSolvationEnergy" />
+		<completion string="messageBox" />
+		<completion string="case" />
+		<completion string="amiramesh" />
+		<completion string="theAppSkin" />
+		<completion string="tViewInfo" />
+		<completion string="system" />
+		<completion string="shader" />
+		<completion string="writePresetObjects" />
+		<completion string="echoLog" />
+		<completion string="Compute" />
+		<completion string="dataClass" />
+		<completion string="removeTimeout" />
+		<completion string="subApplication" />
+		<completion string="macroButton" />
+		<completion string="thePrefDialog" />
+		<completion string="theDemoDirector" />
+		<completion string="thePresetMgr" />
+		<completion string="user" />
+		<completion string="Colormaps" />
+		<completion string="mainWindow" />
+		<completion string="rename.orig" />
+		<completion string="editor" />
+		<completion string="preset" />
+		<completion string="processEvents" />
+		<completion string="Display" />
+		<completion string="Object-Pool" />
+		<completion string="Settings" />
+		<completion string="sleepProcessEvents" />
+		<completion string="module" />
+		<completion string="host" />
+		<completion string="Animation-Demo-Scripts" />
+		<completion string="Data" />
+		<completion string="job" />
+		<completion string="interfaceFactory" />
+		<completion string="AmiraVR" />
+		<completion string="testClass" />
+		<completion string="dataFile" />
+		<completion string="printf" />
+		<completion string="tclwrapper" />
+		<completion string="DisplayLogos" />
+		<completion string="_mbr_DisplayLogos_getScreen" />
+		<completion string="_mbr_DisplayLogos_setScreen" />
+		<completion string="thread_source" />
+		<completion string="_mbr_DisplayLogos_constructor" />
+		<completion string="_mbr_DisplayLogos_compute" />
+		<completion string="_mbr_DisplayLogos_destructor" />
+		<completion string="pkg_compareExtension" />
+		
 		<!--port-->
 		<completion string="deletePort" />
 		<completion string="setVar" />
@@ -111,6 +217,46 @@
 		<completion string="getPatchArea" />
 		<completion string="assignInsideMaterial" />
 		<completion string="assignOutsideMaterial" />
+		<completion string="checkHoles" />
+		<completion string="fillHoles" />
+		<completion string="fillAllHoles" />
+		<!--line probe module-->
+		<completion string="appendPoint" />
+		<completion string="getInterpol" />
+		<completion string="getLength" />
+		<completion string="getOrder" />
+		<completion string="getSamplePoints" />
+		<completion string="getSampledValues" />
+		<completion string="insertPoint" />
+		<completion string="makeLineSet" />
+		<completion string="setImmediate" />
+		<completion string="setInterpol" />
+		<completion string="setOrder" />
+		<completion string="setOrientation" />
+		<completion string="setOrtho" />
+		<completion string="showPlot" />
+		<!--remesh surface module-->
+		<completion string="bisectEdge" />
+		<completion string="curvDebug" />
+		<completion string="extractDensityField" />
+		<completion string="getTriangleError" />
+		<completion string="op1" />
+		<completion string="pumpContours" />
+		<completion string="refineBadRegions" />
+		<completion string="refineByEdgeLength" />
+		<completion string="relocatePoint" />
+		<completion string="setVerbosity" />
+		<!--tetragen module-->
+		<completion string="savePartialGrid" />
+		<completion string="setBatch" />
+		<completion string="setMaxDiamRatio" />
+		<completion string="setMaxNumTetras" />
+		<completion string="setMeshSize" />
+		<completion string="setNumNextVert" />
+		<completion string="setStatusChecked" />
+		<completion string="skipPostProc" />
+		<!--triangele distortion module-->
+		<completion string="getVal" />
 		<!--cluster-->
 		<completion string="computeBounds" />
 		<completion string="computeConnectivity" />
@@ -749,6 +895,26 @@
    		<completion string="HxPortTextEdit" />
    		<completion string="HxPortToggleList" />
    		<completion string="HxPort3DPointList" />
+   				
+   	</set>
+   	
+   	<set name="com.rosensteiner.amira.module" casesensitive="true">
+   	
+   		<behavior>
+   			<append-dynamic>
+   				<matched-suffix>(\s+\S)|\s*[^\S]</matched-suffix>
+   				<transform-into>(?1:: $0)</transform-into>
+   			</append-dynamic>
+   		</behavior>
+   		
+   		<completion string="-name" />
+   		<completion string="-primary" />
+   		<completion string="-check" />
+   		<completion string="-category" />
+   		<completion string="-class" />
+   		<completion string="-package" />
+   		<completion string="-proc" />
+   		<completion string="-dso" />
    				
    	</set>
 

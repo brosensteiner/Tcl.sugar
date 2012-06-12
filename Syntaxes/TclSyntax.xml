@@ -226,10 +226,15 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.unset-function-call.definition">
-			    <expression>\b(unset)\s+(-nocomplain)?((\s+(\w+))+)?</expression>
+			    <expression>\b(unset)\s+(-nocomplain)((\s+(\w+))+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
+			</zone>
+			<zone name="tcl.keyword.unset-function-call.definition">
+			    <expression>\b(unset)((\s+(\w+))+)?</expression>
+			    <capture number="1" name="tcl.keyword.command.function-call.unset-global"/>
+			    <capture number="2" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.keyword.append-function-call.definition">
 			    <expression>\b(append)\s+(\w+)?</expression>
@@ -303,7 +308,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.container.string.quoted.double">
 			    <starts-with>
-			        <expression>(?&lt;=\s|^)"</expression>
+			        <expression>"</expression>
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.begin"/>
 			    </starts-with>
 			    <ends-with>
@@ -317,7 +322,6 @@ THE SOFTWARE.
 			    	<include collection="Numeric" />
 			    	<include collection="Operators" />
 			    	<include collection="Math" />
-			    	<include syntax="language-root.amira" />
 			    	<include collection="Comments" />
 			    	<include collection="General" />
 			    	<include collection="BracesBrackets" />
@@ -405,7 +409,7 @@ THE SOFTWARE.
         	<zone name="tcl.punctuation.terminator">
         		<expression>;</expression>
         	</zone>
-        	<zone name="tcl.punctuation.command-goes-on">
+        	<zone name="tcl.punctuation.command-nextline">
         		<expression>\\\s*?[\n\r]</expression>
         	</zone>
         	<zone name="tcl.keyword.command.argument-expansion">
@@ -562,7 +566,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.command.global.global-procedures">
-        		<expression>\b(auto_execs|auto_index|auto_noexec|auto_noload|auto_path|unknown_pending)\b</expression>
+        		<expression>\b(auto_execs|auto_index|auto_noexec|auto_noload|auto_path|unknown_pending|tclPkgUnknown|tclPkgSetup)\b</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.global.global-variables">
