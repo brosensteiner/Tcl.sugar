@@ -136,6 +136,25 @@
 		<completion string="getMenuSensitivity" />
 		<completion string="setSensitivity" />
 		<completion string="getSensitivity" />
+		<!--editors-->
+		<completion string="filterEditor" />
+		<completion string="cropEditor" />
+		<completion string="Object2" /><!--segmentation Editor, why is it called like this?-->
+		<completion string="paramEditor" />
+		<completion string="transformEditor" />
+		<completion string="surfEdit" />
+		<completion string="Simplifier" />
+		<!--simplify editor-->
+		<completion string="debug" />
+		<completion string="getFactError" />
+		<completion string="removeCoplanarTriangles" />
+		<completion string="setEdgeLengthWeight" />
+		<completion string="setFactError" />
+		<completion string="setIntersectionTestStrategy" />
+		<completion string="setRadiusRatio" />
+		<completion string="simplifyAction" />
+		<completion string="simplifyOptions" />
+		<completion string="simplifyParameters" />
 		<!--surface editor-->
 		<completion string="bisect" />
 		<completion string="checkIntersections" />

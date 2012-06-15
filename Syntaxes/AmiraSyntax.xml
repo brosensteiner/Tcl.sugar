@@ -88,7 +88,9 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	<zone name="amira.keyword.command.surface-editor">
     	    <expression>(?&lt;=(\w|\])\s)(bisect|checkIntersections|checkOrientation|displayLeaf|displayNeighbours|first|hideTriangles|next|previous|checkHoles|fillHoles|fillAllHoles)\b</expression>
     	</zone>
-    	
+    	<zone name="amira.keyword.command.simplify-editor">
+    	    <expression>(?&lt;=(\w|\])\s)(debug|getFactError|removeCoplanarTriangles|setEdgeLengthWeight|setFactError|setIntersectionTestStrategy|setRadiusRatio|simplifyAction|simplifyOptions|simplifyParameters)\b</expression>
+    	</zone>
     	<zone name="amira.keyword.command.crop-editor">
     	    <expression>(?&lt;=(\w|\])\s)(attach|autoCrop|detach|setMaxX|setMaxY|setMaxZ|setMinX|setMinY|setMinZ|setThreshold)\b</expression>
     	</zone>
