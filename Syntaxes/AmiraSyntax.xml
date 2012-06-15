@@ -36,7 +36,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.global.variables">
-    		<expression>(AMIRA_ROOT|AMIRA_LOCAL|SCRIPTFILE|SCRIPTDIR|hideNewModules)\b</expression>
+    		<expression>(AMIRA_ROOT|AMIRA_LOCAL|SCRIPTFILE|SCRIPTDIR|hideNewModules|hxneuroneditorplugins|SpaceMouseRotationModeScale|ShiftButton|SpaceMouseFlyModeScale|AltButton|mod|radiossForceTightness|HxLatticeFactory_prefDiskType|hxvisageviewertools|Button1|Button2|Button3|TMPDIR|PerfusionCTMTTDataWindow|PerfusionCTCBFDataWindow|this|amira_version|hxalign_autoalignmethod_plugins|voltex_prio|PRIMARY|theMenuEntryInRotationPort|VRButton0|VRButton1|VRButton2|VRButton3|PerfusionCTCBVDataWindow|VRButton4|radiossUseInputNodesAsInitial|AMIRA_DEMOS|VRButton5|VRButton6|AMIRA_NETWORKDRIVE_DIR|VRButton7|VRButton8|auto_oldpath|ControlButton|VRButton9|radiossLoadMultipleFilesAsTimeSeries|radiossCacheInitialFile|redrawInhibit)\b</expression>
     	</zone> 	
     
     	<zone name="amira.keyword.option.workArea">

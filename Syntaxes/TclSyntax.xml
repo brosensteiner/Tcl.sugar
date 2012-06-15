@@ -565,7 +565,7 @@ THE SOFTWARE.
         	</zone>
         	
         	<zone name="tcl.keyword.global.global-variables">
-        		<expression>\b(args|env|errorCode|errorInfo|tcl_library|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|tcl_prompt1|tcl_prompt2|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE|resultVarName)\b</expression>
+        		<expression>\b(args|env|errorCode|errorInfo|tcl_library|tcl_libPath|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|tcl_prompt1|tcl_prompt2|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE)\b</expression>
         	</zone>
         	<!--catches all switches in tcl (e.g. "-switch"):-->
         	<zone name="tcl.keyword.property-name">
