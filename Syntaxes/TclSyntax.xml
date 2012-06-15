@@ -226,15 +226,10 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.unset-function-call.definition">
-			    <expression>\b(unset)\s+(-nocomplain)((\s+(\w+))+)?</expression>
+			    <expression>(\bunset\b)(\s+-nocomplain)?((\s+(\w+))+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
-			</zone>
-			<zone name="tcl.keyword.unset-function-call.definition">
-			    <expression>\b(unset)((\s+(\w+))+)?</expression>
-			    <capture number="1" name="tcl.keyword.command.function-call.unset-global"/>
-			    <capture number="2" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.keyword.append-function-call.definition">
 			    <expression>\b(append)\s+(\w+)?</expression>

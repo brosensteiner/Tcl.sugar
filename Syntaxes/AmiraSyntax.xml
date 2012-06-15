@@ -89,6 +89,19 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	    <expression>(?&lt;=(\w|\])\s)(checkHoles|fillHoles|fillAllHoles)\b</expression>
     	</zone>
     	
+    	<zone name="amira.keyword.command.crop-editor">
+    	    <expression>(?&lt;=(\w|\])\s)(attach|autoCrop|detach|setMaxX|setMaxY|setMaxZ|setMinX|setMinY|setMinZ|setThreshold)\b</expression>
+    	</zone>
+    	<zone name="amira.keyword.command.segmentation-editor">
+    	    <expression>(?&lt;=(\w|\])\s)(add|deleteMaterial|fillAllSlices|fillSelection3D|getCrossHairLocationIndex|getToolDataWindow|growSelection3D|growSelectionAll2D|invertSelection|isVoxelSelected|newMaterial|redo|removeIslands|replace|selectMaterial|selectMaterial2|setCrossHairLocationIndex|setMaxAlpha|setSlice|setTool|setToolDataWindow|setVolrenLevel|shrinkSelection3D|shrinkSelectionAll2D|smooth|smoothAll|smoothSelectionAllSlices|subtract|subtractMaterial2|threshold|toggleVoxel|undo)\b</expression>
+    	</zone>
+    	<zone name="amira.keyword.command.transform-editor">
+    	    <expression>(?&lt;=(\w|\])\s)(resetAll|resetRotation|resetScale|resetTranslation|transformEditorAction|transformEditorManip|transformEditorReset)\b</expression>
+    	</zone>
+    	<zone name="amira.keyword.command.filter-editor">
+    	    <expression>(?&lt;=(\w|\])\s)(filter|kernel|setNumProcs|sigma)\b</expression>
+    	</zone>
+    	
     	<zone name="amira.keyword.command.remeshsurface-module">
     	    <expression>(?&lt;=(\w|\])\s)(bisectEdge|curvDebug|extractDensityField|getTriangleError|op1|pumpContours|refineBadRegions|refineByEdgeLength|relocatePoint|setVerbosity)\b</expression>
     	</zone>

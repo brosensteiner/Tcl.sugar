@@ -136,6 +136,63 @@
 		<completion string="getMenuSensitivity" />
 		<completion string="setSensitivity" />
 		<completion string="getSensitivity" />
+		<!--crop editor-->
+		<completion string="attach" />
+		<completion string="autoCrop" />
+		<completion string="detach" />
+		<completion string="setMaxX" />
+		<completion string="setMaxY" />
+		<completion string="setMaxZ" />
+		<completion string="setMinX" />
+		<completion string="setMinY" />
+		<completion string="setMinZ" />
+		<completion string="setThreshold" />
+		<!--image segementation editor-->
+		<completion string="add" />
+		<completion string="deleteMaterial" />
+		<completion string="fillAllSlices" />
+		<completion string="fillSelection3D" />
+		<completion string="getCrossHairLocationIndex" />
+		<completion string="getToolDataWindow" />
+		<completion string="growSelection3D" />
+		<completion string="growSelectionAll2D" />
+		<completion string="invertSelection" />
+		<completion string="isVoxelSelected" />
+		<completion string="newMaterial" />
+		<completion string="redo" />
+		<completion string="removeIslands" />
+		<completion string="replace" />
+		<completion string="selectMaterial" />
+		<completion string="selectMaterial2" />
+		<completion string="setCrossHairLocationIndex" />
+		<completion string="setMaxAlpha" />
+		<completion string="setSlice" />
+		<completion string="setTool" />
+		<completion string="setToolDataWindow" />
+		<completion string="setVolrenLevel" />
+		<completion string="shrinkSelection3D" />
+		<completion string="shrinkSelectionAll2D" />
+		<completion string="smooth" />
+		<completion string="smoothAll" />
+		<completion string="smoothSelectionAllSlices" />
+		<completion string="subtract" />
+		<completion string="subtractMaterial2" />
+		<completion string="threshold" />
+		<completion string="toggleVoxel" />
+		<completion string="undo" />
+		<!--transform editor-->
+		<completion string="resetAll" />
+		<completion string="resetRotation" />
+		<completion string="resetScale" />
+		<completion string="resetTranslation" />
+		<completion string="transformEditorAction" />
+		<completion string="transformEditorManip" />
+		<completion string="transformEditorReset" />
+		<!--filter editor-->
+		<completion string="filter" />
+		<completion string="kernel" />
+		<completion string="setNumProcs" />
+		<completion string="sigma" />
 		<!--general amira object-->
 		<completion string="setValue" />
 		<completion string="getValue" />
