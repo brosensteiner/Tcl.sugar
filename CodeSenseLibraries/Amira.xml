@@ -136,6 +136,19 @@
 		<completion string="getMenuSensitivity" />
 		<completion string="setSensitivity" />
 		<completion string="getSensitivity" />
+		<!--surface editor-->
+		<completion string="bisect" />
+		<completion string="checkIntersections" />
+		<completion string="checkOrientation" />
+		<completion string="displayLeaf" />
+		<completion string="displayNeighbours" />
+		<completion string="first" />
+		<completion string="hideTriangles" />
+		<completion string="next" />
+		<completion string="previous" />
+		<completion string="checkHoles" />
+		<completion string="fillHoles" />
+		<completion string="fillAllHoles" />
 		<!--crop editor-->
 		<completion string="attach" />
 		<completion string="autoCrop" />
@@ -274,9 +287,6 @@
 		<completion string="getPatchArea" />
 		<completion string="assignInsideMaterial" />
 		<completion string="assignOutsideMaterial" />
-		<completion string="checkHoles" />
-		<completion string="fillHoles" />
-		<completion string="fillAllHoles" />
 		<!--line probe module-->
 		<completion string="appendPoint" />
 		<completion string="getInterpol" />
