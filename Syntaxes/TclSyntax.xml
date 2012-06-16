@@ -391,6 +391,26 @@ THE SOFTWARE.
         	    	<include syntax="language-root.tcl" />
         	    </subzones>
         	</zone>
+        	
+        	<zone name="tcl.definition.expand">
+        		<starts-with>
+        		    <expression>(\$)([\w?!\.]+)?(:{2,})(?=[\w?!\.])</expression>
+        		    <capture number="1" name="tcl.variable.evaluate.punctuation"/>
+        		    <capture number="2" name="tcl.variable.evaluate"/>
+        		    <capture number="3" name="tcl.punctuation.namespace"/>
+        		</starts-with>
+        		<ends-with>
+        		    <expression>(?=[^\w?!:\.]|\s)</expression>
+        		</ends-with>
+        		<subzones>
+        			<zone>
+        				<expression>(:{2,})?([\w?!\.]*)</expression>
+        				<capture number="1" name="tcl.punctuation.namespace"/>
+        				<capture number="2" name="tcl.variable.evaluate"/>
+        			</zone>
+        		</subzones>
+        	</zone>
+        	
         	<zone name="tcl.definition.expand">
         	    <expression>(\$)([\w]+)</expression>
         	    <capture number="1" name="tcl.variable.evaluate.punctuation"/>
@@ -413,16 +433,15 @@ THE SOFTWARE.
         	
         	<zone>
            		<starts-with>
-        		    <expression>(?:[\w?!\.]+)?(::)(?=[\w?!\.])</expression>
+        		    <expression>(?:[\w?!\.]+)?(:{2,})(?=[\w?!\.])</expression>
         		    <capture number="1" name="tcl.punctuation.namespace"/>
         		</starts-with>
         		<ends-with>
         		    <expression>(?=[^\w?!:\.]|\s)</expression>
-        		    <capture number="1" name="tcl.punctuation.close-brace"/>
         		</ends-with>
         		<subzones>
         			<zone>
-        				<expression>(::)(?:[\w?!\.]*)</expression>
+        				<expression>(:{2,})(?:[\w?!\.]*)</expression>
         				<capture number="1" name="tcl.punctuation.namespace"/>
         			</zone>
         		</subzones>
