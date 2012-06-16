@@ -265,22 +265,6 @@ THE SOFTWARE.
 			    <capture number="3" name="tcl.var"/>
 			</zone>
 						
-			<zone name="tcl.keyword.set-variable.substitute">
-			    <starts-with>
-			        <expression>(\w*)(\$\{)</expression>
-			        <capture number="1" name="tcl.keyword.var.substitute.rest"/>
-			        <capture number="2" name="tcl.keyword.var.substitute.open-brace"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>(\})(\w*)</expression>
-			        <capture number="1" name="tcl.keyword.var.substitute.close-brace"/>
-			        <capture number="2" name="tcl.keyword.var.substitute.rest"/>
-			    </ends-with>
-			    <subzones>
-				    <include collection="EscapeChar"/>
-			    </subzones>
-			</zone>
-			
 		</collection>
 		
 		<collection name="FlowControl">
@@ -384,37 +368,52 @@ THE SOFTWARE.
         	        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
         	    </starts-with>
         	    <ends-with>
-        	        <expression>(\))</expression>
-        	        <capture number="1" name="tcl.punctuation.close-parenthesis"/>
+        	        <expression>\)</expression>
+        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
         	    </ends-with>
         	    <subzones>
         	    	<include syntax="language-root.tcl" />
         	    </subzones>
         	</zone>
-        	
+        	<!--crazy stuff, but covers all possible variable expansions with one zone:-->
         	<zone name="tcl.definition.expand">
         		<starts-with>
-        		    <expression>(\$)([\w?!\.]+)?(:{2,})(?=[\w?!\.])</expression>
-        		    <capture number="1" name="tcl.variable.evaluate.punctuation"/>
-        		    <capture number="2" name="tcl.variable.evaluate"/>
-        		    <capture number="3" name="tcl.punctuation.namespace"/>
+        		    <expression>\$</expression>
+        		    <capture number="0" name="tcl.variable.evaluate.punctuation"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=[^\w?!:\.]|\s)</expression>
+        		    <expression>(?=\s)</expression>
         		</ends-with>
-        		<subzones>
+        		<subzones name="tcl.variable.evaluate">
         			<zone>
-        				<expression>(:{2,})?([\w?!\.]*)</expression>
+        				<expression>\$</expression>
+        				<capture number="0" name="tcl.variable.evaluate.punctuation"/>
+        			</zone>
+        			<zone name="tcl.definition.expand">
+        			    <starts-with>
+        			        <expression>\{</expression>
+        			        <capture number="0" name="tcl.punctuation.open-brace"/>
+        			    </starts-with>
+        			    <ends-with>
+        			        <expression>\}</expression>
+        			        <capture number="0" name="tcl.punctuation.close-brace"/>
+        			    </ends-with>
+        			    <subzones name="tcl.variable.evaluate">
+        			    	<zone>
+        			    		<expression>\$</expression>
+        			    		<capture number="0" name="tcl.variable.evaluate.punctuation"/>
+        			    	</zone>
+        				    <zone>
+        				    	<expression>:{2,}</expression>
+        				    	<capture number="0" name="tcl.punctuation.namespace"/>
+        				    </zone>
+        			    </subzones>
+        			</zone>
+        			<zone>
+        				<expression>(:{2,})?(?:[\w?!\.]*)</expression>
         				<capture number="1" name="tcl.punctuation.namespace"/>
-        				<capture number="2" name="tcl.variable.evaluate"/>
         			</zone>
         		</subzones>
-        	</zone>
-        	
-        	<zone name="tcl.definition.expand">
-        	    <expression>(\$)([\w]+)</expression>
-        	    <capture number="1" name="tcl.variable.evaluate.punctuation"/>
-        	    <capture number="2" name="tcl.variable.evaluate"/>
         	</zone>
         	
         </collection>
@@ -427,6 +426,7 @@ THE SOFTWARE.
         	<zone name="tcl.punctuation.command-nextline">
         		<expression>\\\s*?[\n\r]</expression>
         	</zone>
+        	
         	<zone name="tcl.keyword.command.argument-expansion">
         		<expression>\{\*\}</expression>
         	</zone>

@@ -787,7 +787,6 @@
 		<completion string="script" />
 		<completion string="setPickCallback" />
 		<completion string="setResult" />
-		<completion string="this" />
 				
 	</set>
 		
