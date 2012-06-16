@@ -555,6 +555,20 @@ THE SOFTWARE.
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.keyword.options.chan"/>
         	</zone>
+			<zone>
+				<expression>\b(namespace)(\s+)(children|code|current|delete|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
+				<capture number="1" name="tcl.keyword.command.function-call"/>
+				<capture number="2" name="tcl.s"/>
+				<capture number="3" name="tcl.keyword.options.namespace"/>
+			</zone>
+			<zone>
+				<expression>\b(namespace)(\s+)(ensemble)(\s+)(create|configure|exists)\b</expression>
+				<capture number="1" name="tcl.keyword.command.function-call"/>
+				<capture number="2" name="tcl.s"/>
+				<capture number="3" name="tcl.keyword.options.namespace"/>
+				<capture number="4" name="tcl.s"/>
+				<capture number="5" name="tcl.keyword.options.namespace"/>
+			</zone>
 			
         	<zone name="tcl.keyword.command.function-call">
         		<expression>\b(tclsh|try|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset)(?=\s|\]|;)</expression>
@@ -619,11 +633,7 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.options.history">
 				<expression>\b(add|change|clear|event|info|keep|nextid|redo)\b</expression>
 			</zone>
-			
-			<zone name="tcl.keyword.options.namespace">
-				<expression>\b(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
-			</zone>
-			            
+						            
         </collection>
         
         <collection name="Math">

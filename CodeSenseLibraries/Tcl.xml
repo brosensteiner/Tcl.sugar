@@ -506,6 +506,152 @@ THE SOFTWARE.
 		<completion string="tcl_endOfWord" />
 		<completion string="tclPkgSetup" />
 		<completion string="tclPkgUnknown" />
+		<!--namespace-->
+		<completion string="namespace children">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?namespace?} ${2:?pattern?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace code">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:script}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace current"/>
+		<completion string="namespace delete">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?namespace namespace ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace ensemble">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:subcommand} ${2:?arg ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace eval">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:namespace arg} ${2:?arg ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace exists">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:namespace}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace export">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?-clear?} ${2:?pattern pattern ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace forget">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?pattern pattern ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace import">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?-force?} ${2:?pattern pattern ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace inscope">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:namespace} ${2:script} ${3:?arg ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace origin">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:command}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace parent">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?namespace?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace path">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?namespaceList?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace qualifiers">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:string}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace tail">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:string}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace upvar">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:namespace} ${2:?otherVar myVar ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace unknown">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?script?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="namespace which">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?-command?} ${2:?-variable?} ${3:name}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
 		<!--prefix-->
 		<completion string="prefix all">
 		    <behavior>
@@ -1756,6 +1902,76 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	    
+	</set>
+	<!--namespace ensemble options-->
+	<set name="com.rosensteiner.Tcl.function.namespace.ensemble" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="create"/>
+	    <completion string="configure"/>
+	    <completion string="exists"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.ensemble.create" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-map"/>
+	    <completion string="-parameters"/>
+	    <completion string="-prefixes"/>
+	    <completion string="-subcommands"/>
+	    <completion string="-unknown"/>
+	    <completion string="-command"/>
+	    <completion string="-namespace"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.ensemble.configure" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-map"/>
+	    <completion string="-parameters"/>
+	    <completion string="-prefixes"/>
+	    <completion string="-subcommands"/>
+	    <completion string="-unknown"/>
+	    <completion string="-command"/>
+	    <completion string="-namespace"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-clear"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.import" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-force"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.which" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-command"/>
+	    <completion string="-variable"/>
 	</set>
 	<!--lsort options-->
 	<set name="com.rosensteiner.Tcl.function.lsort" casesensitive="true">
