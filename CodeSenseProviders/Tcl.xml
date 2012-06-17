@@ -31,9 +31,13 @@ this code completion scheme works well for all options but can make apperring a 
 <codesense>
     
 	<provider>
-	 	<selector>tcl *:not(keyword + s + options,keyword + s + options + s + options,property-name) + s + * + *, tcl.punctuation + * + *</selector>
+	 	<selector>tcl *:not(keyword,keyword + s + options,keyword + s + options + s + options,property-name) + s + * + *,tcl.punctuation + * + *,tcl.comment + * + *</selector>
 	 	<completions>com.rosensteiner.Tcl.functions</completions>
-	 	<completions>com.rosensteiner.Tcl.math</completions>
+	 	<complete-match>(?&lt;!\\|_|-)[a-zA-Z0-9_]*</complete-match>
+	</provider>
+	<provider>
+	 	<selector>tcl *</selector>
+	 	<completions>com.rosensteiner.Tcl.mathfunc</completions>
 	 	<completions>com.rosensteiner.Tcl.global-variables</completions>
 	 	<completions>com.rosensteiner.Tcl.global-procedures</completions>
 	 	<complete-match>(?&lt;!\\|_|-)[a-zA-Z0-9_]*</complete-match>

@@ -465,47 +465,6 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<!--global variables-->
-		<completion string="args" />
-		<completion string="env" />
-		<completion string="errorCode" />
-		<completion string="errorInfo" />
-		<completion string="tcl_library" />
-		<completion string="tcl_libPath" />
-		<completion string="tcl_patchLevel" />
-		<completion string="tcl_pkgPath" />
-		<completion string="tcl_platform" />
-		<completion string="tcl_precision" />
-		<completion string="tcl_rcFileName" />
-		<completion string="tcl_rcRsrcName" />
-		<completion string="tcl_traceCompile" />
-		<completion string="tcl_traceExec" />
-		<completion string="tcl_wordchars" />
-		<completion string="tcl_nonwordchars" />
-		<completion string="tcl_version" />
-		<completion string="tcl_prompt1" />
-		<completion string="tcl_prompt2" />
-		<completion string="argc" />
-		<completion string="argv" />
-		<completion string="argv0" />
-		<completion string="tcl_interactive" />
-		<completion string="geometry" />
-		<completion string="TCL_OK" />
-		<completion string="TCL_ERROR" />
-		<completion string="TCL_RETURN" />
-		<completion string="TCL_BREAK" />
-		<completion string="TCL_CONTINUE" />
-		<!--global procedures-->
-		<completion string="auto_execs" />
-		<completion string="auto_index" />
-		<completion string="auto_noexec" />
-		<completion string="auto_noload" />
-		<completion string="auto_path" />
-		<completion string="unknown_pending" />
-		<completion string="pkg_mkIndex" />
-		<completion string="tcl_endOfWord" />
-		<completion string="tclPkgSetup" />
-		<completion string="tclPkgUnknown" />
 		<!--namespace-->
 		<completion string="namespace children">
 		    <behavior>
@@ -1901,6 +1860,109 @@ THE SOFTWARE.
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
+	    
+	</set>
+	<!--namespace ensemble options-->
+	<set name="com.rosensteiner.Tcl.global-variables" casesensitive="true">
+	
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="args" />
+	    <completion string="env" />
+	    <completion string="errorCode" />
+	    <completion string="errorInfo" />
+	    <completion string="tcl_library" />
+	    <completion string="tcl_libPath" />
+	    <completion string="tcl_patchLevel" />
+	    <completion string="tcl_pkgPath" />
+	    <completion string="tcl_platform" />
+	    <completion string="tcl_precision" />
+	    <completion string="tcl_rcFileName" />
+	    <completion string="tcl_rcRsrcName" />
+	    <completion string="tcl_traceCompile" />
+	    <completion string="tcl_traceExec" />
+	    <completion string="tcl_wordchars" />
+	    <completion string="tcl_nonwordchars" />
+	    <completion string="tcl_version" />
+	    <completion string="tcl_prompt1" />
+	    <completion string="tcl_prompt2" />
+	    <completion string="argc" />
+	    <completion string="argv" />
+	    <completion string="argv0" />
+	    <completion string="tcl_interactive" />
+	    <completion string="geometry" />
+	    <completion string="TCL_OK" />
+	    <completion string="TCL_ERROR" />
+	    <completion string="TCL_RETURN" />
+	    <completion string="TCL_BREAK" />
+	    <completion string="TCL_CONTINUE" />
+	    
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.global-procedures" casesensitive="true">
+	
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="auto_execs" />
+	    <completion string="auto_index" />
+	    <completion string="auto_noexec" />
+	    <completion string="auto_noload" />
+	    <completion string="auto_path" />
+	    <completion string="unknown_pending" />
+	    <completion string="pkg_mkIndex" />
+	    <completion string="tcl_endOfWord" />
+	    <completion string="tclPkgSetup" />
+	    <completion string="tclPkgUnknown" />
+	    
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.mathfunc" casesensitive="true">
+	
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1::\($1\) $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="abs" />
+	    <completion string="acos" />
+	    <completion string="asin" />
+	    <completion string="atan" />
+	    <completion string="atan2" />
+	    <completion string="bool" />
+	    <completion string="ceil" />
+	    <completion string="cos" />
+	    <completion string="cosh" />
+	    <completion string="double" />
+	    <completion string="entier" />
+	    <completion string="exp" />
+	    <completion string="floor" />
+	    <completion string="fmod" />
+	    <completion string="hypot" />
+	    <completion string="int" />
+	    <completion string="isqrt" />
+	    <completion string="log" />
+	    <completion string="log10" />
+	    <completion string="max" />
+	    <completion string="min" />
+	    <completion string="pow" />
+	    <completion string="rand" />
+	    <completion string="round" />
+	    <completion string="sin" />
+	    <completion string="sinh" />
+	    <completion string="sqrt" />
+	    <completion string="srand" />
+	    <completion string="tan" />
+	    <completion string="tanh" />
+	    <completion string="wide" />
 	    
 	</set>
 	<!--namespace ensemble options-->

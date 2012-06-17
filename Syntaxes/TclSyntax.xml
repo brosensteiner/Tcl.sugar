@@ -172,7 +172,7 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.comment.multiline"><!--awkward tcl multiline comment :)-->
+			<zone name="tcl.comment.multiline"><!--awkward tcl multiline comment ;)-->
 			    <starts-with>
 			        <expression>if\s+0\s+\{</expression>
 			    </starts-with>
@@ -255,13 +255,13 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.array-dict-unset-function-call.definition">
 			    <expression>\b(array|dict)\s+(unset)\s+(\w+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-array-dict-unset"/>
-			    <capture number="2" name="tcl.keyword.options.array-dict"/>
+			    <capture number="2" name="tcl.options.array-dict"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.keyword.array-dict-set-function-call.definition">
 			    <expression>\b(array|dict)\s+(set)\s+(\w+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-array-dict-unset"/>
-			    <capture number="2" name="tcl.keyword.options.array-dict"/>
+			    <capture number="2" name="tcl.options.array-dict"/>
 			    <capture number="3" name="tcl.var"/>
 			</zone>
 						
@@ -391,7 +391,7 @@ THE SOFTWARE.
         			</zone>
         			<zone name="tcl.definition.expand">
         			    <starts-with>
-        			        <expression>\{</expression>
+        			        <expression>(?&lt;=\$)\{</expression>
         			        <capture number="0" name="tcl.punctuation.open-brace"/>
         			    </starts-with>
         			    <ends-with>
@@ -512,19 +512,19 @@ THE SOFTWARE.
         	    <expression>\b(prefix)(\s+)(all|longest|match)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.prefix"/>
+        	    <capture number="3" name="tcl.options.prefix"/>
         	</zone>
         	<zone>
         		<expression>\b(trace)(\s+)(add(\s+(command|execution|variable))?|remove(\s+(command|execution|variable))?|info(\s+(command|execution|variable))?|variable|vdelete|vinfo)\b</expression>
         		<capture number="1" name="tcl.keyword.command.function-call"/>
         		<capture number="2" name="tcl.s"/>
-        		<capture number="3" name="tcl.keyword.options.trace"/>
+        		<capture number="3" name="tcl.options.trace"/>
         	</zone>
         	<zone>
         	    <expression>\b(string)(\s+)(bytelength|compare|equal|first|index|is(\s+(alnum|alpha|ascii|boolean|control|digit|double|false|graph|integer|list|lower|print|punct|space|true|upper|wideinteger|wordchar|xdigit?))?|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.string"/>
+        	    <capture number="3" name="tcl.options.string"/>
         	</zone>
         	<zone>
         		<expression>\b(source)(\s+)(-encoding)?</expression>
@@ -536,57 +536,57 @@ THE SOFTWARE.
         	    <expression>\b(dict)(\s+)(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.dict"/>
+        	    <capture number="3" name="tcl.options.dict"/>
         	</zone>
         	<zone>
         	    <expression>\b(array)(\s+)(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.array"/>
+        	    <capture number="3" name="tcl.options.array"/>
         	</zone>
         	<zone>
         	    <expression>\b(info)(\s+)(args|body|class|cmdcount|commands|complete|coroutine|default|exists|frame|functions|globals|hostname|level|library|loaded|locals|nameofexecutable|object|patchlevel|procs|script|sharedlibextension|tclversion|vars|objectisaclassobject|objectisametaclassobject|objectisamixinobjectclass|objectisaobjectobject|objectisatypeofobjectclass)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.info"/>
+        	    <capture number="3" name="tcl.options.info"/>
         	</zone>
         	<zone>
         	    <expression>\b(http)(\s+)(config|geturl|formatQuery|reset|wait|data|error|status|code|ncode|size|meta|cleanup|register|unregister)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.http"/>
+        	    <capture number="3" name="tcl.options.http"/>
         	</zone>
         	<zone>
         	    <expression>\b(file)(\s+)(atime|attributes|channels|copy|delete|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|nativename|normalize|owned|pathtype|readable|readlink|rename|rename|rootname|separator|size|split|stat|system|tail|tempfile|type|volumes|writable)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.file"/>
+        	    <capture number="3" name="tcl.options.file"/>
         	</zone>
         	<zone>
         		<expression>\b(package)(\s+)(forget|ifneeded|names|present|provide|require|unknown|vcompare|versions|package|prefer|vsatisfies)\b</expression>
         		<capture number="1" name="tcl.keyword.command.function-call"/>
         		<capture number="2" name="tcl.s"/>
-        		<capture number="3" name="tcl.keyword.options.package"/>
+        		<capture number="3" name="tcl.options.package"/>
         	</zone>
         	<zone>
         	    <expression>\b(chan)(\s+)(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read|start|current|end)\b</expression>
         	    <capture number="1" name="tcl.keyword.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.keyword.options.chan"/>
+        	    <capture number="3" name="tcl.options.chan"/>
         	</zone>
 			<zone>
 				<expression>\b(namespace)(\s+)(children|code|current|delete|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
 				<capture number="1" name="tcl.keyword.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
-				<capture number="3" name="tcl.keyword.options.namespace"/>
+				<capture number="3" name="tcl.options.namespace"/>
 			</zone>
 			<zone>
 				<expression>\b(namespace)(\s+)(ensemble)(\s+)(create|configure|exists)\b</expression>
 				<capture number="1" name="tcl.keyword.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
-				<capture number="3" name="tcl.keyword.options.namespace"/>
+				<capture number="3" name="tcl.options.namespace"/>
 				<capture number="4" name="tcl.s"/>
-				<capture number="5" name="tcl.keyword.options.namespace"/>
+				<capture number="5" name="tcl.options.namespace"/>
 			</zone>
 			
         	<zone name="tcl.keyword.command.function-call">
@@ -605,51 +605,51 @@ THE SOFTWARE.
         		<expression>(?&lt;![\w?!])-[\w?!]+\b|(?&lt;![\w?!])--(?=\s)</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.options.package.prefer">
+        	<zone name="tcl.options.package.prefer">
         		<expression>\b(latest|stable|unstable)\b</expression>
         	</zone>
 						
-			<zone name="tcl.keyword.options.close">
+			<zone name="tcl.options.close">
 			    <expression>\b(read|write)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.try">
+			<zone name="tcl.options.try">
 			    <expression>\b(on|trap|finally)\b</expression>
 			</zone>
 															
-			<zone name="tcl.keyword.options.dict.filter">
+			<zone name="tcl.options.dict.filter">
 				<expression>\b(key|script|value)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.after">
+			<zone name="tcl.options.after">
 				<expression>\b(cancel|idle|info)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.binary">
+			<zone name="tcl.options.binary">
 				<expression>\b(scan|format|encode|decode)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.binary.encode-decode">
+			<zone name="tcl.options.binary.encode-decode">
 				<expression>\b(base64|hex|uuencode)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.clock">
+			<zone name="tcl.options.clock">
 				<expression>\b(clicks|format|scan|seconds)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.dde">
+			<zone name="tcl.options.dde">
 				<expression>\b(eval|execute|poke|request|servername|services)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.encoding">
+			<zone name="tcl.options.encoding">
 				<expression>\b(convertfrom|convertto|names|system)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.fileevent">
+			<zone name="tcl.options.fileevent">
 				<expression>\b(readable|writable)\b</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.options.history">
+			<zone name="tcl.options.history">
 				<expression>\b(add|change|clear|event|info|keep|nextid|redo)\b</expression>
 			</zone>
 						            
