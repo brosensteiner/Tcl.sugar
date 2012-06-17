@@ -382,7 +382,7 @@ THE SOFTWARE.
         		    <capture number="0" name="tcl.variable.evaluate.punctuation"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=\s)</expression>
+        		    <expression>(?=[\]\}\)"]|\s|\Z)</expression>
         		</ends-with>
         		<subzones name="tcl.variable.evaluate">
         			<zone>
