@@ -399,10 +399,6 @@ THE SOFTWARE.
         			        <capture number="0" name="tcl.punctuation.close-brace"/>
         			    </ends-with>
         			    <subzones name="tcl.variable.evaluate">
-        			    	<zone>
-        			    		<expression>\$</expression>
-        			    		<capture number="0" name="tcl.variable.evaluate.punctuation"/>
-        			    	</zone>
         				    <zone>
         				    	<expression>:{2,}</expression>
         				    	<capture number="0" name="tcl.punctuation.namespace"/>
