@@ -360,21 +360,6 @@ THE SOFTWARE.
         
         <collection name="VariableExpansion">
         
-        	<zone name="tcl.container.definition.expand-array">
-        	    <starts-with>
-        	        <expression>(\$)(\w+)(\()</expression>
-        	        <capture number="1" name="tcl.variable.evaluate.punctuation"/>
-        	        <capture number="2" name="tcl.variable.evaluate"/>
-        	        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
-        	    </starts-with>
-        	    <ends-with>
-        	        <expression>\)</expression>
-        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
-        	    </ends-with>
-        	    <subzones>
-        	    	<include syntax="language-root.tcl" />
-        	    </subzones>
-        	</zone>
         	<!--crazy stuff, but covers all possible variable expansions with one zone:-->
         	<zone name="tcl.definition.expand">
         		<starts-with>
@@ -382,7 +367,7 @@ THE SOFTWARE.
         		    <capture number="0" name="tcl.variable.evaluate.punctuation"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=[^\w?!\.:\$\{\}]|\}\s|\s)</expression>
+        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\}\s|\)\s|\s)</expression>
         		</ends-with>
         		<subzones name="tcl.variable.evaluate">
         			<zone>
@@ -399,15 +384,30 @@ THE SOFTWARE.
         			        <capture number="0" name="tcl.punctuation.close-brace"/>
         			    </ends-with>
         			    <subzones name="tcl.variable.evaluate">
-        				    <zone>
+        				    <zone name="tcl.punctuation.namespace">
         				    	<expression>:{2,}</expression>
-        				    	<capture number="0" name="tcl.punctuation.namespace"/>
         				    </zone>
         			    </subzones>
         			</zone>
         			<zone>
         				<expression>(:{2,})?(?:[\w?!\.]*)</expression>
         				<capture number="1" name="tcl.punctuation.namespace"/>
+        			</zone>
+        			<zone name="tcl.definition.array-key">
+        			    <starts-with>
+        			        <expression>(?&lt;=[\w:])(\()</expression>
+        			        <capture number="1" name="tcl.punctuation.open-parenthesis"/>
+        			    </starts-with>
+        			    <ends-with>
+        			        <expression>\)(?=[\s\]\}"])</expression>
+        			        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        			    </ends-with>
+        			    <subzones name="tcl.definition.in-array">
+        			    	<include syntax="language-root.tcl" />
+        			    	<zone name="tcl.punctuation.namespace">
+        			    		<expression>:{2,}</expression>
+        			    	</zone>
+        			    </subzones>
         			</zone>
         		</subzones>
         	</zone>
