@@ -191,7 +191,7 @@ THE SOFTWARE.
 			
 			<zone name="tcl.keyword.set-variable.array">
 			    <starts-with>
-			        <expression>\b(set)\s+([\w?!]+)(\()</expression>
+			        <expression>\b(set)\s+([\w:]+)(\()</expression>
 			        <capture number="1" name="tcl.keyword.command.function-call.command-set"/>
 			        <capture number="2" name="tcl.keyword.var"/>
 			        <capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
@@ -206,7 +206,7 @@ THE SOFTWARE.
 			</zone>
 			<zone name="tcl.keyword.unset-variable.array">
 			    <starts-with>
-			        <expression>\b(unset)\s+(\w+)(\()</expression>
+			        <expression>\b(unset)\s+([\w:]+)(\()</expression>
 			        <capture number="1" name="tcl.keyword.command.function-call.command-unset"/>
 			        <capture number="2" name="tcl.unset-var"/>
 			        <capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
@@ -221,45 +221,45 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.keyword.set-function-call.definition">
-			    <expression>\b(set)\s+(\w+)?</expression>
+			    <expression>\b(set)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-set"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.unset-function-call.definition">
-			    <expression>(\bunset\b)(\s+-nocomplain)?((\s+(\w+))+)?</expression>
+			    <expression>(\bunset\b)(\s+-nocomplain)?((\s+([\w:]+))+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.keyword.append-function-call.definition">
-			    <expression>\b(append)\s+(\w+)?</expression>
+			    <expression>\b(append)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-append"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.rename-function-call.definition">
-			    <expression>\b(rename)\s+(\w+)?\s+(\w+)?</expression>
+			    <expression>\b(rename)\s+([\w:]+)?\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-rename"/>
 			    <capture number="2" name="tcl.unset-var.rename-var"/>
 			    <capture number="3" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.global-function-call.definition">
-			    <expression>\b(global)((\s+\w+)+)?</expression>
+			    <expression>\b(global)((\s+[\w:]+)+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-global"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.variable-function-call.definition">
-			    <expression>\b(variable)((\s+\w+)+)?</expression>
+			    <expression>\b(variable)((\s+[\w:]+)+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-variable"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.array-dict-unset-function-call.definition">
-			    <expression>\b(array|dict)\s+(unset)\s+(\w+)?</expression>
+			    <expression>\b(array|dict)\s+(unset)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-array-dict-unset"/>
 			    <capture number="2" name="tcl.options.array-dict"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.keyword.array-dict-set-function-call.definition">
-			    <expression>\b(array|dict)\s+(set)\s+(\w+)?</expression>
+			    <expression>\b(array|dict)\s+(set)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-array-dict-unset"/>
 			    <capture number="2" name="tcl.options.array-dict"/>
 			    <capture number="3" name="tcl.var"/>
@@ -367,7 +367,7 @@ THE SOFTWARE.
         		    <capture number="0" name="tcl.variable.evaluate.punctuation"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\}\s|\)\s|\s)</expression>
+        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\)(\]|\}|")|(\]|\}|\)|")\s|\s)</expression>
         		</ends-with>
         		<subzones name="tcl.variable.evaluate">
         			<zone>
