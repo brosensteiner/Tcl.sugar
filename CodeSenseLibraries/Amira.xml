@@ -264,6 +264,8 @@
 		<completion string="kernel" />
 		<completion string="setNumProcs" />
 		<completion string="sigma" />
+		<!--grid editor-->
+		<completion string="info" />
 		<!--general amira object-->
 		<completion string="setValue" />
 		<completion string="getValue" />
@@ -751,6 +753,10 @@
 		<completion string="gmcLabels" />
 		<completion string="gmcWeights" />
 		<completion string="hasMaterial" />
+		<completion string="hasDuplicatedNodes" />
+		<completion string="removeDuplicatedPoints" />
+		<completion string="removeTetra" />
+		<completion string="cleanUp" />
 		<completion string="interpolTransform" />
 		<completion string="isModified" />
 		<completion string="latticeType" />

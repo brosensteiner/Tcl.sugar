@@ -103,6 +103,9 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	<zone name="amira.keyword.command.filter-editor">
     	    <expression>(?&lt;=(\w|\])\s)(filter|kernel|setNumProcs|sigma)\b</expression>
     	</zone>
+    	<zone name="amira.keyword.command.gird-editor">
+    	    <expression>(?&lt;=(\w|\])\s)(info)\b</expression>
+    	</zone>
     	
     	<zone name="amira.keyword.command.remeshsurface-module">
     	    <expression>(?&lt;=(\w|\])\s)(bisectEdge|curvDebug|extractDensityField|getTriangleError|op1|pumpContours|refineBadRegions|refineByEdgeLength|relocatePoint|setVerbosity)\b</expression>
@@ -205,7 +208,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.additional-commands">
-    	    <expression>(?&lt;=(\w|\])\s)(master|addColumn|getNumCols|setColName|getNumRows|setDecimalPoint|setNumFormat|setNumRows|autoFormat|print|allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|interpolTransform|isModified|latticeType|makeColormap|primType|primary|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(master|addColumn|getNumCols|setColName|getNumRows|setDecimalPoint|setNumFormat|setNumRows|autoFormat|print|allInterfaceTypeIds|allInterfaces|applyTransform|applyTransformBBox|checkBorderTouch|clearVisibleFlag|collapse|compareTransforms|createDocFile|createPortSnaps|createWeights|deleteWeights|eval|expand|extract|getControllingData|getHelpHint|getInterface|getMaterialName|getNoRenameFlag|getPackage|getScreen|getSurfaceArea|getTouchTime|getTransformRounded|getVarNames|getViewerMask|getVoxelSize|gmcLabels|gmcWeights|hasMaterial|hasDuplicatedNodes|removeDuplicatedPoints|removeTetra|cleanUp|interpolTransform|isModified|latticeType|makeColormap|primType|primary|relabel|removeEmptyMaterials|removeMaterial|resize|setControllingData|setInvisible|setModified|setNoRemove|setNoRemoveAll|setNoRename|setNoSave|setRequiresPolygonOffset|setScale|setScreen|setShadowStyle|setTransformRounded|setUnit|sharedColormap|unsetVar|action|DoIt|doIt|call|exec|getResult|isFirstCall|script|setPickCallback|setResult)\b</expression>
     	</zone>
 		
     </zones>
