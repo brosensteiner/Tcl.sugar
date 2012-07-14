@@ -347,6 +347,26 @@
 		<completion string="getPatchArea" />
 		<completion string="assignInsideMaterial" />
 		<completion string="assignOutsideMaterial" />
+		<!--grid (tetrahedra)-->
+		<completion string="hasDuplicatedNodes" />
+		<completion string="removeDuplicatedPoints" />
+		<completion string="removeTetra" />
+		<completion string="cleanUp" />
+		<completion string="applyTransformRounded" />
+		<completion string="check" />
+		<completion string="computeHints" />
+		<completion string="createEdges" />
+		<completion string="getCenter" />
+		<completion string="getNumIslands" />
+		<completion string="getNumTetrahedra" />
+		<completion string="globalRefine" />
+		<completion string="isExtendedGrid" />
+		<completion string="movePointRel" />
+		<completion string="rebuildOctree" />
+		<completion string="removeDuplicatePoints" />
+		<completion string="scaleCoords" />
+		<completion string="sortTetrahedra" />
+		<completion string="translateCoords" />
 		<!--line probe module-->
 		<completion string="appendPoint" />
 		<completion string="getInterpol" />
@@ -753,10 +773,6 @@
 		<completion string="gmcLabels" />
 		<completion string="gmcWeights" />
 		<completion string="hasMaterial" />
-		<completion string="hasDuplicatedNodes" />
-		<completion string="removeDuplicatedPoints" />
-		<completion string="removeTetra" />
-		<completion string="cleanUp" />
 		<completion string="interpolTransform" />
 		<completion string="isModified" />
 		<completion string="latticeType" />
