@@ -155,6 +155,10 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	    <expression>(?&lt;=(\w|\])\s)(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial)\b</expression>
     	</zone>
     	
+    	<zone name="amira.keyword.command.surface-view">
+    	    <expression>(?&lt;=(\w|\])\s)(getBox|getCreaseAngle|getDrawSelectionMode|getSelectedTriangles|getVisibleTriangles|hidePatch|highlightTriangles|isHighlighted|isSelected|loadTexture|makePatch|options|selectFrontFace|selectTriangles|selectVisibleOnly|setBox|setCreaseAngle|setFontSize|setMaxColormapRange|showBoundaryId|showPatch|tooBigSurfaceWarning|transFactor|twoFace|useDisplayLists)\b</expression>
+    	</zone>
+    	
     	<zone name="amira.keyword.command.grid">
     	    <expression>(?&lt;=(\w|\])\s)(hasDuplicatedNodes|removeDuplicatedPoints|removeTetra|cleanUp|applyTransformRounded|check|computeHints|createEdges|getCenter|getNumIslands|getNumTetrahedra|globalRefine|isExtendedGrid|movePointRel|rebuildOctree|removeDuplicatePoints|scaleCoords|sortTetrahedra|translateCoords)\b</expression>
     	</zone>

@@ -347,6 +347,32 @@
 		<completion string="getPatchArea" />
 		<completion string="assignInsideMaterial" />
 		<completion string="assignOutsideMaterial" />
+		<!--surface view-->
+		<completion string="getBox" />
+		<completion string="getCreaseAngle" />
+		<completion string="getDrawSelectionMode" />
+		<completion string="getSelectedTriangles" />
+		<completion string="getVisibleTriangles" />
+		<completion string="hidePatch" />
+		<completion string="highlightTriangles" />
+		<completion string="isHighlighted" />
+		<completion string="isSelected" />
+		<completion string="loadTexture" />
+		<completion string="makePatch" />
+		<completion string="options" />
+		<completion string="selectFrontFace" />
+		<completion string="selectTriangles" />
+		<completion string="selectVisibleOnly" />
+		<completion string="setBox" />
+		<completion string="setCreaseAngle" />
+		<completion string="setFontSize" />
+		<completion string="setMaxColormapRange" />
+		<completion string="showBoundaryId" />
+		<completion string="showPatch" />
+		<completion string="tooBigSurfaceWarning" />
+		<completion string="transFactor" />
+		<completion string="twoFace" />
+		<completion string="useDisplayLists" />
 		<!--grid (tetrahedra)-->
 		<completion string="hasDuplicatedNodes" />
 		<completion string="removeDuplicatedPoints" />
