@@ -476,7 +476,7 @@ THE SOFTWARE.
         	        <capture number="2" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
-        	        <expression>(\})\s+([\w]+)(\s+[\w]+)?</expression>
+        	        <expression>(\})(?:\s+([\w]+)(\s+[\w]+)?)?</expression>
         	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	        <capture number="2" name="tcl.var.catch-var"/>
         	        <capture number="3" name="tcl.var.catch-options-var"/>
@@ -559,7 +559,7 @@ THE SOFTWARE.
         	    <capture number="3" name="tcl.options.file"/>
         	</zone>
         	<zone>
-        		<expression>\b(package)(\s+)(forget|ifneeded|names|present|provide|require|unknown|vcompare|versions|package|prefer|vsatisfies)\b</expression>
+        		<expression>\b(package)(\s+)(forget|ifneeded|names|present|provide|require|unknown|vcompare|versions|prefer|vsatisfies)\b</expression>
         		<capture number="1" name="tcl.keyword.command.function-call"/>
         		<capture number="2" name="tcl.s"/>
         		<capture number="3" name="tcl.options.package"/>
@@ -612,11 +612,7 @@ THE SOFTWARE.
         	<zone name="tcl.keyword.property-name">
         		<expression>(?&lt;![\w?!])-[\w?!]+\b|(?&lt;![\w?!])--(?=\s)</expression>
         	</zone>
-        	
-        	<zone name="tcl.options.package.prefer">
-        		<expression>\b(latest|stable|unstable)\b</expression>
-        	</zone>
-						
+        			
 			<zone name="tcl.options.close">
 			    <expression>\b(read|write)\b</expression>
 			</zone>
@@ -701,7 +697,7 @@ THE SOFTWARE.
         	</zone>
         	
    			<zone name="tcl.constant.numeric.normal">
-				<expression>(?&lt;![\w!\.\$])((-?\d+(\.\d+)?([eE]-?\d+)?|-?\.\d+([eE]-?\d+)?))(?!\w|\.[\w?!:\.])</expression>
+				<expression>(?&lt;![\w!\.\$])((-?\d+(\.\d+)?([eE][+-]?\d+)?|-?\.\d+([eE]-?\d+)?))(?!\w|\.[\w?!:\.])</expression>
 			</zone>
 			
 			<zone name="tcl.constant.numeric.octal">

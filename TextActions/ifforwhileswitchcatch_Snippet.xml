@@ -48,7 +48,7 @@ THE SOFTWARE.
 <!--if-->
 	<snippet id="com.rosensteiner.actions.snippets.tcl.if" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 	        <title>new if</title>
-	        <text>if \{ ${1:condition} \} then \{
+	        <text>if \{ ${1:condition} \} \{
 	${2:body}
 \}$0</text>
 	        <language-context>tcl</language-context>
@@ -58,7 +58,7 @@ THE SOFTWARE.
 <!--if one line-->
 	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new if at one line</title>
-		<text>if \{ ${1:condition} \} then \{ ${2:body} \}$0</text>
+		<text>if \{ ${1:condition} \} \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>nif1</text-trigger>
 	</snippet>
@@ -66,7 +66,7 @@ THE SOFTWARE.
 <!--elseif-->
 	<snippet id="com.rosensteiner.actions.snippets.tcl.elseif" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 	        <title>new elseif</title>
-	        <text>elseif \{ ${1:condition} \} then \{
+	        <text>elseif \{ ${1:condition} \} \{
 	${2:body}
 \}$0</text>
 		<language-context>tcl</language-context>
@@ -75,7 +75,7 @@ THE SOFTWARE.
 <!--elseif one line-->
 	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new elseif at one line</title>
-		<text>elseif \{ ${1:condition} \} then \{ ${2:body} \}$0</text>
+		<text>elseif \{ ${1:condition} \} \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>nelseif1</text-trigger>
 	</snippet>
@@ -84,9 +84,9 @@ THE SOFTWARE.
 	<snippet id="com.rosensteiner.actions.snippets.tcl.ifelse" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
 		<title>new if else</title>
 			<text>if \{ ${1:condition} \} \{
-	 	${2:body}
-	 \} else \{
-	 	${3:body}
+	${2:body}
+\} else \{
+	${3:body}
 \}$0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>nifelse</text-trigger>

@@ -177,6 +177,7 @@
 		<!--editors-->
 		<completion string="filterEditor" />
 		<completion string="cropEditor" />
+		<completion string="gridedit" />
 		<completion string="Object2" /><!--segmentation Editor, why is it called like this?-->
 		<completion string="paramEditor" />
 		<completion string="transformEditor" />
@@ -267,6 +268,7 @@
 		<completion string="info" />
 		<!--general amira object-->
 		<completion string="setValue" />
+		<completion string="setValues" />
 		<completion string="getValue" />
 		<completion string="hasInterface" />
 		<completion string="duplicate" />
@@ -1049,6 +1051,7 @@
    		<completion string="HxParamBundle" />
    		<completion string="HxParamBase" />
    		<completion string="HxParamBase" />
+   		<completion string="HxRemeshSurface" />
    		<!--ports-->
    		<completion string="HxPortButtonList" />
    		<completion string="HxPortButtonMenu" />

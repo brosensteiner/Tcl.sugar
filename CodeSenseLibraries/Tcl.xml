@@ -465,6 +465,94 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
+		<!--package-->
+		<behavior>
+		    <append-dynamic>
+		        <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		        <transform-into>(?1:: $0)</transform-into>
+		    </append-dynamic>
+		</behavior>
+		<completion string="package forget">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?package package ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package ifneeded">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:package version} ${2:?script?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package names"/>
+		<completion string="package present">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?-exact?} ${2:package} ${3:?requirement...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package provide">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:package} ${2:?version?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package require">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:package} ${2:?requirement...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package unknown">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?command?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package vcompare">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:version1 version2}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package versions">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:package}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package vsatisfies">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:version requirement...}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="package prefer">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?latest | stable?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
 		<!--namespace-->
 		<completion string="namespace children">
 		    <behavior>
@@ -2238,6 +2326,10 @@ THE SOFTWARE.
 	</set>
 	<set name="com.rosensteiner.Tcl.function.package.require" casesensitive="true">
 		<completion string="-exact" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.package.prefer" casesensitive="true">
+		<completion string="latest" />
+		<completion string="stable" />
 	</set>
 	<!--file options-->
 		<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
