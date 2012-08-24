@@ -226,7 +226,7 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.unset-function-call.definition">
-			    <expression>(\bunset\b)(\s+-nocomplain)?((\s+([\w:]+))+)?</expression>
+			    <expression>(\bunset)(\s+-nocomplain)?((\s+([\w:]+))+)?\b</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
@@ -243,12 +243,12 @@ THE SOFTWARE.
 			    <capture number="3" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.global-function-call.definition">
-			    <expression>\b(global)((\s+[\w:]+)+)?</expression>
+			    <expression>\b(global)((\s+[\w:]+)+)?\b</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-global"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.keyword.variable-function-call.definition">
-			    <expression>\b(variable)((\s+[\w:]+)+)?</expression>
+			    <expression>\b(variable)((\s+[\w:]+)+)?\b</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-variable"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
@@ -399,7 +399,7 @@ THE SOFTWARE.
         			        <capture number="1" name="tcl.punctuation.open-parenthesis"/>
         			    </starts-with>
         			    <ends-with>
-        			        <expression>\)(?=[\s\]\}"])</expression>
+        			        <expression>(?&lt;!\\)\)</expression>
         			        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
         			    </ends-with>
         			    <subzones name="tcl.definition.in-array">

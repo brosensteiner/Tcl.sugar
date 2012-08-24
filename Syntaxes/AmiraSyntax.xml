@@ -119,6 +119,10 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	    <expression>(?&lt;=(\w|\])\s)(savePartialGrid|setBatch|setMaxDiamRatio|setMaxNumTetras|setMeshSize|setNumNextVert|setStatusChecked|skipPostProc)\b</expression>
     	</zone>
     	
+    	<zone name="amira.keyword.command.gridvolume-module">
+    	    <expression>(?&lt;=(\w|\])\s)(createGridFromSelection|getNSelectedTetra|getNumConnectedRegions|getSelectAllNew|getSelectedTetra|selectBoundaryTets|selectConnectedRegion|selectTetra|setClickToggles|setSelectAllNew|unselectTetra)\b</expression>
+    	</zone>
+    	
     	<zone name="amira.keyword.command.triangledistortion-module">
     	    <expression>(?&lt;=(\w|\])\s)(getVal)\b</expression>
     	</zone>
@@ -152,7 +156,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.surface">
-    	    <expression>(?&lt;=(\w|\])\s)(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial|checkClosedness|clearLOD|computeNormalsPerTriangle|computeNormalsPerVertex|computeNormalsPerVertexIndexed|copyMaterials|createAllEdges|createContours|findBranchingPoints|findContours|fixHangingNodes|getBoundaryId|getGenus|getMaterials|getMaxEdgeLength|getMeanEdgeLength|getMinEdgeLength|getNeighsPerPoint|getNumPatches|getNumTriangles|getTopology|getTransparency|getTriIdx|getTriangleArea|mergeAll|mergeDuplicateGridVertices|mergeVertexSet|recomputeNoRenumberPoints|removeDegenerateTriangles|removeDuplicateTriangles|removeNormals|removeSmallPatches|removeUnusedPoints|setBoundaryId|setMaterialName)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.surface-view">
@@ -200,7 +204,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.additional-data-classes">
-    	    <expression>\b(HxGenerateTensorData|HxArithmetic|HxBSpline|HxColormapSC|HxConvertToDiskData|HxGPUShader|HxLinearVectorField3|HxMagDipol|HxMosaic|HxMovieData|HxSpatialGraph|HxSurfacePathSet|HxTime|HxScriptObject|HxIvDisplay|HxAnnotation|HxSound|HxSQLite|HxTridelity|Hx2DMesh|HxCreateSphere|HxFakeModule|HxDynamicFileSeriesCtrl|HxGeometryToSurface|HxLDAExpertSettings|HxMolTrajectoryBundle|HxPSFGen|HxParametricSurface|HxStereoTestPattern|HxVoxelSurface|HxCalculus|HxCircularCameraPath|HxArbitraryCut|HxMultiChannelField3|HxMultiChannelField|HxScale|HxGMC|HxVolren|HxVoltex|HxAffineRegistration|HxAlignSlices|HxAnonymizeImageStack|HxApplyTransform|HxAverageBrain|HxCorrectBlockFace|HxCanny2D|HxCastField|HxCastLattice|HxChannelWorks|HxColorCombine|HxCompareLatticeData|HxComputeTensor|HxComputeTensorOutOfCore|HxDicomSend|HxFieldAsLattice|HxFilterBySpreadsheet|HxGradient|HxFrameInterpolator|HxLabelVoxel|HxLatToHex|HxMerge|HxNormalizeImage|HxResample|HxSegmentBrain|HxShear|HxSplitLattice|HxVolumeEdit|HxStandardView|HxSelectRoi|HxProjectionView|HxOrthoSlice|HxObliqueSlice|HxAxis|HxIsosurface|HxIsolines|HxHeightField|HxFilteredObliqueSlice|HxCurvedSlice|HxCornerCut|HxCityPlot|HxBumpSlice|HxAnnotatedIsolines|HxObjectTransformAnimation|HxBeadExtract|HxConvolution|HxCorrectZDrop|HxDataPreprocess|HxDeconvolution|HxFFT|HxImageFilters|HxConnectedComponentAnalysis|HxCorrelationPlot|HxLocalThreshold|HxSeparateMorpho|HxWatershedSegmentation|HxHistogram|HxLineProbe|HxLineSetProbe|HxPointProbe|HxShapeAnalysis|HxSplineProbe|HxExtAutoSkeleton|HxTEASAR|HxDOThinner2|HxTissueStatistics|HxParameterEditor|HxParamBundle|HxParamBase|HxParamBase|HxRemeshSurface)\b</expression>
+    	    <expression>\b(HxGenerateTensorData|HxArithmetic|HxBSpline|HxColormapSC|HxConvertToDiskData|HxGPUShader|HxLinearVectorField3|HxMagDipol|HxMosaic|HxMovieData|HxSpatialGraph|HxSurfacePathSet|HxTime|HxScriptObject|HxIvDisplay|HxAnnotation|HxSound|HxSQLite|HxTridelity|Hx2DMesh|HxCreateSphere|HxFakeModule|HxDynamicFileSeriesCtrl|HxGeometryToSurface|HxLDAExpertSettings|HxMolTrajectoryBundle|HxPSFGen|HxParametricSurface|HxStereoTestPattern|HxVoxelSurface|HxCalculus|HxCircularCameraPath|HxArbitraryCut|HxMultiChannelField3|HxMultiChannelField|HxScale|HxGMC|HxVolren|HxVoltex|HxAffineRegistration|HxAlignSlices|HxAnonymizeImageStack|HxApplyTransform|HxAverageBrain|HxCorrectBlockFace|HxCanny2D|HxCastField|HxCastLattice|HxChannelWorks|HxColorCombine|HxCompareLatticeData|HxComputeTensor|HxComputeTensorOutOfCore|HxDicomSend|HxFieldAsLattice|HxFilterBySpreadsheet|HxGradient|HxFrameInterpolator|HxLabelVoxel|HxLatToHex|HxMerge|HxNormalizeImage|HxResample|HxSegmentBrain|HxShear|HxSplitLattice|HxVolumeEdit|HxStandardView|HxSelectRoi|HxProjectionView|HxOrthoSlice|HxObliqueSlice|HxAxis|HxIsosurface|HxIsolines|HxHeightField|HxFilteredObliqueSlice|HxCurvedSlice|HxCornerCut|HxCityPlot|HxBumpSlice|HxAnnotatedIsolines|HxObjectTransformAnimation|HxBeadExtract|HxConvolution|HxCorrectZDrop|HxDataPreprocess|HxDeconvolution|HxFFT|HxImageFilters|HxConnectedComponentAnalysis|HxCorrelationPlot|HxLocalThreshold|HxSeparateMorpho|HxWatershedSegmentation|HxHistogram|HxLineProbe|HxLineSetProbe|HxPointProbe|HxShapeAnalysis|HxSplineProbe|HxExtAutoSkeleton|HxTEASAR|HxDOThinner2|HxTissueStatistics|HxParameterEditor|HxParamBundle|HxParamBase|HxParamBase|HxRemeshSurface|HxViewBaseExtract)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.port.type">

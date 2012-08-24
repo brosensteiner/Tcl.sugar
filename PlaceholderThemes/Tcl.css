@@ -13,6 +13,8 @@ amira.keyword {
 
 tcl.var,
 
+tcl.function-call[text='gets'] + s + :not(keyword) + s + word,
+
 tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
 tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),

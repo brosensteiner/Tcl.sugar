@@ -348,6 +348,41 @@
 		<completion string="getPatchArea" />
 		<completion string="assignInsideMaterial" />
 		<completion string="assignOutsideMaterial" />
+		<completion string="checkClosedness" />
+		<completion string="clearLOD" />
+		<completion string="computeNormalsPerTriangle" />
+		<completion string="computeNormalsPerVertex" />
+		<completion string="computeNormalsPerVertexIndexed" />
+		<completion string="copyMaterials" />
+		<completion string="createAllEdges" />
+		<completion string="createContours" />
+		<completion string="findBranchingPoints" />
+		<completion string="findContours" />
+		<completion string="fixHangingNodes" />
+		<completion string="getBoundaryId" />
+		<completion string="getGenus" />
+		<completion string="getMaterials" />
+		<completion string="getMaxEdgeLength" />
+		<completion string="getMeanEdgeLength" />
+		<completion string="getMinEdgeLength" />
+		<completion string="getNeighsPerPoint" />
+		<completion string="getNumPatches" />
+		<completion string="getNumTriangles" />
+		<completion string="getTopology" />
+		<completion string="getTransparency" />
+		<completion string="getTriIdx" />
+		<completion string="getTriangleArea" />
+		<completion string="mergeAll" />
+		<completion string="mergeDuplicateGridVertices" />
+		<completion string="mergeVertexSet" />
+		<completion string="recomputeNoRenumberPoints" />
+		<completion string="removeDegenerateTriangles" />
+		<completion string="removeDuplicateTriangles" />
+		<completion string="removeNormals" />
+		<completion string="removeSmallPatches" />
+		<completion string="removeUnusedPoints" />
+		<completion string="setBoundaryId" />
+		<completion string="setMaterialName" />
 		<!--surface view-->
 		<completion string="getBox" />
 		<completion string="getCreaseAngle" />
@@ -429,7 +464,18 @@
 		<completion string="setNumNextVert" />
 		<completion string="setStatusChecked" />
 		<completion string="skipPostProc" />
-		<!--triangele distortion module-->
+		<!--gridvolume module-->
+		<completion string="createGridFromSelection" />
+		<completion string="getNSelectedTetra" />
+		<completion string="getNumConnectedRegions" />
+		<completion string="getSelectAllNew" />
+		<completion string="getSelectedTetra" />
+		<completion string="selectBoundaryTets" />
+		<completion string="selectConnectedRegion" />
+		<completion string="selectTetra" />
+		<completion string="setClickToggles" />
+		<completion string="setSelectAllNew" />
+		<completion string="unselectTetra" />
 		<completion string="getVal" />
 		<!--cluster-->
 		<completion string="computeBounds" />
@@ -1052,6 +1098,7 @@
    		<completion string="HxParamBase" />
    		<completion string="HxParamBase" />
    		<completion string="HxRemeshSurface" />
+   		<completion string="HxViewBaseExtract" />
    		<!--ports-->
    		<completion string="HxPortButtonList" />
    		<completion string="HxPortButtonMenu" />
