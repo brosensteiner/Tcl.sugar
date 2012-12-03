@@ -331,6 +331,45 @@
 		<completion string="flip" />
 		<completion string="swapDims" />
 		<completion string="setBoundingBox" />
+		<!--landmarks-->
+		<completion string="appendLandmark" />
+		<completion string="computeLinearTransform" />
+		<completion string="computeRigidTransform" />
+		<completion string="diff" />
+		<completion string="getDistance" />
+		<completion string="getNumSets" />
+		<completion string="getOrientation" />
+		<completion string="removeLandmark" />
+		<completion string="setNumSets" />
+		<completion string="setRigidTransform" />
+		<completion string="swapSets" />
+		<!--measure-->
+		<completion string="addBox" />
+		<completion string="addCircle" />
+		<completion string="clearElems" />
+		<completion string="getNumTools" />
+		<completion string="tool0" />
+		<completion string="init" />
+		<completion string="getValue" />
+		<completion string="getPoints" />
+		<completion string="getName" />
+		<completion string="getNumberTools" />
+		<completion string="exportSpreadSheet" />
+		<completion string="dump" />
+		<completion string="point" />
+		<completion string="format" />
+		<completion string="color" />
+		<completion string="pointSize" />
+		<completion string="name" />
+		<completion string="addLine 2D" />
+		<completion string="addLine 3D" />
+		<completion string="addAngle 2D" />
+		<completion string="addAngle 3D" />
+		<completion string="addAnnotation 2D" />
+		<completion string="addAnnotation 3D" />
+		<!--refinetetras-->
+		<completion string="getCentroid" />
+		<completion string="role" />
 		<!--surface-->
 		<completion string="recompute" />
 		<completion string="fixOrientation" />

@@ -155,6 +155,18 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	    <expression>(?&lt;=(\w|\])\s)(nDataVar|evalprimType|getDims|coordType|swapByteOrder|clearSlice|exchangeSlices|crop|flip|swapDims|setBoundingBox)\b</expression>
     	</zone>
     	
+    	<zone name="amira.keyword.command.landmarks">
+    	    <expression>(?&lt;=(\w|\])\s)(appendLandmark|computeLinearTransform|computeRigidTransform|diff|getDistance|getNumSets|getOrientation|removeLandmark|setNumSets|setRigidTransform|swapSets)\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.measurement">
+    	    <expression>(?&lt;=(\w|\])\s)(addBox|addCircle|clearElems|getNumTools|tool0|init|getValue|getPoints|getName|getNumberTools|exportSpreadSheet|dump|point|format|color|pointSize|name|addLine (2D|3D)|addAngle (2D|3D)|addAnnotation (2D|3D))\b</expression>
+    	</zone>
+    	
+    	<zone name="amira.keyword.command.refinetetras">
+    	    <expression>(?&lt;=(\w|\])\s)(getCentroid|role)\b</expression>
+    	</zone>
+    	
     	<zone name="amira.keyword.command.surface">
     	    <expression>(?&lt;=(\w|\])\s)(recompute|fixOrientation|invertOrientation|makeOnePatch|cleanup|getArea|getVolume|setColor|setTransparency|add\s+-point|add\s+-triangle|merge|refine|getPatchArea|assignInsideMaterial|assignOutsideMaterial|checkClosedness|clearLOD|computeNormalsPerTriangle|computeNormalsPerVertex|computeNormalsPerVertexIndexed|copyMaterials|createAllEdges|createContours|findBranchingPoints|findContours|fixHangingNodes|getBoundaryId|getGenus|getMaterials|getMaxEdgeLength|getMeanEdgeLength|getMinEdgeLength|getNeighsPerPoint|getNumPatches|getNumTriangles|getTopology|getTransparency|getTriIdx|getTriangleArea|mergeAll|mergeDuplicateGridVertices|mergeVertexSet|recomputeNoRenumberPoints|removeDegenerateTriangles|removeDuplicateTriangles|removeNormals|removeSmallPatches|removeUnusedPoints|setBoundaryId|setMaterialName)\b</expression>
     	</zone>

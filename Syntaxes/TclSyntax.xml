@@ -242,16 +242,6 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.unset-var.rename-var"/>
 			    <capture number="3" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.keyword.global-function-call.definition">
-			    <expression>\b(global)((\s+[\w:]+)+)?\b</expression>
-			    <capture number="1" name="tcl.keyword.command.function-call.command-global"/>
-			    <capture number="2" name="tcl.var"/>
-			</zone>
-			<zone name="tcl.keyword.variable-function-call.definition">
-			    <expression>\b(variable)((\s+[\w:]+)+)?\b</expression>
-			    <capture number="1" name="tcl.keyword.command.function-call.command-variable"/>
-			    <capture number="2" name="tcl.var"/>
-			</zone>
 			<zone name="tcl.keyword.array-dict-unset-function-call.definition">
 			    <expression>\b(array|dict)\s+(unset)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.keyword.command.function-call.command-array-dict-unset"/>
@@ -598,7 +588,7 @@ THE SOFTWARE.
 			</zone>
 			
         	<zone name="tcl.keyword.command.function-call">
-        		<expression>\b(tclsh|try|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset)(?=\s|\]|;)</expression>
+        		<expression>\b(tclsh|try|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|global|variable)(?=\s|\]|;)</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global.global-procedures">
