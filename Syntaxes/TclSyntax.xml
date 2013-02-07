@@ -578,13 +578,13 @@ THE SOFTWARE.
 				<expression>\b(after)(\s+)(cancel|idle|info|\d+)\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
-				<capture number="3" name="tcl.options.namespace"/>
+				<capture number="3" name="tcl.options.after"/>
 			</zone>
 			<zone>
 				<expression>\b(history)(\s+)(add|change|clear|event|info|keep|nextid|redo)\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
-				<capture number="3" name="tcl.options.namespace"/>
+				<capture number="3" name="tcl.options.history"/>
 			</zone>
 			
         	<zone name="tcl.command.function-call">

@@ -9,6 +9,10 @@
 		<selector>com.rosensteiner.tcl.amira.code.snippets</selector>
 		<selector>com.rosensteiner.actions.snippets.tcl</selector>
 		<selector>com.rosensteiner.actions.snippets.tcl.MIT-license</selector>
+		<selector>com.rosensteiner.tcl.code.snippets.separator-procedures</selector>
+		<selector>com.rosensteiner.tcl.code.snippets.separator-loops</selector>
+		<selector>com.rosensteiner.tcl.code.snippets.separator-conditionals</selector>
+		<selector>com.rosensteiner.tcl.code.snippets.separator-misc</selector>
 		<selector>*</selector>
 
 	</sort-template>

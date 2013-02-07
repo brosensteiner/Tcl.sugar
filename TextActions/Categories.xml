@@ -40,7 +40,21 @@ THE SOFTWARE.
 	</category>
 	<!--amira-->
 	<category id="com.rosensteiner.tcl.amira.code.snippets" show="sub">
-		<title>Amira</title>
+		<title>Amira snippets</title>
+	</category>
+	
+	<!--separators for code snippets-->
+	<category id="com.rosensteiner.tcl.code.snippets.separator-conditionals" show="inline separated">
+		<title>conditionals</title>
+	</category>
+	<category id="com.rosensteiner.tcl.code.snippets.separator-procedures" show="inline separated">
+		<title>procedures</title>
+	</category>
+	<category id="com.rosensteiner.tcl.code.snippets.separator-loops" show="inline separated">
+		<title>loops</title>
+	</category>
+	<category id="com.rosensteiner.tcl.code.snippets.separator-misc" show="inline separated">
+		<title>misc</title>
 	</category>
 
 </action-categories>

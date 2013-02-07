@@ -27,7 +27,7 @@ THE SOFTWARE.
 <action-recipes>
 
 <!--new procedure-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.function.function" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.function.function" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-procedures">
 		<title>new procedure</title>
 		<text>proc ${1:name} \{ ${2:arguments} \} \{
 	${3:body}
@@ -39,14 +39,14 @@ $0</text>
 	
 	
 <!--new one line procedure-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.function.function-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.function.function-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-procedures">
 		<title>new procedure at one line</title>
 		<text>proc ${1:name} \{ ${2:arguments} \} \{ ${3:body} \}$0</text>
 		<language-context>tcl</language-context>
 		<text-trigger>nproc1</text-trigger>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.argument-expansion" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.argument-expansion" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-procedures">
 		<title>argument expansion ({*})</title>
 		<text>\{*\}$0</text>
 		<language-context>tcl</language-context>

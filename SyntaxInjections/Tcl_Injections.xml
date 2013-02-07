@@ -26,9 +26,11 @@ THE SOFTWARE.
 -->
 <injections>
 	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "s" zones, but code completion is now fairly intelligent-->
+	
 	<injection name="tcl.injection.zone-helper" selector="tcl, tcl *" action="attach-before-target">
 	    <include collection="ZoneHelper" />
 	</injection>
+	
 	<!--injects the regex.sugar:-->
     <injection name="injection.regex" selector="tcl tcl.regex" action="insert-before-children">
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
@@ -39,7 +41,7 @@ THE SOFTWARE.
     	<collection name="ZoneHelper">
     		<zone name="tcl.s">
 				<starts-with>
-				    <expression>(?&lt;!\{|\[)[[:space:]]</expression>
+				    <expression>(?&lt;!\{|\[)[[:space:]]+</expression>
 				</starts-with>
 				<ends-with>
 				    <expression>(?=\S)</expression>

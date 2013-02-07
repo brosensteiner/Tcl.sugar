@@ -26,8 +26,27 @@ THE SOFTWARE.
 -->
 <action-recipes>
 
+
+<!--foreach-->
+	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-loops">
+		<title>new foreach</title>
+		<text>foreach ${1:var} \$${2:list} \{
+	${3:body}
+\}$0</text>
+		<language-context>tcl</language-context>
+		<text-trigger>nforeach</text-trigger>
+	</snippet>
+	
+<!--foreach one line-->
+	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-loops">
+		<title>new foreach at one line</title>
+		<text>foreach ${1:var} \$${2:list} \{ ${3:body} \}$0</text>
+		<language-context>tcl</language-context>
+		<text-trigger>nforeach1</text-trigger>
+	</snippet>
+	
 <!--for loop-->
-    <snippet id="com.rosensteiner.actions.snippets.tcl.for" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+    <snippet id="com.rosensteiner.actions.snippets.tcl.for" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-loops">
         <title>new for loop</title>
         <text>for \{ ${1:set i 0} \} \{ ${2:\$i &lt; ${3:count} } \} \{ ${4:incr i} \} \{
 	${5:body}
@@ -37,7 +56,7 @@ THE SOFTWARE.
     </snippet>
     
 <!--for loop one line-->
-    <snippet id="com.rosensteiner.actions.snippets.tcl.for-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+    <snippet id="com.rosensteiner.actions.snippets.tcl.for-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-loops">
         <title>new for loop at one line</title>
         <text>for \{ ${1:set i 0} \} \{ ${2:\$i &lt; ${3:count} } \} \{ ${4:incr i} \} \{ ${5:body} \}$0</text>
         <language-context>tcl</language-context>
@@ -46,7 +65,7 @@ THE SOFTWARE.
 	
     
 <!--if-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.if" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 	        <title>new if</title>
 	        <text>if \{ ${1:condition} \} \{
 	${2:body}
@@ -56,7 +75,7 @@ THE SOFTWARE.
 	</snippet>
 	
 <!--if one line-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 		<title>new if at one line</title>
 		<text>if \{ ${1:condition} \} \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
@@ -64,7 +83,7 @@ THE SOFTWARE.
 	</snippet>
 	
 <!--elseif-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.elseif" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.elseif" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 	        <title>new elseif</title>
 	        <text>elseif \{ ${1:condition} \} \{
 	${2:body}
@@ -73,7 +92,7 @@ THE SOFTWARE.
 		<text-trigger>nelseif</text-trigger>
 	</snippet>
 <!--elseif one line-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 		<title>new elseif at one line</title>
 		<text>elseif \{ ${1:condition} \} \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
@@ -81,7 +100,7 @@ THE SOFTWARE.
 	</snippet>
 	 
 <!--if else-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.ifelse" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.ifelse" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 		<title>new if else</title>
 			<text>if \{ ${1:condition} \} \{
 	${2:body}
@@ -93,7 +112,7 @@ THE SOFTWARE.
 	</snippet>
 	
 	<!--else-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.if-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 		<title>else</title>
 		<text>else \{ ${1:body} \}$0</text>
 		<language-context>tcl</language-context>
@@ -101,7 +120,7 @@ THE SOFTWARE.
 	</snippet>
 
 <!--while-->	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.while" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.while" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 		<title>new while</title>
 		<text>while \{ ${1:condition} \} \{
 	${2:body}
@@ -111,7 +130,7 @@ THE SOFTWARE.
 	</snippet>
 	
 <!--while one line-->	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.while-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.while-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 		<title>new while at one line</title>
 		<text>while \{ ${1:condition} \} \{ ${2:body} \}$0</text>
 		<language-context>tcl</language-context>
@@ -119,7 +138,7 @@ THE SOFTWARE.
 	</snippet>
 	
 <!--switch-->	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.switch" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.switch" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-conditionals">
 		<title>new switch</title>
 		<text>switch ${1:-switches} ${2:\{${3:pattern}\}} ${4:\{
 	${5:body}
@@ -127,27 +146,9 @@ THE SOFTWARE.
 		<language-context>tcl</language-context>
 		<text-trigger>nswitch</text-trigger>
 	</snippet>
-
-<!--foreach-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
-		<title>new foreach</title>
-		<text>foreach ${1:var} \$${2:list} \{
-	${3:body}
-\}$0</text>
-		<language-context>tcl</language-context>
-		<text-trigger>nforeach</text-trigger>
-	</snippet>
-	
-<!--foreach one line-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.foreach-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
-		<title>new foreach at one line</title>
-		<text>foreach ${1:var} \$${2:list} \{ ${3:body} \}$0</text>
-		<language-context>tcl</language-context>
-		<text-trigger>nforeach1</text-trigger>
-	</snippet>
 	
 <!--catch-->
-	<snippet id="com.rosensteiner.actions.snippets.tcl.catch" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.catch" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-misc">
 		<title>new catch</title>
 		<text>catch \{
 	${1:body}
@@ -156,7 +157,7 @@ THE SOFTWARE.
 		<text-trigger>ncatch</text-trigger>
 	</snippet>
 
-	<snippet id="com.rosensteiner.actions.snippets.tcl.catch-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets">
+	<snippet id="com.rosensteiner.actions.snippets.tcl.catch-oneline" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.code.snippets/com.rosensteiner.tcl.code.snippets.separator-misc">
 			<title>new catch at one line</title>
 			<text>catch \{ ${1:body} \} ${2:resultVar}$0</text>
 			<language-context>tcl</language-context>
