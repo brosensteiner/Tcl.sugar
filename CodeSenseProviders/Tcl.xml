@@ -32,7 +32,7 @@ THE SOFTWARE.
     <provider>
      	<selector>tcl, tcl *</selector>
      	<completions>com.rosensteiner.Tcl.functions-with-option</completions>
-     	<complete-match>\b(package|namespace|prefix|dict|array|http|binary|history|info|string|file|chan|trace|after) [a-zA-Z]*</complete-match>
+     	<complete-match>(?&lt;!\\|_|-|\$)\b(package|namespace|prefix|dict|array|http|binary|history|info|string|file|chan|trace|after) [a-zA-Z]*</complete-match>
     </provider>
     
 	<provider>
@@ -55,6 +55,12 @@ THE SOFTWARE.
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>(?&lt;!\\|_|-|package |namespace |prefix |dict |array |http |binary |history |info |string |file |chan |trace |ensemble|after )\b[a-zA-Z]*</complete-match>
 	</provider>
+	<!--proc option name nummeric option (chan seek)-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + numeric + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>(?&lt;!\\|_|-|package |namespace |prefix |dict |array |http |binary |history |info |string |file |chan |trace |ensemble|after )\b[a-zA-Z]*</complete-match>
+	</provider>
 	<!--proc name name switch-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + * + s + * + s + * + *</selector>
@@ -74,15 +80,46 @@ THE SOFTWARE.
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>-[a-zA-Z0-9-]*</complete-match>
 	</provider>
-	<!--proc option name switch switch-->
+	<!--proc option name name switch (e.g. chan copy)/proc option name switch switch-->
 	<provider>
-		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + property-name + s + * + *</selector>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name name switch name switch (e.g. chan copy)-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + * + s + property-name + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>-[a-zA-Z0-9-]*</complete-match>
 	</provider>
 	<!--proc option name switch switch switch-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + property-name + s + property-name + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	
+	<!--proc option name switch name switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch name switch name switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch name switch name switch name switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--proc option name switch name switch name switch name switch name switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>-[a-zA-Z0-9-]*</complete-match>
 	</provider>
@@ -145,6 +182,37 @@ THE SOFTWARE.
 		<complete-match>-[a-zA-Z-]*</complete-match>
 	</provider>
 	
+	<!--proc name switch switch switch switch switch switch switch (e.g. fconfigure)-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
 	
 	<!--proc switch switch switch switch switch switch switch switch switch-->
 	<!--tcl-keyword here because of -regexp switch (syntax highlighting)-->

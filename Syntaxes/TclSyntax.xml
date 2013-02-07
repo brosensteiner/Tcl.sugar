@@ -61,6 +61,25 @@ THE SOFTWARE.
 	</zones>
     
 	<library>
+		
+		<collection name="Default_Order_Of_Zones">
+			<include collection="Numeric" />
+			<include collection="EscapeChar"/>
+			<include collection="Invalid" />
+			<include collection="Variables" />
+			<include collection="tclLanguage" />
+			<include collection="Math" />
+			<include collection="VariableExpansion" />
+			<include collection="FormatSpecifier"/>
+			<include collection="FlowControl" />
+			<include collection="Operators" />
+			<include collection="OperatorsNotInQuotesAllowed" />
+			<include collection="Strings"/>
+			<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
+			<include collection="Comments" />
+			<include collection="General" />
+			<include collection="BracesBrackets" />
+		</collection>
 	
 		<collection name="BracesBrackets">
 						
@@ -90,22 +109,7 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<include collection="Numeric" />
-			    	<include collection="EscapeChar"/>
-			    	<include collection="Invalid" />
-			    	<include collection="Variables" />
-			    	<include collection="tclLanguage" />
-			    	<include collection="Math" />
-			    	<include collection="VariableExpansion" />
-			    	<include collection="FormatSpecifier"/>
-			    	<include collection="FlowControl" />
-			    	<include collection="Operators" />
-			    	<include collection="OperatorsNotInQuotesAllowed" />
-			    	<include collection="Strings"/>
-			    	<include syntax="language-root.amira" /><!--can be deleted if Amira syntax extension is not needed-->
-			    	<include collection="Comments" />
-			    	<include collection="General" />
-			    	<include collection="BracesBrackets" />
+			    	<include collection="Default_Order_Of_Zones" />
 			    </subzones>
 			</zone>
 				
@@ -554,8 +558,23 @@ THE SOFTWARE.
         		<capture number="2" name="tcl.s"/>
         		<capture number="3" name="tcl.options.package"/>
         	</zone>
+        	<zone><!--chan seek is special and this zone makes the option words save-->
+        		<starts-with>
+        			<expression>\b(chan)(\s+)(seek)\b</expression>
+        			<capture number="1" name="tcl.command.function-call"/>
+        			<capture number="2" name="tcl.s"/>
+        			<capture number="3" name="tcl.options.chan"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>\b(start|current|end)\b</expression>
+        			<capture number="0" name="tcl.options.chan"/>
+        		</ends-with>
+        	    <subzones><!--all in there, so when the zone is open the document does not "blink"-->
+        	    	<include collection="Default_Order_Of_Zones" />
+        	    </subzones>
+        	</zone>
         	<zone>
-        	    <expression>\b(chan)(\s+)(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read|start|current|end)\b</expression>
+        	    <expression>\b(chan)(\s+)(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.chan"/>

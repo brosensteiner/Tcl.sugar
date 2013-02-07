@@ -71,7 +71,9 @@ tcl.function-call[text='dict'] + s + options + s + * + s + dict.options,
 tcl.function-call[text='trace'] + s + options + s + command,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + keyword,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-braces > keyword,
-tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-brackets > keyword:not(function-call[text='list']) {
+tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced-brackets > keyword:not(function-call[text='list']),
+
+tcl.function-call[text='chan'] + s + options + s + * + s + numeric + s + options {
 	color: #268bd2;
 	font-weight: normal;
 }

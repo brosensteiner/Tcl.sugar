@@ -198,7 +198,14 @@ THE SOFTWARE.
 		<!--<completion string="re_syntax" />-->
 		<completion string="tcltest" />
 		<completion string="auto_load" />
-		<completion string="fconfigure" />
+		<completion string="fconfigure">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:?name?} ${3:?value?} ${4:?name value ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="load" />
 		<completion string="read" />
 		<completion string="tclvars" />
@@ -489,7 +496,14 @@ THE SOFTWARE.
 				<append-static></append-static>
 			</behavior>
 		</completion>
-		<completion string="open" />
+		<completion string="open">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:fileName} ${2:?access?} ${3:?permissions?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="split">
 			<behavior>
 				<append-dynamic>
@@ -1685,6 +1699,14 @@ THE SOFTWARE.
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
+	    <completion string="file copy">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-force?} ${2:?--?} ${3:?source?} ${4:?target?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 	    <completion string="file delete">
 	        <behavior>
 	            <append-dynamic>
@@ -2069,7 +2091,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:channelId offset} ${2:?origin?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId} ${2:offset} ${3:?origin?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -3120,7 +3142,122 @@ THE SOFTWARE.
 	    <completion string="-all"/>
 	    <completion string="-private"/>
 	</set>
-	
+	<!--fconfigure options-->
+	<set name="com.rosensteiner.Tcl.function.fconfigure" casesensitive="true">
+		<behavior>
+		    <append-dynamic>
+		        <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		        <transform-into>(?1:: $0)</transform-into>
+		    </append-dynamic>
+		</behavior>
+		<completion string="-blocking">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:boolean}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-buffering">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:newValue}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-buffersize">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:newSize}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-encoding">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-eofchar">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:char\|\{inChar outChar\}}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-translation">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:mode\|\{inMode outMode\}}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-mode">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?baud?}, ${2:pariry}, ${3:data}, ${4:stop}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-handshake">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:type}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-queue" />
+		<completion string="-timeout">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:msec}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-ttycontrol">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:\{signal boolean signal boolean ...\}}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-ttystatus" />
+		<completion string="-xchar">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:\{xonChar xoffChar\}}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-pollinterval">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:msec}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-sysbuffer">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:\{inSize outSize\}}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-lasterror" />
+	</set>
 	<!--chan options-->
 	<set name="com.rosensteiner.Tcl.function.chan.configure" casesensitive="true">
 	    <behavior>
@@ -3178,7 +3315,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	    <completion string="-error"/>
-	    <completion string="-socketname"/>
+	    <completion string="-sockname"/>
 	    <completion string="-peername"/>
 	</set>
 	
@@ -3206,6 +3343,45 @@ THE SOFTWARE.
 	    <completion string="cr"/>
 	    <completion string="crlf"/>
 	    <completion string="lf"/>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.chan.event" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="readable"/>
+	    <completion string="writable"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.chan.copy" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-size"/>
+	    <completion string="-command"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.chan.puts" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-nonewline"/>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.chan.read" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-nonewline"/>
 	</set>
 	
 	<!--binary options-->
