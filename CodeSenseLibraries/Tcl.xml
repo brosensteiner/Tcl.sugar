@@ -56,7 +56,11 @@ THE SOFTWARE.
 				<append-static></append-static>
 			</behavior>
 		</completion>
-		<completion string="after"/>
+		<completion string="after">
+			<behavior>
+				<append-static></append-static>
+			</behavior>
+		</completion>
 		<completion string="string">
 			<behavior>
 				<append-static></append-static>
@@ -130,7 +134,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="proc" />
+		<completion string="proc">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:name} ${2:args} ${3:body}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="tcl_startOfPreviousWord" />
 		<completion string="array">
 			<behavior>
@@ -184,7 +195,7 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="re_syntax" />
+		<!--<completion string="re_syntax" />-->
 		<completion string="tcltest" />
 		<completion string="auto_load" />
 		<completion string="fconfigure" />
@@ -291,7 +302,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="rename" />
+		<completion string="rename">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?oldName?} ${2:newName}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="unknown" />
 		<completion string="binary">
 			<behavior>
@@ -299,7 +317,14 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="for" />
-		<completion string="lset" />
+		<completion string="lset">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?varName?} ${2:?index ...?} ${3:?newValue?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="return" />
 		<completion string="unload" />
 		<completion string="break" />
@@ -315,24 +340,24 @@ THE SOFTWARE.
 		<completion string="unset">
 			<behavior>
 				<append-dynamic>
-				<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-				<transform-into>(?1:$1: ${1:?-nocomplain?} ${2:?name name name ...?}$0)</transform-into>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?-nocomplain?} ${2:?name name name ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="catch">
 			<behavior>
 				<append-dynamic>
-				<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-				<transform-into>(?1:$1: ${1:script} ${2:?resultVarName?} ${3:?optionsVarName?}$0)</transform-into>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:script} ${2:?resultVarName?} ${3:?optionsVarName?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="format">
 			<behavior>
 				<append-dynamic>
-				<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-				<transform-into>(?1:$1: ${1:formatString} ${2:?arg arg ...?}$0)</transform-into>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:formatString} ${2:?arg arg ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -340,12 +365,19 @@ THE SOFTWARE.
 		<completion string="scan">
 			<behavior>
 				<append-dynamic>
-				<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-				<transform-into>(?1:$1: ${1:string} ${2:format} ${3:?varName varName ...?}$0)</transform-into>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:string} ${2:format} ${3:?varName varName ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="update" />
+		<completion string="update">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:idletasks}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="cd" />
 		<completion string="gets">
 			<behavior>
@@ -385,14 +417,21 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="clock" />
-		<completion string="global" />
+		<completion string="global">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?varname ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="msgcat" />
 		<completion string="socket">
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 					<transform-into>(?1:$1: ${1:?options?} ${2:host} ${3:port}$0)</transform-into>
-					</append-dynamic>
+				</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="variable">
@@ -400,7 +439,7 @@ THE SOFTWARE.
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 					<transform-into>(?1:$1: ${1:?name value...?}$0)</transform-into>
-					</append-dynamic>
+				</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="close">
@@ -429,7 +468,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="vwait" />
+		<completion string="vwait">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:varName}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="concat">
 			<behavior>
 				<append-dynamic>
@@ -465,7 +511,14 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="dde" />
-		<completion string="incr" />
+		<completion string="incr">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?varName?} ${2:?increment?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="parray" />
 		<completion string="subst">
 			<behavior>
@@ -769,6 +822,31 @@ THE SOFTWARE.
 		        <append-dynamic>
 		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 		            <transform-into>(?1:$1: ${1:?options?} ${2:table} ${3:string}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<!--after-->
+		<completion string="after cancel">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:id}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="after idle">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:script} ${2:?script script ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="after info">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?id?}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -2170,7 +2248,6 @@ THE SOFTWARE.
 	    <completion string="-subcommands"/>
 	    <completion string="-unknown"/>
 	    <completion string="-command"/>
-	    <completion string="-namespace"/>
 	</set>
 	<set name="com.rosensteiner.Tcl.function.namespace.ensemble.configure" casesensitive="true">
 	    <behavior>
@@ -2184,7 +2261,6 @@ THE SOFTWARE.
 	    <completion string="-prefixes"/>
 	    <completion string="-subcommands"/>
 	    <completion string="-unknown"/>
-	    <completion string="-command"/>
 	    <completion string="-namespace"/>
 	</set>
 	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
@@ -2365,6 +2441,21 @@ THE SOFTWARE.
 		<completion string="w" />
 	</set>
 	
+	<!--return options-->
+	<set name="com.rosensteiner.Tcl.function.return" casesensitive="true">
+		<completion string="-code" />
+		<completion string="-code ok" />
+		<completion string="-code error" />
+		<completion string="-code return" />
+		<completion string="-code break" />
+		<completion string="-code continue" />
+		<completion string="-errorcode" />
+		<completion string="-errorinfo" />
+		<completion string="-errorstack" />
+		<completion string="-level" />
+		<completion string="-options" />
+	</set>
+	
 	<!--tclsh options-->
 	<set name="com.rosensteiner.Tcl.function.tclsh" casesensitive="true">
 		<completion string="-encoding" />
@@ -2435,52 +2526,52 @@ THE SOFTWARE.
 	</set>
 	
 	<!--file options-->
-		<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
-			<completion string="-group" />
-			<completion string="-owner" />
-			<completion string="-permissions" />
-			<completion string="-readonly" />
-			<completion string="-archive" />
-			<completion string="-hidden" />
-			<completion string="-longname" />
-			<completion string="-shortname" />
-			<completion string="-system" />
-			<completion string="-creator" />
-			<completion string="-rsrclength" />
-		</set>
-		<set name="com.rosensteiner.Tcl.function.file.copy" casesensitive="true">
-			<completion string="-force" />
-		</set>
-		<set name="com.rosensteiner.Tcl.function.file.delete" casesensitive="true">
-			<completion string="-force" />
-		</set>
-		<set name="com.rosensteiner.Tcl.function.file.rename" casesensitive="true">
-			<completion string="-force" />
-		</set>
-		
+	<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
+		<completion string="-group" />
+		<completion string="-owner" />
+		<completion string="-permissions" />
+		<completion string="-readonly" />
+		<completion string="-archive" />
+		<completion string="-hidden" />
+		<completion string="-longname" />
+		<completion string="-shortname" />
+		<completion string="-system" />
+		<completion string="-creator" />
+		<completion string="-rsrclength" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.file.copy" casesensitive="true">
+		<completion string="-force" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.file.delete" casesensitive="true">
+		<completion string="-force" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.file.rename" casesensitive="true">
+		<completion string="-force" />
+	</set>
+	
 	<!--namespace options-->
-		<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
-			<completion string="-clear" />
-		</set>
-		<set name="com.rosensteiner.Tcl.function.namespace.import" casesensitive="true">
-			<completion string="-force" />
-		</set>
-		<set name="com.rosensteiner.Tcl.function.namespace.which" casesensitive="true">
-			<completion string="-command" />
-			<completion string="-variable" />
-		</set>
-		
+	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
+		<completion string="-clear" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.import" casesensitive="true">
+		<completion string="-force" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.namespace.which" casesensitive="true">
+		<completion string="-command" />
+		<completion string="-variable" />
+	</set>
+	
 	<!--exec options-->
-		<set name="com.rosensteiner.Tcl.function.exec" casesensitive="true">
-			<completion string="-ignorestderr" />
-			<completion string="-keepnewline" />
-		</set>
-		
+	<set name="com.rosensteiner.Tcl.function.exec" casesensitive="true">
+		<completion string="-ignorestderr" />
+		<completion string="-keepnewline" />
+	</set>
+	
 	<!--unset options-->
-		<set name="com.rosensteiner.Tcl.function.unset" casesensitive="true">
-			<completion string="-nocomplain" />
-		</set>
-		
+	<set name="com.rosensteiner.Tcl.function.unset" casesensitive="true">
+		<completion string="-nocomplain" />
+	</set>
+	
 	<!--switch options-->
 	<set name="com.rosensteiner.Tcl.function.switch" casesensitive="true">
 		<completion string="-exact" />
