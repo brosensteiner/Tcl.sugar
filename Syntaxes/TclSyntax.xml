@@ -365,7 +365,7 @@ THE SOFTWARE.
         		    <capture number="0" name="tcl.operator.dollar"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\)(\]|\}|")|(\]|\}|\)|")\s|\s)</expression>
+        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\)(\)|\]|\}|"|,)|(\]|\}|\)|")\s|\s|\}\])</expression>
         		</ends-with>
         		<subzones name="vvariable">
         			<zone>
