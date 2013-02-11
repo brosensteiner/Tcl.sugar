@@ -186,7 +186,14 @@ THE SOFTWARE.
 		<completion string="pwd" />
 		<completion string="tcl_wordBreakBefore" />
 		<completion string="auto_import" />
-		<completion string="fblocked" />
+		<completion string="fblocked">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 		<completion string="llength">
 			<behavior>
 				<append-dynamic>
@@ -207,7 +214,14 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="load" />
-		<completion string="read" />
+		<completion string="read">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:-nonewline} ${2:?channelId?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="tclvars" />
 		<completion string="auto_mkindex" />
 		<completion string="fcopy">
@@ -226,8 +240,118 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="refchan" />
-		<completion string="tell" />
+		<completion string="refchan">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="initialize"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:mode}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="finalize"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="watch"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:eventspec}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="write"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:data}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="configure"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:option} ${3:value}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="cget"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:option}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="cgetall"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="blocking"><!--sub command refchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:mode}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="transchan">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="clear"><!--sub command transchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:option} ${2:?arg arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="drain"><!--sub command transchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:handle}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="limit?"><!--sub command transchan-->
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:handle}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="tell">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="auto_mkindex_old" />
 		<completion string="file">
 			<behavior>
@@ -259,7 +383,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:channelId} ${2:${3:readable} ${4:writable}} ${5:?script?}$0)</transform-into>
+					<transform-into>(?1:$1: ${1:channelId} ${2:readable|writable} ${3:?script?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -300,7 +424,14 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="bgerror" />
-		<completion string="flush" />
+		<completion string="flush">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 		<completion string="lsearch">
 			<behavior>
 				<append-dynamic>
@@ -395,7 +526,14 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="mathop" />
-		<completion string="seek" />
+		<completion string="seek">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:channelId} ${2:offset} ${3:?origin?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="uplevel" />
 		<completion string="chan">
 			<behavior>
@@ -1859,14 +1997,6 @@ THE SOFTWARE.
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
-	    <completion string="file rename">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:?-force?} ${2:?--?} ${3:source} ${4:?source?} ${5:targetDir}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
 	    <completion string="file rootname">
 	        <behavior>
 	            <append-dynamic>
@@ -2314,6 +2444,42 @@ THE SOFTWARE.
 	    <completion string="-variable"/>
 	</set>
 	
+	<!--glob options-->
+	<set name="com.rosensteiner.Tcl.function.glob" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-directorydirectory">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:directory}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-join"/>
+	    <completion string="-nocomplain"/>
+	    <completion string="-pathpathPrefix">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:pathPrefix}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-tails"/>
+	    <completion string="-typestypeList">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:typeList}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
 	<!--lsort options-->
 	<set name="com.rosensteiner.Tcl.function.lsort" casesensitive="true">
 	    <behavior>
@@ -2532,6 +2698,10 @@ THE SOFTWARE.
 	
 	<!--puts options-->
 	<set name="com.rosensteiner.Tcl.function.puts" casesensitive="true">
+		<completion string="-nonewline" />
+	</set>
+	<!--read options-->
+	<set name="com.rosensteiner.Tcl.function.read" casesensitive="true">
 		<completion string="-nonewline" />
 	</set>
 	
@@ -3330,6 +3500,18 @@ THE SOFTWARE.
 	    <completion string="current"/>
 	    <completion string="end"/>
 	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.seek" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="start"/>
+	    <completion string="current"/>
+	    <completion string="end"/>
+	</set>
 
 	<set name="com.rosensteiner.Tcl.function.chan.configure.-translation" casesensitive="true">
 	    <behavior>
@@ -3343,6 +3525,17 @@ THE SOFTWARE.
 	    <completion string="cr"/>
 	    <completion string="crlf"/>
 	    <completion string="lf"/>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.fileevent" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="readable"/>
+	    <completion string="writable"/>
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.function.chan.event" casesensitive="true">
@@ -3372,7 +3565,7 @@ THE SOFTWARE.
 	            <transform-into>(?1:: $0)</transform-into>
 	        </append-dynamic>
 	    </behavior>
-	    <completion string="-nonewline"/>
+		<completion string="-nonewline"/>
 	</set>
 	<set name="com.rosensteiner.Tcl.function.chan.read" casesensitive="true">
 	    <behavior>

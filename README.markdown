@@ -7,7 +7,7 @@ and if you want regex syntax highlighting in "regexp" and "regsub" commands you 
 
 ## Amira Tcl Interface
 
-This sugar contains special commands from Visage Imaging´s Amira (5.4.2) Tcl scripting interface. Since the Amira Tcl commands are only a Tcl library this commands are not in a separate sugar. If you don´t need it (most people will not need it) you can easily delete the following files in the Tcl.sugar:
+This sugar contains special commands from VSG´s Amira (5.4.2) Tcl scripting interface. Since the Amira Tcl commands are only a Tcl library this commands are not in a separate sugar. If you don´t need it (most people will not need it) you can easily delete the following files in the Tcl.sugar:
 
 - /Syntaxes/AmiraSyntax.xml
 - /CodeSenseLibraries/Amira.xml

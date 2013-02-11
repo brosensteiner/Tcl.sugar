@@ -61,6 +61,18 @@ THE SOFTWARE.
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
 		<complete-match>(?&lt;!\\|_|-|package |namespace |prefix |dict |array |http |binary |history |info |string |file |chan |trace |ensemble|after )\b[a-zA-Z]*</complete-match>
 	</provider>
+	<!--proc name option (fileevent)-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>(?&lt;!\\|_|-|package |namespace |prefix |dict |array |http |binary |history |info |string |file |chan |trace |ensemble|after )\b[a-zA-Z]*</complete-match>
+	</provider>
+	<!--proc name nummeric option (seek)-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + numeric + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>(?&lt;!\\|_|-|package |namespace |prefix |dict |array |http |binary |history |info |string |file |chan |trace |ensemble|after )\b[a-zA-Z]*</complete-match>
+	</provider>
 	<!--proc name name switch-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + * + s + * + s + * + *</selector>

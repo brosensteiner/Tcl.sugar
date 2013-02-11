@@ -38,14 +38,14 @@ THE SOFTWARE.
 		<include collection="Variables" />
 		<include collection="tclLanguage" />
 		<!--procedures and classes only make sense in language-root zone-->
-		<zone name="tcl.keyword.command.function">
+		<zone name="tcl.command.function">
 			<expression>\b(proc)\s+([^"\[][^\[\s]*)</expression>
-			<capture number="1" name="tcl.keyword.command.function.function-call"/>
-			<capture number="2" name="tcl.keyword.command.function.name"/>
+			<capture number="1" name="tcl.command.function.function-call"/>
+			<capture number="2" name="tcl.command.function.name"/>
 		</zone>
-		<zone name="tcl.keyword.command.class">
+		<zone name="tcl.command.class">
 			<expression>\bclass\s+([^"\[][^\[\s]*)</expression>
-			<capture number="1" name="tcl.keyword.command.class.name"/>
+			<capture number="1" name="tcl.command.class.name"/>
 		</zone>
 		<include collection="FormatSpecifier"/>
 		<include collection="Operators" />
@@ -149,7 +149,14 @@ THE SOFTWARE.
 		</collection>
 	
 		<collection name="Comments">
-			<!--this multiline comment is actually a convinient way to write comments in tcl because this approach doesn´t fill Espresso´s Navigator with every comment line:-->
+			
+			<!--this zone helps not to fill up Espresso´s Navigator (catches empty comment lines)-->
+			<zone name="tcl.comment-line-empty">
+			    <expression>(?&lt;=;|\s|^|\s\{)(#)\s*$[\n\r]?</expression>
+			    <capture number="1" name="context.punctuation.comment.begin"/>   
+			</zone>
+		
+			<!--this multiline comment is actually a convinient way to write comments in tcl-->
 			<zone name="tcl.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
 			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
@@ -193,66 +200,66 @@ THE SOFTWARE.
 			    <expression>upvar</expression>
 			</zone>
 			
-			<zone name="tcl.keyword.set-variable.array">
+			<zone name="tcl.tcl-keyword.set-variable.array">
 			    <starts-with>
 			        <expression>\b(set)\s+([\w:]+)(\()</expression>
 			        <capture number="1" name="tcl.command.function-call.command-set"/>
 			        <capture number="2" name="tcl.keyword.var"/>
-			        <capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
+			        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\))</expression>
-			        <capture number="1" name="tcl.keyword.punctuation.open-parenthesis"/>
+			        <capture number="1" name="tcl.punctuation.open-parenthesis"/>
 			    </ends-with>
 			    <subzones>
 			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
-			<zone name="tcl.keyword.unset-variable.array">
+			<zone name="tcl.tcl-keyword.unset-variable.array">
 			    <starts-with>
 			        <expression>\b(unset)\s+([\w:]+)(\()</expression>
 			        <capture number="1" name="tcl.command.function-call.command-unset"/>
 			        <capture number="2" name="tcl.unset-var"/>
-			        <capture number="3" name="tcl.keyword.punctuation.open-parenthesis"/>
+			        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>(\))</expression>
-			        <capture number="1" name="tcl.keyword.punctuation.open-parenthesis"/>
+			        <capture number="1" name="tcl.punctuation.open-parenthesis"/>
 			    </ends-with>
 			    <subzones>
 			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.keyword.set-function-call.definition">
+			<zone name="tcl.tcl-keyword.set-function-call.definition">
 			    <expression>\b(set)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-set"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.keyword.function-call.unset-function-call.definition">
+			<zone name="tcl.tcl-keyword.function-call.unset-function-call.definition">
 			    <expression>(\bunset)(\s+-nocomplain)?((\s+([\w:]+))+)?\b</expression>
 			    <capture number="1" name="tcl.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.keyword.tcl-keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
-			<zone name="tcl.keyword.append-function-call.definition">
+			<zone name="tcl.tcl-keyword.append-function-call.definition">
 			    <expression>\b(append)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-append"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.keyword.rename-function-call.definition">
+			<zone name="tcl.tcl-keyword.rename-function-call.definition">
 			    <expression>\b(rename)\s+([\w:]+)?\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-rename"/>
 			    <capture number="2" name="tcl.unset-var.rename-var"/>
 			    <capture number="3" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.keyword.array-dict-unset-function-call.definition">
+			<zone name="tcl.tcl-keyword.array-dict-unset-function-call.definition">
 			    <expression>\b(array|dict)\s+(unset)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-array-dict-unset"/>
 			    <capture number="2" name="tcl.options.array-dict"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
-			<zone name="tcl.keyword.array-dict-set-function-call.definition">
+			<zone name="tcl.tcl-keyword.array-dict-set-function-call.definition">
 			    <expression>\b(array|dict)\s+(set)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-array-dict-unset"/>
 			    <capture number="2" name="tcl.options.array-dict"/>
@@ -365,7 +372,7 @@ THE SOFTWARE.
         		    <capture number="0" name="tcl.operator.dollar"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\)(\)|\]|\}|"|,)|(\]|\}|\)|")\s|\s|\}\])</expression>
+        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\)(\)|\]|\}|"|'|,|;)|(\]|\}|\)|")\s|\s|\}\])</expression>
         		</ends-with>
         		<subzones name="vvariable">
         			<zone>
@@ -414,10 +421,10 @@ THE SOFTWARE.
         
         <collection name="tclLanguage">
                 
-        	<zone name="tcl.punctuation.terminator">
+        	<zone name="tcl.punctuation.delimiter.terminator">
         		<expression>;</expression>
         	</zone>
-        	<zone name="tcl.punctuation.terminator.command-nextline">
+        	<zone name="tcl.punctuation.delimiter.command-nextline">
         		<expression>\\\s*?[\n\r]</expression>
         	</zone>
         	
@@ -558,21 +565,6 @@ THE SOFTWARE.
         		<capture number="2" name="tcl.s"/>
         		<capture number="3" name="tcl.options.package"/>
         	</zone>
-        	<zone><!--chan seek is special and this zone makes the option words save-->
-        		<starts-with>
-        			<expression>\b(chan)(\s+)(seek)\b</expression>
-        			<capture number="1" name="tcl.command.function-call"/>
-        			<capture number="2" name="tcl.s"/>
-        			<capture number="3" name="tcl.options.chan"/>
-        		</starts-with>
-        		<ends-with>
-        			<expression>\b(start|current|end)\b</expression>
-        			<capture number="0" name="tcl.options.chan"/>
-        		</ends-with>
-        	    <subzones><!--all in there, so when the zone is open the document does not "blink"-->
-        	    	<include collection="Default_Order_Of_Zones" />
-        	    </subzones>
-        	</zone>
         	<zone>
         	    <expression>\b(chan)(\s+)(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
@@ -638,6 +630,14 @@ THE SOFTWARE.
 				<expression>\b(scan|format|encode|decode)\b</expression>
 			</zone>
 			
+			<zone name="tcl.options.chan-seek-seek">
+				<expression>\b(start|current|end)\b</expression>
+			</zone>
+			
+			<zone name="tcl.options.refchan-transchan">
+				<expression>\b(initialize|finalize|watch|read|write|seek|configure|cget|cgetall|blocking|clear|drain|limit\?|flush)\b</expression>
+			</zone>
+			
 			<zone name="tcl.options.binary.encode-decode">
 				<expression>\b(base64|hex|uuencode)\b</expression>
 			</zone>
@@ -684,11 +684,11 @@ THE SOFTWARE.
         		<starts-with>
         			<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\s*(\()</expression>
         			<capture number="1" name="tcl.tcl-operator.function-call.operator"/>
-        			<capture number="2" name="tcl.keyword.punctuation.open-parenthesis"/>
+        			<capture number="2" name="tcl.punctuation.open-parenthesis"/>
         		</starts-with>
         		<ends-with>
         			<expression>\)</expression>
-        			<capture number="0" name="tcl.keyword.punctuation.close-parenthesis"/>
+        			<capture number="0" name="tcl.punctuation.close-parenthesis"/>
         		</ends-with>
         		<subzones>
         			<include collection="Operators" />
@@ -709,7 +709,7 @@ THE SOFTWARE.
         
         <collection name="Numeric">
         
-        	<zone name="tcl.constant.language.numeric.end">
+        	<zone name="tcl.constant.language.options.numeric.end">
         		<expression>\bend\b</expression>
         	</zone>
         
