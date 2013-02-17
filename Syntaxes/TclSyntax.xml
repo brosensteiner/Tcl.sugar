@@ -239,7 +239,7 @@ THE SOFTWARE.
 			<zone name="tcl.tcl-keyword.function-call.unset-function-call.definition">
 			    <expression>(\bunset)(\s+-nocomplain)?((\s+([\w:]+))+)?\b</expression>
 			    <capture number="1" name="tcl.command.function-call.unset-global"/>
-			    <capture number="2" name="tcl.keyword.tcl-keyword.property-name"/>
+			    <capture number="2" name="tcl.tcl-keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.append-function-call.definition">
@@ -355,7 +355,7 @@ THE SOFTWARE.
         
         <collection name="FormatSpecifier">
         	<zone name="tcl.keyword.format-specifier.string-format">
-        		<expression>%(-|\+|#|0|[[:space:]])?(\d+)?(\.\d+)?([cdEefgGiouxXqs])</expression>
+        		<expression>%([-\+#0[:space:]])?(\d+)?(\.\d+)?([cdEefgGiouxXqs])</expression>
         		<capture number="1" name="tcl.keyword.additional.format-flags"/>
         		<capture number="2" name="tcl.keyword.additional.format-width"/>
         		<capture number="3" name="tcl.keyword.additional.format-precision"/>
@@ -437,7 +437,7 @@ THE SOFTWARE.
         	    <starts-with>
         	        <expression>\b(regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
         	        <capture number="1" name="tcl.command.function-call"/>
-        	        <capture number="2" name="tcl.keyword.tcl-keyword.property-name"/>
+        	        <capture number="2" name="tcl.tcl-keyword.property-name"/>
         	        <capture number="3" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
@@ -449,7 +449,7 @@ THE SOFTWARE.
         	    <starts-with>
         	        <expression>\b(regsub)\s+((?:-\w+\s+)+)?(\{)</expression>
         	        <capture number="1" name="tcl.command.function-call"/>
-        	        <capture number="2" name="tcl.keyword.tcl-keyword.property-name"/>
+        	        <capture number="2" name="tcl.tcl-keyword.property-name"/>
         	        <capture number="3" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
@@ -461,7 +461,7 @@ THE SOFTWARE.
         	<zone name="tcl.container.regex.tcl-keyword.switch-regexp">
         	    <starts-with>
         	        <expression>(-regexp)\s+(\{)</expression>
-        	        <capture number="1" name="tcl.keyword.tcl-keyword.property-name"/>
+        	        <capture number="1" name="tcl.tcl-keyword.property-name"/>
         	        <capture number="2" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
@@ -527,7 +527,7 @@ THE SOFTWARE.
         		<expression>\b(source)(\s+)(-encoding)?</expression>
         		<capture number="1" name="tcl.command.function-call"/>
         		<capture number="2" name="tcl.s"/>
-        		<capture number="3" name="tcl.keyword.tcl-keyword.property-name"/>
+        		<capture number="3" name="tcl.tcl-keyword.property-name"/>
         	</zone>
         	<zone>
         	    <expression>\b(dict)(\s+)(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with)\b</expression>
@@ -597,9 +597,21 @@ THE SOFTWARE.
 				<capture number="2" name="tcl.s"/>
 				<capture number="3" name="tcl.options.history"/>
 			</zone>
+			<zone>
+				<expression>\b(zlib)(\s+)(?:(compress|decompress|deflate|gunzip|gzip|inflate|adler32|crc32)|(push)(?:(\s+)(compress|decompress|deflate|gunzip|gzip|inflate))?|(stream)(?:(\s+)(compress|decompress|deflate|gunzip|gzip|inflate))?)\b</expression>
+				<capture number="1" name="tcl.command.function-call"/>
+				<capture number="2" name="tcl.s"/>
+				<capture number="3" name="tcl.options.zlib"/>
+				<capture number="4" name="tcl.options.zlib"/>
+				<capture number="5" name="tcl.s"/>
+				<capture number="6" name="tcl.options.zlib"/>
+				<capture number="7" name="tcl.options.zlib"/>
+				<capture number="8" name="tcl.s"/>
+				<capture number="9" name="tcl.options.zlib"/>
+			</zone>
 			
         	<zone name="tcl.command.function-call">
-        		<expression>\b(tclsh|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|global|variable|coroutine|yield|yieldto)(?=\s|\]|;)</expression>
+        		<expression>\b(add|checksum|finalize|fullflush|get|put|reset|zlib|tclsh|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|global|variable|coroutine|yield|yieldto)(?=\s|\]|;)</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global.global-procedures">
@@ -610,7 +622,7 @@ THE SOFTWARE.
         		<expression>\b(args|env|errorCode|errorInfo|tcl_library|tcl_libPath|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|tcl_prompt1|tcl_prompt2|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE)\b</expression>
         	</zone>
         	<!--catches all switches in tcl (e.g. "-switch"):-->
-        	<zone name="tcl.keyword.tcl-keyword.property-name">
+        	<zone name="tcl.tcl-keyword.property-name">
         		<expression>(?&lt;![\w?!])-[\w?!]+\b|(?&lt;![\w?!])--(?=\s)</expression>
         	</zone>
         			

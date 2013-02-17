@@ -82,6 +82,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
+		<completion string="zlib">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:subcommand} ${2: arg ...}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="platform" />
 		<completion string="tcl_findLibrary" />
 		<completion string="append">
@@ -115,6 +123,14 @@ THE SOFTWARE.
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 					<transform-into>(?1:$1: ${1:func} ${2:?arg1 arg2 ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="lmap">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:varlist1} ${2:list1} ${3:?varlist2 list2 ...?} ${4:body}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -213,7 +229,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="load" />
+		<completion string="load">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:fileName} ${2:packageName} ${3:interp}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="read">
 			<behavior>
 				<append-dynamic>
@@ -256,7 +279,7 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="finalize"><!--sub command refchan-->
+		<completion string="finalize"><!--sub command refchan and zlib-->
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -464,7 +487,14 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="return" />
-		<completion string="unload" />
+		<completion string="unload">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?switches?} ${2:fileName} ${3:packageName} ${4:interp}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="break" />
 		<completion string="lsort">
 			<behavior>
@@ -488,6 +518,39 @@ THE SOFTWARE.
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 					<transform-into>(?1:$1: ${1:script} ${2:?resultVarName?} ${3:?optionsVarName?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="throw" />
+		<completion string="coroutine">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:name} ${2:command} ${3:?arg ...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="yield">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?value?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="yieldto">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:command} ${2:?arg ...?} ${3:name} ${4:?value?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="tailcall">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:command} ${2:?arg ...?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -711,11 +774,52 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
+		
+		<!--STREAMING INSTANCE COMMANDS:-->
+	    <completion string="add">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?option?} ${2:data}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="checksum">
+	        <behavior>
+				<append-static></append-static>
+			</behavior>
+		</completion>
+	    <completion string="fullflush">
+	        <behavior>
+				<append-static></append-static>
+			</behavior>
+	    </completion>
+	    <completion string="get">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?count?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="put">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?option?} ${2:data}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="reset">
+	        <behavior>
+				<append-static></append-static>
+			</behavior>
+	    </completion>
 	    
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.functions-with-option">
-	
+				
 		<!--package-->
 		<completion string="package forget">
 		    <behavior>
@@ -798,7 +902,7 @@ THE SOFTWARE.
 		    <behavior>
 		        <append-dynamic>
 		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-		            <transform-into>(?1:$1: ${1:?latest | stable?}$0)</transform-into>
+		            <transform-into>(?1:$1: ${1:?latest|stable?}$0)</transform-into>
 		        </append-dynamic>
 		    </behavior>
 		</completion>
@@ -1080,6 +1184,14 @@ THE SOFTWARE.
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?value ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="dict map">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:\{keyVar valueVar\}} ${2:dictionaryValue} ${3:body}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2266,6 +2378,87 @@ THE SOFTWARE.
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
+	    <!--zlib-->
+	    <completion string="zlib compress">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?level?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib decompress">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?bufferSize?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib deflate">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?level?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib gunzip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?-headerVar varName?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib gzip">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?-level level?} ${3:?-header dict?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib inflate">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?bufferSize?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib push">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:mode} ${2:channel} ${3:?options ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib stream">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:mode} ${2:?level?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib adler32">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?initValue?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="zlib crc32">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:string} ${2:?initValue?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 	
 	</set>
 	
@@ -2717,6 +2910,12 @@ THE SOFTWARE.
 		<completion string="stable" />
 	</set>
 	
+	<!--load options-->
+	<set name="com.rosensteiner.Tcl.function.load" casesensitive="true">
+		<completion string="-global" />
+		<completion string="-lazy" />
+	</set>
+	
 	<!--file options-->
 	<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
 		<completion string="-group" />
@@ -2762,6 +2961,12 @@ THE SOFTWARE.
 	<!--unset options-->
 	<set name="com.rosensteiner.Tcl.function.unset" casesensitive="true">
 		<completion string="-nocomplain" />
+	</set>
+	
+	<!--unload options-->
+	<set name="com.rosensteiner.Tcl.function.unload" casesensitive="true">
+		<completion string="-nocomplain" />
+		<completion string="-keeplibrary" />
 	</set>
 	
 	<!--switch options-->
@@ -3428,6 +3633,220 @@ THE SOFTWARE.
 	    </completion>
 		<completion string="-lasterror" />
 	</set>
+	
+	<!--zlib options-->
+	<set name="com.rosensteiner.Tcl.function.zlib.gunzip" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-headerVar"/>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.zlib.gzip" casesensitive="true">
+	    <completion string="-level">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:level}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-header">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:dict}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.zlib.push" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="compress"/>
+	    <completion string="decompress"/>
+	    <completion string="deflate"/>
+	    <completion string="gunzip"/>
+	    <completion string="gzip"/>
+	    <completion string="inflate"/>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.zlib.push.compress" casesensitive="true">
+	    <completion string="-level">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:dictionary}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-header">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:compressionLevel}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.zlib.push.decompress" casesensitive="true">
+	    <completion string="-level">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:dictionary}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-header">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:compressionLevel}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.zlib.push.deflate" casesensitive="true">
+	    <completion string="-level">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:dictionary}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-header">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:compressionLevel}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.zlib.push.gunzip" casesensitive="true">
+	    <completion string="-level">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:dictionary}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-header">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:compressionLevel}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.zlib.push.gzip" casesensitive="true">
+	    <completion string="-level">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:dictionary}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-header">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:compressionLevel}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.zlib.push.inflate" casesensitive="true">
+	    <completion string="-level">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:dictionary}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-header">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:compressionLevel}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.zlib.stream" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="compress">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?level?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="decompress"/>
+	    <completion string="deflate">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?level?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="gunzip"/>
+	    <completion string="gzip">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?level?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="inflate"/>
+	</set>
+	<!--put zlib function-->
+	<set name="com.rosensteiner.Tcl.function.put" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-finalize" />
+	    <completion string="-flush"/>
+	    <completion string="-fullflush"/>
+	</set>
+	<!--add zlib function-->
+	<set name="com.rosensteiner.Tcl.function.add" casesensitive="true">
+	    <behavior>
+	        <append-dynamic>
+	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	            <transform-into>(?1:: $0)</transform-into>
+	        </append-dynamic>
+	    </behavior>
+	    <completion string="-finalize" />
+	    <completion string="-flush"/>
+	    <completion string="-fullflush"/>
+	</set>
 	<!--chan options-->
 	<set name="com.rosensteiner.Tcl.function.chan.configure" casesensitive="true">
 	    <behavior>
@@ -3487,6 +3906,16 @@ THE SOFTWARE.
 	    <completion string="-error"/>
 	    <completion string="-sockname"/>
 	    <completion string="-peername"/>
+	    <completion string="-flush">
+	        <behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:type}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-checksum"/>
+	    <completion string="-header"/>
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.function.chan.seek" casesensitive="true">
