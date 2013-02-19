@@ -30,25 +30,15 @@ THE SOFTWARE.
     
 		<include collection="Invalid" />
 		<zone name="tcl.comment.shebang">
-			<expression>^(#!).*?\b(tclsh|wish)\b.*?$[\n\r]*|^(#!).*?\benv\s+?tclsh.*?$[\n\r]*</expression>
+			<expression>^(#!).*?\b(tclsh|wish)\b.*?$|^(#!).*?\benv\s+?tclsh.*?$</expression>
 			<capture number="1" name="punctuation.definition.begin"/>
 		</zone>
 		<include collection="Numeric" />
 		<include collection="EscapeChar"/>
 		<include collection="Variables" />
 		<include collection="tclLanguage" />
-		<!--procedures and classes only make sense in language-root zone-->
-		<zone name="tcl.command.function">
-			<expression>\b(proc)\s+([^"\[][^\[\s]*)</expression>
-			<capture number="1" name="tcl.command.function.function-call"/>
-			<capture number="2" name="tcl.command.function.name"/>
-		</zone>
-		<zone name="tcl.command.class">
-			<expression>\b(class)\s+([^"\[][^\[\s]*)</expression>
-			<capture number="1" name="tcl.command.function.function-call"/>
-			<capture number="2" name="tcl.command.function.name"/>
-		</zone>
 		<include collection="FormatSpecifier"/>
+		<include collection="ClassesAndProcedures"/>
 		<include collection="Operators" />
 		<include collection="Math" />
 		<include collection="VariableExpansion" />
@@ -81,9 +71,43 @@ THE SOFTWARE.
 			<include collection="General" />
 			<include collection="BracesBrackets" />
 		</collection>
+		
+		<collection name="ClassesAndProcedures">
+			<zone name="tcl.command.function">
+				<expression>\b(proc)\s+([^"\[][^\[\s]*)</expression>
+				<capture number="1" name="tcl.command.function.function-call"/>
+				<capture number="2" name="tcl.command.function.name"/>
+			</zone>
+			<zone name="tcl.command.class">
+				<expression>\b(class)\s+([^"\[][^\[\s]*)</expression>
+				<capture number="1" name="tcl.command.function.function-call"/>
+				<capture number="2" name="tcl.command.function.name"/>
+			</zone>
+		</collection>
 	
 		<collection name="BracesBrackets">
-						
+			<include collection="Braces" />
+			<include collection="Brackets" />
+		</collection>
+		
+		<collection name="Braces">
+			<zone name="tcl.container.balanced-braces">
+			    <starts-with>
+			        <expression>\{</expression>
+			        <capture number="0" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="tcl.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="ClassesAndProcedures"/>
+			    	<include collection="Default_Order_Of_Zones" />
+			    </subzones>
+			</zone>
+		</collection>
+		
+		<collection name="Brackets">
 			<zone name="tcl.container.balanced-brackets">
 			    <starts-with>
 			        <expression>\[</expression>
@@ -95,29 +119,12 @@ THE SOFTWARE.
 			    </ends-with>
 			    <subzones>
 			    	<include collection="OperatorsNotInQuotesAllowed" />
-			    	<include collection="VariableExpansion" />
 			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
-			
-			<zone name="tcl.container.balanced-braces">
-			    <starts-with>
-			        <expression>\{</expression>
-			        <capture number="0" name="tcl.punctuation.open-brace"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>\}</expression>
-			        <capture number="0" name="tcl.punctuation.close-brace"/>
-			    </ends-with>
-			    <subzones>
-			    	<include collection="Default_Order_Of_Zones" />
-			    </subzones>
-			</zone>
-				
 		</collection>
 		
 		<collection name="Parenthesis">
-						
 			<zone name="tcl.container.balanced-parenthesis">
 			    <starts-with>
 			        <expression>\(</expression>
@@ -131,40 +138,35 @@ THE SOFTWARE.
 			    	<include syntax="language-root.tcl" />
 			    </subzones>
 			</zone>
-				
 		</collection>
 			
-		<!--some invalid syntax (will eventually be more over time)-->
+		<!--some invalid syntax (eventually)-->
 		<collection name="Invalid">
-			<zone name="tcl.language.invalid.comment-semicolon">
-			    <expression>;\s+?#[^\d].*?$[\n\r]*</expression>
-			</zone>
+			
 		</collection>
 		
 		<collection name="Markup">
-		
 			<zone name="markup.link"><!--stolen from php sugar - really crazy regex :)-->
 				<expression>(?i)\b(?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()&lt;>]+|\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\))+(?:\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\)|[^\s`!()\[\]{};:'".,&lt;>?«»“”‘’])</expression>
 			</zone>
-			
 		</collection>
 	
 		<collection name="Comments">
 			
 			<!--this zone helps not to fill up Espresso´s Navigator (catches empty comment lines)-->
 			<zone name="tcl.comment-line-empty">
-			    <expression>(?&lt;=;|\s|^|\s\{)(#)\s*$[\n\r]?</expression>
+			    <expression>(?&lt;=;|\s|^|\s\{)(#)\s*$</expression>
 			    <capture number="1" name="context.punctuation.comment.begin"/>   
 			</zone>
 		
 			<!--this multiline comment is actually a convinient way to write comments in tcl-->
 			<zone name="tcl.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
-			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*$[\n\r]?</expression>
+			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*$</expression>
 			        <capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(^|[^\\])\s*$[\n\r]+</expression><!--i don´t know why this line begin anchor doesn´t work-->
+			        <expression>(^|[^\\])\s*$</expression><!--i don´t know why this line begin anchor doesn´t work-->
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>
@@ -177,7 +179,7 @@ THE SOFTWARE.
 			    	<capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>\s*$[\n\r]*</expression>
+			        <expression>\s*$</expression>
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>
@@ -207,12 +209,12 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.set-function-call.definition">
-			    <expression>\b(set)\s+([\w:()]+)?</expression>
+			    <expression>\b(set)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-set"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.function-call.unset-function-call.definition">
-			    <expression>(\bunset)(\s+-nocomplain)?((\s+([\w:()]+))+)?</expression>
+			    <expression>(\bunset)(\s+-nocomplain)?((\s+([^\{\};]+))+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.tcl-keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
@@ -282,7 +284,7 @@ THE SOFTWARE.
 			    	<include collection="Operators" />
 			    	<include collection="Math" />
 			    	<include collection="General" />
-			    	<include collection="BracesBrackets" />
+			    	<include collection="Brackets" />
 			    </subzones>
 			</zone>
 		
@@ -338,59 +340,51 @@ THE SOFTWARE.
         </collection>
         
         <collection name="VariableExpansion">
-        
-        	<!--crazy stuff, but covers all possible variable expansions with one zone:-->
-        	<zone name="tcl.definition.expand">
-        		<starts-with>
-        		    <expression>\$</expression>
-        		    <capture number="0" name="tcl.vvariable.dollar"/>
-        		</starts-with>
-        		<ends-with>
-        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|(\)|\}|\])(\)|\]|\}|"|'|,|;)|(\]|\}|\)|")\s|\s|\}\])</expression>
-        		</ends-with>
-        		<subzones name="vvariable">
-        			<zone>
-        				<expression>\$</expression>
-        				<capture number="0" name="tcl.vvariable.dollar"/>
-        			</zone>
-        			<zone name="tcl.definition.expand">
-        			    <starts-with>
-        			        <expression>(?&lt;=\$)\{</expression>
-        			        <capture number="0" name="tcl.punctuation.open-brace"/>
-        			    </starts-with>
-        			    <ends-with>
-        			        <expression>\}</expression>
-        			        <capture number="0" name="tcl.punctuation.close-brace"/>
-        			    </ends-with>
-        			    <subzones>
-        				    <include collection="NamespaceColons" />
-        				    <include collection="ArrayForVariableExpansion" />
-        			    </subzones>
-        			</zone>
-        			<!--<zone name="tcl.command.function-call">
-        				<expression>(:{2,})?(?:[\w?!\.]*)</expression>
-        				<capture number="1" name="tcl.punctuation.namespace"/>
-        			</zone>-->
-        			<include collection="ArrayForVariableExpansion" />
-        		</subzones>
-        	</zone>
-        	
+        	<include collection="ArrayVariableExpansion" />
+        	<include collection="OtherVariableExpansion" />
+        	<include collection="SingleVariableExpansion" />
         </collection>
         
-        <collection name="ArrayForVariableExpansion">
-        	<zone name="tcl.definition.array-key">
-        	    <starts-with>
-        	        <expression>(?&lt;=[\w:])\(</expression>
-        	        <capture number="0" name="tcl.punctuation.open-parenthesis"/>
-        	    </starts-with>
-        	    <ends-with>
-        	        <expression>(?&lt;!\\)\)</expression>
-        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
-        	    </ends-with>
-        	    <subzones name="definition-in-array">
-        	    	<include syntax="language-root.tcl" />
-        	    	<include collection="NamespaceColons" />
-        	    </subzones>
+        <collection name="SingleVariableExpansion">
+        	<zone name="tcl.definition.expand">
+        		<expression>(\$)([\w:]+)</expression>
+        		<capture number="1" name="tcl.vvariable.dollar"/>
+        		<capture number="2" name="vvariable"/>
+        	</zone>
+        </collection>
+        
+        <collection name="OtherVariableExpansion">
+        	<zone name="tcl.definition.expand">
+        		<starts-with>
+        		    <expression>(\$)(\{)</expression>
+        		    <capture number="1" name="tcl.vvariable.dollar"/>
+        		    <capture number="2" name="tcl.punctuation.open-brace"/>
+        		</starts-with>
+        		<ends-with>
+        		    <expression>\}</expression>
+        		    <capture number="0" name="tcl.punctuation.close-brace"/>
+        		</ends-with>
+        		<subzones name="vvariable">
+        			<include collection="VariableExpansion" />
+        		</subzones>
+        	</zone>
+        </collection>
+        
+        <collection name="ArrayVariableExpansion">
+        	<zone name="tcl.definition.expand">
+        		<starts-with>
+        		    <expression>(\$)([\w:]+)(\()</expression>
+        		    <capture number="1" name="tcl.vvariable.dollar"/>
+        		    <capture number="2" name="vvariable"/>
+        		    <capture number="3" name="tcl.punctuation.open-parenthesis"/>
+        		</starts-with>
+        		<ends-with>
+        		    <expression>\)</expression>
+        		    <capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        		</ends-with>
+        		<subzones name="vvariable">
+        			<include collection="VariableExpansion" />
+        		</subzones>
         	</zone>
         </collection>
         
