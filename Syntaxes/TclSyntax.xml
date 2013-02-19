@@ -201,49 +201,18 @@ THE SOFTWARE.
 			    <expression>upvar</expression>
 			</zone>
 			
-			<zone name="tcl.tcl-keyword.set-variable.array">
-			    <starts-with>
-			        <expression>\b(set)\s+([\w:]+)(\()</expression>
-			        <capture number="1" name="tcl.command.function-call.command-set"/>
-			        <capture number="2" name="tcl.keyword.var"/>
-			        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>(\))</expression>
-			        <capture number="1" name="tcl.punctuation.open-parenthesis"/>
-			    </ends-with>
-			    <subzones>
-			    	<include syntax="language-root.tcl" />
-			    </subzones>
-			</zone>
-			<zone name="tcl.tcl-keyword.unset-variable.array">
-			    <starts-with>
-			        <expression>\b(unset)\s+([\w:]+)(\()</expression>
-			        <capture number="1" name="tcl.command.function-call.command-unset"/>
-			        <capture number="2" name="tcl.unset-var"/>
-			        <capture number="3" name="tcl.punctuation.open-parenthesis"/>
-			    </starts-with>
-			    <ends-with>
-			        <expression>(\))</expression>
-			        <capture number="1" name="tcl.punctuation.open-parenthesis"/>
-			    </ends-with>
-			    <subzones>
-			    	<include syntax="language-root.tcl" />
-			    </subzones>
-			</zone>
-			
 			<zone name="tcl.tcl-keyword.function-call.global.definition">
-			    <expression>\b(global)((\s+([\w:]+))+)?\b</expression>
+			    <expression>\b(global)((\s+([\w:()]+))+)?(\s|$)</expression>
 			    <capture number="1" name="tcl.command.function-call.proc-global"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.set-function-call.definition">
-			    <expression>\b(set)\s+([\w:]+)?</expression>
+			    <expression>\b(set)\s+([\w:()]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-set"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.function-call.unset-function-call.definition">
-			    <expression>(\bunset)(\s+-nocomplain)?((\s+([\w:]+))+)?\b</expression>
+			    <expression>(\bunset)(\s+-nocomplain)?((\s+([\w:()]+))+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.tcl-keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
@@ -312,7 +281,6 @@ THE SOFTWARE.
 			    	<include collection="FormatSpecifier"/>
 			    	<include collection="Operators" />
 			    	<include collection="Math" />
-			    	<include collection="Comments" />
 			    	<include collection="General" />
 			    	<include collection="BracesBrackets" />
 			    </subzones>
@@ -378,7 +346,7 @@ THE SOFTWARE.
         		    <capture number="0" name="tcl.vvariable.dollar"/>
         		</starts-with>
         		<ends-with>
-        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\)(\)|\]|\}|"|'|,|;)|(\]|\}|\)|")\s|\s|\}\])</expression>
+        		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|(\)|\}|\])(\)|\]|\}|"|'|,|;)|(\]|\}|\)|")\s|\s|\}\])</expression>
         		</ends-with>
         		<subzones name="vvariable">
         			<zone>
@@ -394,35 +362,42 @@ THE SOFTWARE.
         			        <expression>\}</expression>
         			        <capture number="0" name="tcl.punctuation.close-brace"/>
         			    </ends-with>
-        			    <subzones name="vvariable">
-        				    <zone name="tcl.punctuation.namespace">
-        				    	<expression>:{2,}</expression>
-        				    </zone>
+        			    <subzones>
+        				    <include collection="NamespaceColons" />
+        				    <include collection="ArrayForVariableExpansion" />
         			    </subzones>
         			</zone>
         			<!--<zone name="tcl.command.function-call">
         				<expression>(:{2,})?(?:[\w?!\.]*)</expression>
         				<capture number="1" name="tcl.punctuation.namespace"/>
         			</zone>-->
-        			<zone name="tcl.definition.array-key">
-        			    <starts-with>
-        			        <expression>(?&lt;=[\w:])(\()</expression>
-        			        <capture number="1" name="tcl.punctuation.open-parenthesis"/>
-        			    </starts-with>
-        			    <ends-with>
-        			        <expression>(?&lt;!\\)\)</expression>
-        			        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
-        			    </ends-with>
-        			    <subzones name="definition-in-array">
-        			    	<include syntax="language-root.tcl" />
-        			    	<zone name="tcl.punctuation.namespace">
-        			    		<expression>:{2,}</expression>
-        			    	</zone>
-        			    </subzones>
-        			</zone>
+        			<include collection="ArrayForVariableExpansion" />
         		</subzones>
         	</zone>
         	
+        </collection>
+        
+        <collection name="ArrayForVariableExpansion">
+        	<zone name="tcl.definition.array-key">
+        	    <starts-with>
+        	        <expression>(?&lt;=[\w:])\(</expression>
+        	        <capture number="0" name="tcl.punctuation.open-parenthesis"/>
+        	    </starts-with>
+        	    <ends-with>
+        	        <expression>(?&lt;!\\)\)</expression>
+        	        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        	    </ends-with>
+        	    <subzones name="definition-in-array">
+        	    	<include syntax="language-root.tcl" />
+        	    	<include collection="NamespaceColons" />
+        	    </subzones>
+        	</zone>
+        </collection>
+        
+        <collection name="NamespaceColons">
+        	<zone name="tcl.punctuation.namespace">
+        		<expression>:{2,}</expression>
+        	</zone>
         </collection>
         
         <collection name="tclLanguage">
@@ -439,21 +414,9 @@ THE SOFTWARE.
         	</zone>
         	
         	<!--for controlled regex syntax highlighting (variable(s) at end of command):-->
-        	<zone name="tcl.container.regex.function-call-regexp">
-        	    <starts-with>
-        	        <expression>\b(regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
-        	        <capture number="1" name="tcl.command.function-call"/>
-        	        <capture number="2" name="tcl.tcl-keyword.property-name"/>
-        	        <capture number="3" name="tcl.punctuation.open-brace"/>
-        	    </starts-with>
-        	    <ends-with>
-        	        <expression>(\})</expression>
-        	        <capture number="1" name="tcl.punctuation.close-brace"/>
-        	    </ends-with>
-        	</zone>
         	<zone name="tcl.container.regex.function-call-regsub">
         	    <starts-with>
-        	        <expression>\b(regsub)\s+((?:-\w+\s+)+)?(\{)</expression>
+        	        <expression>\b(regsub|regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
         	        <capture number="1" name="tcl.command.function-call"/>
         	        <capture number="2" name="tcl.tcl-keyword.property-name"/>
         	        <capture number="3" name="tcl.punctuation.open-brace"/>
@@ -483,7 +446,7 @@ THE SOFTWARE.
         	        <capture number="2" name="tcl.punctuation.open-brace"/>
         	    </starts-with>
         	    <ends-with>
-        	        <expression>(\})(?:\s+([\w]+)(\s+[\w]+)?)?</expression>
+        	        <expression>(\})(?:\s+([\w:()]+)(\s+[\w:()]+)?)?</expression>
         	        <capture number="1" name="tcl.punctuation.close-brace"/>
         	        <capture number="2" name="tcl.var.catch-var"/>
         	        <capture number="3" name="tcl.var.catch-options-var"/>
@@ -510,7 +473,7 @@ THE SOFTWARE.
         	    </subzones>
         	</zone>
         	
-        	<!--here comes zones which can maybe produce nameclashes (especially with amira syntax) with other keywords so they are more specific-->
+        	<!--here comes zones which can maybe produce nameclashes, especially with amira syntax and also with other keywords so they are more specific-->
         	<zone>
         	    <expression>\b(prefix)(\s+)(all|longest|match)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
@@ -754,11 +717,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<zone name="tcl.numeric.unicode">
-				<expression>\\u\h{1,4}\b</expression>
-			</zone>
-			
-			<zone name="tcl.numeric.unicode">
-				<expression>\\U\h{1,8}\b</expression>
+				<expression>(?:\\u\h{1,4}|\\U\h{1,8})\b</expression>
 			</zone>
 			
         </collection>
