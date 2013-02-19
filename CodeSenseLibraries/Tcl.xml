@@ -58,7 +58,10 @@ THE SOFTWARE.
 		</completion>
 		<completion string="after">
 			<behavior>
-				<append-static></append-static>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:ms}$0)</transform-into>
+				</append-dynamic>
 			</behavior>
 		</completion>
 		<completion string="string">

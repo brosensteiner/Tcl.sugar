@@ -42,20 +42,31 @@ tcl.function-call-regsub + s + property-name + s + property-name + s + property-
 tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
 tcl.function-call-regsub + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + property-name + s + * + s + * + s + word,
 
-tcl.upvar + s + :not(keyword,numeric) + s + word,
-tcl.upvar + s + :not(keyword,numeric) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.upvar + s + :not(keyword,numeric) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.upvar + s + :not(keyword,numeric) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.upvar + s + :not(keyword,numeric) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
+tcl.upvar + s + expand + s + word,
+tcl.upvar + s + expand + s + * + s + expand + s + word,
+tcl.upvar + s + expand + s + * + s + expand + s + * + s + expand + s + word,
+tcl.upvar + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
+tcl.upvar + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
 
-tcl.upvar + s + numeric + s + :not(keyword) + s + word,
-tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.upvar + s + numeric + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
+tcl.upvar + s + numeric + s + expand + s + word,
+tcl.upvar + s + numeric + s + expand + s + * + s + expand + s + word,
+tcl.upvar + s + numeric + s + expand + s + * + s + expand + s + * + s + expand + s + word,
+tcl.upvar + s + numeric + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
+tcl.upvar + s + numeric + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
+
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
+tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
 
 tcl.rename-var-newname {
-	color: #8BA57A;
+	color: hsl(96, 19%, 56%);
 	font-style: italic;
 }
 

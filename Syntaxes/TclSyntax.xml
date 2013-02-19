@@ -44,8 +44,9 @@ THE SOFTWARE.
 			<capture number="2" name="tcl.command.function.name"/>
 		</zone>
 		<zone name="tcl.command.class">
-			<expression>\bclass\s+([^"\[][^\[\s]*)</expression>
-			<capture number="1" name="tcl.command.class.name"/>
+			<expression>\b(class)\s+([^"\[][^\[\s]*)</expression>
+			<capture number="1" name="tcl.command.function.function-call"/>
+			<capture number="2" name="tcl.command.function.name"/>
 		</zone>
 		<include collection="FormatSpecifier"/>
 		<include collection="Operators" />
@@ -231,6 +232,11 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
+			<zone name="tcl.tcl-keyword.function-call.global.definition">
+			    <expression>\b(global)((\s+([\w:]+))+)?\b</expression>
+			    <capture number="1" name="tcl.command.function-call.proc-global"/>
+			    <capture number="2" name="tcl.var"/>
+			</zone>
 			<zone name="tcl.tcl-keyword.set-function-call.definition">
 			    <expression>\b(set)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-set"/>
@@ -369,7 +375,7 @@ THE SOFTWARE.
         	<zone name="tcl.definition.expand">
         		<starts-with>
         		    <expression>\$</expression>
-        		    <capture number="0" name="tcl.operator.dollar"/>
+        		    <capture number="0" name="tcl.vvariable.dollar"/>
         		</starts-with>
         		<ends-with>
         		    <expression>(?=[^\w?!\.:\$\{\}\(\)]|\)(\)|\]|\}|"|'|,|;)|(\]|\}|\)|")\s|\s|\}\])</expression>
@@ -377,7 +383,7 @@ THE SOFTWARE.
         		<subzones name="vvariable">
         			<zone>
         				<expression>\$</expression>
-        				<capture number="0" name="tcl.operator.dollar"/>
+        				<capture number="0" name="tcl.vvariable.dollar"/>
         			</zone>
         			<zone name="tcl.definition.expand">
         			    <starts-with>
@@ -671,7 +677,8 @@ THE SOFTWARE.
 			</zone>
 			
 			<!--namespaces-->
-			<zone name="tcl.command.function-call">
+			<!--.upd is for namespace upvar syntax -> see word.upd and Tcl.css-->
+			<zone name="tcl.command.function-call.namespaces.upd">
 					<starts-with>
 				    <expression>(?:[\w?!\.]+)?(:{2,})(?=[\w?!\.])</expression>
 				    <capture number="1" name="tcl.punctuation.namespace"/>
@@ -757,7 +764,7 @@ THE SOFTWARE.
         </collection>
         
         <collection name="General">
-        	<zone name="tcl.language.word"> 
+        	<zone name="language.word.upd"> 
         		<expression>(?&lt;=\s|^)([\w\.-]+)</expression>
         	</zone>
         </collection>
