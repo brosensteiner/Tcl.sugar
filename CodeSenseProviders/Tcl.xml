@@ -163,6 +163,12 @@ THE SOFTWARE.
 		<complete-match>(?&lt;!\\|_|-|package |namespace |prefix |dict |http |binary |history |info |string |file |chan |trace )[a-zA-Z-]*</complete-match>
 	</provider>
 	
+	<!--regex/regexp-->
+	<provider>
+		<selector>tcl.regex > function-call:capture(name) ~ *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
 	<!--proc option option switch-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + options:capture(options2) + s + * + *</selector>

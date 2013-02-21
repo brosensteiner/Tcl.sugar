@@ -91,7 +91,7 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="Braces">
-			<zone name="tcl.container.balanced-braces">
+			<zone name="tcl.container.balanced.braces">
 			    <starts-with>
 			        <expression>\{</expression>
 			        <capture number="0" name="tcl.punctuation.open-brace"/>
@@ -108,7 +108,7 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="Brackets">
-			<zone name="tcl.container.balanced-brackets">
+			<zone name="tcl.container.balanced.brackets.subst">
 			    <starts-with>
 			        <expression>\[</expression>
 			        <capture number="0" name="tcl.punctuation.open-bracket"/>
@@ -125,7 +125,7 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="Parenthesis">
-			<zone name="tcl.container.balanced-parenthesis">
+			<zone name="tcl.container.balanced.parenthesis">
 			    <starts-with>
 			        <expression>\(</expression>
 			        <capture number="0" name="tcl.punctuation.open-parenthesis"/>
@@ -155,18 +155,45 @@ THE SOFTWARE.
 			
 			<!--this zone helps not to fill up Espresso´s Navigator (catches empty comment lines)-->
 			<zone name="tcl.comment-line-empty">
-			    <expression>(?&lt;=;|\s|^|\s\{)(#)\s*$</expression>
+			    <expression>(?&lt;=;|\s|^|\s\{)(#(\s|#)*)$</expression>
 			    <capture number="1" name="context.punctuation.comment.begin"/>   
 			</zone>
-		
-			<!--this multiline comment is actually a convinient way to write comments in tcl-->
-			<zone name="tcl.comment.multiline"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
+			
+			<!--this block comment is actually a convinient way to write comments in tcl-->
+			<zone name="tcl.comment.block.task"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real block comments... -->
 			    <starts-with>
-			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*$</expression>
+			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?(?=.*?\b(?i:FIX ?ME|TODO)\b).*?(?&lt;!\\)\\\s*$</expression>
 			        <capture number="1" name="punctuation.definition.begin"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>(^|[^\\])\s*$</expression><!--i don´t know why this line begin anchor doesn´t work-->
+			        <expression>[^\\]\s*\n|^\s*\n</expression><!--TODO: don´t know why i can not catch empty line ...-->
+			    </ends-with>
+			    <subzones>
+			    	<include collection="Markup"/>
+			    </subzones>
+			</zone>
+			
+			<zone name="tcl.comment.line.task">
+				<starts-with>
+			    	<expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?(?=.*?\b(?i:FIX ?ME|TODO)\b)</expression>
+			    	<capture number="1" name="punctuation.definition.begin"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\s*$</expression>
+			    </ends-with>
+			    <subzones>
+			    	<include collection="Markup"/>
+			    </subzones>
+			</zone>
+		
+			<!--this block comment is actually a convinient way to write comments in tcl-->
+			<zone name="tcl.comment.block"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real block comments... -->
+			    <starts-with>
+			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*\n</expression>
+			        <capture number="1" name="punctuation.definition.begin"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>[^\\]\s*\n|^\s*\n</expression><!--TODO: don´t know why i can not catch empty line ...-->
 			    </ends-with>
 			    <subzones>
 			    	<include collection="Markup"/>
@@ -186,7 +213,7 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.comment.multiline"><!--awkward tcl multiline comment ;)-->
+			<zone name="tcl.comment.block"><!--awkward tcl block comment ;)-->
 			    <starts-with>
 			        <expression>if\s+0\s+\{</expression>
 			    </starts-with>
@@ -198,45 +225,41 @@ THE SOFTWARE.
 		</collection>
 
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
-		
-			<zone name="tcl.command.function-call.upvar">
-			    <expression>upvar</expression>
-			</zone>
-			
-			<zone name="tcl.tcl-keyword.function-call.global.definition">
+
+			<zone name="tcl.tcl-keyword.function-call.global-definition">
 			    <expression>\b(global)((\s+([\w:()]+))+)?(\s|$)</expression>
 			    <capture number="1" name="tcl.command.function-call.proc-global"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.tcl-keyword.set-function-call.definition">
-			    <expression>\b(set)\s+([\w:]+)?</expression>
+			<zone name="tcl.tcl-keyword.set-definition">
+			    <expression>\b(set)\s+([\w:\(\)]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-set"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.tcl-keyword.function-call.unset-function-call.definition">
+			<zone name="tcl.tcl-keyword.function-call.unset-definition">
 			    <expression>(\bunset)(\s+-nocomplain)?((\s+([^\{\};]+))+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.tcl-keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
-			<zone name="tcl.tcl-keyword.append-function-call.definition">
+			<zone name="tcl.tcl-keyword.append-definition">
 			    <expression>\b(append)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-append"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.tcl-keyword.rename-function-call.definition">
+			<zone name="tcl.tcl-keyword.rename-definition">
 			    <expression>\b(rename)\s+([\w:]+)?\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-rename"/>
 			    <capture number="2" name="tcl.unset-var.rename-var"/>
 			    <capture number="3" name="tcl.var"/>
 			</zone>
-			<zone name="tcl.tcl-keyword.array-dict-unset-function-call.definition">
+			<zone name="tcl.tcl-keyword.array-dict-unset-definition">
 			    <expression>\b(array|dict)\s+(unset)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-array-dict-unset"/>
 			    <capture number="2" name="tcl.options.array-dict"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
-			<zone name="tcl.tcl-keyword.array-dict-set-function-call.definition">
+			<zone name="tcl.tcl-keyword.array-dict-set-definition">
 			    <expression>\b(array|dict)\s+(set)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-array-dict-unset"/>
 			    <capture number="2" name="tcl.options.array-dict"/>
@@ -267,7 +290,7 @@ THE SOFTWARE.
 		
 		<collection name="Strings"><!--yeah, i know this is not a Tcl String def - ESIAS... ;)-->
 			
-			<zone name="tcl.container.string.quoted.double">
+			<zone name="tcl.container.string.quoted.double.subst">
 			    <starts-with>
 			        <expression>"</expression>
 			        <capture number="0" name="tcl.punctuation.doublequote.string.quoted.begin"/>
@@ -346,7 +369,7 @@ THE SOFTWARE.
         </collection>
         
         <collection name="SingleVariableExpansion">
-        	<zone name="tcl.definition.expand">
+        	<zone name="tcl.definition.expand.subst">
         		<expression>(\$)([\w:]+)</expression>
         		<capture number="1" name="tcl.vvariable.dollar"/>
         		<capture number="2" name="vvariable"/>
@@ -354,7 +377,7 @@ THE SOFTWARE.
         </collection>
         
         <collection name="OtherVariableExpansion">
-        	<zone name="tcl.definition.expand">
+        	<zone name="tcl.definition.expand.subst">
         		<starts-with>
         		    <expression>(\$)(\{)</expression>
         		    <capture number="1" name="tcl.vvariable.dollar"/>
@@ -371,7 +394,7 @@ THE SOFTWARE.
         </collection>
         
         <collection name="ArrayVariableExpansion">
-        	<zone name="tcl.definition.expand">
+        	<zone name="tcl.definition.expand.subst">
         		<starts-with>
         		    <expression>(\$)([\w:]+)(\()</expression>
         		    <capture number="1" name="tcl.vvariable.dollar"/>
@@ -407,8 +430,8 @@ THE SOFTWARE.
         		<expression>\{\*\}</expression>
         	</zone>
         	
-        	<!--for controlled regex syntax highlighting (variable(s) at end of command):-->
-        	<zone name="tcl.container.regex.function-call-regsub">
+        	<!--for regex/regsub syntax highlighting (variable(s) at end of command), works only when the searched string is a single zone see Tcl.css (no way to get it better :( )-->
+        	<zone name="tcl.regex">
         	    <starts-with>
         	        <expression>\b(regsub|regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
         	        <capture number="1" name="tcl.command.function-call"/>
@@ -574,7 +597,7 @@ THE SOFTWARE.
 			</zone>
 			
         	<zone name="tcl.command.function-call">
-        		<expression>\b(add|checksum|finalize|fullflush|get|put|reset|zlib|tclsh|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|lmap|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|global|variable|coroutine|yield|yieldto)(?=\s|\]|;)</expression>
+        		<expression>\b(upvar|add|checksum|finalize|fullflush|get|put|reset|zlib|tclsh|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|lmap|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|global|variable|coroutine|yield|yieldto)(?=\s|\]|;)</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.global.global-procedures">
@@ -717,7 +740,7 @@ THE SOFTWARE.
         </collection>
         
         <collection name="General">
-        	<zone name="language.word.upd"> 
+        	<zone name="language.word.upd.subst"> 
         		<expression>(?&lt;=\s|^)([\w\.-]+)</expression>
         	</zone>
         </collection>
