@@ -91,7 +91,7 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="Braces">
-			<zone name="tcl.container.balanced.braces">
+			<zone name="tcl.container.balanced.braces.subst">
 			    <starts-with>
 			        <expression>\{</expression>
 			        <capture number="0" name="tcl.punctuation.open-brace"/>
@@ -422,38 +422,37 @@ THE SOFTWARE.
         	<zone name="tcl.punctuation.delimiter.terminator">
         		<expression>;</expression>
         	</zone>
-        	<zone name="tcl.punctuation.delimiter.command-nextline">
+        	<zone name="tcl.punctuation.delimiter.backslash">
         		<expression>\\\s*?[\n\r]</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.argument-expansion">
         		<expression>\{\*\}</expression>
         	</zone>
-        	
         	<!--for regex/regsub syntax highlighting (variable(s) at end of command), works only when the searched string is a single zone see Tcl.css (no way to get it better :( )-->
-        	<zone name="tcl.regex">
-        	    <starts-with>
-        	        <expression>\b(regsub|regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
-        	        <capture number="1" name="tcl.command.function-call"/>
-        	        <capture number="2" name="tcl.tcl-keyword.property-name"/>
-        	        <capture number="3" name="tcl.punctuation.open-brace"/>
-        	    </starts-with>
-        	    <ends-with>
-        	        <expression>(\})</expression>
-        	        <capture number="1" name="tcl.punctuation.close-brace"/>
-        	    </ends-with>
+			<zone name="tcl.regex">
+        		<starts-with>
+        			<expression>\b(regsub|regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
+        			<capture number="1" name="tcl.command.function-call"/>
+        			<capture number="2" name="tcl.tcl-keyword.property-name"/>
+        			<capture number="3" name="tcl.punctuation.open-brace"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>(\})</expression>
+        			<capture number="1" name="tcl.punctuation.close-brace"/>
+        		</ends-with>
         	</zone>
         	<!--regex switch in e.g. lsearch-->
         	<zone name="tcl.container.regex.tcl-keyword.switch-regexp">
-        	    <starts-with>
-        	        <expression>(-regexp)\s+(\{)</expression>
-        	        <capture number="1" name="tcl.tcl-keyword.property-name"/>
-        	        <capture number="2" name="tcl.punctuation.open-brace"/>
-        	    </starts-with>
-        	    <ends-with>
-        	        <expression>(\})</expression>
-        	        <capture number="1" name="tcl.punctuation.close-brace"/>
-        	    </ends-with>
+        		<starts-with>
+        			<expression>(-regexp)\s+(\{)</expression>
+        			<capture number="1" name="tcl.tcl-keyword.property-name"/>
+        			<capture number="2" name="tcl.punctuation.open-brace"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>(\})</expression>
+        			<capture number="1" name="tcl.punctuation.close-brace"/>
+        		</ends-with>
         	</zone>
         	<!--catch assigns a variable so here is a zone definition for it-->
         	<zone name="tcl.container.function-call-catch">
