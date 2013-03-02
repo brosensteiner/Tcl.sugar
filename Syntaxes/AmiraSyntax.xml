@@ -128,7 +128,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-port">
-    	    <expression>(?&lt;=(\w|\])\s)(getValue|setValue(s)?|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect|getNumMenus)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(getValue|setValue(s)?|help|isNew|getState|setState|getLabel|setLabel|getLabelWidth|setLabelWidth|align|getPin|setPin|touch|untouch|(?&lt;!info )object|send|show|hide|isVisible|reposition|isOfType|getTypeId|connect|getNumMenus)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.interface-component-connectionport">

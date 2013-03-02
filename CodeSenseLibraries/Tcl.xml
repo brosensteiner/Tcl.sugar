@@ -94,7 +94,6 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="platform" />
-		<completion string="tcl_findLibrary" />
 		<completion string="append">
 			<behavior>
 				<append-dynamic>
@@ -120,7 +119,6 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="platform::shell" />
-		<completion string="tcl_startOfNextWord" />
 		<completion string="apply">
 			<behavior>
 				<append-dynamic>
@@ -161,7 +159,6 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="tcl_startOfPreviousWord" />
 		<completion string="array">
 			<behavior>
 				<append-static></append-static>
@@ -184,8 +181,6 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="tcl_wordBreakAfter" />
-		<completion string="auto_execok" />
 		<completion string="expr">
 			<behavior>
 				<append-dynamic>
@@ -203,8 +198,6 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="pwd" />
-		<completion string="tcl_wordBreakBefore" />
-		<completion string="auto_import" />
 		<completion string="fblocked">
 			<behavior>
 	            <append-dynamic>
@@ -223,7 +216,6 @@ THE SOFTWARE.
 		</completion>
 		<!--<completion string="re_syntax" />-->
 		<completion string="tcltest" />
-		<completion string="auto_load" />
 		<completion string="fconfigure">
 			<behavior>
 				<append-dynamic>
@@ -249,7 +241,6 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="tclvars" />
-		<completion string="auto_mkindex" />
 		<completion string="fcopy">
 			<behavior>
 				<append-dynamic>
@@ -404,7 +395,6 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="time" />
-		<completion string="auto_qualify" />
 		<completion string="fileevent">
 			<behavior>
 				<append-dynamic>
@@ -423,7 +413,6 @@ THE SOFTWARE.
 		</completion>
 		<completion string="registry" />
 		<completion string="tm" />
-		<completion string="auto_reset" />
 		<completion string="filename" />
 		<completion string="lreverse">
 			<behavior>
@@ -449,7 +438,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="bgerror" />
+		<completion string="bgerror">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:message}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 		<completion string="flush">
 			<behavior>
 	            <append-dynamic>
@@ -582,7 +578,14 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="cd" />
+		<completion string="cd">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:?dirname?}$0)</transform-into>
+					</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="gets">
 			<behavior>
 				<append-dynamic>
@@ -737,7 +740,6 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="parray" />
 		<completion string="subst">
 			<behavior>
 				<append-dynamic>
@@ -761,6 +763,7 @@ THE SOFTWARE.
 		<completion string="encoding" />
 		<completion string="interp" />
 		<completion string="pkg::create" />
+		<completion string="pkg_mkIndex" />
 		<completion string="eof">
 			<behavior>
 				<append-dynamic>
@@ -939,14 +942,10 @@ THE SOFTWARE.
 		        </append-dynamic>
 		    </behavior>
 		</completion>
-		<completion string="namespace ensemble">
-		    <behavior>
-		        <append-dynamic>
-		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-		            <transform-into>(?1:$1: ${1:subcommand} ${2:?arg ...?}$0)</transform-into>
-		        </append-dynamic>
-		    </behavior>
-		</completion>
+		<completion string="namespace ensemble create" />
+		<completion string="namespace ensemble configure" />
+		<completion string="namespace ensemble exists" />
+		    
 		<completion string="namespace eval">
 		    <behavior>
 		        <append-dynamic>
@@ -1497,19 +1496,51 @@ THE SOFTWARE.
 	    		</append-dynamic>
 	    	</behavior>
 	    </completion>
-	    <completion string="binary encode">
+	    <completion string="binary encode base64">
 	    	<behavior>
 	    		<append-dynamic>
 	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	    			<transform-into>(?1:$1: ${1:format} ${2:?-option value ...?} ${3:data}$0)</transform-into>
+	    			<transform-into>(?1:$1: ${1:?-option value ...?} ${2:data}$0)</transform-into>
 	    		</append-dynamic>
 	    	</behavior>
 	    </completion>
-	    <completion string="binary decode">
+	    <completion string="binary encode hex">
 	    	<behavior>
 	    		<append-dynamic>
 	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	    			<transform-into>(?1:$1: ${1:format} ${2:?-option value ...?} ${3:data}$0)</transform-into>
+	    			<transform-into>(?1:$1: ${1:?-option value ...?} ${2:data}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="binary encode uuencode">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:?-option value ...?} ${2:data}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="binary decode base64">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:?-option value ...?} ${2:data}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="binary decode hex">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:?-option value ...?} ${2:data}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="binary decode uuencode">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:?-option value ...?} ${2:data}$0)</transform-into>
 	    		</append-dynamic>
 	    	</behavior>
 	    </completion>
@@ -2494,6 +2525,11 @@ THE SOFTWARE.
 	    <completion string="tcl_version" />
 	    <completion string="tcl_prompt1" />
 	    <completion string="tcl_prompt2" />
+	    <completion string="auto_execs" />
+	    <completion string="auto_index" />
+	    <completion string="auto_noexec" />
+	    <completion string="auto_noload" />
+	    <completion string="auto_path" />
 	    <completion string="argc" />
 	    <completion string="argv" />
 	    <completion string="argv0" />
@@ -2515,15 +2551,104 @@ THE SOFTWARE.
 	            <transform-into>(?1:: $0)</transform-into>
 	        </append-dynamic>
 	    </behavior>
-	    <completion string="auto_execs" />
-	    <completion string="auto_index" />
-	    <completion string="auto_noexec" />
-	    <completion string="auto_noload" />
-	    <completion string="auto_path" />
-	    <completion string="unknown_pending" />
-	    <completion string="pkg_mkIndex" />
-	    <completion string="tcl_endOfWord" />
-	    <completion string="tclPkgSetup" />
+	    <completion string="auto_execok">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:cmd}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="auto_import">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:pattern}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="auto_load">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:cmd}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="auto_mkindex">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:dir} ${2:pattern pattern ...}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="auto_reset" />
+	    <completion string="auto_qualify">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:command} ${2:namespace}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="tcl_findLibrary">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:basename} ${2:version} ${3:patch} ${4:initScript} ${5:enVarName} ${6:varName}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="parray">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:arrayName}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="tcl_endOfWord">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:str} ${2:start}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="tcl_startOfNextWord">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:str} ${2:start}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="tcl_startOfPreviousWord">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:str} ${2:start}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="tcl_wordBreakAfter">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:str} ${2:start}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="tcl_wordBreakBefore">
+	    	<behavior>
+	    		<append-dynamic>
+	    			<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    			<transform-into>(?1:$1: ${1:str} ${2:start}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="tclPkgSetup" /><!--deprecated-->
 	    <completion string="tclPkgUnknown" />
 	    
 	</set>
@@ -2571,18 +2696,6 @@ THE SOFTWARE.
 	    
 	</set>
 	
-	<!--namespace ensemble options-->
-	<set name="com.rosensteiner.Tcl.function.namespace.ensemble" casesensitive="true">
-	    <behavior>
-	        <append-dynamic>
-	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	            <transform-into>(?1:: $0)</transform-into>
-	        </append-dynamic>
-	    </behavior>
-	    <completion string="create"/>
-	    <completion string="configure"/>
-	    <completion string="exists"/>
-	</set>
 	<set name="com.rosensteiner.Tcl.function.namespace.ensemble.create" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
@@ -3449,57 +3562,54 @@ THE SOFTWARE.
 	    <completion string="definition"/>
 	    <completion string="filters"/>
 	    <completion string="forward"/>
-	    <completion string="isa"/>
 	    <completion string="methods"/>
 	    <completion string="methodtype"/>
 	    <completion string="mixins"/>
 	    <completion string="namespace"/>
 	    <completion string="variables"/>
 	    <completion string="vars"/>
-	    <completion string="isa"/>
+	    <completion string="isa class">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="isa metaclass">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="isa mixin">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="isa object">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="isa typeof">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.info.object.isa">
-		<completion string="class">
-		    <behavior>
-		        <append-dynamic>
-		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-		        </append-dynamic>
-		    </behavior>
-		</completion>
-		<completion string="metaclass">
-		    <behavior>
-		        <append-dynamic>
-		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-		        </append-dynamic>
-		    </behavior>
-		</completion>
-		<completion string="mixin">
-		    <behavior>
-		        <append-dynamic>
-		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-		            <transform-into>(?1:$1: ${1:object class}$0)</transform-into>
-		        </append-dynamic>
-		    </behavior>
-		</completion>
-		<completion string="object">
-		    <behavior>
-		        <append-dynamic>
-		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-		        </append-dynamic>
-		    </behavior>
-		</completion>
-		<completion string="typeof">
-		    <behavior>
-		        <append-dynamic>
-		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-		            <transform-into>(?1:$1: ${1:object class}$0)</transform-into>
-		        </append-dynamic>
-		    </behavior>
-		</completion>
-	</set>
+	
 	<set name="com.rosensteiner.Tcl.function.info.class.methods" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
@@ -4010,16 +4120,6 @@ THE SOFTWARE.
 	</set>
 	
 	<!--binary options-->
-	<set name="com.rosensteiner.Tcl.function.binary.encode" casesensitive="true">
-		<completion string="base64" />
-		<completion string="hex" />
-		<completion string="uuencode" />
-	</set>
-	<set name="com.rosensteiner.Tcl.function.binary.decode" casesensitive="true">
-		<completion string="base64" />
-		<completion string="hex" />
-		<completion string="uuencode" />
-	</set>
 	<set name="com.rosensteiner.Tcl.function.binary.encode.base64" casesensitive="true">
 		<completion string="-maxlen" />
 		<completion string="-wrapchar" />

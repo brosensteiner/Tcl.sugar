@@ -227,23 +227,23 @@ THE SOFTWARE.
 		<collection name="Variables"><!--i want that all variable things get special highlight, so here are some definition-->
 
 			<zone name="tcl.tcl-keyword.function-call.global-definition">
-			    <expression>\b(global)((\s+([\w:()]+))+)?(\s|$)</expression>
+			    <expression>\b(global)((\s+([\w:()$]+))+)?(\s|$)</expression>
 			    <capture number="1" name="tcl.command.function-call.proc-global"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.set-definition">
-			    <expression>\b(set)\s+([\w:\(\)]+)?</expression>
+			    <expression>\b(set)\s+([\w:()$]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-set"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.function-call.unset-definition">
-			    <expression>(\bunset)(\s+-nocomplain)?((\s+([^\{\};]+))+)?</expression>
+			    <expression>(\bunset)(\s+-nocomplain)?((\s+([^{};]+))+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.unset-global"/>
 			    <capture number="2" name="tcl.tcl-keyword.property-name"/>
 			    <capture number="3" name="tcl.unset-var"/>
 			</zone>
 			<zone name="tcl.tcl-keyword.append-definition">
-			    <expression>\b(append)\s+([\w:]+)?</expression>
+			    <expression>\b(l?append)\s+([\w:]+)?</expression>
 			    <capture number="1" name="tcl.command.function-call.command-append"/>
 			    <capture number="2" name="tcl.var"/>
 			</zone>
@@ -271,7 +271,7 @@ THE SOFTWARE.
 		<collection name="FlowControl">
 		
 			<zone name="tcl.keyword.control.start">
-				<expression>\b(for|while|if|foreach|try|finally)\b|(?&lt;!\?)\?(?!\?)</expression>
+				<expression>\b(for(?:each)?|while|if|(?:tr|finall)y)\b|(?&lt;!\?)\?(?!\?)</expression>
 			</zone>
 			<!--switch has options, so it needs function.call zone-->
 			<zone name="tcl.keyword.control.function-call.start">
@@ -279,7 +279,7 @@ THE SOFTWARE.
 			</zone>
 		
 			<zone name="tcl.keyword.control.additional">
-				<expression>\b(elseif|else|then)\b|(?&lt;!:):(?!:)</expression>
+				<expression>\b(else(?:if)?|then)\b|(?&lt;!:):(?!:)</expression>
 			</zone>
 					
 			<zone name="tcl.keyword.control.flow">
@@ -370,18 +370,20 @@ THE SOFTWARE.
         
         <collection name="SingleVariableExpansion">
         	<zone name="tcl.definition.expand.subst">
-        		<expression>(\$)([\w:]+)</expression>
-        		<capture number="1" name="tcl.vvariable.dollar"/>
-        		<capture number="2" name="vvariable"/>
+        		<expression>(::)?(\$)([\w:]+)</expression>
+        		<capture number="1" name="tcl.punctuation.namespace"/>
+        		<capture number="2" name="tcl.vvariable.dollar"/>
+        		<capture number="3" name="vvariable"/>
         	</zone>
         </collection>
         
         <collection name="OtherVariableExpansion">
         	<zone name="tcl.definition.expand.subst">
         		<starts-with>
-        		    <expression>(\$)(\{)</expression>
-        		    <capture number="1" name="tcl.vvariable.dollar"/>
-        		    <capture number="2" name="tcl.punctuation.open-brace"/>
+        		    <expression>(::)?(\$)(\{)</expression>
+        		    <capture number="1" name="tcl.punctuation.namespace"/>
+        		    <capture number="2" name="tcl.vvariable.dollar"/>
+        		    <capture number="3" name="tcl.punctuation.open-brace"/>
         		</starts-with>
         		<ends-with>
         		    <expression>\}</expression>
@@ -396,10 +398,11 @@ THE SOFTWARE.
         <collection name="ArrayVariableExpansion">
         	<zone name="tcl.definition.expand.subst">
         		<starts-with>
-        		    <expression>(\$)([\w:]+)(\()</expression>
-        		    <capture number="1" name="tcl.vvariable.dollar"/>
-        		    <capture number="2" name="vvariable"/>
-        		    <capture number="3" name="tcl.punctuation.open-parenthesis"/>
+        		    <expression>(::)?(\$)([\w:]+)(\()</expression>
+        		    <capture number="1" name="tcl.punctuation.namespace"/>
+        		    <capture number="2" name="tcl.vvariable.dollar"/>
+        		    <capture number="3" name="vvariable"/>
+        		    <capture number="4" name="tcl.punctuation.open-parenthesis"/>
         		</starts-with>
         		<ends-with>
         		    <expression>\)</expression>
@@ -413,7 +416,7 @@ THE SOFTWARE.
         
         <collection name="NamespaceColons">
         	<zone name="tcl.punctuation.namespace">
-        		<expression>:{2,}</expression>
+        		<expression>::</expression>
         	</zone>
         </collection>
         
@@ -441,6 +444,9 @@ THE SOFTWARE.
         			<expression>(\})</expression>
         			<capture number="1" name="tcl.punctuation.close-brace"/>
         		</ends-with>
+        		<subzones>
+        			<include syntax="language-root.tcl" />
+        		</subzones>
         	</zone>
         	<!--regex switch in e.g. lsearch-->
         	<zone name="tcl.container.regex.tcl-keyword.switch-regexp">
@@ -453,6 +459,9 @@ THE SOFTWARE.
         			<expression>(\})</expression>
         			<capture number="1" name="tcl.punctuation.close-brace"/>
         		</ends-with>
+        		<subzones>
+        			<include syntax="language-root.tcl" />
+        		</subzones>
         	</zone>
         	<!--catch assigns a variable so here is a zone definition for it-->
         	<zone name="tcl.container.function-call-catch">
@@ -497,13 +506,13 @@ THE SOFTWARE.
         	    <capture number="3" name="tcl.options.prefix"/>
         	</zone>
         	<zone>
-        		<expression>\b(trace)(\s+)(add(\s+(command|execution|variable))?|remove(\s+(command|execution|variable))?|info(\s+(command|execution|variable))?|variable|vdelete|vinfo)\b</expression>
+        		<expression>\b(trace)(\s+)(add(\s+(command|execution|variable))?|remove(\s+(command|execution|variable))?|info(\s+(command|execution|variable))?|v(?:ariable|delete|info))\b</expression>
         		<capture number="1" name="tcl.command.function-call"/>
         		<capture number="2" name="tcl.s"/>
         		<capture number="3" name="tcl.options.trace"/>
         	</zone>
         	<zone>
-        	    <expression>\b(string)(\s+)(bytelength|compare|equal|first|index|is(\s+(alnum|alpha|ascii|boolean|control|digit|double|false|graph|integer|list|lower|print|punct|space|true|upper|wideinteger|wordchar|xdigit?))?|last|length|map|match|range|repeat|replace|reverse|tolower|totitle|toupper|trim|trimleft|trimright|wordend|wordstart)\b</expression>
+        	    <expression>\b(string)(\s+)(bytelength|(?:compar|rang)e|equal|first|index|is(?:\s+(?:al(?:num|pha)|ascii|boolean|control|d(?:igit|ouble)|graph|(?:intege|uppe)r|l(?:ist|ower)|p(?:rint|unct)|(?:spac|tru|fals)e|w(?:ideinteger|ordchar)|xdigit))?|l(?:ast|ength)|ma(?:p|tch)|re(?:peat|place|verse)|to(?:lower|title|upper)|trim(?:left|right)?|word(?:end|start))\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.string"/>
@@ -515,60 +524,91 @@ THE SOFTWARE.
         		<capture number="3" name="tcl.tcl-keyword.property-name"/>
         	</zone>
         	<zone>
-        	    <expression>\b(dict)(\s+)(append|create|exists|filter|for|get|incr|info|keys|lappend|merge|remove|replace|set|size|unset|update|values|with|map)\b</expression>
+        	    <expression>\b(dict)(\s+)(create|exists|f(?:ilter|or)|get|in(?:cr|fo)|keys|l?append|re(?:mov|plac)e|s(?:et|ize)|u(?:nset|pdate)|values|with|m(?:ap|erge))\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.dict"/>
         	</zone>
         	<zone>
-        	    <expression>\b(array)(\s+)(anymore|donesearch|exists|get|names|nextelement|set|size|startsearch|statistics|unset)\b</expression>
+        	    <expression>\b(array)(\s+)(anymore|donesearch|exists|n(?:ames|extelement)|s(?:et|ize)|sta(?:rtsearch|tistics)|(?:g|uns)et)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.array"/>
         	</zone>
+			
+			<zone>
+			    <expression>\b(info)(\s+)(object|class)(\s+)(methods)\b</expression>
+			    <capture number="1" name="tcl.command.function-call"/>
+			    <capture number="2" name="tcl.s"/>
+			    <capture number="3" name="tcl.options.info"/>
+			    <capture number="4" name="tcl.s"/>
+			    <capture number="5" name="tcl.options.info"/>
+			</zone>
         	<zone>
-        	    <expression>\b(info)(\s+)(args|body|class|cmdcount|commands|complete|coroutine|default|exists|frame|functions|globals|hostname|level|library|loaded|locals|nameofexecutable|object|patchlevel|procs|script|sharedlibextension|tclversion|vars|objectisaclassobject|objectisametaclassobject|objectisamixinobjectclass|objectisaobjectobject|objectisatypeofobjectclass)\b</expression>
+        	    <expression>\b(info)(\s+)(class(?:\s+(?:c(?:all|onstructor)|de(?:finition|structor)|f(?:ilters|orward)|instances|methodtype|mixins|(?:(?:su(?:b|per))class|variabl)es))?)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.info"/>
         	</zone>
         	<zone>
-        	    <expression>\b(http)(\s+)(config|geturl|formatQuery|reset|wait|data|error|status|code|ncode|size|meta|cleanup|register|unregister)\b</expression>
+        	    <expression>\b(info)(\s+)(object(?:\s+(?:c(?:all|lass)|definition|f(?:ilters|orward)|m(?:ethodtype|ixins)|namespace|var(?:iable)?s)))\b</expression>
+        	    <capture number="1" name="tcl.command.function-call"/>
+        	    <capture number="2" name="tcl.s"/>
+        	    <capture number="3" name="tcl.options.info"/>
+        	</zone>
+        	<zone>
+        	    <expression>\b(info)(\s+)(object)(\s+)(isa\s+(?:m(?:etaclass|ixin)|class|object|typeof)\b)?</expression>
+        	    <capture number="1" name="tcl.command.function-call"/>
+        	    <capture number="2" name="tcl.s"/>
+        	    <capture number="3" name="tcl.options.info"/>
+        	    <capture number="4" name="tcl.s"/>
+        	    <capture number="5" name="tcl.options.info"/>
+        	</zone>
+        	<zone>
+        	    <expression>\b(info)(\s+)(nameofexecutable|args|body|c(?:om(?:mands|plete)|oroutine|lass|mdcount)|default|exists|f(?:rame|unctions)|globals|hostname|l(?:evel|ibrary|o(?:aded|cals))|p(?:atchlevel|rocs)|s(?:cript|haredlibextension)|tclversion)\b</expression>
+        	    <capture number="1" name="tcl.command.function-call"/>
+        	    <capture number="2" name="tcl.s"/>
+        	    <capture number="3" name="tcl.options.info"/>
+        	</zone>
+        	
+        	<zone>
+        	    <expression>\b(http)(\s+)(co(?:nfig|de)|geturl|formatQuery|(?:rese|wai)t|data|error|s(?:tatus|ize)|ncode|meta|cleanup|(?:un)?register)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.http"/>
         	</zone>
         	<zone>
-        	    <expression>\b(file)(\s+)(atime|attributes|channels|copy|delete|dirname|executable|exists|extension|isdirectory|isfile|join|link|lstat|mkdir|mtime|nativename|normalize|owned|pathtype|readable|readlink|rename|rename|rootname|separator|size|split|stat|system|tail|tempfile|type|volumes|writable)\b</expression>
+        	    <expression>\b(file)(\s+)(at(?:ime|tributes)|c(?:hannels|opy)|d(?:elete|irname)|ex(?:ecutable|ists|tension)|is(?:directory|file)|join|l(?:ink|stat)|m(?:kdir|time)|n(?:ativename|ormalize)|owned|pathtype|re(?:ad(?:able|link)|name)|rootname|s(?:eparator|ize|(?:pli|ta)t|ystem)|t(?:ail|(?:empfil|yp)e)|volumes|writable)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.file"/>
         	</zone>
         	<zone>
-        		<expression>\b(package)(\s+)(forget|ifneeded|names|present|provide|require|unknown|vcompare|versions|prefer|vsatisfies)\b</expression>
+        		<expression>\b(package)(\s+)(forget|ifneeded|names|pr(?:esent|ovide|efer)|require|unknown|v(?:(?:satisfie|ersion)s|compare))\b</expression>
         		<capture number="1" name="tcl.command.function-call"/>
         		<capture number="2" name="tcl.s"/>
         		<capture number="3" name="tcl.options.package"/>
         	</zone>
         	<zone>
-        	    <expression>\b(chan)(\s+)(blocked|close|configure|copy|create|eof|event|flush|gets|names|pending|pipe|pop|postevent|push|puts|seek|tell|truncate|read)\b</expression>
+        	    <expression>\b(chan)(\s+)(blocked|c(?:lose|o(?:nfigure|py)|reate)|e(?:of|vent)|flush|(?:get|name)s|p(?:ending|ipe|o(?:p|stevent)|u(?:sh|ts))|seek|t(?:ell|runcate)|read)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.chan"/>
         	</zone>
 			<zone>
-				<expression>\b(namespace)(\s+)(children|code|current|delete|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)\b</expression>
+				<expression>\b(namespace)(\s+)(c(?:hildren|ode|urrent)|delete|e(?:val|x(?:ists|port))|(?:forge|impor)t|inscope|origin|pa(?:rent|th)|qualifiers|tail|upvar|unknown|which)\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
-				<capture number="3" name="tcl.options.namespace"/>
+				<capture number="3" name="tcl.options.option-namespace"/>
 			</zone>
+			
 			<zone>
-				<expression>\b(namespace)(\s+)(ensemble)(?:(\s+)(create|configure|exists))?\b</expression>
+				<expression>\b(namespace)(\s+)(?:(ensemble)(\s+)(c(?:(?:reat|onfigur)e)|exists))?\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
-				<capture number="3" name="tcl.options.namespace"/>
+				<capture number="3" name="tcl.options.option-namespace"/>
 				<capture number="4" name="tcl.s"/>
-				<capture number="5" name="tcl.options.namespace"/>
+				<capture number="5" name="tcl.options.option-namespace"/>
 			</zone>
 			<zone>
 				<expression>\b(after)(\s+)(cancel|idle|info|\d+)\b</expression>
@@ -577,13 +617,13 @@ THE SOFTWARE.
 				<capture number="3" name="tcl.options.after"/>
 			</zone>
 			<zone>
-				<expression>\b(history)(\s+)(add|change|clear|event|info|keep|nextid|redo)\b</expression>
+				<expression>\b(history)(\s+)(add|c(?:hange|lear)|event|(?:inf|red)o|keep|nextid)\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
 				<capture number="3" name="tcl.options.history"/>
 			</zone>
 			<zone>
-				<expression>\b(zlib)(\s+)(?:(compress|decompress|deflate|gunzip|gzip|inflate|adler32|crc32)|(push)(?:(\s+)(compress|decompress|deflate|gunzip|gzip|inflate))?|(stream)(?:(\s+)(compress|decompress|deflate|gunzip|gzip|inflate))?)\b</expression>
+				<expression>\b(zlib)(\s+)(?:(compress|de(?:compress|flate)|g(?:un)?zip|inflate|(?:adler|crc)32)|(push)(?:(\s+)(compress|de(?:compress|flate)|g(?:un)?zip|inflate))?|(stream)(?:(\s+)(compress|de(?:compress|flate)|g(?:un)?zip|inflate))?)\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
 				<capture number="3" name="tcl.options.zlib"/>
@@ -594,17 +634,43 @@ THE SOFTWARE.
 				<capture number="8" name="tcl.s"/>
 				<capture number="9" name="tcl.options.zlib"/>
 			</zone>
+			<zone name="tcl.command.function-call"><!--must be a named zone, otherwise confusion with 'format' and 'scan' procedures - despite above in syntax tree-->
+				<expression>\b(binary)(\s+)(scan|format)\b</expression>
+				<capture number="1" name="tcl.command.function-call"/>
+				<capture number="2" name="tcl.s"/>
+				<capture number="3" name="tcl.options.binary"/>
+			</zone>
+			<zone>
+				<expression>\b(binary)(\s+)(?:((?:en|de)code)(\s+)(base64|hex|uuencode))?\b</expression>
+				<capture number="1" name="tcl.command.function-call"/>
+				<capture number="2" name="tcl.s"/>
+				<capture number="3" name="tcl.options.binary"/>
+				<capture number="4" name="tcl.s"/>
+				<capture number="5" name="tcl.options.binary"/>
+			</zone>
 			
         	<zone name="tcl.command.function-call">
-        		<expression>\b(upvar|add|checksum|finalize|fullflush|get|put|reset|zlib|tclsh|catch|regexp|regsub|after|error|lappend|platform|tcl_findLibrary|eval|lassign|platform::shell|tcl_startOfNextWord|apply|lmap|exec|lindex|tcl_startOfPreviousWord|exit|linsert|puts|tcl_wordBreakAfter|auto_execok|expr|list|pwd|tcl_wordBreakBefore|auto_import|fblocked|llength|re_syntax|tcltest|auto_load|fconfigure|load|read|tclvars|auto_mkindex|fcopy|lrange|refchan|tell|auto_mkindex_old|file|lrepeat|time|auto_qualify|lreplace|registry|tm|auto_reset|filename|lreverse|bgerror|flush|lsearch|unknown|binary|unload|lsort|Safe Base|format|mathfunc|update|cd|gets|mathop|seek|uplevel|chan|glob|memory|clock|msgcat|socket|close|history|namespace|vwait|concat|http|open|split|package|dde|incr|parray|subst|pid|encoding|interp|pkg::create|fileevent|scan|Tcl|eof|join|pkg_mkIndex|tcl_endOfWord|return|lset|global|variable|coroutine|yield|yieldto)(?=\s|\]|;)</expression>
+        		<expression>\b(e(?:rror|of|ncoding|val|x(?:ec|it|pr))|a(?:dd|fter|pply)|f(?:ormat|inalize|ile(?:name|event)?|copy|configure|blocked|ull|ullflush)|zlib|tcl(?:sh|vars|test|Pkg(?:Unknown|Setup)|_(?:wordBreak(?:Before|After)|startOf(?:(?:Previous|Next)Word)|endOfWord|findLibrary))|catch|re(?:_syntax|gistry|ad|(?:tur|fcha)n|g(?:exp|sub))|p(?:array|kg::create|kg_mkIndex|id|ackage|wd|uts?|latform(?:::shell)?)|l(?:append|assign|s(?:e(?:arch|t)|ort)|map|i(?:st|n(?:dex|sert))|length|r(?:e(?:place|verse|peat)|ange))|auto_(?:execok|load|import|reset|qualify)|t(?:ell|ime|m)|b(?:gerror|inary)|(?:un)?load|safe|m(?:sgcat|emory|ath(?:func|op)|kindex(?:_old)?)|u(?:nknown|p(?:var|date|level))|g(?:ets?|lobal|lob)|c(?:d|h(?:an|ecksum)|lo(?:ck|se)|oncat|oroutine)|h(?:istory|ttp)|namespace|open|dde|in(?:cr|terp)|s(?:plit|can|e(?:t|ek)|ocket|ubst)|Tcl|join|v(?:ariable|wait)|yield(?:to)?)(?=\s|\]|;)</expression>
         	</zone>
         	
-        	<zone name="tcl.keyword.command.global.global-procedures">
-        		<expression>\b(auto_execs|auto_index|auto_noexec|auto_noload|auto_path|unknown_pending|tclPkgUnknown|tclPkgSetup)\b</expression>
+        	<!--env is an array, so capturing '(' and ')'-->
+        	<zone name="tcl.global-array">
+        		<starts-with>
+        			<expression>(env)(\()</expression>
+        			<capture number="1" name="tcl.keyword.global.global-variables"/>
+        			<capture number="2" name="tcl.punctuation.open-parenthesis"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>\)</expression>
+        			<capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        		</ends-with>
+        		<subzones>
+        			<include syntax="language-root.tcl" />
+        		</subzones>
         	</zone>
         	
         	<zone name="tcl.keyword.global.global-variables">
-        		<expression>\b(args|env|errorCode|errorInfo|tcl_library|tcl_libPath|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_rcRsrcName|tcl_traceCompile|tcl_traceExec|tcl_wordchars|tcl_nonwordchars|tcl_version|tcl_prompt1|tcl_prompt2|argc|argv|argv0|tcl_interactive|geometry|TCL_OK|TCL_ERROR|TCL_RETURN|TCL_BREAK|TCL_CONTINUE)\b</expression>
+        		<expression>\b(a(?:uto_(?:execs|index|noexec|noload|path)|rg(?:s|c|v|v0)?)|e(?:nv|rror(?:Code|Info))|tcl_(?:lib(?:rary|Path)|p(?:atchLevel|latform|kgPath|recision)|rc(?:(?:File|Rsrc)Name)|trace(?:Compile|Exec)|(?:non)?wordchars|version|prompt(?:1|2)|interactive)|geometry|TCL_(?:ERROR|RETURN|(?:BREA|O)K|CONTINUE))\b</expression>
         	</zone>
         	<!--catches all switches in tcl (e.g. "-switch"):-->
         	<zone name="tcl.tcl-keyword.property-name">
@@ -623,36 +689,28 @@ THE SOFTWARE.
 				<expression>\b(key|script|value)\b</expression>
 			</zone>
 						
-			<zone name="tcl.options.binary">
-				<expression>\b(scan|format|encode|decode)\b</expression>
-			</zone>
-			
 			<zone name="tcl.options.chan-seek-seek">
-				<expression>\b(start|current|end)\b</expression>
+				<expression>\b(start|end|current)\b</expression>
 			</zone>
 			
 			<zone name="tcl.options.refchan-transchan">
-				<expression>\b(initialize|finalize|watch|read|write|seek|configure|cget|cgetall|blocking|clear|drain|limit\?|flush)\b</expression>
+				<expression>\b((?:initi|fin)alize|w(?:atch|rite)|read|seek|c(?:onfigure|get(?:all)?|lear)|blocking|drain|limit\?|flush)\b</expression>
 			</zone>
-			
-			<zone name="tcl.options.binary.encode-decode">
-				<expression>\b(base64|hex|uuencode)\b</expression>
-			</zone>
-			
+						
 			<zone name="tcl.options.clock">
-				<expression>\b(clicks|format|scan|seconds)\b</expression>
+				<expression>\b(scan|clicks|format|seconds)\b</expression>
 			</zone>
 			
 			<zone name="tcl.options.dde">
-				<expression>\b(eval|execute|poke|request|servername|services)\b</expression>
+				<expression>\b(e(?:val|xecute)|poke|request|serv(?:ername|ices))\b</expression>
 			</zone>
 			
 			<zone name="tcl.options.encoding">
-				<expression>\b(convertfrom|convertto|names|system)\b</expression>
+				<expression>\b(names|system|convert(?:from|to))\b</expression>
 			</zone>
 			
 			<zone name="tcl.options.fileevent">
-				<expression>\b(readable|writable)\b</expression>
+				<expression>\b((?:read|writ)able)\b</expression>
 			</zone>
 			
 			<!--namespaces-->
@@ -680,7 +738,7 @@ THE SOFTWARE.
         	<!--tcl has some parenthesis syntactical sugar for math (since tcl 8.5 one can define individual math functions, but this can not be handled with epresso zone syntax, because it would conflict with EIAS in tcl)-->
         	<zone name="tcl.container.math">
         		<starts-with>
-        			<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\s*(\()</expression>
+        			<expression>\b(a(?:(?:b|co)s|sin|tan2?)|bool|c(?:eil|osh?)|double|e(?:ntier|xp)|f(?:loor|mod)|hypot|i(?:nt|sqrt)|log(?:10)?|m(?:ax|in)|pow|r(?:(?:a|ou)nd)|s(?:inh?|qrt|rand)|tanh?|wide)\s*(\()</expression>
         			<capture number="1" name="tcl.tcl-operator.function-call.operator"/>
         			<capture number="2" name="tcl.punctuation.open-parenthesis"/>
         		</starts-with>
@@ -699,7 +757,7 @@ THE SOFTWARE.
         		</subzones>
         	</zone>
         	<zone>
-        		<expression>\b(abs|acos|asin|atan|atan2|bool|ceil|cos|cosh|double|entier|exp|floor|fmod|hypot|int|isqrt|log|log10|max|min|pow|rand|round|sin|sinh|sqrt|srand|tan|tanh|wide)\b</expression>
+        		<expression>\b(a(?:(?:b|co)s|sin|tan2?)|bool|c(?:eil|osh?)|double|e(?:ntier|xp)|f(?:loor|mod)|hypot|i(?:nt|sqrt)|log(?:10)?|m(?:ax|in)|pow|r(?:(?:a|ou)nd)|s(?:inh?|qrt|rand)|tanh?|wide)\b</expression>
         		<capture number="1" name="tcl.tcl-operator.command.function-call.operator"/>
         	</zone>
         	
@@ -739,14 +797,32 @@ THE SOFTWARE.
         </collection>
         
         <collection name="General">
-        	<zone name="language.word.upd.subst"> 
-        		<expression>(?&lt;=\s|^)([\w\.-]+)</expression>
+        
+        	<zone name="tcl.language.word.array.upd.subst">
+        		<starts-with>
+        			<expression>(?&lt;=\s|^)([\w\.\-]+)(\()</expression>
+        			<capture number="1" name="language.word.upd.subst"/>
+        			<capture number="2" name="tcl.punctuation.open-parenthesis"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>\)</expression>
+        			<capture number="0" name="tcl.punctuation.close-parenthesis"/>
+        		</ends-with>
+        		<subzones>
+        			<include syntax="language-root.tcl" />
+        		</subzones>
         	</zone>
+        	
+        	<zone name="tcl.language.word.upd.subst"> 
+        		<expression>(?&lt;=\s|^)([\w\.\-]+)</expression>
+        	</zone>
+        	
         </collection>
         
         <collection name="EscapeChar">
         	<zone name="tcl.escape.character">
-        	    <expression>\\.</expression>
+        	    <expression>(\\).</expression>
+        	    <capture number="1" name="tcl.punctuation.delimiter.backslash"/>
         	</zone>
         </collection>
         
