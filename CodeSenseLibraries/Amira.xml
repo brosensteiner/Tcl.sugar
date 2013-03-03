@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <codesense>
 
-	<set name="com.rosensteiner.amira" casesensitive="true">
+	<set name="com.rosensteiner.tcl.amira" casesensitive="true">
 
 		<behavior>
 			<append-dynamic>
@@ -924,7 +924,7 @@
 
 	</set>
 
-	<set name="com.rosensteiner.amira.scriptobject" casesensitive="true">
+	<set name="com.rosensteiner.tcl.amira.scriptobject" casesensitive="true">
 
 		<behavior>
 			<append-dynamic>
@@ -963,7 +963,7 @@
 
 	</set>
 
-   	<set name="com.rosensteiner.amira.data-classes" casesensitive="true">
+   	<set name="com.rosensteiner.tcl.amira.data-classes" casesensitive="true">
    	
    		<behavior>
    			<append-dynamic>
@@ -1158,7 +1158,7 @@
    				
    	</set>
    	
-   	<set name="com.rosensteiner.amira.module" casesensitive="true">
+   	<set name="com.rosensteiner.tcl.amira.module" casesensitive="true">
    	
    		<behavior>
    			<append-dynamic>
