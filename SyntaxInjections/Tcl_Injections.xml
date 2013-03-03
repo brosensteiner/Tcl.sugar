@@ -31,7 +31,7 @@ THE SOFTWARE.
 	    <include collection="ZoneHelper" />
 	</injection>
 	
-	<!--injects the regex.sugar:-->
+	<!--injects the regex.sugar (every regex zone in Tcl gets it)-->
     <injection name="injection.regex" selector="tcl tcl.regex" action="insert-before-children">
 	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
     </injection>

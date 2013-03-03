@@ -69,6 +69,11 @@ THE SOFTWARE.
 				<append-static></append-static>
 			</behavior>
 		</completion>
+		<completion string="clock">
+			<behavior>
+				<append-static></append-static>
+			</behavior>
+		</completion>
 		<completion string="error">
 			<behavior>
 				<append-dynamic>
@@ -630,7 +635,6 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="clock" />
 		<completion string="global">
 			<behavior>
 				<append-dynamic>
@@ -760,7 +764,11 @@ THE SOFTWARE.
 		</completion>
 		<completion string="pid" />
 		<completion string="switch" />
-		<completion string="encoding" />
+		<completion string="encoding">
+			<behavior>
+				<append-static></append-static>
+			</behavior>
+		</completion>
 		<completion string="interp" />
 		<completion string="pkg::create" />
 		<completion string="pkg_mkIndex" />
@@ -768,7 +776,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:?channelId?}$0)</transform-into>
+					<transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -825,7 +833,76 @@ THE SOFTWARE.
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.functions-with-option">
-				
+		<!--encoding-->
+		<completion string="encoding convertfrom">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?encoding?} ${2:data}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="encoding convertto">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?encoding?} ${2:string}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="encoding dirs">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?directoryList?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="encoding names" />
+		<completion string="encoding system">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?encoding?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<!--clock-->
+		<completion string="clock add">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:timeVal} ${2:?count unit...?} ${3:?-option value?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="clock clicks">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?-option?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="clock format">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:timeVal} ${2:?-option value?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="clock microseconds"/>
+		<completion string="clock milliseconds"/>
+		<completion string="clock scan">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:inputString} ${2:?-option value?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="clock seconds"/>	
 		<!--package-->
 		<completion string="package forget">
 		    <behavior>
@@ -1113,7 +1190,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?string ...?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?string ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1129,7 +1206,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryValue key} ${2:?key ...?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue} ${2:key} ${3:?key ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1137,7 +1214,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryValue filterType arg} ${2:?arg ...?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryValue} ${2:filterType} ${3:arg ...}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1145,7 +1222,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:keyVar valueVar} ${2:}} ${3:dictionaryValue body}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:\{keyVar valueVar\}} ${2:dictionaryValue} ${3:body}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1161,7 +1238,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?increment?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?increment?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1185,7 +1262,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?value ...?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?value ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1225,7 +1302,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?key ...?} ${3:value}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:?key ...?} ${4:value}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1241,7 +1318,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryVariable key} ${2:?key ...?}$0)</transform-into>
+	                <transform-into>(?1:$1:  ${1:dictionaryVariable} ${2:key} ${3:?key ...?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1249,7 +1326,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:dictionaryVariable key varName} ${2:?key varName ...?} ${3:body}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:dictionaryVariable} ${2:key} ${3:varName} ${4:?key varName ...?} ${5:body}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -1820,12 +1897,164 @@ THE SOFTWARE.
 	                <transform-into>(?1:$1: ${1:string charIndex}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
-	    </completion>
-	    <completion string="string is">
-	        <behavior>
+	    </completion>	        
+	    <completion string="string is alnum">
+	    	<behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:?-strict?} ${3:?-failindex varname?} ${4:string}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is alpha">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is ascii">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is boolean">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is control">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is digit">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is double">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is false">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is graph">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is integer">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is list">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is lower">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is print">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is punct">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is space">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is true">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is upper">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is wideinteger">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is wordchar">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="string is xdigit">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-strict?} ${2:?-failindex varname?} ${3:string}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2242,7 +2471,7 @@ THE SOFTWARE.
 	        <behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:channelId}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:channelId} ${2:?direction?}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2752,7 +2981,73 @@ THE SOFTWARE.
 	    <completion string="-command"/>
 	    <completion string="-variable"/>
 	</set>
-	
+	<!--clock options-->
+	<set name="com.rosensteiner.Tcl.function.clock.clicks" casesensitive="true">
+		<completion string="-milliseconds" /><!--deprecated-->
+		<completion string="-microseconds" /><!--deprecated-->
+	</set>
+	<set name="com.rosensteiner.Tcl.function.clock.format" casesensitive="true">
+		<completion string="-format">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:argument}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-timezone">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:argument}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-gmt" /><!--deprecated-->
+		<completion string="-locale">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:current}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.clock.scan" casesensitive="true">
+		<completion string="-format">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:argument}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-timezone">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:argument}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-gmt" /><!--deprecated-->
+		<completion string="-locale">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:current}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="-base">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:argument}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
 	<!--glob options-->
 	<set name="com.rosensteiner.Tcl.function.glob" casesensitive="true">
 	    <behavior>
@@ -2932,10 +3227,8 @@ THE SOFTWARE.
 	
 	<!--close options-->
 	<set name="com.rosensteiner.Tcl.function.close" casesensitive="true">
-		<completion string="r" />
 		<completion string="read" />
 		<completion string="write" />
-		<completion string="w" />
 	</set>
 	
 	<!--return options-->
@@ -3408,26 +3701,6 @@ THE SOFTWARE.
 	            <transform-into>(?1:: $0)</transform-into>
 	        </append-dynamic>
 	    </behavior>
-	    <completion string="alnum"/>
-	    <completion string="alpha"/>
-	    <completion string="ascii"/>
-	    <completion string="boolean"/>
-	    <completion string="control"/>
-	    <completion string="digit"/>
-	    <completion string="double"/>
-	    <completion string="false"/>
-	    <completion string="graph"/>
-	    <completion string="integer"/>
-	    <completion string="list"/>
-	    <completion string="lower"/>
-	    <completion string="print"/>
-	    <completion string="punct"/>
-	    <completion string="space"/>
-	    <completion string="true"/>
-	    <completion string="upper"/>
-	    <completion string="wideinteger"/>
-	    <completion string="wordchar"/>
-	    <completion string="xdigit"/>
 	    <completion string="-strict" />
 	    <completion string="-failindex" />
 	</set>

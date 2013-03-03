@@ -512,7 +512,15 @@ THE SOFTWARE.
         		<capture number="3" name="tcl.options.trace"/>
         	</zone>
         	<zone>
-        	    <expression>\b(string)(\s+)(bytelength|(?:compar|rang)e|equal|first|index|is(?:\s+(?:al(?:num|pha)|ascii|boolean|control|d(?:igit|ouble)|graph|(?:intege|uppe)r|l(?:ist|ower)|p(?:rint|unct)|(?:spac|tru|fals)e|w(?:ideinteger|ordchar)|xdigit))?|l(?:ast|ength)|ma(?:p|tch)|re(?:peat|place|verse)|to(?:lower|title|upper)|trim(?:left|right)?|word(?:end|start))\b</expression>
+        	    <expression>\b(string)(\s+)(?:(is)(\s+)(al(?:num|pha)|ascii|boolean|control|d(?:igit|ouble)|graph|(?:intege|uppe)r|l(?:ist|ower)|p(?:rint|unct)|(?:spac|tru|fals)e|w(?:ideinteger|ordchar)|xdigit))?\b</expression>
+        	    <capture number="1" name="tcl.command.function-call"/>
+        	    <capture number="2" name="tcl.s"/>
+        	    <capture number="3" name="tcl.options.string"/>
+        	    <capture number="4" name="tcl.s"/>
+        	    <capture number="5" name="tcl.options.string"/>
+        	</zone>
+        	<zone>
+        	    <expression>\b(string)(\s+)(bytelength|(?:compar|rang)e|equal|first|index|l(?:ast|ength)|ma(?:p|tch)|re(?:peat|place|verse)|to(?:lower|title|upper)|trim(?:left|right)?|word(?:end|start))\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.string"/>
@@ -647,6 +655,18 @@ THE SOFTWARE.
 				<capture number="3" name="tcl.options.binary"/>
 				<capture number="4" name="tcl.s"/>
 				<capture number="5" name="tcl.options.binary"/>
+			</zone>
+			<zone>
+			    <expression>\b(clock)(\s+)(add|clicks|format|(?:micro|milli)?seconds|scan)\b</expression>
+			    <capture number="1" name="tcl.command.function-call"/>
+			    <capture number="2" name="tcl.s"/>
+			    <capture number="3" name="tcl.options.clock"/>
+			</zone>
+			<zone>
+			    <expression>\b(encoding)(\s+)(confert(?:to|from)|(?:dir|name)s|system)\b</expression>
+			    <capture number="1" name="tcl.command.function-call"/>
+			    <capture number="2" name="tcl.s"/>
+			    <capture number="3" name="tcl.options.clock"/>
 			</zone>
 			
         	<zone name="tcl.command.function-call">
