@@ -180,11 +180,11 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.command.cluster">
-    	    <expression>(?&lt;=(\w|\])\s)(computeBounds|computeConnectivity|addPoint|removePoint|resetIds|setId|getId|getIndex|clear|setNumDataColumns|getNumDataColumns|setDataValue|getDataValue|setDataColumnName|getDataColumnName|setNumLabelColumns|getNumLabelColumns|setLabelValue|getLabelValue|setLabelColumnName|getLabelColumnName)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(c(?:lear|ompute(?:Bounds|Connectivity))|(?:add|remove)Point|resetIds|set(?:Id|Data(?:Value|ColumnName)|Num(?:(?:Data|Label)Columns)|Label(?:Value|ColumnName)|Index)|get(?:Id|Data(?:Value|ColumnName)|Num(?:(?:Data|Label)Columns)|Label(?:Value|ColumnName)|Index))\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.data">
-    	    <expression>(?&lt;=(\w|\])\s)(touch|save|parameters|setDefaultFileFormat|setEditor|getEditor)\b</expression>
+    	    <expression>(?&lt;=(\w|\])\s)(touch|parameters|s(?:ave|et(?:DefaultFileFormat|Editor))|getEditor)\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.global.other">

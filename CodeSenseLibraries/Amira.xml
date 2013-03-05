@@ -265,7 +265,7 @@
 		<completion string="setNumProcs" />
 		<completion string="sigma" />
 		<!--grid editor-->
-		<completion string="info" />
+		<!--<completion string="info" />--><!--TODO: interfers with Tcl´s 'info'-->
 		<!--general amira object-->
 		<completion string="setValue" />
 		<completion string="setValues" />
@@ -822,7 +822,7 @@
 		<completion string="hasParameter" />
 		<completion string="index" />
 		<completion string="isBundle" />
-		<completion string="list" />
+		<!--<completion string="list" />--><!--interfers with Tcl list command-->
 		<completion string="nBundles" />
 		<completion string="newBundle" />
 		<completion string="setFlag" />

@@ -353,14 +353,15 @@ THE SOFTWARE.
         </collection>
         
         <collection name="FormatSpecifier">
-        	<zone name="tcl.keyword.format-specifier.string-format">
-        		<expression>%([-\+#0[:space:]])?(\d+)?(\.\d+)?([cdEefgGiouxXqs])</expression>
-        		<capture number="1" name="tcl.keyword.additional.format-flags"/>
-        		<capture number="2" name="tcl.keyword.additional.format-width"/>
-        		<capture number="3" name="tcl.keyword.additional.format-precision"/>
-        		<capture number="4" name="tcl.keyword.additional.format-type"/>
-        	</zone>
-        </collection>
+			<zone name="tcl.keyword.format-specifier.string-format">
+                	<expression>%(\d(?:\.\d)?\$)?([-\+#0[:space:]])?([\d]+)?([\.\d*]+)?([cdEefgGiouxXqs])</expression>
+                	<capture number="1" name="tcl.keyword.additional.format-number"/>
+                	<capture number="2" name="tcl.keyword.additional.format-flags"/>
+                	<capture number="3" name="tcl.keyword.additional.format-width"/>
+                	<capture number="4" name="tcl.keyword.additional.format-precision"/>
+				<capture number="5" name="tcl.keyword.additional.format-type"/>
+			</zone>
+		</collection>
         
         <collection name="VariableExpansion">
         	<include collection="ArrayVariableExpansion" />
@@ -432,7 +433,7 @@ THE SOFTWARE.
         	<zone name="tcl.keyword.command.argument-expansion">
         		<expression>\{\*\}</expression>
         	</zone>
-        	<!--for regex/regsub syntax highlighting (variable(s) at end of command), works only when the searched string is a single zone see Tcl.css (no way to get it better :( )-->
+        	<!--for regex/regsub syntax highlighting (variable(s) at end of command), works only when the searched string is a single zone see Tcl.css (no way to get it better :()-->
 			<zone name="tcl.regex">
         		<starts-with>
         			<expression>\b(regsub|regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
@@ -573,7 +574,7 @@ THE SOFTWARE.
         	    <capture number="5" name="tcl.options.info"/>
         	</zone>
         	<zone>
-        	    <expression>\b(info)(\s+)(nameofexecutable|args|body|c(?:om(?:mands|plete)|oroutine|lass|mdcount)|default|exists|f(?:rame|unctions)|globals|hostname|l(?:evel|ibrary|o(?:aded|cals))|p(?:atchlevel|rocs)|s(?:cript|haredlibextension)|tclversion)\b</expression>
+        	    <expression>\b(info)(\s+)(nameofexecutable|(?:var|arg)s|body|c(?:om(?:mands|plete)|oroutine|lass|mdcount)|default|e(?:rrorstack|xists)|f(?:rame|unctions)|globals|hostname|l(?:evel|ibrary|o(?:aded|cals))|p(?:atchlevel|rocs)|s(?:cript|haredlibextension)|tclversion)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.info"/>
@@ -619,7 +620,7 @@ THE SOFTWARE.
 				<capture number="5" name="tcl.options.option-namespace"/>
 			</zone>
 			<zone>
-				<expression>\b(after)(\s+)(cancel|idle|info|\d+)\b</expression>
+				<expression>\b(after)(\s+)(cancel|idle|info)\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
 				<capture number="3" name="tcl.options.after"/>
@@ -668,9 +669,15 @@ THE SOFTWARE.
 			    <capture number="2" name="tcl.s"/>
 			    <capture number="3" name="tcl.options.clock"/>
 			</zone>
+			<zone>
+			    <expression>\b(interp)(\s+)(alias|aliases|bgerror|cancel|create|debug|delete|eval|exists|expose|hide|hidden|invokehidden|issafe|limit|marktrusted|recursionlimit|share|slaves|target|transfer)\b</expression>
+			    <capture number="1" name="tcl.command.function-call"/>
+			    <capture number="2" name="tcl.s"/>
+			    <capture number="3" name="tcl.options.interp"/>
+			</zone>
 			
         	<zone name="tcl.command.function-call">
-        		<expression>\b(e(?:rror|of|ncoding|val|x(?:ec|it|pr))|a(?:dd|fter|pply)|f(?:ormat|inalize|ile(?:name|event)?|copy|configure|blocked|ull|ullflush)|zlib|tcl(?:sh|vars|test|Pkg(?:Unknown|Setup)|_(?:wordBreak(?:Before|After)|startOf(?:(?:Previous|Next)Word)|endOfWord|findLibrary))|catch|re(?:_syntax|gistry|ad|(?:tur|fcha)n|g(?:exp|sub))|p(?:array|kg::create|kg_mkIndex|id|ackage|wd|uts?|latform(?:::shell)?)|l(?:append|assign|s(?:e(?:arch|t)|ort)|map|i(?:st|n(?:dex|sert))|length|r(?:e(?:place|verse|peat)|ange))|auto_(?:execok|load|import|reset|qualify)|t(?:ell|ime|m)|b(?:gerror|inary)|(?:un)?load|safe|m(?:sgcat|emory|ath(?:func|op)|kindex(?:_old)?)|u(?:nknown|p(?:var|date|level))|g(?:ets?|lobal|lob)|c(?:d|h(?:an|ecksum)|lo(?:ck|se)|oncat|oroutine)|h(?:istory|ttp)|namespace|open|dde|in(?:cr|terp)|s(?:plit|can|e(?:t|ek)|ocket|ubst)|Tcl|join|v(?:ariable|wait)|yield(?:to)?)(?=\s|\]|;)</expression>
+        		<expression>\b(e(?:rror|of|ncoding|val|x(?:ec|it|pr))|a(?:dd|fter|pply)|f(?:ormat|inalize|ile(?:name|event)?|copy|configure|blocked|lush)|zlib|tcl(?:sh|vars|test|Pkg(?:Unknown|Setup)|_(?:wordBreak(?:Before|After)|startOf(?:(?:Previous|Next)Word)|endOfWord|findLibrary))|catch|re(?:_syntax|gistry|ad|(?:tur|fcha)n|g(?:exp|sub))|p(?:array|kg::create|kg_mkIndex|id|ackage|wd|uts?|latform(?:::shell)?)|l(?:append|assign|s(?:e(?:arch|t)|ort)|map|i(?:st|n(?:dex|sert))|length|r(?:e(?:place|verse|peat)|ange))|auto_(?:execok|load|import|reset|qualify)|t(?:ell|ime|m)|b(?:gerror|inary)|(?:un)?load|safe|m(?:sgcat|emory|ath(?:func|op)|kindex(?:_old)?)|u(?:nknown|p(?:var|date|level))|g(?:ets?|lobal|lob)|c(?:d|h(?:an|ecksum)|lo(?:ck|se)|oncat|oroutine)|h(?:istory|ttp)|namespace|open|dde|in(?:cr|terp)|s(?:plit|can|e(?:t|ek)|ocket|ubst)|Tcl|join|v(?:ariable|wait)|yield(?:to)?)(?=\s|\]|;)</expression>
         	</zone>
         	
         	<!--env is an array, so capturing '(' and ')'-->
