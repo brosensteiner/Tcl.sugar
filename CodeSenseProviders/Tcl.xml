@@ -33,14 +33,14 @@ THE SOFTWARE.
     <provider>
      	<selector>tcl, tcl *</selector>
      	<completions>com.rosensteiner.Tcl.functions-with-option</completions>
-     	<complete-match>(?&lt;!\\|_|-|\$)\b(encoding|clock|zlib|package|namespace(?: ensemble)?|prefix|dict|array|http|binary(?: encode| decode)?|history|info|string(?: is)?|file|chan|trace|after|interp) [a-zA-Z0-9]*</complete-match>
+     	<complete-match>(?&lt;!\\|_|-|\$)\b(encoding|clock|zlib|package|namespace(?: ensemble)?|prefix|dict|array|http|binary(?: encode| decode)?|history|info|string(?: is)?|file|chan|trace|after|interp|memory) [a-zA-Z0-9_]*</complete-match>
     </provider>
     
     <!--procs without options-->
 	<provider>
 	 	<selector>tcl, tcl *</selector>
 	 	<completions>com.rosensteiner.Tcl.functions</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp )\b[a-zA-Z_]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<!--general-->
@@ -49,7 +49,7 @@ THE SOFTWARE.
 	 	<completions>com.rosensteiner.Tcl.mathfunc</completions>
 	 	<completions>com.rosensteiner.Tcl.global-variables</completions>
 	 	<completions>com.rosensteiner.Tcl.global-procedures</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp )\b[a-zA-Z_]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<!--proc option extra options-->
@@ -63,19 +63,19 @@ THE SOFTWARE.
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp )\b[a-zA-Z_]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	<!--proc option name nummeric option (chan seek)-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + numeric + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp )\b[a-zA-Z_]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	<!--proc name option (fileevent)-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp )\b[a-zA-Z_]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<!--proc option option-->

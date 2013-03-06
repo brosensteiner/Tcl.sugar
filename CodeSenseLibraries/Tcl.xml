@@ -240,7 +240,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:fileName} ${2:packageName} ${3:interp}$0)</transform-into>
+					<transform-into>(?1:$1: ${1:?-global?} ${2:?-lazy?} ${3:fileName} ${4:packageName} ${5:interp}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -394,7 +394,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:?count?} ${2:element}$0)</transform-into>
+					<transform-into>(?1:$1: ${1:count} ${2:?element?}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -493,7 +493,7 @@ THE SOFTWARE.
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:?varName?} ${2:?index ...?} ${3:?newValue?}$0)</transform-into>
+					<transform-into>(?1:$1: ${1:?varName?} ${2:?index ...?} ${3:newValue}$0)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -632,7 +632,11 @@ THE SOFTWARE.
 					</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="memory" />
+		<completion string="memory">
+			<behavior>
+				<append-static></append-static>
+			</behavior>
+		</completion>
 		<completion string="set">
 			<behavior>
 				<append-dynamic>
@@ -851,6 +855,80 @@ THE SOFTWARE.
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.functions-with-option">
+		<!--memory-->
+		<completion string="memory active">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:file}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory break_on_malloc">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:count}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory info"/>
+		<completion string="memory init">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:on|off}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory objs">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:file}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory onexit">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:file}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory tag">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:string}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory trace">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:on|off} $0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory trace_on_at_malloc">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:count}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="memory validate">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:on|off}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
 		<!--interp-->
 		<completion string="interp alias">
 		    <behavior>
@@ -3496,7 +3574,14 @@ THE SOFTWARE.
 	    <completion string="-all"/>
 	    <completion string="-inline"/>
 	    <completion string="-not"/>
-	    <completion string="-start"/>
+	    <completion string="-start">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:index}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 	    <completion string="-ascii"/>
 	    <completion string="-dictionary"/>
 	    <completion string="-integer"/>
@@ -3505,7 +3590,14 @@ THE SOFTWARE.
 	    <completion string="-decreasing"/>
 	    <completion string="-increasing"/>
 	    <completion string="-bisect"/>
-	    <completion string="-index"/>
+	    <completion string="-index">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:indexList}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
 	    <completion string="-subindices"/>
 	</set>
 	
@@ -4037,6 +4129,19 @@ THE SOFTWARE.
 		<completion string="-nocase" />
 	</set>
 	
+	<!--memory options-->
+	<set name="com.rosensteiner.Tcl.function.memory.init" casesensitive="true">
+		<completion string="on" />
+		<completion string="off" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.memory.trace" casesensitive="true">
+		<completion string="on" />
+		<completion string="off" />
+	</set>
+	<set name="com.rosensteiner.Tcl.function.memory.validate" casesensitive="true">
+		<completion string="on" />
+		<completion string="off" />
+	</set>
 	<!--info options-->
 	<set name="com.rosensteiner.Tcl.function.info.class" casesensitive="true">
 	    <behavior>

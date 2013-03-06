@@ -6,14 +6,14 @@ error {
 }
 
 a:link {
-color: #4f76cf;
+	color: #4f76cf;
 }
 a:visited {
-color: #728ece;;
+	color: #728ece;;
 }
 a:hover {
-color: #754FCF
+	color: #754FCF
 }
 a:active {
-color: #C24FCF
+	color: #C24FCF
 }

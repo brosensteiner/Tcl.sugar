@@ -36,7 +36,7 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	</zone>
     	
     	<zone name="amira.keyword.global.variables">
-    		<expression>(AMIRA_ROOT|AMIRA_LOCAL|SCRIPTFILE|SCRIPTDIR|hideNewModules|hxneuroneditorplugins|SpaceMouseRotationModeScale|ShiftButton|SpaceMouseFlyModeScale|AltButton|mod|radiossForceTightness|HxLatticeFactory_prefDiskType|hxvisageviewertools|Button1|Button2|Button3|TMPDIR|PerfusionCTMTTDataWindow|PerfusionCTCBFDataWindow|this|amira_version|hxalign_autoalignmethod_plugins|voltex_prio|PRIMARY|VRButton0|VRButton1|VRButton2|VRButton3|PerfusionCTCBVDataWindow|VRButton4|radiossUseInputNodesAsInitial|AMIRA_DEMOS|VRButton5|VRButton6|AMIRA_NETWORKDRIVE_DIR|VRButton7|VRButton8|auto_oldpath|ControlButton|VRButton9|radiossLoadMultipleFilesAsTimeSeries|radiossCacheInitialFile|redrawInhibit)\b</expression>
+    		<expression>(A(?:MIRA_(?:ROOT|LOCAL|DEMOS|NETWORKDRIVE_DIR)|ltButton)|a(?:uto_oldpath|mira_version)|S(?:CRIPT(?:DIR|FILE)|paceMouse(?:(?:Rotation|Fly)ModeScale)|hiftButton)|mod|h(?:ideNewModules|x(?:visageviewertools|(?:neuroneditor|align_autoalignmethod_)plugins))|TMPDIR|P(?:RIMARY|erfusionCT(?:(?:CBV|MTT|CBF)DataWindow))|this|voltex_prio|r(?:adioss(?:ForceTightness|LoadMultipleFilesAsTimeSeries|UseInputNodesAsInitial|CacheInitialFile)|edrawInhibit)|VRButton(?:0|1|2|3|4|5|6|7|8|9)|Button(?:1|2|3)|ControlButton)\b</expression>
     	</zone> 	
     
     	<zone name="amira.keyword.option.workArea">
@@ -210,9 +210,9 @@ Tcl gets precedence for syntax highlighting, so Amira commands have to live with
     	<zone name="amira.keyword.command.interface-component-savefile">
     	    <expression>\b(getFileType|getFilename|getMode|registerFileType|setFilename|setFilenames|setMode)\b</expression>
     	</zone>
-    	
+    	<!--not shure what HxLatticeFactory_prefDiskType is, but here because if 'Hx'-->
     	<zone name="amira.keyword.command.data-classes">
-    	    <expression>\bHx(?:SpreadSheet|Colormap(?:256)?|C(?:luster|ameraPath)|KeyframeCameraPath|(?:Spatial)?Data|IvData|(?:Color|Scalar|Vector)?Field3|Stacked(?:(?:Scalar|Label)Field3)|Anna(?:(?:Scalar|Vector)Field3)|EdgeElemVectorField3|Complex(?:(?:Scalar|Vector)Field3)|Uniform(?:(?:Scalar|Label|Vector|Color)|Complex(?:Vector|Scalar))Field3|EdgeElemComplexVectorField3|Reg(?:(?:Scalar|Vector|Complex(?:Scalar|Vector)|Color)?Field3)|VertexSet|L(?:(?:ine|andmark)Set)|Surface(?:(?:Scalar|Vector|Complex(?:Scalar|Vector))?Field)?|(?:Hexa|Tetra)(?:(?:Scalar|Complex(?:Vector|Scalar)|Vector)?Field3|Grid))\b</expression>
+    	    <expression>\bHx(?:LatticeFactory_prefDiskType|SpreadSheet|Colormap(?:256)?|C(?:luster|ameraPath)|KeyframeCameraPath|(?:Spatial)?Data|IvData|(?:Color|Scalar|Vector)?Field3|Stacked(?:(?:Scalar|Label)Field3)|Anna(?:(?:Scalar|Vector)Field3)|EdgeElemVectorField3|Complex(?:(?:Scalar|Vector)Field3)|Uniform(?:(?:Scalar|Label|Vector|Color)|Complex(?:Vector|Scalar))Field3|EdgeElemComplexVectorField3|Reg(?:(?:Scalar|Vector|Complex(?:Scalar|Vector)|Color)?Field3)|VertexSet|L(?:(?:ine|andmark)Set)|Surface(?:(?:Scalar|Vector|Complex(?:Scalar|Vector))?Field)?|(?:Hexa|Tetra)(?:(?:Scalar|Complex(?:Vector|Scalar)|Vector)?Field3|Grid))\b</expression>
     	</zone>
     	
     	<zone name="amira.keyword.command.additional-data-classes">

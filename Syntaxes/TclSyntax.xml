@@ -316,7 +316,7 @@ THE SOFTWARE.
         <collection name="Operators"><!--(?=\$|\s|\[|\d) makes the zone more specific so that no syntax highlighting for strings which have e.g. test-test-->
             
            	<zone name="tcl.tcl-operator.comparison.tcl-binary">
-        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)((=|!)=|&lt;=?|>=?)(?!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)</expression>
+        	    <expression>(?&lt;!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)(?:(=|!)=|&lt;=?|>=?)(?!\+|-|\*|\/|%|&gt;|&lt;|\||\^|&amp;|~|!|=)</expression>
         	</zone>
         	        	
         	<zone name="tcl.tcl-operator.logical.tcl-binary">
@@ -415,12 +415,6 @@ THE SOFTWARE.
         	</zone>
         </collection>
         
-        <collection name="NamespaceColons">
-        	<zone name="tcl.punctuation.namespace">
-        		<expression>::</expression>
-        	</zone>
-        </collection>
-        
         <collection name="tclLanguage">
                 
         	<zone name="tcl.punctuation.delimiter.terminator">
@@ -499,7 +493,7 @@ THE SOFTWARE.
         	    </subzones>
         	</zone>
         	
-        	<!--here comes zones which can maybe produce nameclashes, especially with amira syntax and also with other keywords so they are more specific-->
+        	<!--here comes zones which maybe produce nameclashes, especially with amira syntax and also with other keywords so they are more specific-->
         	<zone>
         	    <expression>\b(prefix)(\s+)(all|longest|match)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
@@ -643,7 +637,7 @@ THE SOFTWARE.
 				<capture number="8" name="tcl.s"/>
 				<capture number="9" name="tcl.options.zlib"/>
 			</zone>
-			<zone name="tcl.command.function-call"><!--must be a named zone, otherwise confusion with 'format' and 'scan' procedures - despite above in syntax tree-->
+			<zone name="tcl.command.function-call"><!--must be a named zone, otherwise confusion with 'format' and 'scan' procedures - despite above in syntax tree!-->
 				<expression>\b(binary)(\s+)(scan|format)\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
@@ -670,10 +664,19 @@ THE SOFTWARE.
 			    <capture number="3" name="tcl.options.clock"/>
 			</zone>
 			<zone>
-			    <expression>\b(interp)(\s+)(alias|aliases|bgerror|cancel|create|debug|delete|eval|exists|expose|hide|hidden|invokehidden|issafe|limit|marktrusted|recursionlimit|share|slaves|target|transfer)\b</expression>
+			    <expression>\b(interp)(\s+)(alias(?:es)?|bgerror|c(?:ancel|reate)|de(?:bug|lete)|e(?:val|x(?:ists|pose))|hid(?:e|den)|i(?:nvokehidden|ssafe)|limit|marktrusted|recursionlimit|s(?:hare|laves)|t(?:arget|ransfer))\b</expression>
 			    <capture number="1" name="tcl.command.function-call"/>
 			    <capture number="2" name="tcl.s"/>
 			    <capture number="3" name="tcl.options.interp"/>
+			</zone>
+			
+			<zone>
+			    <expression>\b(memory)(\s+)(active|break_on_malloc|trace_on_at_malloc|info|o(?:bjs|nexit)|tag|(?:trace|init|validate)(\s+)(on|off))\b</expression>
+			    <capture number="1" name="tcl.command.function-call"/>
+			    <capture number="2" name="tcl.s"/>
+			    <capture number="3" name="tcl.options.memory"/>
+			    <capture number="4" name="tcl.s"/>
+			    <capture number="5" name="tcl.options.memory"/>
 			</zone>
 			
         	<zone name="tcl.command.function-call">
@@ -740,6 +743,14 @@ THE SOFTWARE.
 				<expression>\b((?:read|writ)able)\b</expression>
 			</zone>
 			
+			<!--mathop is a little special ...-->
+			<zone name="tcl.command.function-call.mathop.upd">
+				<expression>(::)tcl(::)mathop(::)</expression>
+				<capture number="1" name="tcl.punctuation.namespace"/>
+				<capture number="2" name="tcl.punctuation.namespace"/>
+				<capture number="3" name="tcl.punctuation.namespace"/>
+			</zone>
+			
 			<!--namespaces-->
 			<!--.upd is for namespace upvar syntax -> see word.upd and Tcl.css-->
 			<zone name="tcl.command.function-call.namespaces.upd">
@@ -762,7 +773,7 @@ THE SOFTWARE.
         
         <collection name="Math">
         	
-        	<!--tcl has some parenthesis syntactical sugar for math (since tcl 8.5 one can define individual math functions, but this can not be handled with epresso zone syntax, because it would conflict with EIAS in tcl)-->
+        	<!--tcl has some parenthesis syntactical sugar for math (since tcl 8.5 one can define individual math functions, but this can not be handled with Espresso zone syntax, because it would conflict with EIAS in tcl)-->
         	<zone name="tcl.container.math">
         		<starts-with>
         			<expression>\b(a(?:(?:b|co)s|sin|tan2?)|bool|c(?:eil|osh?)|double|e(?:ntier|xp)|f(?:loor|mod)|hypot|i(?:nt|sqrt)|log(?:10)?|m(?:ax|in)|pow|r(?:(?:a|ou)nd)|s(?:inh?|qrt|rand)|tanh?|wide)\s*(\()</expression>
