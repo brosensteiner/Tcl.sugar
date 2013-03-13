@@ -36,9 +36,9 @@ THE SOFTWARE.
 		<include collection="Numeric" />
 		<include collection="EscapeChar"/>
 		<include collection="Variables" />
+		<include collection="ClassesAndProcedures"/>
 		<include collection="tclLanguage" />
 		<include collection="FormatSpecifier"/>
-		<include collection="ClassesAndProcedures"/>
 		<include collection="Operators" />
 		<include collection="Math" />
 		<include collection="VariableExpansion" />
@@ -73,16 +73,69 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="ClassesAndProcedures">
+		
 			<zone name="tcl.command.function">
 				<expression>\b(proc)\s+([^"\[][^\[\s]*)</expression>
 				<capture number="1" name="tcl.command.function.function-call"/>
 				<capture number="2" name="tcl.command.function.name"/>
 			</zone>
-			<zone name="tcl.command.class">
-				<expression>\b(class)\s+([^"\[][^\[\s]*)</expression>
-				<capture number="1" name="tcl.command.function.function-call"/>
-				<capture number="2" name="tcl.command.function.name"/>
+			
+			<!--this zone´s makes it possible to highlight ::oo options in it-->
+			<zone name="tcl.container.function.oo.oo-object">
+			    <starts-with>
+			        <expression>(::|\s|^)?(oo)(::)(objdefine|object\s+(?:create|new))\s+([^"\[][^\[\s]*)\s+(\{)</expression>
+			        <capture number="1" name="tcl.punctuation.namespace"/>
+			        <capture number="2" name="tcl.command.function-call"/>
+			        <capture number="3" name="tcl.punctuation.namespace.s"/>
+			        <capture number="4" name="tcl.options.oo"/>
+			        <capture number="5" name="tcl.command.function.name"/>
+			        <capture number="6" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="tcl.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<zone name="tcl.options.oo.objdefine">
+			    	    <expression>\b(class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\b</expression>
+			    	</zone>
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
 			</zone>
+			
+			<zone name="tcl.container.function.oo.oo-class">
+			    <starts-with>
+			        <expression>(::|\s|^)?(oo)(::)(define|class\s+(?:create(?:WithNamespace)?|new))\s+([^"\[][^\[\s]*)\s+(\{)</expression>
+			        <capture number="1" name="tcl.punctuation.namespace"/>
+			        <capture number="2" name="tcl.command.function-call"/>
+			        <capture number="3" name="tcl.punctuation.namespace.s"/>
+			        <capture number="4" name="tcl.options.oo"/>
+			        <capture number="5" name="tcl.command.function.name"/>
+			        <capture number="6" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="tcl.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<zone name="tcl.options.oo.define">
+			    	    <expression>\b(constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\b</expression>
+			    	</zone>
+			    	<include syntax="language-root.tcl" />
+			    </subzones>
+			</zone>
+			
+			<zone name="tcl.command.oo">
+			    <expression>(::|\s|^)?(oo)(::)(class|object)(\s+)(new|create(?:WithNamespace)?)(\s+[^"\[\]\{\}][^\[\]\{\}\s]*)?</expression>
+			    <capture number="1" name="tcl.punctuation.namespace"/>
+			    <capture number="2" name="tcl.command.function-call"/>
+			    <capture number="3" name="tcl.punctuation.namespace.s"/>
+			    <capture number="4" name="tcl.options.oo"/>
+			    <capture number="5" name="tcl.punctuation.s"/>
+			    <capture number="6" name="tcl.options.oo"/>
+			    <capture number="7" name="tcl.command.function.name"/>
+			</zone>
+			
 		</collection>
 	
 		<collection name="BracesBrackets">
@@ -507,18 +560,18 @@ THE SOFTWARE.
         		<capture number="3" name="tcl.options.trace"/>
         	</zone>
         	<zone>
-        	    <expression>\b(string)(\s+)(?:(is)(\s+)(al(?:num|pha)|ascii|boolean|control|d(?:igit|ouble)|graph|(?:intege|uppe)r|l(?:ist|ower)|p(?:rint|unct)|(?:spac|tru|fals)e|w(?:ideinteger|ordchar)|xdigit))?\b</expression>
+        	    <expression>\b(string)(\s+)(bytelength|(?:compar|rang)e|equal|first|index|l(?:ast|ength)|ma(?:p|tch)|re(?:peat|place|verse)|to(?:lower|title|upper)|trim(?:left|right)?|word(?:end|start))\b</expression>
+        	    <capture number="1" name="tcl.command.function-call"/>
+        	    <capture number="2" name="tcl.s"/>
+        	    <capture number="3" name="tcl.options.string"/>
+        	</zone>
+        	<zone>
+        	    <expression>\b(string)(\s+)(?:(is)(\s+)(al(?:num|pha)|ascii|boolean|control|d(?:igit|ouble)|graph|(?:intege|uppe)r|l(?:ist|ower)|p(?:rint|unct)|(?:spac|tru|fals)e|w(?:ideinteger|ordchar)|xdigit))\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.string"/>
         	    <capture number="4" name="tcl.s"/>
         	    <capture number="5" name="tcl.options.string"/>
-        	</zone>
-        	<zone>
-        	    <expression>\b(string)(\s+)(bytelength|(?:compar|rang)e|equal|first|index|l(?:ast|ength)|ma(?:p|tch)|re(?:peat|place|verse)|to(?:lower|title|upper)|trim(?:left|right)?|word(?:end|start))\b</expression>
-        	    <capture number="1" name="tcl.command.function-call"/>
-        	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.options.string"/>
         	</zone>
         	<zone>
         		<expression>\b(source)(\s+)(-encoding)?</expression>
@@ -573,13 +626,51 @@ THE SOFTWARE.
         	    <capture number="2" name="tcl.s"/>
         	    <capture number="3" name="tcl.options.info"/>
         	</zone>
-        	
+        	 <!--the '.s' in zone 'tcl.punctuation.namespace.s' allows to use the normal "space" mechanism for :: commands-->
         	<zone>
-        	    <expression>\b(http)(\s+)(co(?:nfig|de)|geturl|formatQuery|(?:rese|wai)t|data|error|s(?:tatus|ize)|ncode|meta|cleanup|(?:un)?register)\b</expression>
-        	    <capture number="1" name="tcl.command.function-call"/>
-        	    <capture number="2" name="tcl.s"/>
-        	    <capture number="3" name="tcl.options.http"/>
-        	</zone>
+				<expression>(::)?(msgcat)(::)(mc(?:max|preferences|lo(?:ad|cale)|m?set|unknown)?)\b</expression>
+					<capture number="1" name="tcl.punctuation.namespace"/>
+					<capture number="2" name="tcl.command.function-call"/>
+					<capture number="3" name="tcl.punctuation.namespace.s"/>
+					<capture number="4" name="tcl.options.msgcat"/>
+			</zone>
+			<zone>
+			    <expression>(::)?(http)(::)(co(?:nfig|de)|geturl|formatQuery|(?:rese|wai)t|data|error|s(?:tatus|ize)|ncode|meta|cleanup|(?:un)?register)\b</expression>
+			    <capture number="1" name="tcl.punctuation.namespace"/>
+			    <capture number="2" name="tcl.command.function-call"/>
+			    <capture number="3" name="tcl.punctuation.namespace.s"/>
+			    <capture number="4" name="tcl.options.http"/>
+			</zone>
+			<zone>
+			    <expression>(::)?(oo)(::)(object)(\s+)(destroy|eval|unknown|variable|varname|&lt;cloned&gt;)\b</expression>
+			    <capture number="1" name="tcl.punctuation.namespace"/>
+			    <capture number="2" name="tcl.command.function-call"/>
+			    <capture number="3" name="tcl.punctuation.namespace.s"/>
+			    <capture number="4" name="tcl.options.oo"/>
+			    <capture number="5" name="tcl.punctuation.s"/>
+			    <capture number="6" name="tcl.options.oo"/>
+			</zone>
+			<zone>
+			    <expression>(::)?(oo)(::)(copy)\b</expression>
+			    <capture number="1" name="tcl.punctuation.namespace"/>
+			    <capture number="2" name="tcl.command.function-call"/>
+			    <capture number="3" name="tcl.punctuation.namespace.s"/>
+			    <capture number="4" name="tcl.options.oo"/>
+			</zone>
+			<zone>
+			    <expression>(::)?(oo)(::)(define|class)\b</expression>
+			    <capture number="1" name="tcl.punctuation.namespace"/>
+			    <capture number="2" name="tcl.command.function-call"/>
+			    <capture number="3" name="tcl.punctuation.namespace.s"/>
+			    <capture number="4" name="tcl.options.oo.oo-class"/>
+			</zone>
+			<zone>
+			    <expression>(::)?(oo)(::)(objdefine|object)\b</expression>
+			    <capture number="1" name="tcl.punctuation.namespace"/>
+			    <capture number="2" name="tcl.command.function-call"/>
+			    <capture number="3" name="tcl.punctuation.namespace.s"/>
+			    <capture number="4" name="tcl.options.oo.oo-object"/>
+			</zone>
         	<zone>
         	    <expression>\b(file)(\s+)(at(?:ime|tributes)|c(?:hannels|opy)|d(?:elete|irname)|ex(?:ecutable|ists|tension)|is(?:directory|file)|join|l(?:ink|stat)|m(?:kdir|time)|n(?:ativename|ormalize)|owned|pathtype|re(?:ad(?:able|link)|name)|rootname|s(?:eparator|ize|(?:pli|ta)t|ystem)|t(?:ail|(?:empfil|yp)e)|volumes|writable)\b</expression>
         	    <capture number="1" name="tcl.command.function-call"/>
@@ -637,19 +728,19 @@ THE SOFTWARE.
 				<capture number="8" name="tcl.s"/>
 				<capture number="9" name="tcl.options.zlib"/>
 			</zone>
-			<zone name="tcl.command.function-call"><!--must be a named zone, otherwise confusion with 'format' and 'scan' procedures - despite above in syntax tree!-->
-				<expression>\b(binary)(\s+)(scan|format)\b</expression>
-				<capture number="1" name="tcl.command.function-call"/>
-				<capture number="2" name="tcl.s"/>
-				<capture number="3" name="tcl.options.binary"/>
-			</zone>
 			<zone>
-				<expression>\b(binary)(\s+)(?:((?:en|de)code)(\s+)(base64|hex|uuencode))?\b</expression>
+				<expression>\b(binary)(\s+)(?:((?:en|de)code)(\s+)(base64|hex|uuencode))\b</expression>
 				<capture number="1" name="tcl.command.function-call"/>
 				<capture number="2" name="tcl.s"/>
 				<capture number="3" name="tcl.options.binary"/>
 				<capture number="4" name="tcl.s"/>
 				<capture number="5" name="tcl.options.binary"/>
+			</zone>
+			<zone>
+				<expression>\b(binary)(\s+)(scan|format)\b</expression>
+				<capture number="1" name="tcl.command.function-call"/>
+				<capture number="2" name="tcl.s"/>
+				<capture number="3" name="tcl.options.binary"/>
 			</zone>
 			<zone>
 			    <expression>\b(clock)(\s+)(add|clicks|format|(?:micro|milli)?seconds|scan)\b</expression>
@@ -680,7 +771,7 @@ THE SOFTWARE.
 			</zone>
 			
         	<zone name="tcl.command.function-call">
-        		<expression>\b(e(?:rror|of|ncoding|val|x(?:ec|it|pr))|a(?:dd|fter|pply)|f(?:ormat|inalize|ile(?:name|event)?|copy|configure|blocked|lush)|zlib|tcl(?:sh|vars|test|Pkg(?:Unknown|Setup)|_(?:wordBreak(?:Before|After)|startOf(?:(?:Previous|Next)Word)|endOfWord|findLibrary))|catch|re(?:_syntax|gistry|ad|(?:tur|fcha)n|g(?:exp|sub))|p(?:array|kg::create|kg_mkIndex|id|ackage|wd|uts?|latform(?:::shell)?)|l(?:append|assign|s(?:e(?:arch|t)|ort)|map|i(?:st|n(?:dex|sert))|length|r(?:e(?:place|verse|peat)|ange))|auto_(?:execok|load|import|reset|qualify)|t(?:ell|ime|m)|b(?:gerror|inary)|(?:un)?load|safe|m(?:sgcat|emory|ath(?:func|op)|kindex(?:_old)?)|u(?:nknown|p(?:var|date|level))|g(?:ets?|lobal|lob)|c(?:d|h(?:an|ecksum)|lo(?:ck|se)|oncat|oroutine)|h(?:istory|ttp)|namespace|open|dde|in(?:cr|terp)|s(?:plit|can|e(?:t|ek)|ocket|ubst)|Tcl|join|v(?:ariable|wait)|yield(?:to)?)(?=\s|\]|;)</expression>
+        		<expression>\b(e(?:rror|of|val|x(?:ec|it|pr))|a(?:dd|fter|pply)|f(?:ormat|inalize|ile(?:name|event)|co(?:py|nfigure)|blocked|lush)|tcl(?:Log|sh|vars|test|Pkg(?:Unknown|Setup)|_(?:wordBreak(?:Before|After)|startOf(?:(?:Previous|Next)Word)|endOfWord|findLibrary))|catch|re(?:_syntax|gistry|ad|(?:tur|fcha)n|g(?:exp|sub))|p(?:array|kg::create|kg_mkIndex|id|wd|uts?|latform(?:::shell)?)|l(?:append|assign|s(?:e(?:arch|t)|ort)|map|i(?:st|n(?:dex|sert))|length|r(?:e(?:place|verse|peat)|ange))|auto_(?:execok|load|import|reset|qualify|load_index)|t(?:ell|ime|m)|b(?:gerror|inary)|(?:un)?load|m(?:y|ath(?:func|op)|kindex(?:_old)?)|u(?:nknown|p(?:var|date|level))|g(?:ets?|lobal|lob)|c(?:d|hecksum|lose|oncat|oroutine)|h(?:istory|ttp)|n(?:amespace|ext(?:to)?)|open|dde|incr|s(?:plit|afe|can|e(?:t|ek)|ocket|ubst)|Tcl|join|v(?:ariable|wait)|yield(?:to)?)(?=\s|\]|;)</expression>
         	</zone>
         	
         	<!--env is an array, so capturing '(' and ')'-->
@@ -704,7 +795,15 @@ THE SOFTWARE.
         	</zone>
         	<!--catches all switches in tcl (e.g. "-switch"):-->
         	<zone name="tcl.tcl-keyword.property-name">
-        		<expression>(?&lt;![\w?!])-[\w?!]+\b|(?&lt;![\w?!])--(?=\s)</expression>
+        		<expression>(?&lt;=\s|^)-[\w?!]+\b|(?&lt;![\w?!])--(?=\s|\\)</expression>
+        	</zone>
+        	
+        	<!--this two zones are for the options when used as subcommands in ::oo, discerning between the two is not possible, because the options have mostly the same name and none is the complete subset of the other, but Tcl.css placeholder file handles it as good as it can-->
+        	<zone name="tcl.options.oo.objdefine">
+        	    <expression>\b(class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\b</expression>
+        	</zone>
+        	<zone name="tcl.options.oo.define">
+        	    <expression>\b(constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\b</expression>
         	</zone>
         			
 			<zone name="tcl.options.close">

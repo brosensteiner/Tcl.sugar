@@ -5,19 +5,19 @@
 	<provider>
 	 	<selector>tcl, tcl *</selector>
 	 	<completions>com.rosensteiner.tcl.amira</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_0-9]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|:|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl, tcl *</selector>
 	 	<completions>com.rosensteiner.tcl.amira.data-classes</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )Hx[a-zA-Z_0-9]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl, tcl *</selector>
 	 	<completions>com.rosensteiner.tcl.amira.scriptobject</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )new[a-zA-Z_0-9]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<!--switches-->

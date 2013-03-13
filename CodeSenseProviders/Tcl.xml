@@ -33,56 +33,122 @@ THE SOFTWARE.
     <provider>
      	<selector>tcl, tcl *</selector>
      	<completions>com.rosensteiner.Tcl.functions-with-option</completions>
-     	<complete-match>(?&lt;!\\|_|-|\$)\b(encoding|clock|zlib|package|namespace(?: ensemble)?|prefix|dict|array|http|binary(?: encode| decode)?|history|info|string(?: is)?|file|chan|trace|after|interp|memory) [a-zA-Z0-9_]*</complete-match>
+     	<complete-match>(?&lt;!\\|_|-|\$)\b(encoding|clock|zlib|package|namespace(?: ensemble)?|prefix|dict|array|binary(?: encode| decode)?|history|info|string(?: is)?|file|chan|trace|after|interp|memory) [a-zA-Z0-9_]*</complete-match>
+    </provider>
+    <!--oo special (should be available everywhere)-->
+    <provider>
+     	<selector>tcl, tcl *</selector>
+     	<completions>com.rosensteiner.Tcl.functions-oo-class</completions>
+     	<completions>com.rosensteiner.Tcl.functions-oo-object</completions>
+     	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z0-9_]*</complete-match>
     </provider>
     
-    <!--procs without options-->
+    <!--general-->
 	<provider>
 	 	<selector>tcl, tcl *</selector>
-	 	<completions>com.rosensteiner.Tcl.functions</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
-	</provider>
-	
-	<!--general-->
-	<provider>
-	 	<selector>tcl *</selector>
+	 	<completions>com.rosensteiner.Tcl.functions</completions><!--procs without options-->
 	 	<completions>com.rosensteiner.Tcl.mathfunc</completions>
 	 	<completions>com.rosensteiner.Tcl.global-variables</completions>
 	 	<completions>com.rosensteiner.Tcl.global-procedures</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	</provider>
+	
+	<!--procs with :: (triggering with '::' makes suggestions fewer)-->
+	<provider>
+	 	<selector>tcl, tcl *</selector>
+	 	<completions>com.rosensteiner.Tcl.functions-with-colon</completions>
+	 	<complete-match>(?&lt;!\w)::[a-zA-Z_:]*</complete-match>
+	</provider>
+	
+	<!--special oo procs which are only valid in certain zones-->
+	<provider>
+	 	<selector>tcl.container.oo.oo-class *</selector>
+	 	<completions>com.rosensteiner.Tcl.function.oo.class-define</completions>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	</provider>
+	<provider>
+	 	<selector>tcl.container.oo.oo-object *</selector>
+	 	<completions>com.rosensteiner.Tcl.function.oo.object-objdefine</completions>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	</provider>
+	<provider>
+	 	<selector>tcl.options.oo.oo-class + s + * + s + * + *</selector>
+	 	<completions>com.rosensteiner.Tcl.function.oo.class-define</completions>
+	 	<complete-match>\b[a-zA-Z]*</complete-match>
+	</provider>
+	<provider>
+	 	<selector>tcl.options.oo.oo-object + s + * + s + * + *</selector>
+	 	<completions>com.rosensteiner.Tcl.function.oo.object-objdefine</completions>
+	 	<complete-match>\b[a-zA-Z]*</complete-match>
+	</provider>
+	
+	<!--oo switches in zones-->
+	<provider>
+		<selector>tcl.container.oo options.oo:capture(name) + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.option.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<provider>
+		<selector>tcl.container.oo options.oo:capture(name) + s + * + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.option.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--oo: option switch name switch name switch-->
+	<provider>
+		<selector>tcl.container.oo options.oo:capture(name) + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.option.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--oo: option switch switch-->
+	<provider>
+		<selector>tcl.container.oo options.oo:capture(name) + s + property-name + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.option.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--oo: option switch switch name switch-->
+	<provider>
+		<selector>tcl.container.oo options.oo:capture(name) + s + property-name + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.option.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+	<!--oo: option switch name switch switch-->
+	<provider>
+		<selector>tcl.container.oo options.oo:capture(name) + s + property-name + s + * + s + property-name + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.option.${name}</completions>
+		<complete-match>-[a-zA-Z0-9-]*</complete-match>
+	</provider>
+
+	<!--proc option name option-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	</provider>
+	<!--proc option name nummeric option (chan seek)-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + numeric + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	</provider>
+	<!--proc name option (fileevent)-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}</completions>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<!--proc option extra options-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>\b(isa |encode|decode )?[a-zA-Z]*</complete-match>
-	</provider>
-	
-	<!--proc option name option-->
-	<provider>
-		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
-	</provider>
-	<!--proc option name nummeric option (chan seek)-->
-	<provider>
-		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + numeric + s + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
-	</provider>
-	<!--proc name option (fileevent)-->
-	<provider>
-		<selector>tcl function-call:capture(name) + s + * + s + * + *</selector>
-		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |http |binary |binary encode |binary decode |history |info |info object isa |string |string is |file |chan |trace |after |info object |info class |interp |memory )\b[a-zA-Z_]*</complete-match>
+		<complete-match>\b(isa )[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<!--proc option option-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>\b(isa )?[a-zA-Z]*</complete-match>
+		<complete-match>\b[a-zA-Z]*</complete-match>
 	</provider>
 		
 	<!--proc name nummeric option (seek)-->
@@ -242,6 +308,50 @@ THE SOFTWARE.
 		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
 		<complete-match>-[a-zA-Z-]*</complete-match>
 	</provider>
+	
+	<!--proc option name option switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + * + s + options:capture(options2) + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option name option switch switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + * + s + options:capture(options2) + s + property-name + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option name option switch switch switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + * + s + options:capture(options2) + s + property-name + s + property-name + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option name option switch switch name switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + * + s + options:capture(options2) + s + property-name + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option name option switch name switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + * + s + options:capture(options2) + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option name option switch name switch switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + * + s + options:capture(options2) + s + property-name + s + * + s + property-name + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	<!--proc option name option switch name switch name switch-->
+	<provider>
+		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + * + s + options:capture(options2) + s + property-name + s + * + s + property-name + s + * + s + * + *</selector>
+		<completions>com.rosensteiner.Tcl.function.${name}.${options1}.${options2}</completions>
+		<complete-match>-[a-zA-Z-]*</complete-match>
+	</provider>
+	
 	<!--proc option option name switch switch (info class methods)-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options1) + s + options:capture(options2) + s + *:not(property-name) + s + property-name + s + * + *</selector>

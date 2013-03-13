@@ -43,6 +43,30 @@ THE SOFTWARE.
 	    		</append-dynamic>
 	    	</behavior>
 	    </completion>
+	    <completion string="my">
+	    	<behavior>
+	    		<append-dynamic>
+	    		<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    		<transform-into>(?1:$1: ${1:methodName} ${2:?arg ...?}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="next">
+	    	<behavior>
+	    		<append-dynamic>
+	    		<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    		<transform-into>(?1:$1: ${1:?arg ...?}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
+	    <completion string="nextto">
+	    	<behavior>
+	    		<append-dynamic>
+	    		<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	    		<transform-into>(?1:$1: ${1:class} ${2:?arg ...?}$0)</transform-into>
+	    		</append-dynamic>
+	    	</behavior>
+	    </completion>
 	    <completion string="try">
 	    	<behavior>
 	    		<append-dynamic>
@@ -91,13 +115,10 @@ THE SOFTWARE.
 			</behavior>
 		</completion>
 		<completion string="zlib">
-			<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:subcommand} ${2: arg ...}$0)</transform-into>
-				</append-dynamic>
-			</behavior>
-		</completion>
+				<behavior>
+					<append-static></append-static>
+				</behavior>
+			</completion>
 		<completion string="platform" />
 		<completion string="append">
 			<behavior>
@@ -661,7 +682,6 @@ THE SOFTWARE.
 				</append-dynamic>
 			</behavior>
 		</completion>
-		<completion string="msgcat" />
 		<completion string="socket">
 			<behavior>
 				<append-dynamic>
@@ -718,11 +738,6 @@ THE SOFTWARE.
 					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 					<transform-into>(?1:$1: ${1:?arg arg ...?}$0)</transform-into>
 				</append-dynamic>
-			</behavior>
-		</completion>
-		<completion string="http">
-			<behavior>
-				<append-static></append-static>
 			</behavior>
 		</completion>
 		<completion string="open">
@@ -852,6 +867,219 @@ THE SOFTWARE.
 			</behavior>
 	    </completion>
 	    
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.functions-with-colon">
+	
+		<!--http-->
+		<completion string="::http::config">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?options?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::geturl">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:url} ${2:?options?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::formatQuery">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:key value} ${2:?key value?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::reset">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token} ${2:?why?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::wait">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::data">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::error">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::status">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::code">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::ncode">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::size">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::meta">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::cleanup">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:token}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::register">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:proto port command}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::http::unregister">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:proto}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<!--oo-->
+		<completion string="::oo::class">
+		    <behavior>
+		    		<append-static></append-static>
+		    	</behavior>
+		    </completion>
+		<completion string="::oo::copy">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:sourceObject} ${2:?targetObject?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::oo::define">
+		    <behavior>
+		    		<append-static></append-static>
+		    	</behavior>
+		    </completion>
+		<completion string="::oo::objdefine">
+		    <behavior>
+		    		<append-static></append-static>
+		    	</behavior>
+		    </completion>
+		<completion string="::oo::object">
+		    <behavior>
+		    		<append-static></append-static>
+		    	</behavior>
+		</completion>
+		<!--msgcat-->
+		<completion string="::msgcat::mc">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:src-string} ${2:?arg arg ...?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::msgcat::mcmax">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:src-string src-string ...}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::msgcat::mclocale">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:?newLocale?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::msgcat::mcpreferences"/>
+		<completion string="::msgcat::mcload">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:dirname}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::msgcat::mcset">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:locale} ${2:src-string} ${3:?translate-string?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::msgcat::mcmset">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:locale} ${2:src-trans-list}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="::msgcat::mcunknown">
+		    <behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:locale} ${2:src-string}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+	
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.functions-with-option">
@@ -1717,127 +1945,6 @@ THE SOFTWARE.
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
 	                <transform-into>(?1:$1: ${1:arrayName} ${2:?pattern?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <!--http-->
-	    <completion string="http config">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:?options?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http geturl">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:url} ${2:?options?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http formatQuery">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:key value} ${2:?key value?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http reset">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token} ${2:?why?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http wait">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http data">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http error">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http status">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http code">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http ncode">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http size">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http meta">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http cleanup">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:token}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http register">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:proto port command}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="http unregister">
-	        <behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:proto}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -3015,7 +3122,7 @@ THE SOFTWARE.
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
-	
+	    
 	</set>
 	
 	
@@ -3274,6 +3381,497 @@ THE SOFTWARE.
 	    <completion string="-command"/>
 	    <completion string="-variable"/>
 	</set>
+	<!--oo options-->
+	<set name="com.rosensteiner.Tcl.functions-oo-class" casesensitive="true">
+		<completion string="create">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="new">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="createWithNamespace">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:nsName}  ${3:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.oo.class-define" casesensitive="true">
+		<completion string="constructor">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:argList} ${2:bodyScript}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="deletemethod">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="destructor">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:bodyScript}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="export">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="filter">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-slotOperation?} ${2:?methodName ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="forward">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:cmdName} ${3:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="method">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:argList} ${3:bodyScript}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mixin">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-slotOperation?} ${2:?className ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="renamemethod">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:fromName} ${2:toName}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="self">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:script}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="superclass">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-slotOperation?} ${2:?className ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unexport">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="variable">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-slotOperation?} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.object-objdefine" casesensitive="true">
+		<completion string="class">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:className}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="deletemethod">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="export">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="filter">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-slotOperation?} ${2:?methodName ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="forward">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:cmdName} ${3:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="method">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:argList} ${3:bodyScript}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="mixin">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-slotOperation?} ${2:?className ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="renamemethod">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:fromName} ${2:toName}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="unexport">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="variable">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?-slotOperation?} ${2:?name ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.functions-oo-object" casesensitive="true">
+		<completion string="destroy" />
+		<completion string="eval">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="unknown">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?methodName?} ${2:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="variable">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?varName ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="varname">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:varName}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="&lt;cloned&gt;">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:name} ${2:cmdName} ${3:?arg ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.option.filter" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.option.mixin" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.option.superclass" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.option.variable" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
+	<set name="com.rosensteiner.Tcl.function.oo.objdefine.filter" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.objdefine.mixin" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.objdefine.superclass" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.objdefine.variable" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.define.filter" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.define.mixin" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.define.superclass" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	<set name="com.rosensteiner.Tcl.function.oo.define.variable" casesensitive="true">
+		<completion string="-append">
+			<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+		<completion string="-clear" />
+	    <completion string="-set">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:?member ...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	</set>
+	
 	<!--interp options-->
 	<set name="com.rosensteiner.Tcl.function.interp.cancel" casesensitive="true">
 		<completion string="-unwind" />
@@ -3803,7 +4401,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	
-	<!--http options-->
+	<!--::http::options-->
 	<set name="com.rosensteiner.Tcl.function.http.config" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>

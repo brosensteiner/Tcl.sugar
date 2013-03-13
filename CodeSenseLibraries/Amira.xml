@@ -202,7 +202,7 @@
 		<completion string="displayNeighbours" />
 		<completion string="first" />
 		<completion string="hideTriangles" />
-		<completion string="next" />
+		<!--<completion string="next" />--><!--interfers with Tcl´s 'info'-->
 		<completion string="previous" />
 		<completion string="checkHoles" />
 		<completion string="fillHoles" />
@@ -260,12 +260,12 @@
 		<completion string="transformEditorManip" />
 		<completion string="transformEditorReset" />
 		<!--filter editor-->
-		<completion string="filter" />
+		<!--<completion string="filter" />--><!--interfers with Tcl´s '::oo filter'-->
 		<completion string="kernel" />
 		<completion string="setNumProcs" />
 		<completion string="sigma" />
 		<!--grid editor-->
-		<!--<completion string="info" />--><!--TODO: interfers with Tcl´s 'info'-->
+		<!--<completion string="info" />--><!--interfers with Tcl´s 'info'-->
 		<!--general amira object-->
 		<completion string="setValue" />
 		<completion string="setValues" />
@@ -754,7 +754,7 @@
 		<completion string="all" />
 		<completion string="aminfo" />
 		<completion string="clear" />
-		<completion string="create" />
+		<!--<completion string="create" />--><!--interfers with Tcl´s '::oo::' options-->
 		<completion string="dso" />
 		<completion string="addPath" />
 		<completion string="echo" />

@@ -87,7 +87,14 @@ tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced.bra
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced.brackets > keyword:not(function-call[text='list']),
 
 tcl.function-call[text='chan'] + s + options + s + * + s + numeric + s + options,
-tcl.function-call[text='seek'] + s + * + s + numeric + s + options {
+tcl.function-call[text='seek'] + s + * + s + numeric + s + options,
+
+tcl.function-call[text='oo'] + s + options[text='define'] + s + * + s + options.oo,
+tcl.function-call[text='oo'] + s + options[text='class'] + s + * + s + options.oo,
+tcl.function-call[text='oo'] + s + options[text='objdefine'] + s + * + s + options.oo,
+tcl.function-call[text='oo'] + s + options[text='object'] + s + * + s + options.oo,
+tcl.container.function.oo.oo-object > options.oo.objdefine,
+tcl.container.function.oo.oo-class > options.oo.define {
 	color: #268bd2;
 	font-weight: normal;
 }
