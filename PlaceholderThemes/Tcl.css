@@ -73,28 +73,28 @@ tcl.rename-var-newname {
 	font-style: italic;
 }
 
-tcl.function-call + options,
-tcl.function-call + s + options,
-tcl.function-call + s + options + s + options,
-tcl.function-call + s + options + s + options + s + options,
+tcl.function-call + options:not(options-oo),
+tcl.function-call + s + options:not(options-oo),
+tcl.function-call + s + options + s + options:not(options-oo),
+tcl.function-call + s + options + s + options + s + options:not(options-oo),
 tcl.function-call + s + function-call + s + function-call,
 tcl.function-call + s + function-call + s + function-call + s + function-call,
 tcl.function-call[text='fileevent'] + s + :not(keyword) + s + options.fileevent,
-tcl.function-call[text='dict'] + s + options + s + * + s + dict.options,
+tcl.function-call[text='dict'] + s + options + s + * + s + options.dict,
 tcl.function-call[text='trace'] + s + options + s + command,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + keyword,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced.braces > keyword,
 tcl.function-call[text='trace'] + s + options + s + * + s + * + s + balanced.brackets > keyword:not(function-call[text='list']),
 
-tcl.function-call[text='chan'] + s + options + s + * + s + numeric + s + options,
-tcl.function-call[text='seek'] + s + * + s + numeric + s + options,
+tcl.function-call[text='chan'] + s + options + s + * + s + numeric + s + options.chan-seek-seek,
+tcl.function-call[text='seek'] + s + * + s + numeric + s + options.chan-seek-seek,
 
-tcl.function-call[text='oo'] + s + options[text='define'] + s + * + s + options.oo,
-tcl.function-call[text='oo'] + s + options[text='class'] + s + * + s + options.oo,
-tcl.function-call[text='oo'] + s + options[text='objdefine'] + s + * + s + options.oo,
-tcl.function-call[text='oo'] + s + options[text='object'] + s + * + s + options.oo,
-tcl.container.function.oo.oo-object > options.oo.objdefine,
-tcl.container.function.oo.oo-class > options.oo.define {
+tcl.function-call[text='oo'] + s + options[text='define'] + s + * + s + options-oo,
+tcl.function-call[text='oo'] + s + options[text='class'] + s + * + s + options-oo,
+tcl.function-call[text='oo'] + s + options[text='objdefine'] + s + * + s + options-oo,
+tcl.function-call[text='oo'] + s + options[text='object'] + s + * + s + options-oo,
+tcl.container.function.oo.oo-object > options-oo.objdefine,
+tcl.container.function.oo.oo-class > options-oo.define {
 	color: #268bd2;
 	font-weight: normal;
 }

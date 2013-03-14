@@ -465,10 +465,7 @@ THE SOFTWARE.
 		</completion>
 		<completion string="trace">
 			<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:option} ${2:?arg arg ...?}$0)</transform-into>
-				</append-dynamic>
+				<append-static></append-static>
 			</behavior>
 		</completion>
 		<completion string="bgerror">
@@ -2089,11 +2086,107 @@ THE SOFTWARE.
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
-	    <completion string="info class">
-	        <behavior>
+	    <completion string="info class call">
+	    	<behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:subcommand} ${2:class} ${3:?arg ...?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class constructor">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class definition">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class destructor">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class filters">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class forward">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class instances">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class} ${2:?pattern?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class methods">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class} ${2:?options...?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class methodtype">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class mixins">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class subclasses">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class} ${2:?pattern?}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class superclasses">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info class variables">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -2210,11 +2303,131 @@ THE SOFTWARE.
 				<append-static></append-static>
 			</behavior>
 		</completion>
-	    <completion string="info object">
-	        <behavior>
+		<completion string="info object call">
+			<behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:object} ${2:method}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="info object class">
+			<behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:object} ${2:?className?}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="info object definition">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:object} ${2:?method?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="info object filters">
+			<behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="info object forward">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:object} ${2:?method?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="info object methods">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:object} ${2:?option...?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="info object methodtype">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:object} ${2:method}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="info object mixins">
+			<behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="info object namespace">
+			<behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="info object variables">
+			<behavior>
+		        <append-dynamic>
+		            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+		            <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+		        </append-dynamic>
+		    </behavior>
+		</completion>
+		<completion string="info object vars">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+					<transform-into>(?1:$1: ${1:object} ${2:?pattern?}$0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+	    <completion string="info object isa class">
+	    	<behavior>
 	            <append-dynamic>
 	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:subcommand object} ${2:?arg ...?}$0)</transform-into>
+	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info object isa metaclass">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info object isa mixin">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object} ${2:class}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info object isa object">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
+	            </append-dynamic>
+	        </behavior>
+	    </completion>
+	    <completion string="info object isa typeof">
+	    	<behavior>
+	            <append-dynamic>
+	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
+	                <transform-into>(?1:$1: ${1:object} ${2:class}$0)</transform-into>
 	            </append-dynamic>
 	        </behavior>
 	    </completion>
@@ -4739,255 +4952,6 @@ THE SOFTWARE.
 	<set name="com.rosensteiner.Tcl.function.memory.validate" casesensitive="true">
 		<completion string="on" />
 		<completion string="off" />
-	</set>
-	<!--info options-->
-	<set name="com.rosensteiner.Tcl.function.info.class" casesensitive="true">
-	    <behavior>
-	        <append-dynamic>
-	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	            <transform-into>(?1:: $0)</transform-into>
-	        </append-dynamic>
-	    </behavior>
-	    <completion string="call">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="constructor">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="definition">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="destructor">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="filters">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="forward">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="instances">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:?pattern?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="methods">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:?options...?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="methodtype">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:method}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="mixins">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="subclasses">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class} ${2:?pattern?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="superclasses">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="variables">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	</set>
-	<set name="com.rosensteiner.Tcl.function.info.object" casesensitive="true">
-	    <behavior>
-	        <append-dynamic>
-	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	            <transform-into>(?1:: $0)</transform-into>
-	        </append-dynamic>
-	    </behavior>
-	    <completion string="call">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object} ${2:method}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="class">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object} ${2:?className?}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="definition">
-	    	<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:object} ${2:?method?}$0)</transform-into>
-				</append-dynamic>
-			</behavior>
-	    </completion>
-	    <completion string="filters">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="forward">
-	    	<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:object} ${2:?method?}$0)</transform-into>
-				</append-dynamic>
-			</behavior>
-	    </completion>
-	    <completion string="methods">
-	    	<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:object} ${2:?option...?}$0)</transform-into>
-				</append-dynamic>
-			</behavior>
-	    </completion>
-	    <completion string="methodtype">
-	    	<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:object} ${2:method}$0)</transform-into>
-				</append-dynamic>
-			</behavior>
-	    </completion>
-	    <completion string="mixins">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="namespace">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="variables">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="vars">
-	    	<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-					<transform-into>(?1:$1: ${1:object} ${2:?pattern?}$0)</transform-into>
-				</append-dynamic>
-			</behavior>
-	    </completion>
-	    <completion string="isa class">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="isa metaclass">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="isa mixin">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object} ${2:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="isa object">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
-	    <completion string="isa typeof">
-	    	<behavior>
-	            <append-dynamic>
-	                <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
-	                <transform-into>(?1:$1: ${1:object} ${2:class}$0)</transform-into>
-	            </append-dynamic>
-	        </behavior>
-	    </completion>
 	</set>
 	
 	<set name="com.rosensteiner.Tcl.function.info.class.methods" casesensitive="true">

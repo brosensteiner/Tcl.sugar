@@ -96,7 +96,7 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<zone name="tcl.options.oo.objdefine">
+			    	<zone name="tcl.options.options-oo.objdefine">
 			    	    <expression>\b(class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\b</expression>
 			    	</zone>
 			    	<include syntax="language-root.tcl" />
@@ -118,7 +118,7 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<zone name="tcl.options.oo.define">
+			    	<zone name="tcl.options.options-oo.define">
 			    	    <expression>\b(constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\b</expression>
 			    	</zone>
 			    	<include syntax="language-root.tcl" />
@@ -799,10 +799,10 @@ THE SOFTWARE.
         	</zone>
         	
         	<!--this two zones are for the options when used as subcommands in ::oo, discerning between the two is not possible, because the options have mostly the same name and none is the complete subset of the other, but Tcl.css placeholder file handles it as good as it can-->
-        	<zone name="tcl.options.oo.objdefine">
+        	<zone name="tcl.options.options-oo.objdefine">
         	    <expression>\b(class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\b</expression>
         	</zone>
-        	<zone name="tcl.options.oo.define">
+        	<zone name="tcl.options.options-oo.define">
         	    <expression>\b(constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\b</expression>
         	</zone>
         			
