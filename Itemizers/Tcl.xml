@@ -41,39 +41,28 @@ THE SOFTWARE.
 		<selector>tcl.class:has-child(name:capture(name))</selector>
 	</recipe>
 	
-	<recipe name="tcl.if">
+	<!--<recipe name="tcl.container.control-if-argument">
 		<class>ESJSControlBlockItem</class>
-		<selector>tcl.keyword[text="if"]:capture(itemizer-firstused)</selector>
-	</recipe>
+		<start-selector>tcl.keyword.control.start:capture(itemizer-firstused) + tcl.punctuation.open-brace</start-selector>
+		<end-selector>tcl.punctuation.close-brace</end-selector>
+		<subrecipes>
+			<include-root-recipes/>
+		</subrecipes>
+	</recipe>-->
 	
-	<recipe name="tcl.elseif">
+	<recipe name="tcl.control-container-start">
 		<class>ESJSControlBlockItem</class>
-		<selector>tcl.keyword[text="elseif"]:capture(itemizer-firstused)</selector>
+		<selector>tcl.container.control-if-argument:capture(name)</selector>
+	</recipe>
+
+	<recipe name="tcl.control-start">
+		<class>ESJSControlBlockItem</class>
+		<selector>tcl.keyword.control.start:capture(itemizer-firstused) + s:capture(open-parameters) + *:capture(close-parameters)</selector>
 	</recipe>
 	
 	<recipe name="tcl.else">
 		<class>ESJSControlBlockItem</class>
-		<selector>tcl.keyword[text="else"]:capture(itemizer-firstused)</selector>
-	</recipe>
-	
-	<recipe name="tcl.container.while-block">
-		<class>ESJSControlBlockItem</class>
-		<selector>tcl tcl.keyword[text='while']:capture(itemizer-firstused)</selector>
-	</recipe>
-	
-	<recipe name="tcl.container.foreach">
-		<class>ESJSControlBlockItem</class>
-		<selector>tcl tcl.keyword[text='foreach']:capture(name)</selector>
-	</recipe>
-	
-	<recipe name="tcl.container.switch">
-		<class>ESJSControlBlockItem</class>
-		<selector>tcl tcl.keyword[text='switch']:capture(name)</selector>
-	</recipe>
-	
-	<recipe name="tcl.container.for">
-		<class>ESJSControlBlockItem</class>
-		<selector>tcl tcl.keyword[text='for']:capture(name)</selector>
+		<selector>tcl.keyword[text="else"]:capture(name)</selector>
 	</recipe>
 	
 	<!--since tcl uses "{" and "}" virtually everywhere for everything (EIAS - everything is a string in tcl) there is no chance to get a perfect code folding and inspector-view like in ruby.sugar or lua.sugar for example, but with this itemizer it is not so bad:-->

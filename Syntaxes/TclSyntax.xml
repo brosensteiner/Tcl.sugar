@@ -30,7 +30,7 @@ THE SOFTWARE.
     
 		<include collection="Invalid" />
 		<zone name="tcl.comment.shebang">
-			<expression>^(#!).*?\b(tclsh|wish)\b.*?$|^(#!).*?\benv\s+?tclsh.*?$</expression>
+			<expression>^(#!).*?\b(tcl(?:sh)?|wish)\b.*$|^(#!).*?\benv\s+?tcl(?:sh)?.*$</expression>
 			<capture number="1" name="punctuation.definition.begin"/>
 		</zone>
 		<include collection="Numeric" />
@@ -99,7 +99,7 @@ THE SOFTWARE.
 			    	<zone name="tcl.options.options-oo.objdefine">
 			    	    <expression>\b(class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\b</expression>
 			    	</zone>
-			    	<include syntax="language-root.tcl" />
+			    	<include syntax="$self" />
 			    </subzones>
 			</zone>
 			
@@ -121,7 +121,7 @@ THE SOFTWARE.
 			    	<zone name="tcl.options.options-oo.define">
 			    	    <expression>\b(constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\b</expression>
 			    	</zone>
-			    	<include syntax="language-root.tcl" />
+			    	<include syntax="$self" />
 			    </subzones>
 			</zone>
 			
@@ -172,7 +172,7 @@ THE SOFTWARE.
 			    </ends-with>
 			    <subzones>
 			    	<include collection="OperatorsNotInQuotesAllowed" />
-			    	<include syntax="language-root.tcl" />
+			    	<include syntax="$self" />
 			    </subzones>
 			</zone>
 		</collection>
@@ -188,7 +188,7 @@ THE SOFTWARE.
 			        <capture number="0" name="tcl.punctuation.close-parenthesis"/>
 			    </ends-with>
 			    <subzones>
-			    	<include syntax="language-root.tcl" />
+			    	<include syntax="$self" />
 			    </subzones>
 			</zone>
 		</collection>
@@ -323,8 +323,23 @@ THE SOFTWARE.
 		
 		<collection name="FlowControl">
 		
+			<zone name="tcl.container.control-if-argument">
+			    <starts-with>
+			        <expression>\b(for(?:each)?|while|(?:else)?if|(?:tr|finall)y|switch)\s+(\{)</expression>
+			        <capture number="1" name="tcl.keyword.control.start"/>
+			        <capture number="2" name="tcl.punctuation.open-brace"/>
+			    </starts-with>
+			    <ends-with>
+			        <expression>\}</expression>
+			        <capture number="0" name="tcl.punctuation.close-brace"/>
+			    </ends-with>
+			    <subzones>
+			    	<include syntax="$self" />
+			    </subzones>
+			</zone>
+		
 			<zone name="tcl.keyword.control.start">
-				<expression>\b(for(?:each)?|while|if|(?:tr|finall)y)\b|(?&lt;!\?)\?(?!\?)</expression>
+				<expression>\b(for(?:each)?|while|(?:else)?if|(?:tr|finall)y)\b|(?&lt;!\?)\?(?!\?)</expression>
 			</zone>
 			<!--switch has options, so it needs function.call zone-->
 			<zone name="tcl.keyword.control.function-call.start">
@@ -332,7 +347,7 @@ THE SOFTWARE.
 			</zone>
 		
 			<zone name="tcl.keyword.control.additional">
-				<expression>\b(else(?:if)?|then)\b|(?&lt;!:):(?!:)</expression>
+				<expression>\b(else|then)\b|(?&lt;!:):(?!:)</expression>
 			</zone>
 					
 			<zone name="tcl.keyword.control.flow">
@@ -493,7 +508,7 @@ THE SOFTWARE.
         			<capture number="1" name="tcl.punctuation.close-brace"/>
         		</ends-with>
         		<subzones>
-        			<include syntax="language-root.tcl" />
+        			<include syntax="$self" />
         		</subzones>
         	</zone>
         	<!--regex switch in e.g. lsearch-->
@@ -508,7 +523,7 @@ THE SOFTWARE.
         			<capture number="1" name="tcl.punctuation.close-brace"/>
         		</ends-with>
         		<subzones>
-        			<include syntax="language-root.tcl" />
+        			<include syntax="$self" />
         		</subzones>
         	</zone>
         	<!--catch assigns a variable so here is a zone definition for it-->
@@ -525,7 +540,7 @@ THE SOFTWARE.
         	        <capture number="3" name="tcl.var.catch-options-var"/>
         	    </ends-with>
         	    <subzones>
-        	    	<include syntax="language-root.tcl" />
+        	    	<include syntax="$self" />
         	    </subzones>
         	</zone>
         	<!--that expr don´t get mixed up with math functions and parenthesis can be highlighted:-->
@@ -542,7 +557,7 @@ THE SOFTWARE.
         	    <subzones>
         	    	<include collection="Operators" />
         	    	<include collection="Parenthesis" />
-        	    	<include syntax="language-root.tcl" />
+        	    	<include syntax="$self" />
         	    </subzones>
         	</zone>
         	
@@ -786,7 +801,7 @@ THE SOFTWARE.
         			<capture number="0" name="tcl.punctuation.close-parenthesis"/>
         		</ends-with>
         		<subzones>
-        			<include syntax="language-root.tcl" />
+        			<include syntax="$self" />
         		</subzones>
         	</zone>
         	
@@ -886,7 +901,7 @@ THE SOFTWARE.
         		<subzones>
         			<include collection="Operators" />
         			<include collection="Parenthesis" />
-        			<include syntax="language-root.tcl" />
+        			<include syntax="$self" />
         			<zone>
         				<expression>,</expression>
         				<capture number="0" name="tcl.keyword.punctuation.comma"/>
@@ -906,28 +921,32 @@ THE SOFTWARE.
         		<expression>\bend\b</expression>
         	</zone>
         
-        	<zone name="tcl.numeric.level-specifier">
+        	<zone name="tcl.constant.numeric.level-specifier">
         		<expression>(?&lt;![\w?!:\-\.\$])#\d+\b</expression>
         	</zone>
-        	
-        	<zone><!--"." after number-->
-        		<expression>(?&lt;![\w!\.\$])(-?\d+\.)(?!\w)</expression>
-        		<capture number="1" name="tcl.constant.numeric.point"/>
-        	</zone>
-        	
-   			<zone name="tcl.numeric.normal">
+        	        	
+   			<zone name="tcl.constant.numeric.integer">
+				<expression>(?&lt;![\w!\.\$])(-?\d+)(?!\w|\.[\w?!:\.])</expression>
+			</zone>
+						
+			<zone name="tcl.constant.numeric.float">
 				<expression>(?&lt;![\w!\.\$])((-?\d+(\.\d+)?([eE][+-]?\d+)?|-?\.\d+([eE]-?\d+)?))(?!\w|\.[\w?!:\.])</expression>
 			</zone>
 			
-			<zone name="tcl.numeric.octal">
+			<zone><!--"." after number-->
+				<expression>(?&lt;![\w!\.\$])(-?\d+)(?!\w)</expression>
+				<capture number="1" name="tcl.constant.numeric.integer"/>
+			</zone>
+			
+			<zone name="tcl.constant.numeric.octal">
 				<expression>\\[0-7]{1,3}\b</expression>
 			</zone>
 			
-			<zone name="tcl.numeric.hexadecimal">
+			<zone name="tcl.constant.numeric.hexadecimal">
 				<expression>\\0?x\h{1,2}\b</expression>
 			</zone>
 			
-			<zone name="tcl.numeric.unicode">
+			<zone name="tcl.constant.numeric.unicode">
 				<expression>(?:\\u\h{1,4}|\\U\h{1,8})\b</expression>
 			</zone>
 			
@@ -946,7 +965,7 @@ THE SOFTWARE.
         			<capture number="0" name="tcl.punctuation.close-parenthesis"/>
         		</ends-with>
         		<subzones>
-        			<include syntax="language-root.tcl" />
+        			<include syntax="$self" />
         		</subzones>
         	</zone>
         	
