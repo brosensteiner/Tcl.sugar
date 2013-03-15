@@ -33,6 +33,8 @@ tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword
 tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 
+tcl.regex:has-child(function-call[text='regsub']) + s + subst + s + subst + s + word,
+
 tcl.function-call[text='regexp'] + s + subst + s + word,
 tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + word,
 tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) + s + word,
@@ -40,8 +42,6 @@ tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyw
 tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
 tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-
-tcl.regex:has-child(function-call[text='regsub']) + s + subst + s + subst + s + word,
 
 tcl.function-call[text='regsub'] + s + subst + s + subst + s + subst + s + word,
 

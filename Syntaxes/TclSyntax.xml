@@ -25,7 +25,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <syntax name="language-root.tcl">
-
+	<!--in Tcl everything is a string (EIAS), so defining proper zones is really a challenge :).
+	Many things have to be hardcoded in the zones-->
     <zones>
     
 		<include collection="Invalid" />
@@ -80,7 +81,7 @@ THE SOFTWARE.
 				<capture number="2" name="tcl.command.function.name"/>
 			</zone>
 			
-			<!--this zone´s makes it possible to highlight ::oo options in it-->
+			<!--this zone´s makes it possible to highlight ::oo options in it (e.g. method)-->
 			<zone name="tcl.container.function.oo.oo-object">
 			    <starts-with>
 			        <expression>(::|\s|^)?(oo)(::)(objdefine|object\s+(?:create|new))\s+([^"\[][^\[\s]*)\s+(\{)</expression>
@@ -224,7 +225,7 @@ THE SOFTWARE.
 			</zone>
 			
 			<!--this block comment is actually a convinient way to write comments in tcl-->
-			<zone name="tcl.comment.block.task"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real block comments... -->
+			<zone name="tcl.comment.block.task"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
 			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?(?=.*?\b(?i:FIX ?ME|TODO)\b).*?(?&lt;!\\)(\\)\s*$</expression>
 			        <capture number="1" name="punctuation.definition.begin"/>
@@ -509,13 +510,32 @@ THE SOFTWARE.
         	<zone name="tcl.keyword.command.argument-expansion">
         		<expression>\{\*\}</expression>
         	</zone>
-        	<!--for regex/regsub syntax highlighting (variable(s) at end of command), works only when the searched string is a single zone see Tcl.css (no way to get it better :()-->
-			<zone name="tcl.regex">
+        	<!--for regex/regsub syntax highlighting (variable(s) at end of command). Works only when the searched string is a single zone see Tcl.css (no way to get it better).-->
+			<zone name="tcl.regex.regsub">
         		<starts-with>
-        			<expression>\b(regsub|regexp)\s+((?:-\w+\s+)+)?(\{)</expression>
+        			<expression>\b(regsub)\s+(((?:-\w+\s+)+)?(?:(--(?!-))\s+)?)(\{)</expression>
         			<capture number="1" name="tcl.command.function-call"/>
-        			<capture number="2" name="tcl.tcl-keyword.property-name"/>
-        			<capture number="3" name="tcl.punctuation.open-brace"/>
+        			<capture number="2" name="tcl.zone-for-regex-switches-code-completion"/>
+        			<capture number="3" name="tcl.tcl-keyword.property-name"/>
+        			<capture number="4" name="tcl.tcl-keyword.property-name"/>
+        			<capture number="5" name="tcl.punctuation.open-brace"/>
+        		</starts-with>
+        		<ends-with>
+        			<expression>(\})</expression>
+        			<capture number="1" name="tcl.punctuation.close-brace"/>
+        		</ends-with>
+        		<subzones>
+        			<include syntax="$self" />
+        		</subzones>
+        	</zone>
+        	<zone name="tcl.regex.regexp">
+        		<starts-with>
+        			<expression>\b(regexp)\s+(((?:-\w+\s+)+)?(?:(--(?!-))\s+)?)(\{)</expression>
+        			<capture number="1" name="tcl.command.function-call"/>
+        			<capture number="2" name="tcl.zone-for-regex-switches-code-completion"/>
+        			<capture number="3" name="tcl.tcl-keyword.property-name"/>
+        			<capture number="4" name="tcl.tcl-keyword.property-name"/>
+        			<capture number="5" name="tcl.punctuation.open-brace"/>
         		</starts-with>
         		<ends-with>
         			<expression>(\})</expression>
