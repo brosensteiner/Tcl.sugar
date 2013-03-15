@@ -199,9 +199,20 @@ THE SOFTWARE.
 		</collection>
 		
 		<collection name="Markup">
+		
 			<zone name="markup.link"><!--stolen from php sugar - really crazy regex :)-->
 				<expression>(?i)\b(?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()&lt;>]+|\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\))+(?:\(([^\s()&lt;>]+|(\([^\s()&lt;>]+\)))*\)|[^\s`!()\[\]{};:'".,&lt;>?«»“”‘’])</expression>
 			</zone>
+			
+		</collection>
+		
+		<collection name="BlockCommentHelper">
+		
+			<zone>
+				<expression>(\\)\s*$</expression>
+				<capture number="1" name="tcl.punctuation.delimiter.backslash"/>
+			</zone>
+			
 		</collection>
 	
 		<collection name="Comments">
@@ -215,13 +226,15 @@ THE SOFTWARE.
 			<!--this block comment is actually a convinient way to write comments in tcl-->
 			<zone name="tcl.comment.block.task"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real block comments... -->
 			    <starts-with>
-			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?(?=.*?\b(?i:FIX ?ME|TODO)\b).*?(?&lt;!\\)\\\s*$</expression>
+			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?(?=.*?\b(?i:FIX ?ME|TODO)\b).*?(?&lt;!\\)(\\)\s*$</expression>
 			        <capture number="1" name="punctuation.definition.begin"/>
+			        <capture number="2" name="punctuation.delimiter.backslash"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>[^\\]\s*\n|^\s*\n</expression><!--TODO: don´t know why i can not catch empty line ...-->
+			        <expression>[^\\]\s*$</expression>
 			    </ends-with>
 			    <subzones>
+			    	<include collection="BlockCommentHelper"/>
 			    	<include collection="Markup"/>
 			    </subzones>
 			</zone>
@@ -239,16 +252,17 @@ THE SOFTWARE.
 			    </subzones>
 			</zone>
 		
-			<!--this block comment is actually a convinient way to write comments in tcl-->
-			<zone name="tcl.comment.block"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real block comments... -->
+			<zone name="tcl.comment.block">
 			    <starts-with>
-			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)\\\s*\n</expression>
+			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)(\\)\s*$</expression>
 			        <capture number="1" name="punctuation.definition.begin"/>
+			        <capture number="2" name="punctuation.delimiter.backslash"/>
 			    </starts-with>
 			    <ends-with>
-			        <expression>[^\\]\s*\n|^\s*\n</expression><!--TODO: don´t know why i can not catch empty line ...-->
+			        <expression>[^\\]\s*$</expression>
 			    </ends-with>
 			    <subzones>
+			    	<include collection="BlockCommentHelper"/>
 			    	<include collection="Markup"/>
 			    </subzones>
 			</zone>
@@ -265,8 +279,8 @@ THE SOFTWARE.
 			    	<include collection="Markup"/>
 			    </subzones>
 			</zone>
-			
-			<zone name="tcl.comment.block"><!--awkward tcl block comment ;)-->
+			<!--awkward tcl block comment ;) (code will not be executed in this if)-->
+			<zone name="tcl.comment.block">
 			    <starts-with>
 			        <expression>if\s+0\s+\{</expression>
 			    </starts-with>
