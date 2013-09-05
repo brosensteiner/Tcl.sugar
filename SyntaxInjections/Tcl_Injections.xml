@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <injections>
-	<!--supa dupa über ugly hack, but otherwise i can not make generic code completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone to operate on). The downside is that now there are everywhere "s" zones, but code completion is now fairly intelligent-->
+	<!--supa dupa über ugly hack, but otherwise i can not make generic code-completion with variables (i.e. :capture(variable), code completion in Espresso needs a zone for triggering). The downside is that now there are everywhere "s" zones, but code completion is now fairly intelligent-->
 	
 	<injection name="tcl.injection.zone-helper" selector="tcl, tcl *" action="attach-before-target">
 	    <include collection="ZoneHelper" />
@@ -33,7 +33,8 @@ THE SOFTWARE.
 	
 	<!--injects the regex.sugar (every regex zone in Tcl gets it)-->
     <injection name="injection.regex" selector="tcl tcl.regex" action="insert-before-children">
-	    <include syntax="name.elliottcable.Espresso.Syntax.Expression.Regex" />
+    	<include syntax="language-root.regex" /><!--the official Espresso regex.sugar! :)-->
+	    <include syntax="regex.replace" />
     </injection>
       
     <library>

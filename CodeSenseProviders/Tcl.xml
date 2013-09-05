@@ -25,7 +25,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 
-<!-- code completion in Tcl is not trivial! switches (-exampleswitch) will be suggested based on the procedure or sometimes also combined with options before it (most general approach), so it can happen that there is a suggestion when one types "-" which sould not be there. Anyway the suggestions correspond to the procedure before it. Also spaces in commands make problems, only approach i found is this here to handle these cases-->
+<!-- code completion in Tcl is not trivial!, which is the reason for this verbose document here. Switches (-exampleswitch) will be suggested based on the procedure or sometimes also combined with options before it (most general approach), so it can happen that there is a suggestion when one types "-" which sould not be there. Anyway the suggestions correspond to the procedure and/or option(s) before it. Also spaces in commands make problems, only approach I found is this here to handle these cases. TODO: it is possible in Tcl to extend a codeline with '\', this breaks the code-completions. Essentially this means I have to almost double the code-sense-providers (will be done when i´m shure all other code-completion works). And even then one can break code-completion, but in my opinion this would be bad written code. The next issue are the zones in general for code-completion (see Tcl_injection.xml)
+-->
 
 <codesense>
 	
@@ -35,22 +36,23 @@ THE SOFTWARE.
      	<completions>com.rosensteiner.Tcl.functions-with-option</completions>
      	<complete-match>(?&lt;!\\|_|-|\$)\b(encoding|clock|zlib|package|namespace|prefix|dict|array|binary|history|info|string|file|chan|trace|after|interp|memory) [a-zA-Z0-9_ ]*</complete-match>
     </provider>
+    
     <!--oo special (should be available everywhere)-->
     <provider>
      	<selector>tcl, tcl *</selector>
      	<completions>com.rosensteiner.Tcl.functions-oo-class</completions>
      	<completions>com.rosensteiner.Tcl.functions-oo-object</completions>
-     	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class )\b[a-zA-Z0-9_]*</complete-match>
+     	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory)\b[a-zA-Z0-9_]*</complete-match>
     </provider>
-    
-    <!--general-->
+
+	<!--general-->
 	<provider>
 	 	<selector>tcl, tcl *</selector>
 	 	<completions>com.rosensteiner.Tcl.functions</completions><!--procs without options-->
 	 	<completions>com.rosensteiner.Tcl.mathfunc</completions>
 	 	<completions>com.rosensteiner.Tcl.global-variables</completions>
 	 	<completions>com.rosensteiner.Tcl.global-procedures</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z0-9_]*</complete-match>
 	</provider>
 	
 	<!--procs with :: (triggering with '::' makes suggestions fewer)-->
@@ -64,12 +66,12 @@ THE SOFTWARE.
 	<provider>
 	 	<selector>tcl.container.oo.oo-class *</selector>
 	 	<completions>com.rosensteiner.Tcl.function.oo.class-define</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	<provider>
 	 	<selector>tcl.container.oo.oo-object *</selector>
 	 	<completions>com.rosensteiner.Tcl.function.oo.object-objdefine</completions>
-	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	<provider>
 	 	<selector>tcl.options.oo.oo-class + s + * + s + * + *</selector>
@@ -122,19 +124,19 @@ THE SOFTWARE.
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	<!--proc option name nummeric option (chan seek)-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + options:capture(options) + s + * + s + numeric + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}.${options}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	<!--proc name option (fileevent)-->
 	<provider>
 		<selector>tcl function-call:capture(name) + s + * + s + * + *</selector>
 		<completions>com.rosensteiner.Tcl.function.${name}</completions>
-		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class )\b[a-zA-Z_]*</complete-match>
+		<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<!--proc option option-->
@@ -503,7 +505,7 @@ THE SOFTWARE.
 		<complete-match>-[a-zA-Z0-9\-]*</complete-match>
 	</provider>
 	
-	<!--super special for regexp/regsub :)-->
+	<!--super special for regexp/regsub, because they are a syntax zone for highlighting of the variable at the end of a regexp/regsub-->
 	<provider>
 		<selector>tcl tcl.regex.regsub zone-for-regex-switches-code-completion *</selector>
 		<completions>com.rosensteiner.Tcl.function.regsub</completions>

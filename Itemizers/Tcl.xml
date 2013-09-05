@@ -41,15 +41,6 @@ THE SOFTWARE.
 		<selector>tcl.class:has-child(name:capture(name))</selector>
 	</recipe>
 	
-	<!--<recipe name="tcl.container.control-if-argument">
-		<class>ESJSControlBlockItem</class>
-		<start-selector>tcl.keyword.control.start:capture(itemizer-firstused) + tcl.punctuation.open-brace</start-selector>
-		<end-selector>tcl.punctuation.close-brace</end-selector>
-		<subrecipes>
-			<include-root-recipes/>
-		</subrecipes>
-	</recipe>-->
-	
 	<recipe name="tcl.control-container-start">
 		<class>ESJSControlBlockItem</class>
 		<selector>tcl.container.control-if-argument:capture(name)</selector>
@@ -62,10 +53,10 @@ THE SOFTWARE.
 	
 	<recipe name="tcl.else">
 		<class>ESJSControlBlockItem</class>
-		<selector>tcl.keyword[text="else"]:capture(name)</selector>
+		<selector>tcl.keyword.control[text="else"]:capture(name)</selector>
 	</recipe>
 	
-	<!--since tcl uses "{" and "}" virtually everywhere for everything (EIAS - everything is a string in tcl) there is no chance to get a perfect code folding and inspector-view like in ruby.sugar or lua.sugar for example, but with this itemizer it is not so bad:-->
+	<!--since tcl uses "{" and "}" virtually everywhere for everything and definitions of functions and the like have so much - but nice :) -  syntactic sugar (EIAS - everything is a string in tcl) there is no chance to get a perfect code folding and inspector-view like in ruby.sugar or lua.sugar for example, but with this itemizer it is not so bad:-->
 	<recipe name="tcl.container.balanced-braces">
 		<class>ESCodeBlockItem</class>
 		<start-selector>tcl open-brace</start-selector>

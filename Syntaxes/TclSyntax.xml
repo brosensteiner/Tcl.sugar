@@ -77,8 +77,8 @@ THE SOFTWARE.
 		
 			<zone name="tcl.command.function">
 				<expression>\b(proc)\s+([^"\[][^\[\s]*)</expression>
-				<capture number="1" name="tcl.command.function.function-call"/>
-				<capture number="2" name="tcl.command.function.name"/>
+				<capture number="1" name="tcl.keyword.storage.type"/><!--called it like in javascript sugar-->
+				<capture number="2" name="tcl.name"/>
 			</zone>
 			
 			<!--this zone´s makes it possible to highlight ::oo options in it (e.g. method)-->
@@ -89,7 +89,7 @@ THE SOFTWARE.
 			        <capture number="2" name="tcl.command.function-call"/>
 			        <capture number="3" name="tcl.punctuation.namespace.s"/>
 			        <capture number="4" name="tcl.options.oo"/>
-			        <capture number="5" name="tcl.command.function.name"/>
+			        <capture number="5" name="tcl.name"/>
 			        <capture number="6" name="tcl.punctuation.open-brace"/>
 			    </starts-with>
 			    <ends-with>
@@ -111,7 +111,7 @@ THE SOFTWARE.
 			        <capture number="2" name="tcl.command.function-call"/>
 			        <capture number="3" name="tcl.punctuation.namespace.s"/>
 			        <capture number="4" name="tcl.options.oo"/>
-			        <capture number="5" name="tcl.command.function.name"/>
+			        <capture number="5" name="tcl.name"/>
 			        <capture number="6" name="tcl.punctuation.open-brace"/>
 			    </starts-with>
 			    <ends-with>
@@ -134,7 +134,7 @@ THE SOFTWARE.
 			    <capture number="4" name="tcl.options.oo"/>
 			    <capture number="5" name="tcl.punctuation.s"/>
 			    <capture number="6" name="tcl.options.oo"/>
-			    <capture number="7" name="tcl.command.function.name"/>
+			    <capture number="7" name="tcl.name"/>
 			</zone>
 			
 		</collection>
@@ -211,7 +211,7 @@ THE SOFTWARE.
 		
 			<zone>
 				<expression>(\\)\s*$</expression>
-				<capture number="1" name="tcl.punctuation.delimiter.backslash"/>
+				<capture number="1" name="tcl.punctuation.delimiter.backslash.continuation"/>
 			</zone>
 			
 		</collection>
@@ -228,8 +228,8 @@ THE SOFTWARE.
 			<zone name="tcl.comment.block.task"><!--can not catch markup in first line - this is the problem of the tcl comment syntax because there are no real multiline comments... -->
 			    <starts-with>
 			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?(?=.*?\b(?i:FIX ?ME|TODO)\b).*?(?&lt;!\\)(\\)\s*$</expression>
-			        <capture number="1" name="punctuation.definition.begin"/>
-			        <capture number="2" name="punctuation.delimiter.backslash"/>
+			        <capture number="1" name="punctuation.begin"/>
+			        <capture number="2" name="punctuation.delimiter.backslash.continuation"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>[^\\]\s*$</expression>
@@ -243,7 +243,7 @@ THE SOFTWARE.
 			<zone name="tcl.comment.line.task">
 				<starts-with>
 			    	<expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?(?=.*?\b(?i:FIX ?ME|TODO)\b)</expression>
-			    	<capture number="1" name="punctuation.definition.begin"/>
+			    	<capture number="1" name="punctuation.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>\s*$</expression>
@@ -256,8 +256,8 @@ THE SOFTWARE.
 			<zone name="tcl.comment.block">
 			    <starts-with>
 			        <expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?.*?(?&lt;!\\)(\\)\s*$</expression>
-			        <capture number="1" name="punctuation.definition.begin"/>
-			        <capture number="2" name="punctuation.delimiter.backslash"/>
+			        <capture number="1" name="punctuation.begin"/>
+			        <capture number="2" name="punctuation.delimiter.backslash.continuation"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>[^\\]\s*$</expression>
@@ -271,7 +271,7 @@ THE SOFTWARE.
 			<zone name="tcl.comment.line">
 				<starts-with>
 			    	<expression>(?&lt;=;|\s|^|\s\{)(#)[^\d]?</expression>
-			    	<capture number="1" name="punctuation.definition.begin"/>
+			    	<capture number="1" name="punctuation.begin"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>\s*$</expression>
@@ -356,7 +356,7 @@ THE SOFTWARE.
 			<zone name="tcl.keyword.control.start">
 				<expression>\b(for(?:each)?|while|(?:else)?if|(?:tr|finall)y)\b|(?&lt;!\?)\?(?!\?)</expression>
 			</zone>
-			<!--switch has options, so it needs function.call zone-->
+			<!--switch has options, so it needs its own function-call zone-->
 			<zone name="tcl.keyword.control.function-call.start">
 				<expression>\b(switch)\b</expression>
 			</zone>
@@ -423,7 +423,7 @@ THE SOFTWARE.
         	</zone>
         	        	
         </collection>
-        <!--these procuce syntax error when quoted so there is a extra definition to exclude it from quoted stuff:-->
+        <!--these produce a syntax error when quoted and used in 'if', so there is a extra definition to exclude it from quoted stuff:-->
         <collection name="OperatorsNotInQuotesAllowed">
         	
         	<zone name="tcl.tcl-operator.comp-string">
@@ -446,6 +446,7 @@ THE SOFTWARE.
 			</zone>
 		</collection>
         
+        <!--variable expansion stuff:-->
         <collection name="VariableExpansion">
         	<include collection="ArrayVariableExpansion" />
         	<include collection="OtherVariableExpansion" />
@@ -500,11 +501,11 @@ THE SOFTWARE.
         
         <collection name="tclLanguage">
                 
-        	<zone name="tcl.punctuation.delimiter.terminator">
+        	<zone name="tcl.punctuation.delimiter.semicolon.terminator">
         		<expression>;</expression>
         	</zone>
-        	<zone name="tcl.punctuation.delimiter.backslash">
-        		<expression>\\\s*?[\n\r]</expression>
+        	<zone name="tcl.punctuation.delimiter.backslash.continuation">
+        		<expression>\\\s*?$</expression>
         	</zone>
         	
         	<zone name="tcl.keyword.command.argument-expansion">
