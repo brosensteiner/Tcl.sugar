@@ -4,7 +4,7 @@
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
-Copyright (c) 2012 Bernhard Rosensteiner
+Copyright (c) 2014 Bernhard Rosensteiner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ THE SOFTWARE.
 -->
 <codesense version="1.0">
 
-	<set name="com.rosensteiner.Tcl.functions" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.functions" casesensitive="true">
 	
 	    <behavior>
 	        <append-dynamic>
@@ -866,7 +866,7 @@ THE SOFTWARE.
 	    
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.functions-with-colon">
+	<set name="com.brosensteiner.Tcl.functions-with-colon">
 	
 		<!--http-->
 		<completion string="::http::config">
@@ -1079,7 +1079,7 @@ THE SOFTWARE.
 	
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.functions-with-option">
+	<set name="com.brosensteiner.Tcl.functions-with-option">
 		<!--memory-->
 		<completion string="memory active">
 		    <behavior>
@@ -3340,7 +3340,7 @@ THE SOFTWARE.
 	
 	
 	<!--globals-->
-	<set name="com.rosensteiner.Tcl.global-variables" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.global-variables" casesensitive="true">
 	
 	    <behavior>
 	        <append-dynamic>
@@ -3385,7 +3385,7 @@ THE SOFTWARE.
 	    
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.global-procedures" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.global-procedures" casesensitive="true">
 	
 	    <behavior>
 	        <append-dynamic>
@@ -3496,7 +3496,7 @@ THE SOFTWARE.
 	</set>
 	
 	<!--math-->
-	<set name="com.rosensteiner.Tcl.mathfunc" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.mathfunc" casesensitive="true">
 	
 	    <behavior>
 	        <append-dynamic>
@@ -3538,7 +3538,7 @@ THE SOFTWARE.
 	    
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.namespace.ensemble.create" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.ensemble.create" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -3552,7 +3552,7 @@ THE SOFTWARE.
 	    <completion string="-unknown"/>
 	    <completion string="-command"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.ensemble.configure" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.ensemble.configure" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -3566,7 +3566,7 @@ THE SOFTWARE.
 	    <completion string="-unknown"/>
 	    <completion string="-namespace"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.export" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -3575,7 +3575,7 @@ THE SOFTWARE.
 	    </behavior>
 	    <completion string="-clear"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.import" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.import" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -3584,7 +3584,7 @@ THE SOFTWARE.
 	    </behavior>
 	    <completion string="-force"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.which" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.which" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -3595,7 +3595,7 @@ THE SOFTWARE.
 	    <completion string="-variable"/>
 	</set>
 	<!--oo options-->
-	<set name="com.rosensteiner.Tcl.functions-oo-class" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.functions-oo-class" casesensitive="true">
 		<completion string="create">
 			<behavior>
 	            <append-dynamic>
@@ -3622,7 +3622,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.oo.class-define" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.class-define" casesensitive="true">
 		<completion string="constructor">
 			<behavior>
 	            <append-dynamic>
@@ -3728,7 +3728,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.object-objdefine" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.object-objdefine" casesensitive="true">
 		<completion string="class">
 			<behavior>
 	            <append-dynamic>
@@ -3811,7 +3811,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.functions-oo-object" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.functions-oo-object" casesensitive="true">
 		<completion string="destroy" />
 		<completion string="eval">
 			<behavior>
@@ -3855,7 +3855,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.option.filter" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.option.filter" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -3874,7 +3874,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.option.mixin" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.option.mixin" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -3893,7 +3893,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.option.superclass" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.option.superclass" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -3912,7 +3912,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.option.variable" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.option.variable" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -3932,7 +3932,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.oo.objdefine.filter" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.objdefine.filter" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -3951,7 +3951,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.objdefine.mixin" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.objdefine.mixin" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -3970,7 +3970,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.objdefine.superclass" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.objdefine.superclass" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -3989,7 +3989,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.objdefine.variable" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.objdefine.variable" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -4008,7 +4008,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.define.filter" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.define.filter" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -4027,7 +4027,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.define.mixin" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.define.mixin" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -4046,7 +4046,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.define.superclass" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.define.superclass" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -4065,7 +4065,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.oo.define.variable" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.oo.define.variable" casesensitive="true">
 		<completion string="-append">
 			<behavior>
 	            <append-dynamic>
@@ -4086,20 +4086,20 @@ THE SOFTWARE.
 	</set>
 	
 	<!--interp options-->
-	<set name="com.rosensteiner.Tcl.function.interp.cancel" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.interp.cancel" casesensitive="true">
 		<completion string="-unwind" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.interp.create" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.interp.create" casesensitive="true">
 		<completion string="-safe" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.interp.debug" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.interp.debug" casesensitive="true">
 		<completion string="-frame" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.interp.invokehidden" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.interp.invokehidden" casesensitive="true">
 		<completion string="-namespace" />
 		<completion string="-global" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.interp.limit" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.interp.limit" casesensitive="true">
 		<completion string="-command" />
 		<completion string="-granularity" />
 		<completion string="-milliseconds" />
@@ -4107,11 +4107,11 @@ THE SOFTWARE.
 		<completion string="-value" />
 	</set>
 	<!--clock options-->
-	<set name="com.rosensteiner.Tcl.function.clock.clicks" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.clock.clicks" casesensitive="true">
 		<completion string="-milliseconds" /><!--deprecated-->
 		<completion string="-microseconds" /><!--deprecated-->
 	</set>
-	<set name="com.rosensteiner.Tcl.function.clock.format" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.clock.format" casesensitive="true">
 		<completion string="-format">
 			<behavior>
 	            <append-dynamic>
@@ -4138,7 +4138,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.clock.scan" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.clock.scan" casesensitive="true">
 		<completion string="-format">
 			<behavior>
 	            <append-dynamic>
@@ -4174,7 +4174,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	<!--glob options-->
-	<set name="com.rosensteiner.Tcl.function.glob" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.glob" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
@@ -4210,7 +4210,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	<!--lsort options-->
-	<set name="com.rosensteiner.Tcl.function.lsort" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.lsort" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4253,7 +4253,7 @@ THE SOFTWARE.
 	</set>
 	
 	<!--trace options-->
-	<set name="com.rosensteiner.Tcl.function.trace.add" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.trace.add" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4285,7 +4285,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.trace.remove" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.trace.remove" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4317,7 +4317,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.trace.info" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.trace.info" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4351,13 +4351,13 @@ THE SOFTWARE.
 	</set>
 	
 	<!--close options-->
-	<set name="com.rosensteiner.Tcl.function.close" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.close" casesensitive="true">
 		<completion string="read" />
 		<completion string="write" />
 	</set>
 	
 	<!--return options-->
-	<set name="com.rosensteiner.Tcl.function.return" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.return" casesensitive="true">
 		<completion string="-code" />
 		<completion string="-code ok" />
 		<completion string="-code error" />
@@ -4372,12 +4372,12 @@ THE SOFTWARE.
 	</set>
 	
 	<!--tclsh options-->
-	<set name="com.rosensteiner.Tcl.function.tclsh" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.tclsh" casesensitive="true">
 		<completion string="-encoding" />
 	</set>
 	
 	<!--lsearch options-->
-	<set name="com.rosensteiner.Tcl.function.lsearch" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.lsearch" casesensitive="true">
 	    <completion string="-exact"/>
 	    <completion string="-glob"/>
 	    <completion string="-regexp"/>
@@ -4413,24 +4413,24 @@ THE SOFTWARE.
 	</set>
 	
 	<!--fcopy options-->
-	<set name="com.rosensteiner.Tcl.function.fcopy" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.fcopy" casesensitive="true">
 		<completion string="-size" />
 		<completion string="-command" />
 	</set>
 	
 	<!--source options-->
-	<set name="com.rosensteiner.Tcl.function.source" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.source" casesensitive="true">
 		<completion string="-encoding" />
 	</set>
 	
 	<!--socket options-->
-	<set name="com.rosensteiner.Tcl.function.socket" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.socket" casesensitive="true">
 		<completion string="-server" />
 		<completion string="-myaddr" />
 		<completion string="-myport" />
 		<completion string="-async" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.socket.-server" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.socket.-server" casesensitive="true">
 		<completion string="-myaddr" />
 		<completion string="-error" />
 		<completion string="-sockname" />
@@ -4438,34 +4438,34 @@ THE SOFTWARE.
 	</set>
 	
 	<!--puts options-->
-	<set name="com.rosensteiner.Tcl.function.puts" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.puts" casesensitive="true">
 		<completion string="-nonewline" />
 	</set>
 	<!--read options-->
-	<set name="com.rosensteiner.Tcl.function.read" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.read" casesensitive="true">
 		<completion string="-nonewline" />
 	</set>
 	
 	<!--package options-->
-	<set name="com.rosensteiner.Tcl.function.package.present" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.package.present" casesensitive="true">
 		<completion string="-exact" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.package.require" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.package.require" casesensitive="true">
 		<completion string="-exact" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.package.prefer" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.package.prefer" casesensitive="true">
 		<completion string="latest" />
 		<completion string="stable" />
 	</set>
 	
 	<!--load options-->
-	<set name="com.rosensteiner.Tcl.function.load" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.load" casesensitive="true">
 		<completion string="-global" />
 		<completion string="-lazy" />
 	</set>
 	
 	<!--file options-->
-	<set name="com.rosensteiner.Tcl.function.file.attributes" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.file.attributes" casesensitive="true">
 		<completion string="-group" />
 		<completion string="-owner" />
 		<completion string="-permissions" />
@@ -4478,47 +4478,47 @@ THE SOFTWARE.
 		<completion string="-creator" />
 		<completion string="-rsrclength" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.file.copy" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.file.copy" casesensitive="true">
 		<completion string="-force" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.file.delete" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.file.delete" casesensitive="true">
 		<completion string="-force" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.file.rename" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.file.rename" casesensitive="true">
 		<completion string="-force" />
 	</set>
 	
 	<!--namespace options-->
-	<set name="com.rosensteiner.Tcl.function.namespace.export" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.export" casesensitive="true">
 		<completion string="-clear" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.import" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.import" casesensitive="true">
 		<completion string="-force" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.namespace.which" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.namespace.which" casesensitive="true">
 		<completion string="-command" />
 		<completion string="-variable" />
 	</set>
 	
 	<!--exec options-->
-	<set name="com.rosensteiner.Tcl.function.exec" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.exec" casesensitive="true">
 		<completion string="-ignorestderr" />
 		<completion string="-keepnewline" />
 	</set>
 	
 	<!--unset options-->
-	<set name="com.rosensteiner.Tcl.function.unset" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.unset" casesensitive="true">
 		<completion string="-nocomplain" />
 	</set>
 	
 	<!--unload options-->
-	<set name="com.rosensteiner.Tcl.function.unload" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.unload" casesensitive="true">
 		<completion string="-nocomplain" />
 		<completion string="-keeplibrary" />
 	</set>
 	
 	<!--switch options-->
-	<set name="com.rosensteiner.Tcl.function.switch" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.switch" casesensitive="true">
 		<completion string="-exact" />
 		<completion string="-glob" />
 		<completion string="-regexp" />
@@ -4528,14 +4528,14 @@ THE SOFTWARE.
 	</set>
 		
 	<!--subst options-->
-	<set name="com.rosensteiner.Tcl.function.subst" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.subst" casesensitive="true">
 		<completion string="-nobackslashes" />
 		<completion string="-nocommands" />
 		<completion string="-novariables" />
 	</set>
 	
 	<!--regexp options-->
-	<set name="com.rosensteiner.Tcl.function.regexp" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.regexp" casesensitive="true">
 		<completion string="-about" />
 		<completion string="-expanded" />
 		<completion string="-indices" />
@@ -4549,7 +4549,7 @@ THE SOFTWARE.
 	</set>
 	
 	<!--regsub options-->
-	<set name="com.rosensteiner.Tcl.function.regsub" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.regsub" casesensitive="true">
 		<completion string="-expanded" />
 		<completion string="-line" />
 		<completion string="-linestop" />
@@ -4560,14 +4560,14 @@ THE SOFTWARE.
 	</set>
 	
 	<!--prefix options-->
-	<set name="com.rosensteiner.Tcl.function.prefix.match" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.prefix.match" casesensitive="true">
 	    <completion string="-exact"/>
 	    <completion string="-message"/>
 	    <completion string="-error"/>
 	</set>
 	
 	<!--dict options-->
-	<set name="com.rosensteiner.Tcl.function.dict.filter" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.dict.filter" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4580,14 +4580,14 @@ THE SOFTWARE.
 	</set>
 	
 	<!--array options-->
-	<set name="com.rosensteiner.Tcl.function.array.names" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.array.names" casesensitive="true">
 	    <completion string="-exact" />
 	    <completion string="-glob" />
 	    <completion string="-regexp" />
 	</set>
 	
 	<!--try options-->
-	<set name="com.rosensteiner.Tcl.function.try" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.try" casesensitive="true">
 	    <completion string="on">
 	        <behavior>
 	            <append-dynamic>
@@ -4615,7 +4615,7 @@ THE SOFTWARE.
 	</set>
 	
 	<!--::http::options-->
-	<set name="com.rosensteiner.Tcl.function.http.config" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.http.config" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4671,7 +4671,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.http.geturl" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.http.geturl" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4833,7 +4833,7 @@ THE SOFTWARE.
 	</set>
 	
 	<!--string options-->
-	<set name="com.rosensteiner.Tcl.function.string.is" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4845,116 +4845,116 @@ THE SOFTWARE.
 	</set>
 	
 	<!--string property-name-->
-	<set name="com.rosensteiner.Tcl.function.string.compare" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.compare" casesensitive="true">
 		<completion string="-nocase" />
 		<completion string="-length" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.equal" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.equal" casesensitive="true">
 		<completion string="-nocase" />
 		<completion string="-length" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is alnum" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is alnum" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is alpha" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is alpha" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is ascii" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is ascii" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is boolean" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is boolean" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is control" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is control" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is digit" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is digit" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is double" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is double" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is false" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is false" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is graph" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is graph" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is integer" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is integer" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is list" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is list" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is lower" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is lower" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is print" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is print" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is punct" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is punct" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is space" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is space" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is true" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is true" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is upper" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is upper" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is wideinteger" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is wideinteger" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is wordchar" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is wordchar" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.is xdigit" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.is xdigit" casesensitive="true">
 		<completion string="-strict" />
 		<completion string="-failindex" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.map" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.map" casesensitive="true">
 		<completion string="-nocase" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.string.match" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.string.match" casesensitive="true">
 		<completion string="-nocase" />
 	</set>
 	
 	<!--memory options-->
-	<set name="com.rosensteiner.Tcl.function.memory.init" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.memory.init" casesensitive="true">
 		<completion string="on" />
 		<completion string="off" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.memory.trace" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.memory.trace" casesensitive="true">
 		<completion string="on" />
 		<completion string="off" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.memory.validate" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.memory.validate" casesensitive="true">
 		<completion string="on" />
 		<completion string="off" />
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.info.class.methods" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.info.class.methods" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4964,7 +4964,7 @@ THE SOFTWARE.
 	    <completion string="-all"/>
 	    <completion string="-private"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.info.object.methods" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.info.object.methods" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -4975,7 +4975,7 @@ THE SOFTWARE.
 	    <completion string="-private"/>
 	</set>
 	<!--fconfigure options-->
-	<set name="com.rosensteiner.Tcl.function.fconfigure" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.fconfigure" casesensitive="true">
 		<behavior>
 		    <append-dynamic>
 		        <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5092,7 +5092,7 @@ THE SOFTWARE.
 	</set>
 	
 	<!--zlib options-->
-	<set name="com.rosensteiner.Tcl.function.zlib.gunzip" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.gunzip" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
@@ -5102,7 +5102,7 @@ THE SOFTWARE.
 	    <completion string="-headerVar"/>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.zlib.gzip" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.gzip" casesensitive="true">
 	    <completion string="-level">
 	    	<behavior>
 	            <append-dynamic>
@@ -5121,7 +5121,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.zlib.push" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.push" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
@@ -5136,7 +5136,7 @@ THE SOFTWARE.
 	    <completion string="inflate"/>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.zlib.push.compress" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.push.compress" casesensitive="true">
 	    <completion string="-level">
 	    	<behavior>
 	            <append-dynamic>
@@ -5154,7 +5154,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.zlib.push.decompress" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.push.decompress" casesensitive="true">
 	    <completion string="-level">
 	    	<behavior>
 	            <append-dynamic>
@@ -5172,7 +5172,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.zlib.push.deflate" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.push.deflate" casesensitive="true">
 	    <completion string="-level">
 	    	<behavior>
 	            <append-dynamic>
@@ -5190,7 +5190,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.zlib.push.gunzip" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.push.gunzip" casesensitive="true">
 	    <completion string="-level">
 	    	<behavior>
 	            <append-dynamic>
@@ -5208,7 +5208,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.zlib.push.gzip" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.push.gzip" casesensitive="true">
 	    <completion string="-level">
 	    	<behavior>
 	            <append-dynamic>
@@ -5226,7 +5226,7 @@ THE SOFTWARE.
 	        </behavior>
 	    </completion>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.zlib.push.inflate" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.push.inflate" casesensitive="true">
 	    <completion string="-level">
 	    	<behavior>
 	            <append-dynamic>
@@ -5245,7 +5245,7 @@ THE SOFTWARE.
 	    </completion>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.zlib.stream" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.zlib.stream" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
@@ -5281,7 +5281,7 @@ THE SOFTWARE.
 	    <completion string="inflate"/>
 	</set>
 	<!--put zlib function-->
-	<set name="com.rosensteiner.Tcl.function.put" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.put" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
@@ -5293,7 +5293,7 @@ THE SOFTWARE.
 	    <completion string="-fullflush"/>
 	</set>
 	<!--add zlib function-->
-	<set name="com.rosensteiner.Tcl.function.add" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.add" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s+\S)|\s*(\Z|[[:alnum:]])</matched-suffix>
@@ -5305,7 +5305,7 @@ THE SOFTWARE.
 	    <completion string="-fullflush"/>
 	</set>
 	<!--chan options-->
-	<set name="com.rosensteiner.Tcl.function.chan.configure" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.chan.configure" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5375,7 +5375,7 @@ THE SOFTWARE.
 	    <completion string="-header"/>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.chan.seek" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.chan.seek" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5387,7 +5387,7 @@ THE SOFTWARE.
 	    <completion string="end"/>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.seek" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.seek" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5399,7 +5399,7 @@ THE SOFTWARE.
 	    <completion string="end"/>
 	</set>
 
-	<set name="com.rosensteiner.Tcl.function.chan.configure.-translation" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.chan.configure.-translation" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5413,7 +5413,7 @@ THE SOFTWARE.
 	    <completion string="lf"/>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.fileevent" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.fileevent" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5424,7 +5424,7 @@ THE SOFTWARE.
 	    <completion string="writable"/>
 	</set>
 	
-	<set name="com.rosensteiner.Tcl.function.chan.event" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.chan.event" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5434,7 +5434,7 @@ THE SOFTWARE.
 	    <completion string="readable"/>
 	    <completion string="writable"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.chan.copy" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.chan.copy" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5444,7 +5444,7 @@ THE SOFTWARE.
 	    <completion string="-size"/>
 	    <completion string="-command"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.chan.puts" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.chan.puts" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5453,7 +5453,7 @@ THE SOFTWARE.
 	    </behavior>
 		<completion string="-nonewline"/>
 	</set>
-	<set name="com.rosensteiner.Tcl.function.chan.read" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.chan.read" casesensitive="true">
 	    <behavior>
 	        <append-dynamic>
 	            <matched-suffix>(\s*\S)|(\s*[^S])</matched-suffix>
@@ -5464,28 +5464,28 @@ THE SOFTWARE.
 	</set>
 	
 	<!--binary options-->
-	<set name="com.rosensteiner.Tcl.function.binary.encode.base64" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.binary.encode.base64" casesensitive="true">
 		<completion string="-maxlen" />
 		<completion string="-wrapchar" />
 		<completion string="-strict" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.binary.decode.base64" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.binary.decode.base64" casesensitive="true">
 		<completion string="-maxlen" />
 		<completion string="-wrapchar" />
 		<completion string="-strict" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.binary.encode.hex" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.binary.encode.hex" casesensitive="true">
 		<completion string="-strict" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.binary.decode.hex" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.binary.decode.hex" casesensitive="true">
 		<completion string="-strict" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.binary.encode.uuencode" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.binary.encode.uuencode" casesensitive="true">
 		<completion string="-maxlen" />
 		<completion string="-wrapchar" />
 		<completion string="-strict" />
 	</set>
-	<set name="com.rosensteiner.Tcl.function.binary.decode.uuencode" casesensitive="true">
+	<set name="com.brosensteiner.Tcl.function.binary.decode.uuencode" casesensitive="true">
 		<completion string="-maxlen" />
 		<completion string="-wrapchar" />
 		<completion string="-strict" />

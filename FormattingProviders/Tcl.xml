@@ -2,7 +2,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <formatting>
 
-	<provider id="com.rosensteiner.formatting.tcl" language-context="tcl">
+	<provider id="com.brosensteiner.formatting.tcl" language-context="tcl">
 		
 		<template><![CDATA[
 			

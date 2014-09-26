@@ -2,21 +2,21 @@
 <!--TODO: only test, don´t get it to work:-->
 <tool-recipes>
 	
-	<tool type="toolbar" id="com.rosensteiner.text-tools.tcl.execute.html" category="rosensteiner">
+	<tool type="toolbar" id="com.brosensteiner.text-tools.tcl.execute.html" category="brosensteiner">
 	
 		<class>ESTextActionToolbarTool</class>
 		<setup>
-			<main-action-selector>com.rosensteiner.actions.snippets.tcl.MIT-license</main-action-selector>
+			<main-action-selector>com.brosensteiner.actions.snippets.tcl.MIT-license</main-action-selector>
 			<image>ToolNewTag</image>
 		</setup>
 		
 	</tool>
 	
-	<!--<tool type="toolbar" id="com.rosensteiner.text-tools.tcl.execute.html" category="macrabbit">
+	<!--<tool type="toolbar" id="com.brosensteiner.text-tools.tcl.execute.html" category="macrabbit">
 	
 		<class>ESTextActionToolbarTool</class>
 		<setup>
-			<main-action-selector>com.rosensteiner.actions.snippets.tcl.MIT-license</main-action-selector>
+			<main-action-selector>com.brosensteiner.actions.snippets.tcl.MIT-license</main-action-selector>
 			<image>ToolNewTag</image>
 		</setup>
 		

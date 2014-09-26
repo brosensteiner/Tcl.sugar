@@ -5,7 +5,7 @@
     <key>CFBundleName</key>
     <string>Tcl.sugar</string>
     <key>CFBundleIdentifier</key>
-    <string>com.rosensteiner.sugar.Tcl</string>
+    <string>com.brosensteiner.Espresso.Sugar.Tcl</string>
     <key>CFBundleVersion</key>
     <string>0.9</string>
     <!--No need to modify these values-->

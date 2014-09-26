@@ -4,7 +4,7 @@
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
-Copyright (c) 2012 Bernhard Rosensteiner
+Copyright (c) 2014 Bernhard Rosensteiner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ THE SOFTWARE.
 <action-recipes>
 
 <!--new amira theMsg error-->
-    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.error" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <snippet id="com.brosensteiner.actions.snippets.tcl.amira.theMsg.error" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.tcl.amira.code.snippets">
     <title>message error</title>
         <text>theMsg error "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
        <language-context>tcl</language-context>
@@ -35,7 +35,7 @@ THE SOFTWARE.
     </snippet>
     
 <!--new amira theMsg warning-->
-    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.warning" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <snippet id="com.brosensteiner.actions.snippets.tcl.amira.theMsg.warning" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.tcl.amira.code.snippets">
     <title>message warning</title>
         <text>theMsg warning "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
        <language-context>tcl</language-context>
@@ -43,7 +43,7 @@ THE SOFTWARE.
     </snippet>
     
 <!--new amira theMsg question-->
-    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.question" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <snippet id="com.brosensteiner.actions.snippets.tcl.amira.theMsg.question" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.tcl.amira.code.snippets">
     <title>message question</title>
         <text>theMsg question "${1:message}" "${2:btn0-text}" "${3:btn1-text}" "${4:btn2-text}" $0</text>
        <language-context>tcl</language-context>
@@ -51,7 +51,7 @@ THE SOFTWARE.
     </snippet>
     
 <!--new amira theMsg filename-->
-    <snippet id="com.rosensteiner.actions.snippets.tcl.amira.theMsg.filename" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.tcl.amira.code.snippets">
+    <snippet id="com.brosensteiner.actions.snippets.tcl.amira.theMsg.filename" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.tcl.amira.code.snippets">
     <title>message overwrite</title>
         <text>theMsg overwrite ${1:file} $0</text>
        <language-context>tcl</language-context>

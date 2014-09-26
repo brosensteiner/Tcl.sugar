@@ -4,7 +4,7 @@
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
-Copyright (c) 2012 Bernhard Rosensteiner
+Copyright (c) 2014 Bernhard Rosensteiner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,8 +33,8 @@ THE SOFTWARE.
 	
 	<!--injects the regex.sugar (every regex zone in Tcl gets it)-->
     <injection name="injection.regex" selector="tcl tcl.regex" action="insert-before-children">
-    	<include syntax="language-root.regex" /><!--the official Espresso regex.sugar! :)-->
-	    <include syntax="regex.replace" />
+    	<include syntax="language-root.regex" /><!--the official Espresso regex.sugar!-->
+	    <include syntax="regex.replace" /><!--backreferences-->
     </injection>
       
     <library>

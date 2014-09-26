@@ -4,7 +4,7 @@
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
-Copyright (c) 2012 Bernhard Rosensteiner
+Copyright (c) 2014 Bernhard Rosensteiner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,11 +26,11 @@ THE SOFTWARE.
 -->
 <settings>
 
-	<language id="com.rosensteiner.Tcl">
+	<language id="com.brosensteiner.Tcl">
 
 		<root-zone>language-root.tcl</root-zone>
        
-		<name>Tcl</name>
+		<name>tcl</name>
        
 		<detectors>
 			<extension casesensitive="true">tcl</extension><!--tcl-->
@@ -47,7 +47,7 @@ THE SOFTWARE.
 			<name>Tcl</name>
 			<description>Tcl.sugar for Macrabbit´s Espresso with support for VSG´s Amira Tcl Interface</description>
 			<author>Bernhard Rosensteiner</author>
-			<identifier>com.rosensteiner.Sugar.Tcl</identifier>
+			<identifier>com.brosensteiner.Sugar.Tcl</identifier>
 			<version status="shipping">1.0</version>
 			<download format="git">https://github.com/brosensteiner/Tcl.sugar</download>
 		</meta>

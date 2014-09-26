@@ -4,7 +4,7 @@
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
-Copyright (c) 2012 Bernhard Rosensteiner
+Copyright (c) 2014 Bernhard Rosensteiner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ THE SOFTWARE.
 <action-recipes>
 
 	<!--didn´t get "<output>log</output>" to work properly in ShellActions.sugar, so here is it with TEALoader-->
-	<action name="com.rosensteiner.execute.tcl.script.shell.1" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.execute.tcl">
+	<action name="com.brosensteiner.execute.tcl.script.shell.1" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.execute.tcl">
 		<language-context>tcl</language-context>
 		<class>TEALoader</class>
 		<title>execute tcl script in terminal</title>
@@ -40,7 +40,7 @@ THE SOFTWARE.
 			<!--<undo_name>My Action</undo_name>-->
 		</setup>
 	</action>
-	<action name="com.rosensteiner.execute.tcl.script.shell.2" category="tools.Snippets">
+	<action name="com.brosensteiner.execute.tcl.script.shell.2" category="tools.Snippets">
 		<language-context>tcl</language-context>
 	    <class>TEALoader</class>
 		<title>execute tcl script in terminal</title>
@@ -54,7 +54,7 @@ THE SOFTWARE.
 		</setup>
 	</action>
 	
-	<action name="com.rosensteiner.execute.tcl.script.html.1" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.execute.tcl">
+	<action name="com.brosensteiner.execute.tcl.script.html.1" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.execute.tcl">
 		<language-context>tcl</language-context>
 		<title>execute tcl script as html</title>
 		<key-equivalent>command shift r</key-equivalent>
@@ -81,7 +81,7 @@ THE SOFTWARE.
 	    </setup>
 	</action>
 	
-	<action name="com.rosensteiner.execute.tcl.script.html.2" category="tools.Snippets">
+	<action name="com.brosensteiner.execute.tcl.script.html.2" category="tools.Snippets">
 		<language-context>tcl</language-context>
 		<title>execute tcl script as html</title>
 		<key-equivalent>command shift r</key-equivalent>

@@ -3,18 +3,18 @@
 
 	<sort-template>
 		
-		<selector>com.rosensteiner.actions.text.execute.tcl</selector>
-		<selector>com.rosensteiner.actions.text.generic.tcl</selector>
-		<selector>com.rosensteiner.tcl.code.snippets</selector>
-		<selector>com.rosensteiner.tcl.amira.code.snippets</selector>
-		<selector>com.rosensteiner.actions.snippets.tcl</selector>
-		<selector>com.rosensteiner.actions.snippets.tcl.WrapDoubleQuote</selector>
-		<selector>com.rosensteiner.actions.snippets.tcl.WrapSingleQuote</selector>
-		<selector>com.rosensteiner.actions.snippets.tcl.MIT-license</selector>
-		<selector>com.rosensteiner.tcl.code.snippets.separator-procedures</selector>
-		<selector>com.rosensteiner.tcl.code.snippets.separator-loops</selector>
-		<selector>com.rosensteiner.tcl.code.snippets.separator-conditionals</selector>
-		<selector>com.rosensteiner.tcl.code.snippets.separator-misc</selector>
+		<selector>com.brosensteiner.actions.text.execute.tcl</selector>
+		<selector>com.brosensteiner.actions.text.generic.tcl</selector>
+		<selector>com.brosensteiner.tcl.code.snippets</selector>
+		<selector>com.brosensteiner.tcl.amira.code.snippets</selector>
+		<selector>com.brosensteiner.actions.snippets.tcl</selector>
+		<selector>com.brosensteiner.actions.snippets.tcl.WrapDoubleQuote</selector>
+		<selector>com.brosensteiner.actions.snippets.tcl.WrapSingleQuote</selector>
+		<selector>com.brosensteiner.actions.snippets.tcl.MIT-license</selector>
+		<selector>com.brosensteiner.tcl.code.snippets.separator-procedures</selector>
+		<selector>com.brosensteiner.tcl.code.snippets.separator-loops</selector>
+		<selector>com.brosensteiner.tcl.code.snippets.separator-conditionals</selector>
+		<selector>com.brosensteiner.tcl.code.snippets.separator-misc</selector>
 		<selector>*</selector>
 
 	</sort-template>

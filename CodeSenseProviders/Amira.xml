@@ -4,117 +4,117 @@
 
 	<provider>
 	 	<selector>tcl, tcl *</selector>
-	 	<completions>com.rosensteiner.tcl.amira</completions>
+	 	<completions>com.brosensteiner.tcl.amira</completions>
 	 	<complete-match>(?&lt;!\\|_|-|:|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl, tcl *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.data-classes</completions>
+	 	<completions>com.brosensteiner.tcl.amira.data-classes</completions>
 	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl, tcl *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.scriptobject</completions>
+	 	<completions>com.brosensteiner.tcl.amira.scriptobject</completions>
 	 	<complete-match>(?&lt;!\\|_|-|encoding |clock |zlib |package |namespace |namespace ensemble |prefix |dict |array |binary |binary encode |binary decode |history |info |info object isa |info object |info class |string |string is |file |chan |trace |after |interp |memory |oo::object |oo::class |oo::)\b[a-zA-Z_]*</complete-match>
 	</provider>
 	
 	<!--switches-->
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + property-name + s + subst + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + property-name + s + subst + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<!--switches with a backslash between-->
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + backslash + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	
 	<provider>
 	 	<selector>tcl amira.global-procedures:capture(name) + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + property-name + s + subst + s + backslash + s + * + *</selector>
-	 	<completions>com.rosensteiner.tcl.amira.${name}</completions>
+	 	<completions>com.brosensteiner.tcl.amira.${name}</completions>
 	 	<complete-match>-[a-zA-Z]*</complete-match>
 	</provider>
 	

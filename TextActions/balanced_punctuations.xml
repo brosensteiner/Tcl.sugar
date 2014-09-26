@@ -4,7 +4,7 @@
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
-Copyright (c) 2012 Bernhard Rosensteiner
+Copyright (c) 2014 Bernhard Rosensteiner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,84 +26,84 @@ THE SOFTWARE.
 -->
 <action-recipes>
 
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces.padding" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapBraces.padding" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.generic.tcl">
 	    <title>matched curly braces (padded)</title>
 	<text>{ ${EDITOR_SELECTION:${1:...}} }$0</text>
 		<key-equivalent>shift command {</key-equivalent>
 	    <language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces.padding" category="tools.Snippets">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapBraces.padding" category="tools.Snippets">
 	    <title>matched curly braces (padded)</title>
 	<text>{ ${EDITOR_SELECTION:${1:...}} }$0</text>
 		<key-equivalent>shift command {</key-equivalent>
 	    <language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapBraces" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.generic.tcl">
 	    <title>matched curly braces</title>
 	<text>{${EDITOR_SELECTION:${1:...}}}$0</text>
 		<key-equivalent>shift {</key-equivalent>
 	    <language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBraces" category="tools.Snippets">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapBraces" category="tools.Snippets">
 	    <title>matched curly braces</title>
 	<text>{${EDITOR_SELECTION:${1:...}}}$0</text>
 		<key-equivalent>shift {</key-equivalent>
 	    <language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBracket" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapBracket" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.generic.tcl">
 		<title>matched square brackets</title>
 		<key-equivalent>shift [</key-equivalent>
 		<text>[${EDITOR_SELECTION:${1:list}}]$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapBracket" category="tools.Snippets">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapBracket" category="tools.Snippets">
 		<title>matched square brackets</title>
 		<key-equivalent>shift [</key-equivalent>
 		<text>[${EDITOR_SELECTION:${1:list}}]$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapParenthesis" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapParenthesis" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.generic.tcl">
 		<title>matched parenthesis</title>
 		<key-equivalent>cmd (</key-equivalent>
 		<text>\(${EDITOR_SELECTION:${1:...}}\)$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapParenthesis" category="tools.Snippets">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapParenthesis" category="tools.Snippets">
 		<title>matched parenthesis</title>
 		<key-equivalent>cmd (</key-equivalent>
 		<text>\(${EDITOR_SELECTION:${1:...}}\)$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapDoubleQuote" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapDoubleQuote" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.generic.tcl">
 		<title>matched double quotes</title>
 		<key-equivalent>option "</key-equivalent>
 		<text>"${EDITOR_SELECTION:${1:EIAS}}"$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapDoubleQuote" category="tools.Snippets">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapDoubleQuote" category="tools.Snippets">
 		<title>matched double quotes</title>
 		<key-equivalent>option "</key-equivalent>
 		<text>"${EDITOR_SELECTION:${1:EIAS}}"$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapSingleQuote" category="com.rosensteiner.actions.snippets.tcl/com.rosensteiner.actions.text.generic.tcl">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapSingleQuote" category="com.brosensteiner.actions.snippets.tcl/com.brosensteiner.actions.text.generic.tcl">
 		<title>matched single quotes</title>
 		<key-equivalent>option shift '</key-equivalent>
 		<text>'${EDITOR_SELECTION:${1:EIAS}}'$0</text>
 		<language-context>tcl</language-context>
 	</snippet>
 	
-	<snippet id="com.rosensteiner.actions.snippets.tcl.WrapSingleQuote" category="tools.Snippets">
+	<snippet id="com.brosensteiner.actions.snippets.tcl.WrapSingleQuote" category="tools.Snippets">
 		<title>matched single quotes</title>
 		<key-equivalent>option shift '</key-equivalent>
 		<text>'${EDITOR_SELECTION:${1:EIAS}}'$0</text>

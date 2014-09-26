@@ -4,7 +4,7 @@
 @author 	 Bernhard Rosensteiner <brosensteiner@gmail.com>
 @copyright 	 The MIT License
 
-Copyright (c) 2012 Bernhard Rosensteiner
+Copyright (c) 2014 Bernhard Rosensteiner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,33 +27,33 @@ THE SOFTWARE.
 <action-categories>
 
 	<!--Tcl-->
-	<category id="com.rosensteiner.actions.snippets.tcl" show="sub">
+	<category id="com.brosensteiner.actions.snippets.tcl" show="sub">
 		<title>Tcl</title>
 	</category>
 	<!--execute script-->
-	<category id="com.rosensteiner.actions.text.execute.tcl" show="inline separated"></category>
+	<category id="com.brosensteiner.actions.text.execute.tcl" show="inline separated"></category>
 	<!--e.g. balanced_punctuations.xml-->
-	<category id="com.rosensteiner.actions.text.generic.tcl" show="inline separated"></category>
+	<category id="com.brosensteiner.actions.text.generic.tcl" show="inline separated"></category>
 	<!--e.g. ifforwhileswitchcatch_Snippet.xml-->
-	<category id="com.rosensteiner.tcl.code.snippets" show="sub">
+	<category id="com.brosensteiner.tcl.code.snippets" show="sub">
 		<title>Tcl code snippets</title>
 	</category>
 	<!--amira-->
-	<category id="com.rosensteiner.tcl.amira.code.snippets" show="sub">
+	<category id="com.brosensteiner.tcl.amira.code.snippets" show="sub">
 		<title>Amira snippets</title>
 	</category>
 	
 	<!--separators for code snippets-->
-	<category id="com.rosensteiner.tcl.code.snippets.separator-conditionals" show="inline separated">
+	<category id="com.brosensteiner.tcl.code.snippets.separator-conditionals" show="inline separated">
 		<title>conditionals</title>
 	</category>
-	<category id="com.rosensteiner.tcl.code.snippets.separator-procedures" show="inline separated">
+	<category id="com.brosensteiner.tcl.code.snippets.separator-procedures" show="inline separated">
 		<title>procedures</title>
 	</category>
-	<category id="com.rosensteiner.tcl.code.snippets.separator-loops" show="inline separated">
+	<category id="com.brosensteiner.tcl.code.snippets.separator-loops" show="inline separated">
 		<title>loops</title>
 	</category>
-	<category id="com.rosensteiner.tcl.code.snippets.separator-misc" show="inline separated">
+	<category id="com.brosensteiner.tcl.code.snippets.separator-misc" show="inline separated">
 		<title>misc</title>
 	</category>
 
