@@ -77,50 +77,51 @@ THE SOFTWARE.
 		
 			<zone name="tcl.command.definition.function">
 				<expression>\b(proc)\s+([^"\[][^\[\s]*)</expression>
-				<capture number="1" name="tcl.keyword.control"/>
-				<capture number="2" name="tcl.name"/>
+				<capture number="1" name="keyword.control"/>
+				<capture number="2" name="name"/>
 			</zone>
 			
 			<!--this zone´s makes it possible to highlight ::oo options in it (e.g. method)-->
-			<zone name="tcl.container.function.oo.oo-object">
+			<zone name="tcl.container.definition.function.oo.oo-object">
 			    <starts-with>
 			        <expression>(::|\s|^)?(oo)(::)(objdefine|object\s+(?:create|new))\s+([^"\[][^\[\s]*)\s+(\{)</expression>
-			        <capture number="1" name="tcl.punctuation.namespace"/>
-			        <capture number="2" name="tcl.command.function-call"/>
-			        <capture number="3" name="tcl.punctuation.namespace.s"/>
-			        <capture number="4" name="tcl.options.oo"/>
-			        <capture number="5" name="tcl.name"/>
-			        <capture number="6" name="tcl.punctuation.open-brace"/>
+			        <capture number="1" name="punctuation.namespace"/>
+			        <capture number="2" name="command.function-call"/>
+			        <capture number="3" name="punctuation.namespace.s"/>
+			        <capture number="4" name="options.oo"/>
+			        <capture number="5" name="name"/>
+			        <capture number="6" name="punctuation.open-brace"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>\}</expression>
 			        <capture number="0" name="tcl.punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<zone name="tcl.options.options-oo.objdefine">
+			    	<zone name="options.options-oo.objdefine">
 			    	    <expression>\b(class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\b</expression>
 			    	</zone>
 			    	<include syntax="$self" />
 			    </subzones>
 			</zone>
 			
-			<zone name="tcl.container.function.oo.oo-class">
+			<zone name="tcl.container.definition.class.oo.oo-class">
 			    <starts-with>
 			        <expression>(::|\s|^)?(oo)(::)(define|class\s+(?:create(?:WithNamespace)?|new))\s+([^"\[][^\[\s]*)\s+(\{)</expression>
-			        <capture number="1" name="tcl.punctuation.namespace"/>
-			        <capture number="2" name="tcl.command.function-call"/>
-			        <capture number="3" name="tcl.punctuation.namespace.s"/>
-			        <capture number="4" name="tcl.options.oo"/>
-			        <capture number="5" name="tcl.name"/>
-			        <capture number="6" name="tcl.punctuation.open-brace"/>
+			        <capture number="1" name="punctuation.namespace"/>
+			        <capture number="2" name="command.function-call"/>
+			        <capture number="3" name="punctuation.namespace.s"/>
+			        <capture number="4" name="options.oo"/>
+			        <capture number="5" name="name"/>
+			        <capture number="6" name="punctuation.open-brace"/>
 			    </starts-with>
 			    <ends-with>
 			        <expression>\}</expression>
-			        <capture number="0" name="tcl.punctuation.close-brace"/>
+			        <capture number="0" name="punctuation.close-brace"/>
 			    </ends-with>
 			    <subzones>
-			    	<zone name="tcl.options.options-oo.define">
-			    	    <expression>\b(constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\b</expression>
+			    	<zone name="options.options-oo.definition.function">
+			    	    <expression>\b(?:constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\s+([^"\[][^\[\s]*)</expression>
+			    	    <capture number="1" name="name"/>
 			    	</zone>
 			    	<include syntax="$self" />
 			    </subzones>
@@ -128,13 +129,13 @@ THE SOFTWARE.
 			
 			<zone name="tcl.command.definition.oo">
 			    <expression>(::|\s|^)?(oo)(::)(class|object)(\s+)(new|create(?:WithNamespace)?)(\s+[^"\[\]\{\}][^\[\]\{\}\s]*)?</expression>
-			    <capture number="1" name="tcl.punctuation.namespace"/>
-			    <capture number="2" name="tcl.command.function-call"/>
-			    <capture number="3" name="tcl.punctuation.namespace.s"/>
-			    <capture number="4" name="tcl.options.oo"/>
-			    <capture number="5" name="tcl.punctuation.s"/>
-			    <capture number="6" name="tcl.options.oo"/>
-			    <capture number="7" name="tcl.name"/>
+			    <capture number="1" name="punctuation.namespace"/>
+			    <capture number="2" name="command.function-call"/>
+			    <capture number="3" name="punctuation.namespace.s"/>
+			    <capture number="4" name="options.oo"/>
+			    <capture number="5" name="punctuation.s"/>
+			    <capture number="6" name="options.oo"/>
+			    <capture number="7" name="name"/>
 			</zone>
 			
 		</collection>
@@ -849,11 +850,13 @@ THE SOFTWARE.
         	</zone>
         	
         	<!--this two zones are for the options when used as subcommands in ::oo, discerning between the two is not possible, because the options have mostly the same name and none is the complete subset of the other, but Tcl.css placeholder file handles it as good as it can-->
-        	<zone name="tcl.options.options-oo.objdefine">
-        	    <expression>\b(class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\b</expression>
+        	<zone name="tcl.options.options-oo.definition.function">
+        	    <expression>\b(?:class|deletemethod|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|unexport|variable)\s+([^"\[][^\[\s]*)</expression>
+        	    <capture number="1" name="name"/>
         	</zone>
-        	<zone name="tcl.options.options-oo.define">
-        	    <expression>\b(constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\b</expression>
+        	<zone name="tcl.options.options-oo.definition.function">
+        	    <expression>\b(?:constructor|de(?:letemethod|structor)|export|f(?:ilter|orward)|m(?:ethod|ixin)|renamemethod|s(?:elf|uperclass)|unexport|variable)\s+([^"\[][^\[\s]*)</expression>
+        	    <capture number="1" name="name"/>
         	</zone>
         			
 			<zone name="tcl.options.close">

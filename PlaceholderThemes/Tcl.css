@@ -11,67 +11,6 @@ amira.keyword {
 	color: #7f9ee6;
 }
 
-tcl.var,
-
-tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-tcl.function-call[text='scan'] + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword),
-
-tcl.function-call[text='lassign'] + s + * + s + :not(keyword,tcl-keyword),
-tcl.function-call[text='lassign'] + s + * + s + :not(keyword,tcl-keyword) + s + :not(keyword,tcl-keyword),
-tcl.function-call[text='lassign'] + s + * + s + :not(keyword,tcl-keyword) + s + :not(keyword) + s + :not(keyword,tcl-keyword),
-tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword,tcl-keyword) + s + :not(keyword,tcl-keyword) + s + :not(keyword,tcl-keyword),
-tcl.function-call[text='lassign'] + s + * + s + :not(keyword) + s + :not(keyword,tcl-keyword) + s + :not(keyword,tcl-keyword) + s + :not(keyword,tcl-keyword) + s + :not(keyword,tcl-keyword),
-
-tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + word,
-tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + word,
-tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + word,
-tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.regex:has-child(function-call[text='regexp']) + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-
-tcl.regex:has-child(function-call[text='regsub']) + s + subst + s + subst + s + word,
-
-tcl.function-call[text='regexp'] + s + subst + s + word,
-tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + word,
-tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + word,
-tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-tcl.function-call[text='regexp'] + s + subst + s + :not(keyword) + s + :not(keyword) +  s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + :not(keyword) + s + word,
-
-tcl.function-call[text='regsub'] + s + subst + s + subst + s + subst + s + word,
-
-tcl.function-call[text='upvar'] + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + expand + s + * + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + expand + s + * + s + expand + s + * + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
-
-tcl.function-call[text='upvar'] + s + numeric + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + numeric + s + expand + s + * + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + numeric + s + expand + s + * + s + expand + s + * + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + numeric + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
-tcl.function-call[text='upvar'] + s + numeric + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + * + s + expand + s + word,
-
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-tcl.function-call[text='namespace'] + s + options[text='upvar'] + s + expand + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + upd + s + word,
-
-tcl.rename-var-newname {
-	color: #002B36;
-}
-
 tcl.function-call + options:not(options-oo),
 tcl.function-call + s + options:not(options-oo),
 tcl.function-call + s + options + s + options:not(options-oo),
